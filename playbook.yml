@@ -7,4 +7,4 @@
 
 - hosts: all
   roles:
-    - role: java
+    - role: java-role
