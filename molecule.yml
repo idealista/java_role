@@ -21,6 +21,10 @@ molecule:
   # directory containing group_vars to use with ansible
   group_vars: ../tests/group_vars
 
+# ansible related configuration
+ansible:
+  playbook: tests/playbook.yml
+
 # configuration options for the internal call to vagrant
 vagrant:
   # molecule's --platform option will look for these names
