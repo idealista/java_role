@@ -1,16 +1,20 @@
 import pytest
 
+
 @pytest.fixture()
 def AnsibleDefaults(Ansible):
     return Ansible("include_vars", "defaults/main.yml")["ansible_facts"]
+
 
 @pytest.fixture()
 def AnsibleVars(Ansible):
     return Ansible("include_vars", "tests/group_vars/group01.yml")["ansible_facts"]
 
+
 @pytest.fixture()
 def AnsibleDistribution(Ansible):
     return Ansible("setup")["ansible_facts"]["ansible_distribution"]
+
 
 def test_java_resources(File, AnsibleDefaults, AnsibleDistribution):
     if AnsibleDistribution == "Debian":
@@ -22,9 +26,11 @@ def test_java_resources(File, AnsibleDefaults, AnsibleDistribution):
     else:
         raise ValueError("Unsupported distribution: " + AnsibleDistribution)
 
+
 def test_java_package(Package, AnsibleVars):
     for version in AnsibleVars["java_version"]:
         assert Package("oracle-java" + version + "-installer").is_installed
+
 
 def test_java_default(File, Package, Command, AnsibleVars):
     assert Package("oracle-java" + AnsibleVars["java_set_version"] + "-set-default").is_installed

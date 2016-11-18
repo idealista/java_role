@@ -8,13 +8,11 @@
 - name: Debian repo key
   apt_repository:
     repo: "{{ java_repo }}"
-    update_cache: yes
   when: ansible_distribution in [ 'Debian' ]
 
 - name: Add Java ppa to Ubuntu
   apt_repository:
     repo: ppa:{{ java_ppa }}
-    update_cache: yes
   when: ansible_distribution in [ 'Ubuntu' ]
 
 - name: Autoaccept license for Java
@@ -30,13 +28,19 @@
     pkg: oracle-java{{ item }}-installer
     state: latest
     install_recommends: yes
+    update_cache: yes
+    cache_valid_time: 3600
   with_items: "{{ java_version }}"
+  tags: skip_ansible_lint
 
 - name: Set Java Env
   apt:
     pkg: oracle-java{{ java_set_version }}-set-default
     state: latest
     install_recommends: yes
+    update_cache: yes
+    cache_valid_time: 3600
+  tags: skip_ansible_lint
 
 - name: Ensure Defaults on etc/alternatives systems
   file:

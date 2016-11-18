@@ -25,3 +25,9 @@ molecule test
 ```
 
 There is a pre_task with python2 to satisfy ubuntu vbox image dependencies
+
+## Omit linter
+
+[ANSIBLE0010] Line 28 tasks/main.yml      Omit linter as we usually want jdk on latest version within propper version
+[ANSIBLE0010] Line 35 tasks/main.yml      Omit linter as we usually want this package on latest versions aswell as previous one
+[ANSIBLE0012] Line 5  tests/playbook.yml  Omit linter as we dont care about syntax on this pre_tasks. Its just to allow testing on ubuntu
