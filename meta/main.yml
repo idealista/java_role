@@ -1,3 +1,5 @@
 ---
 galaxy_info:
+  company: Idealista S.A.
   description: Java role, install java versions and set systems default
+  min_ansible_version: 2.0
