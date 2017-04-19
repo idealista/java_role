@@ -1,0 +1,35 @@
+---
+
+- name: JAVA | Debian repo key
+  apt_repository:
+    repo: "{{ java_repo_openjdk }}"
+  when: ansible_distribution in [ 'Debian' ]
+
+- name: JAVA | Installing dependencies
+  apt:
+    pkg: "{{ item }}"
+    update_cache: yes
+    state: present
+    default_release: jessie-backports
+  with_items: "{{ required_libs_openjdk }}"
+
+- name: JAVA | Install Java
+  apt:
+    name: "openjdk-{{ item }}-jdk"
+    state: present
+    update_cache: yes
+    default_release: jessie-backports
+  with_items: "{{ java_version }}"
+
+- name: JAVA | Update Env
+  alternatives:
+    name: java
+    path: "/usr/lib/jvm/java-{{ java_set_version }}-openjdk-amd64/jre/bin/java"
+  #command: update-java-alternatives --set java-1.{{ java_set_version }}.0-openjdk-amd64
+
+- name: JAVA | Ensure Defaults on etc/alternatives systems
+  file:
+    src: /usr/lib/jvm/java-{{ java_set_version }}-openjdk-amd64
+    dest: /usr/lib/jvm/default-java
+    force: yes
+    state: link
