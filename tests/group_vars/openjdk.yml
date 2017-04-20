@@ -1,0 +1,7 @@
+---
+
+java_version: [7,8]
+
+java_set_version: 7
+
+java_implementation: openjdk
