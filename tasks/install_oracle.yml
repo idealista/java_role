@@ -1,8 +1,15 @@
 ---
+- name: JAVA | Installing dependencies
+  apt:
+    pkg: "{{ item }}"
+    update_cache: yes
+    state: present
+  with_items: "{{ required_libs_oracle }}"
+
 - name: Debian repo
   apt_key:
-    keyserver: hkp://keyserver.ubuntu.com:80
-    id: EEA14886
+    keyserver: "{{ java_debian_keyserver }}"
+    id: "{{ java_debian_key_id }}"
   when: ansible_distribution in [ 'Debian' ]
 
 - name: Debian repo key

@@ -1,4 +1,4 @@
-![Logo](logo.gif)
+![Logo](https://raw.githubusercontent.com/idealista/java-role/master/logo.gif)
 
 # Java Ansible role
 
@@ -22,7 +22,7 @@ These instructions will get you a copy of the role for your ansible playbook. On
 
 ### Prerequisities
 
-Ansible 2.0.2.0 version installed.
+Ansible 2.2.1.0 version installed.
 Inventory destination should be a Debian environment.
 
 For testing purposes, [Molecule](https://molecule.readthedocs.io/) with [Vagrant](https://www.vagrantup.com/) as driver and [VirtualBox](https://www.virtualbox.org/) as provider.
@@ -72,12 +72,14 @@ java_set_version: '8'
 ## Testing
 
 ```
-molecule test
+molecule test --platform=Debian9
 ```
+
+See molecule.yml to check possible testing platforms.
 
 ## Built With
 
-![Ansible](https://img.shields.io/badge/ansible-2.0.2.0-green.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.2.1.0-green.svg)
 
 ## Versioning
 

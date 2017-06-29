@@ -4,6 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/java-role/tree/develop)
 
+## [1.2.0](https://github.com/idealista/java-role/tree/1.2.0)
+### Added
+- *Enable debian stretch platform* @jmonterrubio
+
 ## [1.1.0](https://github.com/idealista/java-role/tree/1.1.0)
 ### Added
 - *Enable openjdk* @jmonterrubio
