@@ -4,8 +4,6 @@
   set_fact:
     debian_release: "{{ (ansible_distribution in [ 'Debian' ] and ansible_distribution_major_version == '8') | ternary('jessie-backports','stretch') }}"
 
-- debug: msg="{{debian_release}}"
-
 - name: JAVA | Debian repo key
   apt_repository:
     repo: "{{ java_repo_openjdk }} {{ debian_release }} main"
