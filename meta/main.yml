@@ -2,9 +2,10 @@
 galaxy_info:
   company: Idealista S.A.
   description: Java role, install java versions and set systems default
-  min_ansible_version: 2.0
+  min_ansible_version: 2.2.1.0
   license: Apache 2.0
   platforms:
     - name: Debian
       versions:
         - jessie
+        - stretch

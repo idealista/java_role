@@ -33,7 +33,9 @@ vagrant:
     - "landrush.tld = 'vm'"
     - "landrush.guest_redirect_dns = false"
   platforms:
-    - name: Debian
+    - name: Debian9
+      box: debian/stretch64
+    - name: Debian8
       box: debian/jessie64
     - name: Ubuntu
       box: ubuntu/xenial64

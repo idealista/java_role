@@ -1,10 +1,15 @@
 ---
 
-required_libs_oracle: []
+required_libs_oracle:
+  - dirmngr
 java_repo_oracle: "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main"
 java_ppa_oracle: "webupd8team/java"
+java_debian_keyserver: "hkp://keyserver.ubuntu.com:80"
+java_debian_key_id: EEA14886
+
 
 required_libs_openjdk:
   - ca-certificates-java
   - openjdk-8-jre-headless
-java_repo_openjdk: "deb http://http.debian.net/debian jessie-backports main"
+  - libcups2
+java_repo_openjdk: "deb http://http.debian.net/debian"
