@@ -1,8 +1,12 @@
 ---
 
+- name: JAVA | Check Debian Release
+  set_fact:
+    debian_release: "{{ (ansible_distribution in [ 'Debian' ] and ansible_distribution_major_version == '8') | ternary('jessie-backports','stretch') }}"
+
 - name: JAVA | Debian repo key
   apt_repository:
-    repo: "{{ java_repo_openjdk }}"
+    repo: "{{ java_repo_openjdk }} {{ debian_release }} main"
   when: ansible_distribution in [ 'Debian' ]
 
 - name: JAVA | Installing dependencies
@@ -10,16 +14,34 @@
     pkg: "{{ item }}"
     update_cache: yes
     state: present
-    default_release: jessie-backports
+    default_release: "{{ debian_release }}"
   with_items: "{{ required_libs_openjdk }}"
+  when: ansible_distribution in [ 'Debian' ]
+
+- name: JAVA | Installing dependencies
+  apt:
+    pkg: "{{ item }}"
+    update_cache: yes
+    state: present
+  with_items: "{{ required_libs_openjdk }}"
+  when: ansible_distribution in [ 'Ubuntu' ]
 
 - name: JAVA | Install Java
   apt:
     name: "openjdk-{{ item }}-jdk"
     state: present
     update_cache: yes
-    default_release: jessie-backports
+    default_release: "{{ debian_release }}"
   with_items: "{{ java_version }}"
+  when: ansible_distribution in [ 'Debian' ]
+
+- name: JAVA | Install Java
+  apt:
+    name: "openjdk-{{ item }}-jdk"
+    state: present
+    update_cache: yes
+  with_items: "{{ java_version }}"
+  when: ansible_distribution in [ 'Ubuntu' ]
 
 - name: JAVA | Update Env
   alternatives:
