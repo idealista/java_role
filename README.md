@@ -1,5 +1,7 @@
 ![Logo](https://raw.githubusercontent.com/idealista/java-role/master/logo.gif)
+
 [![Build Status](https://travis-ci.org/idealista/java-role.png)](https://travis-ci.org/idealista/java-role)
+
 # Java Ansible role
 
 This ansible role installs java in a debian environment.
