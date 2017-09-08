@@ -1,6 +1,4 @@
 ---
-
+java_implementation: oracle
 java_version: [8]
 java_set_version: 8
-
-java_implementation: oracle

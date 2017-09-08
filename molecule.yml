@@ -27,11 +27,12 @@ ansible:
 
 # configuration options for the internal call to vagrant
 vagrant:
-  # molecule's --platform option will look for these names
   raw_config_args:
     - "landrush.enabled = true"
     - "landrush.tld = 'vm'"
     - "landrush.guest_redirect_dns = false"
+
+  # molecule's --platform option will look for these names
   platforms:
     - name: Debian9
       box: debian/stretch64
@@ -39,7 +40,6 @@ vagrant:
       box: debian/jessie64
     - name: Ubuntu
       box: ubuntu/xenial64
-
 
   providers:
     - name: virtualbox
@@ -63,3 +63,37 @@ vagrant:
         - network_name: private_network
           type: dhcp
           auto_config: true
+
+docker:
+  containers:
+    - name: oracle
+      ansible_groups:
+        - oracle
+      image: geerlingguy/docker-debian8-ansible
+      image_version: latest
+
+      privileged: True
+      cap_add:
+        - SYS_ADMIN
+      volume_mounts:
+        - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
+      command: '/lib/systemd/systemd'
+
+    - name: openjdk
+      ansible_groups:
+        - openjdk
+      image: geerlingguy/docker-debian8-ansible
+      image_version: latest
+
+      privileged: True
+      cap_add:
+        - SYS_ADMIN
+      volume_mounts:
+        - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
+      command: '/lib/systemd/systemd'
+
+verifier:
+  name: testinfra
+  options:
+    connection: ansible
+ansible-inventory: .molecule/ansible_inventory
