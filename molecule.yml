@@ -45,20 +45,21 @@ vagrant:
     - name: virtualbox
       type: virtualbox
       options:
-        memory: 256
+        memory: 512
         cpus: 1
 
   instances:
-    - name: oracle
+    - name: openjdk.vm
       ansible_groups:
-        - oracle
+        - openjdk
       interfaces:
         - network_name: private_network
           type: dhcp
           auto_config: true
-    - name: openjdk
+
+    - name: oraclejdk.vm
       ansible_groups:
-        - openjdk
+        - oraclejdk
       interfaces:
         - network_name: private_network
           type: dhcp
@@ -66,12 +67,11 @@ vagrant:
 
 docker:
   containers:
-    - name: oracle
+    - name: openjdk
       ansible_groups:
-        - oracle
+        - openjdk
       image: geerlingguy/docker-debian8-ansible
       image_version: latest
-
       privileged: True
       cap_add:
         - SYS_ADMIN
@@ -79,12 +79,11 @@ docker:
         - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
       command: '/lib/systemd/systemd'
 
-    - name: openjdk
+    - name: oracle
       ansible_groups:
-        - openjdk
+        - oracle
       image: geerlingguy/docker-debian8-ansible
       image_version: latest
-
       privileged: True
       cap_add:
         - SYS_ADMIN
@@ -96,4 +95,4 @@ verifier:
   name: testinfra
   options:
     connection: ansible
-ansible-inventory: .molecule/ansible_inventory
+    ansible-inventory: .molecule/ansible_inventory

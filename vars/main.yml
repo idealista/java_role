@@ -1,13 +1,17 @@
 ---
 required_libs_oracle:
   - dirmngr
-java_repo_oracle: "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main"
-java_ppa_oracle: "webupd8team/java"
-java_debian_keyserver: "hkp://keyserver.ubuntu.com:80"
-java_debian_key_id: EEA14886
 
 required_libs_openjdk:
   - ca-certificates-java
   - openjdk-8-jre-headless
   - libcups2
+
 java_repo_openjdk: "deb http://http.debian.net/debian"
+
+# Older versions requires login to be downloaded
+# http://www.oracle.com/technetwork/java/archive-139210.html
+java_oracle_jdk_latest_versions_urls:
+  1.8.0_151: http://download.oracle.com/otn-pub/java/jdk/8u151-b12/e758a0de34e24606bca991d704f6dcbf/jdk-8u151-linux-x64.tar.gz
+  1.8.0_152: http://download.oracle.com/otn-pub/java/jdk/8u152-b16/aa0333dd3019491ca4f6ddbe78cdb6d0/jdk-8u152-linux-x64.tar.gz
+  9.0.1: http://download.oracle.com/otn-pub/java/jdk/9.0.1+11/jdk-9.0.1_linux-x64_bin.tar.gz

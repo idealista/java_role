@@ -8,7 +8,7 @@
       changed_when: false
       tags: skip_ansible_lint
 
-- hosts: oracle
+- hosts: oraclejdk
   roles:
     - java-role
 
