@@ -1,11 +1,12 @@
 ---
-## GLOBAL
-java_version: 8
-java_set_version: 8
 
 # Choosen platform
 java_implementation: openjdk # [openjdk, oraclejdk]
 
-# Oracle implementation (only support for x64 architectures)
+# OracleJDK implementation (only support for x64 architectures)
 java_oracle_jdk_version: 1.8.0_151 # [1.8.0_151, 1.8.0_152, 9.0.1] (see available urls in ../vars/main.yml)
-java_oracle_install_path: /opt/jdk/{{ java_oracle_jdk_version }}
+java_oracle_jdk_install_path: /opt/jdk/{{ java_oracle_jdk_version }}
+
+# OpenJDK implementation
+java_open_jdk_version: 8
+java_open_jdk_set_version: 8

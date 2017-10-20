@@ -55,22 +55,24 @@ Use in a playbook:
 - hosts: someserver
   roles:
     - { role: java,
-        java_set_version: '8'
+        java_open_jdk_set_version: '8'
       }
 ```
 
 ## Usage
 
+### OpenJDK
+
 To set multiple versions
 
 ```
-java_version: ['6', '7', '8']
+java_open_jdk_version: ['6', '7', '8']
 ```
 
 To set system defaults
 
 ```
-java_set_version: '8'
+java_open_jdk_set_version: '8'
 ```
 
 ## Testing

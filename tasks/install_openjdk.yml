@@ -36,7 +36,7 @@
     state: present
     update_cache: yes
     default_release: "{{ debian_release }}"
-  with_items: "{{ java_version }}"
+  with_items: "{{ java_open_jdk_version }}"
   when: ansible_distribution in [ 'Debian' ]
 
 - name: Java | Install Java
@@ -44,17 +44,17 @@
     name: "openjdk-{{ item }}-jdk"
     state: present
     update_cache: yes
-  with_items: "{{ java_version }}"
+  with_items: "{{ java_open_jdk_version }}"
   when: ansible_distribution in [ 'Ubuntu' ]
 
 - name: Java | Update Env
   alternatives:
     name: java
-    path: "/usr/lib/jvm/java-{{ java_set_version }}-openjdk-amd64/jre/bin/java"
+    path: "/usr/lib/jvm/java-{{ java_open_jdk_set_version }}-openjdk-amd64/jre/bin/java"
 
 - name: Java | Ensure Defaults on etc/alternatives systems
   file:
-    src: /usr/lib/jvm/java-{{ java_set_version }}-openjdk-amd64
+    src: /usr/lib/jvm/java-{{ java_open_jdk_set_version }}-openjdk-amd64
     dest: /usr/lib/jvm/default-java
     force: yes
     state: link

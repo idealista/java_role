@@ -2,7 +2,7 @@
 
 - name: Java | Set JAVA_HOME fact
   set_fact:
-    java_home: "{{ java_oracle_install_path }}"
+    java_home: "{{ java_oracle_jdk_install_path }}"
 
 - name: Java | Download .tar.gz file containing binaries from Oracle website
   get_url:
@@ -15,13 +15,13 @@
 - name: Java | Ensure installation dir exists
   file:
     state: directory
-    path: "{{ java_oracle_install_path }}"
+    path: "{{ java_oracle_jdk_install_path }}"
 
 - name: Java | Extract java in the installation directory
   unarchive:
     copy: no
     src: "/tmp/jdk-{{ java_oracle_jdk_version }}.tar.gz"
-    dest: "{{ java_oracle_install_path }}"
+    dest: "{{ java_oracle_jdk_install_path }}"
     extra_opts: [--strip-components=1]
   when: download_java_binaries|changed
   tags:
@@ -44,7 +44,7 @@
   alternatives:
     name: "{{ item }}"
     link: /usr/bin/{{ item }}
-    path: "{{ java_oracle_install_path }}/bin/{{ item }}"
+    path: "{{ java_oracle_jdk_install_path }}/bin/{{ item }}"
   with_items:
     - "java"
     - "javac"

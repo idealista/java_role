@@ -14,14 +14,14 @@ def AnsibleVarsOpenjdk(Ansible):
 def test_java_package(ExecutingUnderOracleJDK, Package, AnsibleVarsOpenjdk):
     if(ExecutingUnderOracleJDK): pytest.skip('skipped due to run under oracleJDK installation')
 
-    for version in AnsibleVarsOpenjdk["java_version"]:
+    for version in AnsibleVarsOpenjdk["java_open_jdk_version"]:
         assert Package("openjdk-" + str(version) + "-jdk").is_installed
 
 
 def test_java_default(ExecutingUnderOracleJDK, File, Command, AnsibleVarsOpenjdk):
     if(ExecutingUnderOracleJDK): pytest.skip('skipped due to run under oracleJDK installation')
 
-    assert str(AnsibleVarsOpenjdk["java_set_version"]) in Command("java -version").stderr
+    assert str(AnsibleVarsOpenjdk["java_open_jdk_set_version"]) in Command("java -version").stderr
     assert File("/usr/lib/jvm/default-java").is_symlink
 
 
