@@ -6,10 +6,11 @@
 
 - name: Java | Download .tar.gz file containing binaries from Oracle website
   get_url:
-    url: "{{ java_oracle_jdk_latest_versions_urls[java_oracle_jdk_version] }}"
+    url: "{{ java_oracle_jdk_latest_versions_urls[java_oracle_jdk_version].url }}"
     dest: "/tmp/jdk-{{ java_oracle_jdk_version }}.tar.gz"
     # That implies that you accept the Oracle Binary Code License Agreement for Java SE (http://www.oracle.com/technetwork/java/javase/terms/license/index.html)
     headers: "Cookie:oraclelicense=accept-securebackup-cookie"
+    sha256sum: "{{ java_oracle_jdk_latest_versions_urls[java_oracle_jdk_version].sha256 }}"
   register: download_java_binaries
 
 - name: Java | Ensure installation dir exists

@@ -70,7 +70,8 @@ docker:
     - name: openjdk
       ansible_groups:
         - openjdk
-      image: geerlingguy/docker-debian8-ansible
+      dockerfile: tests/Dockerfile
+      image: debian9-testinfra
       image_version: latest
       privileged: True
       cap_add:
@@ -79,10 +80,11 @@ docker:
         - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
       command: '/lib/systemd/systemd'
 
-    - name: oracle
+    - name: oraclejdk
       ansible_groups:
-        - oracle
-      image: geerlingguy/docker-debian8-ansible
+        - oraclejdk
+      dockerfile: tests/Dockerfile
+      image: debian9-testinfra
       image_version: latest
       privileged: True
       cap_add:

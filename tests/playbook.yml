@@ -2,11 +2,6 @@
 - name: python2
   hosts: all
   gather_facts: no
-  pre_tasks:
-    - name: Install python2 on Ubuntu
-      raw: sudo apt-get -y install python-simplejson
-      changed_when: false
-      tags: skip_ansible_lint
 
 - hosts: oraclejdk
   roles:

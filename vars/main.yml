@@ -12,6 +12,12 @@ java_repo_openjdk: "deb http://http.debian.net/debian"
 # Older versions requires login to be downloaded
 # http://www.oracle.com/technetwork/java/archive-139210.html
 java_oracle_jdk_latest_versions_urls:
-  1.8.0_151: http://download.oracle.com/otn-pub/java/jdk/8u151-b12/e758a0de34e24606bca991d704f6dcbf/jdk-8u151-linux-x64.tar.gz
-  1.8.0_152: http://download.oracle.com/otn-pub/java/jdk/8u152-b16/aa0333dd3019491ca4f6ddbe78cdb6d0/jdk-8u152-linux-x64.tar.gz
-  9.0.1: http://download.oracle.com/otn-pub/java/jdk/9.0.1+11/jdk-9.0.1_linux-x64_bin.tar.gz
+  1.8.0_151:
+    url: http://download.oracle.com/otn-pub/java/jdk/8u151-b12/e758a0de34e24606bca991d704f6dcbf/jdk-8u151-linux-x64.tar.gz
+    sha256: c78200ce409367b296ec39be4427f020e2c585470c4eed01021feada576f027f # https://www.oracle.com/webfolder/s/digest/8u151checksum.html
+  1.8.0_152:
+    url: http://download.oracle.com/otn-pub/java/jdk/8u152-b16/aa0333dd3019491ca4f6ddbe78cdb6d0/jdk-8u152-linux-x64.tar.gz
+    sha256: 7307a55dc385921c7d9fb90bd84c452df26ba05261e907713bd731d5f78b15cc # https://www.oracle.com/webfolder/s/digest/8u152checksum.html
+  9.0.1:
+    url: http://download.oracle.com/otn-pub/java/jdk/9.0.1+11/jdk-9.0.1_linux-x64_bin.tar.gz
+    sha256: 1c6d783a54fcc0673ed1f8c5e8650b1d8977ca3e856a03fba0090198e0f16f6d # https://www.oracle.com/webfolder/s/digest/9checksum.html
