@@ -2,7 +2,7 @@
 
 - name: Java | Set JAVA_HOME fact
   set_fact:
-    java_home: /usr/lib/jvm/default-java
+    java_home: "{{ java_open_jdk_home }}"
 
 - name: Java | Check Debian Release
   set_fact:
