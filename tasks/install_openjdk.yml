@@ -1,15 +1,19 @@
 ---
 
-- name: JAVA | Check Debian Release
+- name: Java | Set JAVA_HOME fact
+  set_fact:
+    java_home: "{{ java_open_jdk_home }}"
+
+- name: Java | Check Debian Release
   set_fact:
     debian_release: "{{ (ansible_distribution in [ 'Debian' ] and ansible_distribution_major_version == '8') | ternary('jessie-backports','stretch') }}"
 
-- name: JAVA | Debian repo key
+- name: Java | Debian repo key
   apt_repository:
     repo: "{{ java_repo_openjdk }} {{ debian_release }} main"
   when: ansible_distribution in [ 'Debian' ]
 
-- name: JAVA | Installing dependencies
+- name: Java | Installing dependencies
   apt:
     pkg: "{{ item }}"
     update_cache: yes
@@ -18,7 +22,7 @@
   with_items: "{{ required_libs_openjdk }}"
   when: ansible_distribution in [ 'Debian' ]
 
-- name: JAVA | Installing dependencies
+- name: Java | Installing dependencies
   apt:
     pkg: "{{ item }}"
     update_cache: yes
@@ -26,32 +30,44 @@
   with_items: "{{ required_libs_openjdk }}"
   when: ansible_distribution in [ 'Ubuntu' ]
 
-- name: JAVA | Install Java
+- name: Java | Install Java
   apt:
     name: "openjdk-{{ item }}-jdk"
     state: present
     update_cache: yes
     default_release: "{{ debian_release }}"
-  with_items: "{{ java_version }}"
+  with_items: "{{ java_open_jdk_version }}"
   when: ansible_distribution in [ 'Debian' ]
 
-- name: JAVA | Install Java
+- name: Java | Install Java
   apt:
     name: "openjdk-{{ item }}-jdk"
     state: present
     update_cache: yes
-  with_items: "{{ java_version }}"
+  with_items: "{{ java_open_jdk_version }}"
   when: ansible_distribution in [ 'Ubuntu' ]
 
-- name: JAVA | Update Env
+- name: Java | Update Env
   alternatives:
     name: java
-    path: "/usr/lib/jvm/java-{{ java_set_version }}-openjdk-amd64/jre/bin/java"
-  #command: update-java-alternatives --set java-1.{{ java_set_version }}.0-openjdk-amd64
+    path: "/usr/lib/jvm/java-{{ java_open_jdk_set_version }}-openjdk-amd64/jre/bin/java"
 
-- name: JAVA | Ensure Defaults on etc/alternatives systems
+- name: Java | Ensure Defaults on etc/alternatives systems
   file:
-    src: /usr/lib/jvm/java-{{ java_set_version }}-openjdk-amd64
+    src: /usr/lib/jvm/java-{{ java_open_jdk_set_version }}-openjdk-amd64
     dest: /usr/lib/jvm/default-java
     force: yes
     state: link
+
+- name: Java | Export environment variables
+  template:
+    src: jdk.sh.j2
+    dest: /etc/profile.d/jdk.sh
+
+- name: Java | Source environment variables
+  shell: source /etc/profile
+  args:
+    executable: /bin/bash
+  changed_when: false
+  tags:
+    skip_ansible_lint
