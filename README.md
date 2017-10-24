@@ -4,7 +4,10 @@
 
 # Java Ansible role
 
-This ansible role installs java in a debian environment.
+This ansible role installs java ([OpenJDK](http://openjdk.java.net/) or [Oracle JDK](http://www.oracle.com/technetwork/java/javase/overview/index.html)) in a debian environment.
+
+**DISCLAIMER:** Usage of any version of Oracle JDK in this role implies you have accepted the
+[Oracle Binary Code License Agreement for Java SE](http://www.oracle.com/technetwork/java/javase/terms/license/index.html).
 
 - [Getting Started](#getting-started)
 	- [Prerequisities](#prerequisities)
@@ -16,7 +19,6 @@ This ansible role installs java in a debian environment.
 - [Authors](#authors)
 - [License](#license)
 - [Contributing](#contributing)
-- [Acknowledgments](#acknowledgments)
 
 ## Getting Started
 
@@ -53,22 +55,24 @@ Use in a playbook:
 - hosts: someserver
   roles:
     - { role: java,
-        java_set_version: '8'
+        java_open_jdk_set_version: '8'
       }
 ```
 
 ## Usage
 
+### OpenJDK
+
 To set multiple versions
 
 ```
-java_version: ['6', '7', '8']
+java_open_jdk_version: ['6', '7', '8']
 ```
 
 To set system defaults
 
 ```
-java_set_version: '8'
+java_open_jdk_set_version: '8'
 ```
 
 ## Testing
@@ -103,6 +107,4 @@ This project is licensed under the [Apache 2.0](https://www.apache.org/licenses/
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Acknowledgments
+Please read [CONTRIBUTING.md](.github/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
