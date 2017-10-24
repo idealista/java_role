@@ -1,7 +1,4 @@
 ---
-- name: python2
-  hosts: all
-  gather_facts: no
 
 - hosts: oraclejdk
   roles:
