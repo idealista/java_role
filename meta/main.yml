@@ -12,4 +12,4 @@ galaxy_info:
 
     - name: Ubuntu
       versions:
-        - Xenial
+        - xenial
