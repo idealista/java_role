@@ -4,6 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/java-role/tree/develop)
 
+## [2.0.1](https://github.com/idealista/java-role/tree/2.0.1)
+### Fixed
+- *[#18](https://github.com/idealista/java-role/issues/18) OracleJDK 8 URL is not working* @jnogol
+
 ## [2.0.0](https://github.com/idealista/java-role/tree/2.0.0)
 ### Added
 - *Fixing OracleJDK installation (now without webupd8 PPA)* @dortegau
