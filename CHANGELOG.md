@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/java-role/tree/develop)
+### Fixed
+- *[#18](https://github.com/idealista/java-role/issues/18) OracleJDK 8 URL is not working* @jnogol
 
 ## [2.0.0](https://github.com/idealista/java-role/tree/2.0.0)
 ### Added
