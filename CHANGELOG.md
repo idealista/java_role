@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ### Fixed
 - *[#21](https://github.com/idealista/java-role/issues/21) Defined Ansible 2.3.x.x as min version* @dortegau
+- *[#23](https://github.com/idealista/java-role/issues/23) Oracle Java 8 update version outdated* @jnogol
 
 ## [2.0.1](https://github.com/idealista/java-role/tree/2.0.1)
 ### Fixed
