@@ -36,7 +36,7 @@ For testing purposes, [Molecule](https://molecule.readthedocs.io/) with [Vagrant
 Create or add to your roles dependency file (e.g requirements.yml):
 
 ```
-- src: http://github.com/idealista-tech/java-role.git
+- src: http://github.com/idealista/java-role.git
   scm: git
   version: 2.0.0
   name: java
@@ -95,9 +95,9 @@ Additionaly you can see what change in each version in the [CHANGELOG.md](CHANGE
 
 ## Authors
 
-* **Idealista** - *Work with* - [idealista-tech](https://github.com/idealista-tech)
+* **Idealista** - *Work with* - [idealista](https://github.com/idealista)
 
-See also the list of [contributors](https://github.com/idealista/java-role/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/idealista/java/contributors) who participated in this project.
 
 ## License
 
