@@ -89,7 +89,7 @@ See molecule.yml to check possible testing platforms.
 
 ## Versioning
 
-For the versions available, see the [tags on this repository](https://github.com/idealista-tech/java-role/tags).
+For the versions available, see the [tags on this repository](https://github.com/idealista/java-role/tags).
 
 Additionaly you can see what change in each version in the [CHANGELOG.md](CHANGELOG.md) file.
 
@@ -97,7 +97,7 @@ Additionaly you can see what change in each version in the [CHANGELOG.md](CHANGE
 
 * **Idealista** - *Work with* - [idealista-tech](https://github.com/idealista-tech)
 
-See also the list of [contributors](https://github.com/idealista-tech/java-role/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/idealista/java-role/contributors) who participated in this project.
 
 ## License
 
