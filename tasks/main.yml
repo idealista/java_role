@@ -1,13 +1,13 @@
 ---
 
 - name: Java | Install OpenJDK Implementation
-  include: install_openjdk.yml
+  import_tasks: install_openjdk.yml
   when: java_implementation == 'openjdk'
   tags:
     - install
 
 - name: Java | Install OracleJDK Implementation using distributed binaries
-  include: install_oraclejdk.yml
+  import_tasks: install_oraclejdk.yml
   when: java_implementation == 'oraclejdk'
   tags:
     - install
