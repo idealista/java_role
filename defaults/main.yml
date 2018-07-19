@@ -4,7 +4,7 @@
 java_implementation: openjdk # [openjdk, oraclejdk]
 
 # OracleJDK implementation (only support for x64 architectures)
-java_oracle_jdk_version: 1.8.0_171 # [1.8.0_171, 1.8.0_172, 9.0.1] (see available urls in ../vars/main.yml)
+java_oracle_jdk_version: 1.8.0_181 # [1.8.0_181, 10.0.2] (see available urls in ../vars/main.yml)
 java_oracle_jdk_install_path: /opt/jdk/{{ java_oracle_jdk_version }}
 
 # OpenJDK implementation
