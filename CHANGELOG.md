@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/java-role/tree/develop)
+### Changed
+- *[#31](https://github.com/idealista/java-role/issues/31) update oracle java versions* @eskabetxe
 
 ## [3.0.0](https://github.com/idealista/java-role/tree/3.0.0) (2018-05-30)
 [Full Changelog](https://github.com/idealista/java-role/compare/2.0.2...3.0.0)
