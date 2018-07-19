@@ -18,6 +18,9 @@ java_oracle_jdk_latest_versions_urls:
   1.8.0_172:
     url: http://download.oracle.com/otn-pub/java/jdk/8u172-b11/a58eab1ec242421181065cdc37240b08/jdk-8u172-linux-x64.tar.gz
     sha256: 28a00b9400b6913563553e09e8024c286b506d8523334c93ddec6c9ec7e9d346 # https://www.oracle.com/webfolder/s/digest/8u172checksum.html
+  1.8.0_181:
+    url: http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.tar.gz
+    sha256: 1845567095bfbfebd42ed0d09397939796d05456290fb20a83c476ba09f991d3 # https://www.oracle.com/webfolder/s/digest/8u181checksum.html
   9.0.1:
     url: http://download.oracle.com/otn-pub/java/jdk/9.0.1+11/jdk-9.0.1_linux-x64_bin.tar.gz
     sha256: 1c6d783a54fcc0673ed1f8c5e8650b1d8977ca3e856a03fba0090198e0f16f6d # https://www.oracle.com/webfolder/s/digest/9checksum.html
