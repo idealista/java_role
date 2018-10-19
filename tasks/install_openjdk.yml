@@ -19,7 +19,7 @@
     update_cache: yes
     state: present
     default_release: "{{ debian_release }}"
-  with_items: "{{ required_libs_openjdk }}"
+  with_items: "{{ java_required_libs_openjdk }}"
   when: ansible_distribution in [ 'Debian' ]
 
 - name: Java | Installing dependencies
@@ -27,7 +27,7 @@
     pkg: "{{ item }}"
     update_cache: yes
     state: present
-  with_items: "{{ required_libs_openjdk }}"
+  with_items: "{{ java_required_libs_openjdk }}"
   when: ansible_distribution in [ 'Ubuntu' ]
 
 - name: Java | Install Java
