@@ -19,6 +19,6 @@ package:
 command:
   java -version:
     exit-status: 0
-    stdout:
-    - go version go1.6 linux/amd64
-    stderr: []
+    stdout: []
+    stderr:
+      - {{ java_oracle_jdk_version }}
