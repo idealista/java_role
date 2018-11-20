@@ -65,7 +65,7 @@ Use in a playbook:
 - hosts: someserver
   roles:
     - {
-				role: java,
+        role: java,
         java_open_jdk_set_version: '8'
       }
 ```
