@@ -15,10 +15,3 @@ package:
 {% endfor %}
   openjdk-{{ java_open_jdk_version }}-jdk:
       installed: true
-
-command:
-  java -version:
-    exit-status: 0
-    stdout: []
-    stderr:
-      - {{ java_oracle_jdk_version }}
