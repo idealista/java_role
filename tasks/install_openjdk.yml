@@ -6,17 +6,15 @@
 
 - name: Java | Check Debian Release
   set_fact:
-    debian_release: "{{ (ansible_distribution in [ 'Debian' ] and ansible_distribution_major_version == '8') | ternary('jessie-backports','stretch') }}"
-
-- name: Java | Debian repo key
-  apt_repository:
-    repo: "{{ java_repo_openjdk }} {{ debian_release }} main"
-  when: ansible_distribution in [ 'Debian' ]
+    debian_release: >-
+        {{ (ansible_distribution in [ 'Debian' ] and
+        ansible_distribution_major_version == '8') |
+        ternary('jessie-backports','stretch') }}
 
 - name: Java | Installing dependencies
   apt:
     pkg: "{{ item }}"
-    update_cache: yes
+    update_cache: true
     state: present
     default_release: "{{ debian_release }}"
   with_items: "{{ java_required_libs_openjdk }}"
@@ -25,7 +23,7 @@
 - name: Java | Installing dependencies
   apt:
     pkg: "{{ item }}"
-    update_cache: yes
+    update_cache: true
     state: present
   with_items: "{{ java_required_libs_openjdk }}"
   when: ansible_distribution in [ 'Ubuntu' ]
@@ -34,7 +32,7 @@
   apt:
     name: "openjdk-{{ item }}-jdk"
     state: present
-    update_cache: yes
+    update_cache: true
     default_release: "{{ debian_release }}"
   with_items: "{{ java_open_jdk_version }}"
   when: ansible_distribution in [ 'Debian' ]
@@ -43,20 +41,20 @@
   apt:
     name: "openjdk-{{ item }}-jdk"
     state: present
-    update_cache: yes
+    update_cache: true
   with_items: "{{ java_open_jdk_version }}"
   when: ansible_distribution in [ 'Ubuntu' ]
 
 - name: Java | Update Env
   alternatives:
     name: java
-    path: "/usr/lib/jvm/java-{{ java_open_jdk_set_version }}-openjdk-amd64/jre/bin/java"
+    path: "{{ java_open_jdk_home }}/jre/bin/java"
 
 - name: Java | Ensure Defaults on etc/alternatives systems
   file:
-    src: /usr/lib/jvm/java-{{ java_open_jdk_set_version }}-openjdk-amd64
-    dest: /usr/lib/jvm/default-java
-    force: yes
+    src: "{{ java_open_jdk_home }}"
+    dest: "{{ java_open_jdk_default_java_home }}"
+    force: true
     state: link
 
 - name: Java | Export environment variables
