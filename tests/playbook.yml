@@ -1,9 +1,0 @@
----
-
-- hosts: oraclejdk
-  roles:
-    - java-role
-
-- hosts: openjdk
-  roles:
-    - java-role

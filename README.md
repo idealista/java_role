@@ -4,10 +4,7 @@
 
 # Java Ansible role
 
-This ansible role installs java ([OpenJDK](http://openjdk.java.net/) or [Oracle JDK](http://www.oracle.com/technetwork/java/javase/overview/index.html)) in a debian environment.
-
-**DISCLAIMER:** Usage of any version of Oracle JDK in this role implies you have accepted the
-[Oracle Binary Code License Agreement for Java SE](http://www.oracle.com/technetwork/java/javase/terms/license/index.html).
+This Ansible Role installs java ([OpenJDK](http://openjdk.java.net/) or [Oracle JDK](http://www.oracle.com/technetwork/java/javase/overview/index.html)) in a Debian/Ubuntu environment.
 
 - [Getting Started](#getting-started)
 	- [Prerequisities](#prerequisities)
@@ -22,39 +19,53 @@ This ansible role installs java ([OpenJDK](http://openjdk.java.net/) or [Oracle 
 
 ## Getting Started
 
-These instructions will get you a copy of the role for your ansible playbook. Once launched, it will install Java on ubuntu via ppa and sets the same ppa on Debian using trusty version
+These instructions will get you a copy of the role for your Ansible playbook.
+
+Once launched, it will install Java using APT Packages (default) or downloading fresh version of Oracle Technology Network.
+
+**DISCLAIMER:** Usage of any version of Oracle JDK in this role implies you have accepted the
+[Oracle Binary Code License Agreement for Java SE](http://www.oracle.com/technetwork/java/javase/terms/license/index.html).
 
 ### Prerequisities
 
-Ansible 2.4.3.0 version installed.
+Ansible 2.4.5.0 version installed.
 Inventory destination should be a Debian environment.
 
-For testing purposes, [Molecule](https://molecule.readthedocs.io/) with [Vagrant](https://www.vagrantup.com/) as driver and [VirtualBox](https://www.virtualbox.org/) as provider.
+For testing purposes, [Molecule](https://molecule.readthedocs.io/) with [Docker](https://www.docker.com/) as driver.
 
 ### Installing
 
 Create or add to your roles dependency file (e.g requirements.yml):
 
-```
+```yml
 - src: http://github.com/idealista/java-role.git
   scm: git
-  version: 2.0.0
+  version: 3.1.0
+  name: java
+```
+
+or using [Ansible Galaxy](https://galaxy.ansible.com/idealista/java-role/) as origin if you prefer:
+
+```yml
+- src: idealista.java-role
+  version: 3.1.0
   name: java
 ```
 
 Install the role with ansible-galaxy command:
 
-```
-ansible-galaxy install -p roles -r requirements.yml -f
+```sh
+$ ansible-galaxy install -p roles -r requirements.yml -f
 ```
 
 Use in a playbook:
 
-```
+```yml
 ---
 - hosts: someserver
   roles:
-    - { role: java,
+    - {
+        role: java,
         java_open_jdk_set_version: '8'
       }
 ```
@@ -65,27 +76,28 @@ Use in a playbook:
 
 To set multiple versions
 
-```
+```yml
 java_open_jdk_version: ['6', '7', '8']
 ```
 
 To set system defaults
 
-```
+```yml
 java_open_jdk_set_version: '8'
 ```
 
 ## Testing
 
-```
-molecule test --platform=Debian9
+```sh
+$ pipenv install -r test-requirements.txt --python 2.7
+$ pipenv run molecule test
 ```
 
 See molecule.yml to check possible testing platforms.
 
 ## Built With
 
-![Ansible](https://img.shields.io/badge/ansible-2.4.3.0-green.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.4.5.0-green.svg)
 
 ## Versioning
 
