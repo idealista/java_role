@@ -38,7 +38,7 @@
   apt:
     name: "openjdk-{{ java_open_jdk_version }}-jdk"
     state: present
-    update_cache: yes
+    update_cache: true
   when: ansible_distribution in [ 'Ubuntu' ]
 
 - name: Java | Update Env
