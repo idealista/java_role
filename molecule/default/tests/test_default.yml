@@ -1,0 +1,17 @@
+---
+
+file:
+  {{ java_open_jdk_home }}:
+    exists: true
+    filetype: directory
+  {{ java_open_jdk_default_java_home }}:
+    exists: true
+    filetype: symlink
+
+package:
+{% for required_lib in java_required_libs_openjdk %}
+  {{ required_lib }}:
+    installed: true
+{% endfor %}
+  openjdk-{{ java_open_jdk_version }}-jdk:
+      installed: true
