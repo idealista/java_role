@@ -13,36 +13,32 @@
 
 - name: Java | Installing dependencies
   apt:
-    pkg: "{{ item }}"
+    pkg: "{{ java_required_libs_openjdk }}"
     update_cache: true
     state: present
     default_release: "{{ debian_release }}"
-  with_items: "{{ java_required_libs_openjdk }}"
   when: ansible_distribution in [ 'Debian' ]
 
 - name: Java | Installing dependencies
   apt:
-    pkg: "{{ item }}"
+    pkg: "{{ java_required_libs_openjdk }}"
     update_cache: true
     state: present
-  with_items: "{{ java_required_libs_openjdk }}"
   when: ansible_distribution in [ 'Ubuntu' ]
 
 - name: Java | Install Java
   apt:
-    name: "openjdk-{{ item }}-jdk"
+    name: "openjdk-{{ java_open_jdk_version }}-jdk"
     state: present
     update_cache: true
     default_release: "{{ debian_release }}"
-  with_items: "{{ java_open_jdk_version }}"
   when: ansible_distribution in [ 'Debian' ]
 
 - name: Java | Install Java
   apt:
-    name: "openjdk-{{ item }}-jdk"
+    name: "openjdk-{{ java_open_jdk_version }}-jdk"
     state: present
-    update_cache: true
-  with_items: "{{ java_open_jdk_version }}"
+    update_cache: yes
   when: ansible_distribution in [ 'Ubuntu' ]
 
 - name: Java | Update Env
