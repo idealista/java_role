@@ -17,7 +17,7 @@
     # That implies that you accept the Oracle Binary Code License Agreement for Java SE (http://www.oracle.com/technetwork/java/javase/terms/license/index.html)
     headers: "Cookie:oraclelicense=accept-securebackup-cookie"
     sha256sum: "{{ java_oracle_jdk_latest_versions_urls[java_oracle_jdk_version].sha256 }}"
-  when: java_check_version|failed or java_oracle_jdk_version not in java_check_version.stderr
+  when: java_check_version is failed or java_oracle_jdk_version not in java_check_version.stderr
   register: download_java_binaries
 
 - name: Java | Ensure installation dir exists
@@ -27,11 +27,11 @@
 
 - name: Java | Extract java in the installation directory
   unarchive:
-    copy: no
+    copy: false
     src: "/tmp/jdk-{{ java_oracle_jdk_version }}.tar.gz"
     dest: "{{ java_oracle_jdk_install_path }}"
     extra_opts: [--strip-components=1]
-  when: download_java_binaries|changed
+  when: download_java_binaries is changed
   tags:
     skip_ansible_lint
 

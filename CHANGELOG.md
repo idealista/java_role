@@ -3,8 +3,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/java-role/tree/develop)
+
 ### Changed
-- #36 *Use new apt syntax for installing packages* @sklirg
+- *[#37](https://github.com/idealista/java-role/issues/37) Upgrade role (Ansible 2.5.3.x, Molecule 2.0, Pipenv, Goss 0.36.0...)* @dortegau
+- *[#36](https://github.com/idealista/java-role/issues/36) Use new apt syntax for installing packages* @sklirg
 
 ## [3.0.2](https://github.com/idealista/java-role/tree/3.0.2) (2018-10-18)
 [Full Changelog](https://github.com/idealista/java-role/compare/3.0.1...3.0.2)

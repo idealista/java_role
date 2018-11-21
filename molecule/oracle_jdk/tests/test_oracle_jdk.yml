@@ -1,0 +1,13 @@
+---
+
+command:
+  java -version:
+    exit-status: 0
+    stdout: []
+    stderr:
+      - {{ java_oracle_jdk_version }}
+  . /etc/profile && echo $JAVA_HOME:
+    exit-status: 0
+    stdout:
+      - /opt/jdk/{{ java_oracle_jdk_version }}
+    stderr: []

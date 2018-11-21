@@ -5,17 +5,18 @@ java_required_libs_openjdk:
   - openjdk-8-jre-headless
   - libcups2
 
-java_repo_openjdk: "deb http://http.debian.net/debian"
-
 # Older versions requires login to be downloaded
 # http://www.oracle.com/technetwork/java/archive-139210.html
 java_oracle_jdk_latest_versions_urls:
   1.8.0_191:
     url: http://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-linux-x64.tar.gz
-    sha256: 53c29507e2405a7ffdbba627e6d64856089b094867479edc5ede4105c1da0d65 # https://www.oracle.com/webfolder/s/digest/8u191checksum.html
+    # http://www.oracle.com/webfolder/s/digest/8u191checksum.html
+    sha256: 53c29507e2405a7ffdbba627e6d64856089b094867479edc5ede4105c1da0d65
   1.8.0_192:
     url: http://download.oracle.com/otn-pub/java/jdk/8u192-b12/750e1c8617c5452694857ad95c3ee230/jdk-8u192-linux-x64.tar.gz
-    sha256: 6d34ae147fc5564c07b913b467de1411c795e290356538f22502f28b76a323c2 # https://www.oracle.com/webfolder/s/digest/8u192checksum.html
+    # http://www.oracle.com/webfolder/s/digest/8u192checksum.html
+    sha256: 6d34ae147fc5564c07b913b467de1411c795e290356538f22502f28b76a323c2
   11.0.1:
     url: http://download.oracle.com/otn-pub/java/jdk/11.0.1+13/90cf5d8f270a4347a95050320eef3fb7/jdk-11.0.1_linux-x64_bin.tar.gz
-    sha256: e7fd856bacad04b6dbf3606094b6a81fa9930d6dbb044bbd787be7ea93abc885 # https://www.oracle.com/webfolder/s/digest/11-0-1checksum.html
+    # http://www.oracle.com/webfolder/s/digest/11-0-1checksum.html
+    sha256: e7fd856bacad04b6dbf3606094b6a81fa9930d6dbb044bbd787be7ea93abc885
