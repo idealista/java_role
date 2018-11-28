@@ -9,10 +9,21 @@ lint:
     config-file: .yamllint
 
 platforms:
-  - name: openjdk
+  - name: openjdk-debian9
     groups:
       - openjdk
     image: geerlingguy/docker-debian9-ansible:latest
+    privileged: true
+    capabilities:
+      - SYS_ADMIN
+    volumes:
+      - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
+    command: '/lib/systemd/systemd'
+
+  - name: openjdk-debian8
+    groups:
+      - openjdk
+    image: geerlingguy/docker-debian8-ansible:latest
     privileged: true
     capabilities:
       - SYS_ADMIN
