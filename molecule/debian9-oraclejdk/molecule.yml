@@ -35,3 +35,4 @@ verifier:
   name: goss
   lint:
     name: flake8
+  directory: ../resources/oraclejdk
