@@ -30,7 +30,7 @@ provisioner:
     destroy: ../resources/oraclejdk/destroy.yml
     converge: ../resources/oraclejdk/playbook.yml
 scenario:
-  name: oraclejdk-debian8
+  name: debian8-oraclejdk
 verifier:
   name: goss
   lint:
