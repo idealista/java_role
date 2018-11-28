@@ -34,4 +34,4 @@ scenario:
 verifier:
   name: goss
   lint:
-    name: yamllint
+    name: flake8
