@@ -1,3 +1,5 @@
+---
+
 java_required_repositories_openjdk:
   - deb http://ftp.debian.org/debian jessie-backports main
 
