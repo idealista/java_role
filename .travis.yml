@@ -14,8 +14,8 @@ env:
     - INSTANCE: debian9
     - INSTANCE: ubuntu1604
 script:
-  - pipenv run molecule test -s ${INSTANCE}-oraclejdk"
-  - pipenv run molecule test -s ${INSTANCE}-openjdk"
+  - pipenv run molecule test -s ${INSTANCE}-oraclejdk
+  - pipenv run molecule test -s ${INSTANCE}-openjdk
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
