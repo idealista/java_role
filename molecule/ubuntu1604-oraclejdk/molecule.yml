@@ -30,7 +30,7 @@ provisioner:
     destroy: ../resources/oraclejdk/destroy.yml
     converge: ../resources/oraclejdk/playbook.yml
 scenario:
-  name: oracle_jdk
+  name: ubuntu1604-oraclejdk
 verifier:
   name: goss
   lint:

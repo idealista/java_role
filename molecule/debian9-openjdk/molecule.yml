@@ -30,7 +30,7 @@ provisioner:
     destroy: ../resources/openjdk/destroy.yml
     converge: ../resources/openjdk/playbook.yml
 scenario:
-  name: default
+  name: debian9-openjdk
 verifier:
   name: goss
   lint:
