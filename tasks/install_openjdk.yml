@@ -10,8 +10,7 @@
   set_fact:
     java_home: "{{ java_open_jdk_home }}"
 
-# Adding backports as is described here: https://backports.debian.org/Instructions/
-- name: Java | Add Jessie backports repository in Debian Jessie
+- name: Java | Add required repositories
   apt_repository:
     repo: "{{ item }}"
     state: present

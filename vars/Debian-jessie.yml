@@ -1,5 +1,6 @@
 ---
 
+# Adding backports as is described here: https://backports.debian.org/Instructions/
 java_required_repositories_openjdk:
   - deb http://ftp.debian.org/debian jessie-backports main
 
