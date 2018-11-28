@@ -31,6 +31,17 @@ platforms:
       - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
     command: '/lib/systemd/systemd'
 
+  - name: openjdk-ubuntu1604
+    groups:
+      - openjdk
+    image: geerlingguy/docker-ubuntu1604-ansible:latest
+    privileged: true
+    capabilities:
+      - SYS_ADMIN
+    volumes:
+      - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
+    command: '/lib/systemd/systemd'
+
 provisioner:
   name: ansible
   lint:
