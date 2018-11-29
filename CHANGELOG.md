@@ -4,6 +4,12 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/java-role/tree/develop)
 
+## [3.1.1](https://github.com/idealista/java-role/tree/3.1.1) (2018-11-29)
+### Fixed
+- *[#41](https://github.com/idealista/java-role/issues/41) Splitting vars by OS to avoid unnecessary library installation under Debian Stretch and creating a scenario per OS/JDK type pair* @dortegau
+- *[#42](https://github.com/idealista/java-role/issues/42) Fixing tests for Debian Jessie in Molecule* @dortegau
+
+## [3.1.0](https://github.com/idealista/java-role/tree/3.1.0) (2018-11-20)
 ### Changed
 - *[#37](https://github.com/idealista/java-role/issues/37) Upgrade role (Ansible 2.5.3.x, Molecule 2.0, Pipenv, Goss 0.36.0...)* @dortegau
 - *[#36](https://github.com/idealista/java-role/issues/36) Use new apt syntax for installing packages* @sklirg

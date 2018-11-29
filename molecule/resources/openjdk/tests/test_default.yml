@@ -9,9 +9,5 @@ file:
     filetype: symlink
 
 package:
-{% for required_lib in java_required_libs_openjdk %}
-  {{ required_lib }}:
-    installed: true
-{% endfor %}
   openjdk-{{ java_open_jdk_version }}-jdk:
       installed: true

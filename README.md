@@ -1,10 +1,11 @@
 ![Logo](https://raw.githubusercontent.com/idealista/java-role/master/logo.gif)
 
 [![Build Status](https://travis-ci.org/idealista/java-role.png)](https://travis-ci.org/idealista/java-role)
+[![Docker Hub pulls](https://img.shields.io/docker/pulls/idealista/java-debian-ansible.svg)](https://hub.docker.com/r/idealista/java-debian-ansible/)
 
 # Java Ansible role
 
-This Ansible Role installs java ([OpenJDK](http://openjdk.java.net/) or [Oracle JDK](http://www.oracle.com/technetwork/java/javase/overview/index.html)) in a Debian/Ubuntu environment.
+This Ansible Role installs java ([OpenJDK](http://openjdk.java.net/) or [Oracle JDK](http://www.oracle.com/technetwork/java/javase/overview/index.html)) in a [Debian/Ubuntu environment](https://github.com/idealista/java-role/blob/master/meta/main.yml#L7).
 
 - [Getting Started](#getting-started)
 	- [Prerequisities](#prerequisities)
@@ -40,7 +41,7 @@ Create or add to your roles dependency file (e.g requirements.yml):
 ```yml
 - src: http://github.com/idealista/java-role.git
   scm: git
-  version: 3.1.0
+  version: 3.1.1
   name: java
 ```
 
@@ -48,9 +49,11 @@ or using [Ansible Galaxy](https://galaxy.ansible.com/idealista/java-role/) as or
 
 ```yml
 - src: idealista.java-role
-  version: 3.1.0
+  version: 3.1.1
   name: java
 ```
+
+Alternatively you could find tagged Docker images for Debian Jessie, Wheezy and Ubuntu Xenial in [Docker Hub](https://hub.docker.com/r/idealista/java-debian-ansible/).
 
 Install the role with ansible-galaxy command:
 
@@ -93,7 +96,7 @@ $ pipenv install -r test-requirements.txt --python 2.7
 $ pipenv run molecule test
 ```
 
-See molecule.yml to check possible testing platforms.
+See [molecule directory](https://github.com/idealista/java-role/tree/master/molecule) to check possible testing platforms.
 
 ## Built With
 

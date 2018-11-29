@@ -9,7 +9,7 @@ lint:
     config-file: .yamllint
 
 platforms:
-  - name: openjdk
+  - name: openjdk-debian9
     groups:
       - openjdk
     image: geerlingguy/docker-debian9-ansible:latest
@@ -24,9 +24,15 @@ provisioner:
   name: ansible
   lint:
     name: ansible-lint
+  playbooks:
+    create: ../resources/openjdk/create.yml
+    prepare: ../resources/openjdk/prepare.yml
+    destroy: ../resources/openjdk/destroy.yml
+    converge: ../resources/openjdk/playbook.yml
 scenario:
-  name: default
+  name: debian9-openjdk
 verifier:
   name: goss
   lint:
     name: flake8
+  directory: ../resources/openjdk/
