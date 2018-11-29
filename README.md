@@ -96,7 +96,7 @@ $ pipenv install -r test-requirements.txt --python 2.7
 $ pipenv run molecule test
 ```
 
-See molecule.yml to check possible testing platforms.
+See [molecule directory](https://github.com/idealista/java-role/tree/master/molecule) to check possible testing platforms.
 
 ## Built With
 
