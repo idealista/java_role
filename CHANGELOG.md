@@ -6,7 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [3.1.1](https://github.com/idealista/java-role/tree/3.1.1) (2018-11-27)
 ### Fixed
-- *[#41](https://github.com/idealista/java-role/issues/41) Splitting vars by OS to avoid unnecessary library installation under Debian Stretch* @dortegau
+- *[#41](https://github.com/idealista/java-role/issues/41) Splitting vars by OS to avoid unnecessary library installation under Debian Stretch and creating a scenario per OS/JDK type pair* @dortegau
 - *[#42](https://github.com/idealista/java-role/issues/42) Fixing tests for Debian Jessie in Molecule* @dortegau
 
 ## [3.1.0](https://github.com/idealista/java-role/tree/3.1.0) (2018-11-20)
