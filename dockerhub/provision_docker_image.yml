@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  connection: local
+  become: false
+  tasks:
+    - name: Startup Docker test containers
+      docker_container:
+        name: "{{ item.name }}"
+        state: "{{ item.state | default('started') }}"
+        image: "{{ item.image }}"
+      with_items:
+        - { name: stretch, image: "test:stretch" }
+        - { name: jessie, image: "test:jessie" }
+
+- hosts: java
+  user: root
+  roles:
+    - {name: java, role: . }
