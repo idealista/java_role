@@ -10,12 +10,12 @@ install:
   - pipenv install -r test-requirements.txt --python 2.7
 env:
   matrix:
-    - INSTANCE: debian8
-    - INSTANCE: debian9
-    - INSTANCE: ubuntu1604
+    - MOLECULE_DISTRO: debian8
+    - MOLECULE_DISTRO: debian9
+    - MOLECULE_DISTRO: ubuntu1604
 script:
-  - pipenv run molecule test -s ${INSTANCE}-oraclejdk
-  - pipenv run molecule test -s ${INSTANCE}-openjdk
+  - MOLECULE_DISTRO=${MOLECULE_DISTRO} pipenv run molecule test -s oraclejdk
+  - MOLECULE_DISTRO=${MOLECULE_DISTRO} pipenv run molecule test -s openjdk
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
