@@ -41,7 +41,7 @@ Create or add to your roles dependency file (e.g requirements.yml):
 ```yml
 - src: http://github.com/idealista/java-role.git
   scm: git
-  version: 3.2.1
+  version: 3.2.0
   name: java
 ```
 
@@ -49,7 +49,7 @@ or using [Ansible Galaxy](https://galaxy.ansible.com/idealista/java-role/) as or
 
 ```yml
 - src: idealista.java-role
-  version: 3.2.1
+  version: 3.2.0
   name: java
 ```
 
