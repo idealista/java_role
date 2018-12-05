@@ -1,6 +1,13 @@
-FROM geerlingguy/docker-debian8-ansible
-RUN ansible-galaxy install idealista.java-role
-COPY playbook.yml /home/playbook.yml
-RUN ansible-playbook /home/playbook.yml
+FROM debian:jessie-slim
+ENV DEBIAN_FRONTEND noninteractive 
+
+RUN mkdir -p /usr/share/man/man1
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+    python-pip python-dev \    
+    && apt-get clean
+
+CMD ["tail", "-f", "/dev/null"]
 
 LABEL maintainer="idealista <labs@idealista.com>"
