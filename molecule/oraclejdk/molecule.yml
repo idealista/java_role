@@ -9,10 +9,10 @@ lint:
     config-file: .yamllint
 
 platforms:
-  - name: oraclejdk-debian8
+  - name: oraclejdk-${MOLECULE_DISTRO:-debian9}
     groups:
       - oraclejdk
-    image: geerlingguy/docker-debian8-ansible:latest
+    image: geerlingguy/docker-${MOLECULE_DISTRO:-debian9}-ansible:latest
     privileged: true
     capabilities:
       - SYS_ADMIN
@@ -24,15 +24,9 @@ provisioner:
   name: ansible
   lint:
     name: ansible-lint
-  playbooks:
-    create: ../resources/oraclejdk/create.yml
-    prepare: ../resources/oraclejdk/prepare.yml
-    destroy: ../resources/oraclejdk/destroy.yml
-    converge: ../resources/oraclejdk/playbook.yml
 scenario:
-  name: debian8-oraclejdk
+  name: oraclejdk
 verifier:
   name: goss
   lint:
     name: flake8
-  directory: ../resources/oraclejdk

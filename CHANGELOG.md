@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/java-role/tree/develop)
+- *[#47](https://github.com/idealista/java-role/issues/47) Avoiding duplicated files to define specific Linux distros in Molecule* @dortegau
 
 ## [3.1.1](https://github.com/idealista/java-role/tree/3.1.1) (2018-11-29)
 ### Fixed
