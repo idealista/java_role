@@ -1,4 +1,5 @@
 FROM debian:jessie-slim
+LABEL maintainer="idealista <labs@idealista.com>"
 ENV DEBIAN_FRONTEND noninteractive 
 
 RUN mkdir -p /usr/share/man/man1
@@ -8,6 +9,4 @@ RUN apt-get update \
     python-pip python-dev \    
     && apt-get clean
 
-CMD ["tail", "-f", "/dev/null"]
-
-LABEL maintainer="idealista <labs@idealista.com>"
+CMD ["sleep", "infinity"]

@@ -1,3 +1,2 @@
 [java]
-stretch ansible_connection=docker ansible_ssh_user=root
-jessie ansible_connection=docker ansible_ssh_user=root
+docker-test ansible_connection=docker ansible_ssh_user=root
