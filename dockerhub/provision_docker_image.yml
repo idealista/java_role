@@ -5,12 +5,9 @@
   tasks:
     - name: Startup Docker test containers
       docker_container:
-        name: "{{ item.name }}"
-        state: "{{ item.state | default('started') }}"
-        image: "{{ item.image }}"
-      with_items:
-        - { name: stretch, image: "test:stretch" }
-        - { name: jessie, image: "test:jessie" }
+        name: docker-test
+        state: started
+        image: "idealista/java-debian-ansible:{{ image_tag }}"
 
 - hosts: java
   user: root
