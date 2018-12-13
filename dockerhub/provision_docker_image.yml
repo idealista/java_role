@@ -5,11 +5,14 @@
   tasks:
     - name: Startup Docker test containers
       docker_container:
-        name: docker-test
+        name: "{{ item }}"
         state: started
-        image: "idealista/java-debian-ansible:{{ image_tag }}"
+        image: "idealista/jdk:{{ image_tag }}"
+      with_items:
+        - docker-test-openjdk
+        - docker-test-oraclejdk
 
-- hosts: java
+- hosts: all
   user: root
   roles:
     - {name: java, role: . }
