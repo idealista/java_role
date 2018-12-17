@@ -1,0 +1,5 @@
+[openjdk]
+docker-test-openjdk ansible_connection=docker ansible_ssh_user=root java_implementation=openjdk
+
+[oraclejdk]
+docker-test-oraclejdk ansible_connection=docker ansible_ssh_user=root java_implementation=oraclejdk
