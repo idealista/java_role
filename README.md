@@ -98,6 +98,14 @@ You must choose between `openjdk` or `oraclejdk` implementation overriding `java
 
 [defaults/main.yml](https://github.com/idealista/java-role/blob/master/defaults/main.yml)
 
+Specific OpenJDK version should be selected using `java_open_jdk_version` variable under `vars/` specific OS variable files:
+
+Operative System 	| OpenJDK version
+--- | ---
+Debian Jessie | `8u171-b11-1~bpo8+1`
+Debian Stretch | `8u181-b13-2~deb9u1`
+Ubuntu Xenial | `8u191-b12-0ubuntu0.16.04.1`
+
 ## Testing
 
 ```sh
