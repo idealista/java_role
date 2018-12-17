@@ -1,7 +1,7 @@
 ![Logo](https://raw.githubusercontent.com/idealista/java-role/master/logo.gif)
 
 [![Build Status](https://travis-ci.org/idealista/java-role.png)](https://travis-ci.org/idealista/java-role)
-[![Docker Hub pulls](https://img.shields.io/docker/pulls/idealista/java-debian-ansible.svg)](https://hub.docker.com/r/idealista/java-debian-ansible/)
+[![Docker Hub pulls](https://img.shields.io/docker/pulls/idealista/java-debian-ansible.svg)](https://hub.docker.com/r/idealista/jdk/)
 
 # Java Ansible role
 
@@ -67,10 +67,7 @@ Use in a playbook:
 ---
 - hosts: someserver
   roles:
-    - {
-        role: java,
-        java_open_jdk_set_version: '8'
-      }
+    - java
 ```
 
 ## Usage
@@ -97,17 +94,9 @@ List of versions can be checked on: https://cloud.docker.com/repository/docker/i
 
 ### Ansible
 
-To set multiple versions
+You must choose between `openjdk` or `oraclejdk` implementation overriding `java_implementation` variable:
 
-```yml
-java_open_jdk_version: ['6', '7', '8']
-```
-
-To set system defaults
-
-```yml
-java_open_jdk_set_version: '8'
-```
+[defaults/main.yml](https://github.com/idealista/java-role/blob/master/defaults/main.yml)
 
 ## Testing
 
