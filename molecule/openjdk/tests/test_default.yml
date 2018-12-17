@@ -9,5 +9,7 @@ file:
     filetype: symlink
 
 package:
-  openjdk-{{ java_open_jdk_version }}-jdk:
+  openjdk-{{ java_open_jdk_version[:1] }}-jdk:
       installed: true
+      versions:
+        - {{ java_open_jdk_version }}

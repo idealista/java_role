@@ -2,3 +2,5 @@
 
 java_required_repositories_openjdk: []
 java_required_libs_openjdk: []
+
+java_open_jdk_version: 8u181-b13-2~deb9u1

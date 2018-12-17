@@ -1,7 +1,7 @@
 ![Logo](https://raw.githubusercontent.com/idealista/java-role/master/logo.gif)
 
 [![Build Status](https://travis-ci.org/idealista/java-role.png)](https://travis-ci.org/idealista/java-role)
-[![Docker Hub pulls](https://img.shields.io/docker/pulls/idealista/java-debian-ansible.svg)](https://hub.docker.com/r/idealista/java-debian-ansible/)
+[![Docker Hub pulls](https://img.shields.io/docker/pulls/idealista/java-debian-ansible.svg)](https://hub.docker.com/r/idealista/jdk/)
 
 # Java Ansible role
 
@@ -67,10 +67,7 @@ Use in a playbook:
 ---
 - hosts: someserver
   roles:
-    - {
-        role: java,
-        java_open_jdk_set_version: '8'
-      }
+    - java
 ```
 
 ## Usage
@@ -97,17 +94,17 @@ List of versions can be checked on: https://cloud.docker.com/repository/docker/i
 
 ### Ansible
 
-To set multiple versions
+You must choose between `openjdk` or `oraclejdk` implementation overriding `java_implementation` variable:
 
-```yml
-java_open_jdk_version: ['6', '7', '8']
-```
+[defaults/main.yml](https://github.com/idealista/java-role/blob/master/defaults/main.yml)
 
-To set system defaults
+Specific OpenJDK version should be selected using `java_open_jdk_version` variable under `vars/` specific OS variable files:
 
-```yml
-java_open_jdk_set_version: '8'
-```
+Operative System | OpenJDK version
+--- | ---
+Debian Jessie | `8u171-b11-1~bpo8+1`
+Debian Stretch | `8u181-b13-2~deb9u1`
+Ubuntu Xenial | `8u191-b12-0ubuntu0.16.04.1`
 
 ## Testing
 
