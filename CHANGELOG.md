@@ -4,16 +4,24 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/java-role/tree/develop)
 
+## [3.3.0](https://github.com/idealista/java-role/tree/3.3.0) (2018-12-17)
+[Full Changelog](https://github.com/idealista/java-role/compare/3.2.0...3.3.0)
+### Changed
+- *[#53](https://github.com/idealista/java-role/issues/53) New way to deploy to DockerHub* @jnogol
+
 ## [3.2.0](https://github.com/idealista/java-role/tree/3.2.0) (2018-12-05)
+[Full Changelog](https://github.com/idealista/java-role/compare/3.1.1...3.2.0)
 ### Changed
 - *[#47](https://github.com/idealista/java-role/issues/47) Avoiding duplicated files to define specific Linux distros in Molecule* @dortegau
 
 ## [3.1.1](https://github.com/idealista/java-role/tree/3.1.1) (2018-11-29)
+[Full Changelog](https://github.com/idealista/java-role/compare/3.1.0...3.1.1)
 ### Fixed
 - *[#41](https://github.com/idealista/java-role/issues/41) Splitting vars by OS to avoid unnecessary library installation under Debian Stretch and creating a scenario per OS/JDK type pair* @dortegau
 - *[#42](https://github.com/idealista/java-role/issues/42) Fixing tests for Debian Jessie in Molecule* @dortegau
 
 ## [3.1.0](https://github.com/idealista/java-role/tree/3.1.0) (2018-11-20)
+[Full Changelog](https://github.com/idealista/java-role/compare/3.0.2...3.1.0)
 ### Changed
 - *[#37](https://github.com/idealista/java-role/issues/37) Upgrade role (Ansible 2.5.3.x, Molecule 2.0, Pipenv, Goss 0.36.0...)* @dortegau
 - *[#36](https://github.com/idealista/java-role/issues/36) Use new apt syntax for installing packages* @sklirg
