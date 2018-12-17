@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  connection: local
+  become: false
+  tasks:
+    - name: Startup Docker test containers
+      docker_container:
+        name: "{{ item }}"
+        state: started
+        image: "idealista/jdk:{{ image_tag }}"
+      with_items:
+        - docker-test-openjdk
+        - docker-test-oraclejdk
+
+- hosts: all
+  user: root
+  roles:
+    - {name: java, role: . }

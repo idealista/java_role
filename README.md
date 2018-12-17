@@ -75,7 +75,27 @@ Use in a playbook:
 
 ## Usage
 
-### OpenJDK
+### DockerHub
+
+We publish every role version as a Docker image in Dockerhub: https://hub.docker.com/r/idealista/jdk.
+
+You can pull our images by executing:
+```bash
+docker pull idealista/jdk:ROLE_VERSION-DISTRO_VERSION-JAVA_JDK
+```
+
+`ROLE_VERSION`: Starting from 3.2.1, is the tag published in GitHub
+`DISTRO_VERSION`: Currently supporting: `ubuntu1604`, `debian8` and `debian9`
+`JAVA_JDK`: `oraclejdk` or `openjdk`
+
+For instance:
+```bash
+docker pull idealista/jdk:3.2.2-debian8-openjdk
+```
+
+List of versions can be checked on: https://cloud.docker.com/repository/docker/idealista/jdk/tags
+
+### Ansible
 
 To set multiple versions
 
@@ -119,7 +139,7 @@ See also the list of [contributors](https://github.com/idealista/java/contributo
 
 ## License
 
-![Apache 2.0 Licence](https://img.shields.io/hexpm/l/plug.svg)
+![Apache 2.0 License](https://img.shields.io/hexpm/l/plug.svg)
 
 This project is licensed under the [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) license - see the [LICENSE](LICENSE) file for details.
 
