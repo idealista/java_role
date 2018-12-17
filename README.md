@@ -100,7 +100,7 @@ You must choose between `openjdk` or `oraclejdk` implementation overriding `java
 
 Specific OpenJDK version should be selected using `java_open_jdk_version` variable under `vars/` specific OS variable files:
 
-Operative System 	| OpenJDK version
+Operative System | OpenJDK version
 --- | ---
 Debian Jessie | `8u171-b11-1~bpo8+1`
 Debian Stretch | `8u181-b13-2~deb9u1`
