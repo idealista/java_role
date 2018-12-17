@@ -4,6 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/java-role/tree/develop)
 
+## [3.3.0](https://github.com/idealista/java-role/tree/3.3.0) (2018-12-17)
+### Changed
+- *[#53](https://github.com/idealista/java-role/issues/53) New way to deploy to DockerHub* @jnogol
+
 ## [3.2.0](https://github.com/idealista/java-role/tree/3.2.0) (2018-12-05)
 ### Changed
 - *[#47](https://github.com/idealista/java-role/issues/47) Avoiding duplicated files to define specific Linux distros in Molecule* @dortegau
