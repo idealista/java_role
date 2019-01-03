@@ -6,6 +6,33 @@
     - "{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml"
   tags: vars
 
+- name: Print some debug information 
+  vars: 
+    msg: |
+        Module Variables ("vars"):
+        --------------------------------
+        {{ vars | to_nice_json }} 
+ 
+        Environment Variables ("environment"):
+        --------------------------------
+        {{ environment | to_nice_json }} 
+ 
+        GROUP NAMES Variables ("group_names"):
+        --------------------------------
+        {{ group_names | to_nice_json }}
+ 
+        GROUPS Variables ("groups"):
+        --------------------------------
+        {{ groups | to_nice_json }}
+ 
+        HOST Variables ("hostvars"):
+        --------------------------------
+        {{ hostvars | to_nice_json }} 
+- name: Display all variables/facts known for a host
+  debug: 
+    msg: "{{ msg.split('\n') }}"       
+  tags: debug_info
+
 - name: Java | Set JAVA_HOME fact
   set_fact:
     java_home: "{{ java_open_jdk_home }}"
