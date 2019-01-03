@@ -7,7 +7,7 @@
   tags: vars
 
 - name: Print some debug information
-  debug:
+  vars:
     msg: |
         Module Variables ("vars"):
         --------------------------------
@@ -28,6 +28,9 @@
         HOST Variables ("hostvars"):
         --------------------------------
         {{ hostvars | to_nice_json }}
+  debug:
+    msg: "{{ msg.split('\n') }}"
+  tags: debug_info
 
 - name: Java | Set JAVA_HOME fact
   set_fact:
