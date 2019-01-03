@@ -33,13 +33,13 @@
   alternatives:
     name: java
     path: "{{ java_open_jdk_home }}/jre/bin/java"
-  when: java_open_jdk_set_version | version_compare('11', '<')
+  when: java_open_jdk_version | version_compare('11', '<')
 
 - name: Java | Update Env, OpenJDK 11
   alternatives:
     name: java
     path: "{{ java_open_jdk_home }}/bin/java"
-  when: java_open_jdk_set_version | version_compare('11', '>=')
+  when: java_open_jdk_version | version_compare('11', '>=')
 
 - name: Java | Ensure Defaults on etc/alternatives systems
   file:
