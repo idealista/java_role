@@ -113,7 +113,7 @@ java_open_jdk_set_version: '8'
 
 ```sh
 $ pipenv install -r test-requirements.txt --python 2.7
-$ MOLECULE_DISTRO=(debian8|debian9|ubuntu1604) pipenv run molecule test -s (openjdk|oraclejdk)
+$ MOLECULE_DISTRO=(debian8 | debian9 | ubuntu1604 | ubuntu1804) pipenv run molecule test -s (openjdk|oraclejdk)
 ```
 
 **Note:** debian9 (Debian Stretch) will be used as default linux distro if none is provided. It's mandatory to
