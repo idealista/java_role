@@ -3,7 +3,7 @@
 java_required_repositories_openjdk:
   - "ppa:openjdk-r/ppa"
 java_required_libs_openjdk: []
-java_open_jdk_version: 11
+java_open_jdk_version: [11]
 java_open_jdk_set_version: 11
 java_open_jdk_home_dir: java-{{ java_open_jdk_set_version }}-openjdk-amd64
 java_open_jdk_home: /usr/lib/jvm/{{ java_open_jdk_home_dir }}
