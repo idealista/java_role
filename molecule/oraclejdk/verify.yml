@@ -28,9 +28,9 @@
     - name: Print some debug information
       vars:
         msg: |
-            HOST Variables ("hostvars"):
+            MODULE Variables ("vars"):
             --------------------------------
-            {{ hostvars | to_nice_json }}
+            {{ vars | to_nice_json }}
       debug:
         msg: "{{ msg.split('\n') }}"
       tags: debug_info
