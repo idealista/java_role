@@ -25,7 +25,7 @@
 
 - name: Java | Install Java
   apt:
-    name: "openjdk-{{ java_open_jdk_version_major }}-jdk={{ java_open_jdk_version }}"
+    name: "{{ java_open_jdk_package }}={{ java_open_jdk_version }}"
     state: present
     update_cache: true
 

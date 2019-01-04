@@ -98,7 +98,7 @@ You must choose between `openjdk` or `oraclejdk` implementation overriding `java
 
 [defaults/main.yml](https://github.com/idealista/java-role/blob/master/defaults/main.yml)
 
-Specific OpenJDK version should be selected using `java_open_jdk_version` and `java_open_jdk_version_major` variable under `vars/` specific OS variable files:
+A specific OpenJDK version should be selected using `java_open_jdk_version_major`, `java_open_jdk_version`, and `java_open_jdk_package` variables under `vars/` specific OS variable files:
 
 Operative System | OpenJDK version
 --- | ---
