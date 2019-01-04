@@ -25,6 +25,16 @@
     - ./group_vars/openjdk.yml
 
   tasks:
+    - name: Print some debug information
+      vars:
+        msg: |
+            HOST Variables ("hostvars"):
+            --------------------------------
+            {{ hostvars | to_nice_json }}
+      debug:
+        msg: "{{ msg.split('\n') }}"
+      tags: debug_info
+
     - name: Download and install goss
       get_url:
         url: "{{ goss_url }}"
