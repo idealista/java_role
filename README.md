@@ -106,6 +106,8 @@ Debian Jessie | `8u171-b11-1~bpo8+1`
 Debian Stretch | `8u181-b13-2~deb9u1`
 Ubuntu Xenial | `8u191-b12-0ubuntu0.16.04.1`
 Ubuntu Xenial | `11.0.1+13-3ubuntu1~16.04~ppa1`
+Ubuntu Bionic | `8u191-b12-0ubuntu0.18.04.1`
+Ubuntu Bionic | `10.0.2+13-1ubuntu0.18.04.4`
 Ubuntu Bionic | `11.0.1+13-3ubuntu1~18.04~ppa1`
 
 ## Testing
