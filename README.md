@@ -82,7 +82,7 @@ docker pull idealista/jdk:ROLE_VERSION-DISTRO_VERSION-JAVA_JDK
 ```
 
 `ROLE_VERSION`: Starting from 3.2.1, is the tag published in GitHub
-`DISTRO_VERSION`: Currently supporting: `ubuntu1604`, `debian8` and `debian9`
+`DISTRO_VERSION`: Currently supporting: `ubuntu1804`, `ubuntu1604`, `debian8` and `debian9`
 `JAVA_JDK`: `oraclejdk` or `openjdk`
 
 For instance:
@@ -98,19 +98,21 @@ You must choose between `openjdk` or `oraclejdk` implementation overriding `java
 
 [defaults/main.yml](https://github.com/idealista/java-role/blob/master/defaults/main.yml)
 
-Specific OpenJDK version should be selected using `java_open_jdk_version` variable under `vars/` specific OS variable files:
+Specific OpenJDK version should be selected using `java_open_jdk_version` and `java_open_jdk_version_major` variable under `vars/` specific OS variable files:
 
 Operative System | OpenJDK version
 --- | ---
 Debian Jessie | `8u171-b11-1~bpo8+1`
 Debian Stretch | `8u181-b13-2~deb9u1`
 Ubuntu Xenial | `8u191-b12-0ubuntu0.16.04.1`
+Ubuntu Xenial | `11.0.1+13-3ubuntu1~16.04~ppa1`
+Ubuntu Bionic | `11.0.1+13-3ubuntu1~18.04~ppa1`
 
 ## Testing
 
 ```sh
 $ pipenv install -r test-requirements.txt --python 2.7
-$ MOLECULE_DISTRO=(debian8|debian9|ubuntu1604) pipenv run molecule test -s (openjdk|oraclejdk)
+$ MOLECULE_DISTRO=(debian8|debian9|ubuntu1604|ubuntu1804) pipenv run molecule test -s (openjdk|oraclejdk)
 ```
 
 **Note:** debian9 (Debian Stretch) will be used as default linux distro if none is provided. It's mandatory to
