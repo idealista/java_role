@@ -12,6 +12,6 @@ java_oracle_jdk_install_path: /opt/jdk/{{ java_oracle_jdk_version }}
 
 # OpenJDK implementation
 java_open_jdk_version_major: 8
-java_open_jdk_home_dir: java-{{ java_open_jdk_version }}-openjdk-amd64
+java_open_jdk_home_dir: java-{{ java_open_jdk_version_major }}-openjdk-amd64
 java_open_jdk_home: /usr/lib/jvm/{{ java_open_jdk_home_dir }}
 java_open_jdk_default_java_home: /usr/lib/jvm/default-java
