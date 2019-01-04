@@ -2,7 +2,8 @@
 
 - name: Converge
   hosts: openjdk
-  vars_files:
-    - "./vars/{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml"
+  tasks:
+    - name: Molecule | Include OS specific vars
+      include_vars: "./vars/{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml"
   roles:
     - java-role
