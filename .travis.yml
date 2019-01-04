@@ -18,8 +18,9 @@ env:
     - MOLECULE_DISTRO: ubuntu1604
     - MOLECULE_DISTRO: ubuntu1804
 script:
-  - travis_wait 30 export MOLECULE_DISTRO=${MOLECULE_DISTRO}; pipenv run molecule test -s oraclejdk
-  - travis_wait 30 export MOLECULE_DISTRO=${MOLECULE_DISTRO}; pipenv run molecule test -s openjdk
+  - export MOLECULE_DISTRO=${MOLECULE_DISTRO}
+  - pipenv run molecule test -s oraclejdk
+  - pipenv run molecule test -s openjdk
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/

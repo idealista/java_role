@@ -3,6 +3,3 @@
 java_required_repositories_openjdk:
   - "ppa:openjdk-r/ppa"
 java_required_libs_openjdk: []
-
-java_open_jdk_version_major: 11
-java_open_jdk_version: 11.0.1+13-3ubuntu1~18.04~ppa1
