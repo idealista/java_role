@@ -1,7 +1,7 @@
 ![Logo](https://raw.githubusercontent.com/idealista/java-role/master/logo.gif)
 
 [![Build Status](https://travis-ci.org/idealista/java-role.png)](https://travis-ci.org/idealista/java-role)
-[![Docker Hub pulls](https://img.shields.io/docker/pulls/idealista/java-debian-ansible.svg)](https://hub.docker.com/r/idealista/java-debian-ansible/)
+[![Docker Hub pulls](https://img.shields.io/docker/pulls/idealista/java-debian-ansible.svg)](https://hub.docker.com/r/idealista/jdk/)
 
 # Java Ansible role
 
@@ -41,7 +41,7 @@ Create or add to your roles dependency file (e.g requirements.yml):
 ```yml
 - src: http://github.com/idealista/java-role.git
   scm: git
-  version: 3.2.0
+  version: 3.4.0
   name: java
 ```
 
@@ -49,7 +49,7 @@ or using [Ansible Galaxy](https://galaxy.ansible.com/idealista/java-role/) as or
 
 ```yml
 - src: idealista.java-role
-  version: 3.2.0
+  version: 3.4.0
   name: java
 ```
 
@@ -67,10 +67,7 @@ Use in a playbook:
 ---
 - hosts: someserver
   roles:
-    - {
-        role: java,
-        java_open_jdk_set_version: '8'
-      }
+    - java
 ```
 
 ## Usage
@@ -85,35 +82,39 @@ docker pull idealista/jdk:ROLE_VERSION-DISTRO_VERSION-JAVA_JDK
 ```
 
 `ROLE_VERSION`: Starting from 3.2.1, is the tag published in GitHub
-`DISTRO_VERSION`: Currently supporting: `ubuntu1604`, `debian8` and `debian9`
+`DISTRO_VERSION`: Currently supporting: `ubuntu1604`, `ubuntu1804`, `debian8` and `debian9`
 `JAVA_JDK`: `oraclejdk` or `openjdk`
 
 For instance:
 ```bash
-docker pull idealista/jdk:3.2.2-debian8-openjdk
+docker pull idealista/jdk:3.4.0-debian8-openjdk
 ```
 
 List of versions can be checked on: https://cloud.docker.com/repository/docker/idealista/jdk/tags
 
 ### Ansible
 
-To set multiple versions
+You must choose between `openjdk` or `oraclejdk` implementation overriding `java_implementation` variable:
 
-```yml
-java_open_jdk_version: ['6', '7', '8']
-```
+[defaults/main.yml](https://github.com/idealista/java-role/blob/master/defaults/main.yml)
 
-To set system defaults
+A specific OpenJDK version should be selected using `java_open_jdk_version_major`, `java_open_jdk_version`, and `java_open_jdk_package` variables under `vars/` specific OS variable files:
 
-```yml
-java_open_jdk_set_version: '8'
-```
+Operative System | OpenJDK version
+--- | ---
+Debian Jessie | `8u171-b11-1~bpo8+1`
+Debian Stretch | `8u181-b13-2~deb9u1`
+Ubuntu Xenial | `8u191-b12-0ubuntu0.16.04.1`
+Ubuntu Xenial | `11.0.1+13-3ubuntu1~16.04~ppa1`
+Ubuntu Bionic | `8u191-b12-0ubuntu0.18.04.1`
+Ubuntu Bionic | `10.0.2+13-1ubuntu0.18.04.4`
+Ubuntu Bionic | `11.0.1+13-3ubuntu1~18.04~ppa1`
 
 ## Testing
 
 ```sh
 $ pipenv install -r test-requirements.txt --python 2.7
-$ MOLECULE_DISTRO=(debian8|debian9|ubuntu1604) pipenv run molecule test -s (openjdk|oraclejdk)
+$ MOLECULE_DISTRO=(debian8|debian9|ubuntu1604|ubuntu1804) pipenv run molecule test -s (openjdk|oraclejdk)
 ```
 
 **Note:** debian9 (Debian Stretch) will be used as default linux distro if none is provided. It's mandatory to

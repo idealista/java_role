@@ -16,9 +16,11 @@ env:
     - MOLECULE_DISTRO: debian8
     - MOLECULE_DISTRO: debian9
     - MOLECULE_DISTRO: ubuntu1604
+    - MOLECULE_DISTRO: ubuntu1804
 script:
-  - MOLECULE_DISTRO=${MOLECULE_DISTRO} pipenv run molecule test -s oraclejdk
-  - MOLECULE_DISTRO=${MOLECULE_DISTRO} pipenv run molecule test -s openjdk
+  - export MOLECULE_DISTRO=${MOLECULE_DISTRO}
+  - 'travis_wait 30 pipenv run molecule test -s openjdk'
+  - 'travis_wait 30 pipenv run molecule test -s oraclejdk'
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/

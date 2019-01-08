@@ -6,12 +6,13 @@ java_implementation: openjdk
 
 # OracleJDK implementation (provides only support for x64 architectures)
 # [1.8.0_191, 1.8.0_192, 11.0.1] (see available urls in ../vars/main.yml)
+java_oracle_jdk_version_major: 8
 java_oracle_jdk_version: 1.8.0_191
 java_oracle_jdk_install_path: /opt/jdk/{{ java_oracle_jdk_version }}
 
 # OpenJDK implementation
-java_open_jdk_version: 8
-java_open_jdk_set_version: 8
-java_open_jdk_home_dir: java-{{ java_open_jdk_set_version }}-openjdk-amd64
+java_open_jdk_version_major: 8
+java_open_jdk_package: openjdk-{{ java_open_jdk_version_major }}-jdk
+java_open_jdk_home_dir: java-{{ java_open_jdk_version_major }}-openjdk-amd64
 java_open_jdk_home: /usr/lib/jvm/{{ java_open_jdk_home_dir }}
 java_open_jdk_default_java_home: /usr/lib/jvm/default-java
