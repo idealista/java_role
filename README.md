@@ -41,7 +41,7 @@ Create or add to your roles dependency file (e.g requirements.yml):
 ```yml
 - src: http://github.com/idealista/java-role.git
   scm: git
-  version: 3.2.0
+  version: 3.4.0
   name: java
 ```
 
@@ -49,7 +49,7 @@ or using [Ansible Galaxy](https://galaxy.ansible.com/idealista/java-role/) as or
 
 ```yml
 - src: idealista.java-role
-  version: 3.2.0
+  version: 3.4.0
   name: java
 ```
 
@@ -82,12 +82,12 @@ docker pull idealista/jdk:ROLE_VERSION-DISTRO_VERSION-JAVA_JDK
 ```
 
 `ROLE_VERSION`: Starting from 3.2.1, is the tag published in GitHub
-`DISTRO_VERSION`: Currently supporting: `ubuntu1804`, `ubuntu1604`, `debian8` and `debian9`
+`DISTRO_VERSION`: Currently supporting: `ubuntu1604`, `ubuntu1804`, `debian8` and `debian9`
 `JAVA_JDK`: `oraclejdk` or `openjdk`
 
 For instance:
 ```bash
-docker pull idealista/jdk:3.2.2-debian8-openjdk
+docker pull idealista/jdk:3.4.0-debian8-openjdk
 ```
 
 List of versions can be checked on: https://cloud.docker.com/repository/docker/idealista/jdk/tags
