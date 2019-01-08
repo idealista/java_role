@@ -6,7 +6,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [3.4.0](https://github.com/idealista/java-role/tree/3.4.0) (2019-01-08)
 [Full Changelog](https://github.com/idealista/java-role/compare/3.3.0...3.4.0)
+### Changed
 - *[#57](https://github.com/idealista/java-role/issues/57) Specifying explicitly OpenJDK version* @dortegau
+### Added
 - *[#52](https://github.com/idealista/java-role/issues/52) Add Support for Ubuntu 18.04 Bionic, Ubuntu 16.04 Xenial. Add Support for OpenJDK 11* @apolloclark
 
 ## [3.3.0](https://github.com/idealista/java-role/tree/3.3.0) (2018-12-17)
