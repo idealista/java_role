@@ -7,7 +7,7 @@
       docker_container:
         name: "{{ item }}"
         state: started
-        image: "idealista/jdk:{{ image_tag }}"
+        image: "{{ image_tag }}"
       with_items:
         - docker-test-openjdk
         - docker-test-oraclejdk
