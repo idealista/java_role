@@ -14,5 +14,11 @@
 
 - hosts: all
   user: root
+  pre_tasks:
+    - name: PRE_TASKS | Java | Gather OpenJDK Java version variables
+      include_vars: "{{ item }}"
+      with_first_found:
+        - "{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml"
+      when: "'openjdk' in group_names"
   roles:
     - {name: java, role: . }
