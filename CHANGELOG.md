@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/java-role/tree/develop)
+### Added
+- *[#65](https://github.com/idealista/java-role/issues/65) Add Travis deployment for Ubuntu 18.04 Bionic* @jnogol
+### Changed
+- *Delete travis_wait in .travis.yml* @jnogol
 ### Fixed
 - *[#64](https://github.com/idealista/java-role/issues/64) Fix Travis deployment to Docker Hub* @jnogol
 
