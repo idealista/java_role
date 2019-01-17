@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/java-role/tree/develop)
+
+## [3.4.2](https://github.com/idealista/java-role/tree/3.4.2) (2019-01-17)
 ### Changed
 - *[#70](https://github.com/idealista/java-role/issues/70) New available Oracle Java versions added. Default Oracle JDK is now 1.8.0_201* @mmolinac
 
