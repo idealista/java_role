@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 - *[#65](https://github.com/idealista/java-role/issues/65) Add Travis deployment for Ubuntu 18.04 Bionic* @jnogol
 ### Changed
 - *Delete travis_wait in .travis.yml* @jnogol
+- *[#56](https://github.com/idealista/java-role/issues/56) Add java version to docker image tag name* @jnogol
 ### Fixed
 - *[#64](https://github.com/idealista/java-role/issues/64) Fix Travis deployment to Docker Hub* @jnogol
 - *[#69](https://github.com/idealista/java-role/issues/69) Undefined variable java_open_jdk_version* @sorobon
