@@ -13,10 +13,6 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 - *[#70](https://github.com/idealista/java-role/issues/70) New available Oracle Java versions added. Default Oracle JDK is now 1.8.0_201* @mmolinac
 
 ## [3.4.1](https://github.com/idealista/java-role/tree/3.4.1) (2019-01-17)
-### Added
-- *[#65](https://github.com/idealista/java-role/issues/65) Add Travis deployment for Ubuntu 18.04 Bionic* @jnogol
-### Changed
-- *Delete travis_wait in .travis.yml* @jnogol
 ### Fixed
 - *[#64](https://github.com/idealista/java-role/issues/64) Fix Travis deployment to Docker Hub* @jnogol
 - *[#69](https://github.com/idealista/java-role/issues/69) Undefined variable java_open_jdk_version* @sorobon
