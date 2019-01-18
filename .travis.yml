@@ -27,7 +27,7 @@ notifications:
 
 deploy:
   provider: script
-  script: /bin/bash dockerhub/deploy.sh $TRAVIS_TAG $MOLECULE_DISTRO
+  script: /bin/bash dockerhub/deploy.sh $MOLECULE_DISTRO
   on:
     branch: master
     tags: true

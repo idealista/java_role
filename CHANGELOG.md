@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/java-role/tree/develop)
+### Fixed
+- *[#64](https://github.com/idealista/java-role/issues/64) Fix Travis deployment to Docker Hub* @jnogol
 
 ## [3.4.2](https://github.com/idealista/java-role/tree/3.4.2) (2019-01-17)
 ### Added
@@ -14,7 +16,6 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [3.4.1](https://github.com/idealista/java-role/tree/3.4.1) (2019-01-17)
 ### Fixed
-- *[#64](https://github.com/idealista/java-role/issues/64) Fix Travis deployment to Docker Hub* @jnogol
 - *[#69](https://github.com/idealista/java-role/issues/69) Undefined variable java_open_jdk_version* @sorobon
 
 ## [3.4.0](https://github.com/idealista/java-role/tree/3.4.0) (2019-01-08)
