@@ -3,10 +3,14 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/java-role/tree/develop)
+
+## [3.4.3](https://github.com/idealista/java-role/tree/3.4.3) (2019-01-21)
+[Full Changelog](https://github.com/idealista/java-role/compare/3.4.2...3.4.3)
 ### Fixed
 - *[#64](https://github.com/idealista/java-role/issues/64) Fix Travis deployment to Docker Hub* @jnogol
 
 ## [3.4.2](https://github.com/idealista/java-role/tree/3.4.2) (2019-01-17)
+[Full Changelog](https://github.com/idealista/java-role/compare/3.4.1...3.4.2)
 ### Added
 - *[#65](https://github.com/idealista/java-role/issues/65) Add Travis deployment for Ubuntu 18.04 Bionic* @jnogol
 ### Changed
@@ -15,6 +19,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 - *[#70](https://github.com/idealista/java-role/issues/70) New available Oracle Java versions added. Default Oracle JDK is now 1.8.0_201* @mmolinac
 
 ## [3.4.1](https://github.com/idealista/java-role/tree/3.4.1) (2019-01-17)
+[Full Changelog](https://github.com/idealista/java-role/compare/3.4.0...3.4.1)
 ### Fixed
 - *[#69](https://github.com/idealista/java-role/issues/69) Undefined variable java_open_jdk_version* @sorobon
 
