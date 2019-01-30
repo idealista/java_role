@@ -5,6 +5,11 @@ sudo: required
 
 services:
   - docker
+before_script:
+  - wget https://releases.hashicorp.com/packer/1.3.4/packer_1.3.4_linux_amd64.zip -O /tmp/packer.zip
+  - unzip /tmp/packer.zip
+  - export PATH=$PATH:$PWD/packer
+  - packer --help
 install:
   - pip install pipenv
   - pipenv install -r test-requirements.txt --python 2.7
@@ -27,7 +32,8 @@ notifications:
 
 deploy:
   provider: script
-  script: /bin/bash dockerhub/deploy.sh $MOLECULE_DISTRO
+  script: 
+    - packer build -var 'java_implementation=openjdk' -var-file=varfiles/Debian-jessie.json template.json
   on:
     branch: master
     tags: true
