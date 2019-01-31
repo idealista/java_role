@@ -12,4 +12,4 @@ package:
   {{ java_open_jdk_package }}:
       installed: true
       versions:
-        - {{ java_open_jdk_version }}
+        - {{ __java_open_jdk_version }}
