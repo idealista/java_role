@@ -1,4 +1,0 @@
-{
-  "linux_distribution": "ubuntu1804",
-  "docker_image_base": "amd64/ubuntu:bionic"
-}

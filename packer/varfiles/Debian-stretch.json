@@ -1,4 +1,0 @@
-{
-  "linux_distribution": "debian9",
-  "docker_image_base": "debian:stretch-slim"
-}
