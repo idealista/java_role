@@ -1,6 +1,7 @@
 ---
 
-java_required_repositories_openjdk:
-  - "ppa:openjdk-r/ppa"
-java_required_libs_openjdk:
-  - ca-certificates-java
+# Using pattern described in Ansible Best Practices and Conventions (Appendix B), Ansible for Devops (p. 406)
+__java_open_jdk_version: "9~b114-0ubuntu1"
+
+__java_required_repositories_openjdk: []
+__java_required_libs_openjdk: []

@@ -18,6 +18,7 @@
     headers: "Cookie:oraclelicense=accept-securebackup-cookie"
     sha256sum: "{{ java_oracle_jdk_latest_versions_urls[java_oracle_jdk_version].sha256 }}"
   when: java_check_version is failed or java_oracle_jdk_version not in java_check_version.stderr
+  until: download_java_binaries is succeeded
   register: download_java_binaries
 
 - name: Java | Ensure installation dir exists

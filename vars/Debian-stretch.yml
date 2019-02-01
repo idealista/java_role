@@ -1,4 +1,7 @@
 ---
 
-java_required_repositories_openjdk: []
-java_required_libs_openjdk: []
+# Using pattern described in Ansible Best Practices and Conventions (Appendix B), Ansible for Devops (p. 406)
+__java_open_jdk_version: "8u181-b13-2~deb9u1"
+
+__java_required_repositories_openjdk: []
+__java_required_libs_openjdk: []

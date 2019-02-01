@@ -4,11 +4,18 @@
   include_vars: "{{ item }}"
   with_first_found:
     - "{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml"
-  tags: vars
 
 - name: Java | Set JAVA_HOME fact
   set_fact:
     java_home: "{{ java_open_jdk_home }}"
+
+# Using pattern described in Ansible Best Practices and Conventions (Appendix B), Ansible for Devops (p. 406)
+# Allowing to 'override' variables that are defined using include_vars
+- name: Java | Setting OS specific variables
+  set_fact:
+    java_open_jdk_version: "{{ java_open_jdk_version if java_open_jdk_version is defined else __java_open_jdk_version }}"
+    java_required_repositories_openjdk: "{{ java_required_repositories_openjdk if java_required_repositories_openjdk is defined else __java_required_repositories_openjdk }}"
+    java_required_libs_openjdk: "{{ java_required_libs_openjdk if java_required_libs_openjdk is defined else __java_required_libs_openjdk }}"
 
 - name: Java | Add required repositories
   apt_repository:
@@ -18,28 +25,26 @@
 
 - name: Java | Install required libs
   apt:
-    name: "{{ item }}"
+    name: "{{ java_required_libs_openjdk }}"
     state: present
+    cache_valid_time: 3600
     update_cache: true
-  with_items: "{{ java_required_libs_openjdk }}"
+  until: java_required_libs_installed is succeeded
+  register: java_required_libs_installed
 
 - name: Java | Install Java
   apt:
     name: "{{ java_open_jdk_package }}={{ java_open_jdk_version }}"
     state: present
+    cache_valid_time: 3600
     update_cache: true
+  until: java_package_installed is succeeded
+  register: java_package_installed
 
 - name: Java | Update Env
   alternatives:
     name: java
-    path: "{{ java_open_jdk_home }}/jre/bin/java"
-  when: java_open_jdk_version_major | version_compare('11', '<')
-
-- name: Java | Update Env, OpenJDK 11
-  alternatives:
-    name: java
     path: "{{ java_open_jdk_home }}/bin/java"
-  when: java_open_jdk_version_major | version_compare('11', '>=')
 
 - name: Java | Ensure Defaults on etc/alternatives systems
   file:

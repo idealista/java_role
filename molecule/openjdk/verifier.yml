@@ -24,7 +24,6 @@
     - ../../vars/main.yml
     - ../../vars/{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml
     - ./group_vars/openjdk.yml
-    - ./vars/{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml
 
   tasks:
     - name: Download and install goss

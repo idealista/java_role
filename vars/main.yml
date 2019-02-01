@@ -1,5 +1,7 @@
 ---
 
+java_open_jdk_version_major: "{{ __java_open_jdk_version | regex_search('^([0-9]{1,2})') }}"
+
 # Older versions requires login to be downloaded
 # http://www.oracle.com/technetwork/java/archive-139210.html
 java_oracle_jdk_latest_versions_urls:

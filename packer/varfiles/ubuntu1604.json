@@ -1,0 +1,4 @@
+{
+  "linux_distribution": "ubuntu1604",
+  "docker_image_base": "amd64/ubuntu:xenial"
+}
