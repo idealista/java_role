@@ -52,6 +52,7 @@
         },
         {
           "type": "docker-push",
+          "login": true,
           "login_username": "{{user `docker_username`}}",
           "login_password": "{{user `docker_password`}}"
         }
