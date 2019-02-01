@@ -33,5 +33,4 @@ deploy:
   script: 
     - packer build -var 'java_implementation=${JAVA_IMPLEMENTATION}' -var-file=packer/varfiles/${MOLECULE_DISTRO}.json packer/template.json
   on:
-    branch: master
-    tags: true
+    branch: develop
