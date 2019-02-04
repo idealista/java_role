@@ -1,4 +1,3 @@
 {
-  "linux_distribution": "debian8",
   "docker_image_base": "debian:jessie-slim"
 }
