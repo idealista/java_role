@@ -34,7 +34,7 @@ To use this role as dependency in your playbook, prerequisites below:
 Ansible 2.4.5.0 version installed.
 Inventory destination should be a Debian/Ubuntu environment.
 
-For testing purposes, [Molecule](https://molecule.readthedocs.io/) with [Docker](https://www.docker.com/) as driver.
+For testing purposes you will need [Python 2.7+](https://www.python.org/download/releases/2.7/) and [Pipenv](https://github.com/pypa/pipenv)
 
 ### Installing
 
