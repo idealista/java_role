@@ -9,10 +9,10 @@ lint:
     config-file: .yamllint
 
 platforms:
-  - name: openjdk-${MOLECULE_DISTRO:-debian9}
+  - name: openjdk-${LINUX_DISTRO:-debian9}
     groups:
       - openjdk
-    image: geerlingguy/docker-${MOLECULE_DISTRO:-debian9}-ansible:latest
+    image: geerlingguy/docker-${LINUX_DISTRO:-debian9}-ansible:latest
     privileged: true
     capabilities:
       - SYS_ADMIN
