@@ -29,8 +29,10 @@ Once launched, it will install Java using APT Packages (default) or downloading 
 
 ### Prerequisities
 
+To use this role as dependency in your playbook, prerequisites below:
+
 Ansible 2.4.5.0 version installed.
-Inventory destination should be a Debian environment.
+Inventory destination should be a Debian/Ubuntu environment.
 
 For testing purposes, [Molecule](https://molecule.readthedocs.io/) with [Docker](https://www.docker.com/) as driver.
 
@@ -41,7 +43,7 @@ Create or add to your roles dependency file (e.g requirements.yml):
 ```yml
 - src: http://github.com/idealista/java-role.git
   scm: git
-  version: 3.4.0
+  version: 4.0.0
   name: java
 ```
 
@@ -49,11 +51,11 @@ or using [Ansible Galaxy](https://galaxy.ansible.com/idealista/java-role/) as or
 
 ```yml
 - src: idealista.java-role
-  version: 3.4.0
+  version: 4.0.0
   name: java
 ```
 
-Alternatively you could find tagged Docker images for Debian Jessie, Wheezy and Ubuntu Xenial in [Docker Hub](https://hub.docker.com/r/idealista/java-debian-ansible/).
+Alternatively you could find tagged Docker images for Debian Jessie, Stretch, Ubuntu Xenial and Ubuntu Bionic in [Docker Hub](https://hub.docker.com/r/idealista/jdk/).
 
 Install the role with ansible-galaxy command:
 
@@ -72,22 +74,23 @@ Use in a playbook:
 
 ## Usage
 
-### DockerHub
+### Docker Hub
 
-We publish every role version as a Docker image in Dockerhub: https://hub.docker.com/r/idealista/jdk.
+We publish every role version as a Docker image in Docker Hub: https://hub.docker.com/r/idealista/jdk.
 
 You can pull our images by executing:
+
 ```bash
-docker pull idealista/jdk:ROLE_VERSION-DISTRO_VERSION-JAVA_JDK
+docker pull idealista/jdk:${LINUX_DISTRO}-java-${JAVA_IMPLEMENTATION}
 ```
 
-`ROLE_VERSION`: Starting from 3.2.1, is the tag published in GitHub
-`DISTRO_VERSION`: Currently supporting: `ubuntu1604`, `ubuntu1804`, `debian8` and `debian9`
-`JAVA_JDK`: `oraclejdk` or `openjdk`
+`LINUX_DISTRO`: Currently supporting: `debian8`, `debian9`, `ubuntu1604` and `ubuntu1804` 
+`JAVA_IMPLEMENTATION`: `oraclejdk` or `openjdk`
 
 For instance:
+
 ```bash
-docker pull idealista/jdk:3.4.0-debian8-openjdk
+docker pull idealista/jdk:debian8-java-openjdk
 ```
 
 List of versions can be checked on: https://cloud.docker.com/repository/docker/idealista/jdk/tags
@@ -98,7 +101,7 @@ You must choose between `openjdk` or `oraclejdk` implementation overriding `java
 
 [defaults/main.yml](https://github.com/idealista/java-role/blob/master/defaults/main.yml)
 
-A specific OpenJDK version should be selected using `java_open_jdk_version`, and `java_open_jdk_package` variables under `vars/` specific OS variable files:
+A specific OpenJDK version should be selected using `__java_open_jdk_version` variable under `vars/` specific OS variable files. Could be overriden in a Playbook using group vars:
 
 Operative System | OpenJDK version
 --- | ---
@@ -114,7 +117,7 @@ Ubuntu Bionic | `11.0.1+13-3ubuntu1~18.04~ppa1`
 
 ```sh
 $ pipenv install -r test-requirements.txt --python 2.7
-$ MOLECULE_DISTRO=(debian8|debian9|ubuntu1604|ubuntu1804) pipenv run molecule test -s (openjdk|oraclejdk)
+$ LINUX_DISTRO=(debian8|debian9|ubuntu1604|ubuntu1804) pipenv run molecule test -s (openjdk|oraclejdk)
 ```
 
 **Note:** debian9 (Debian Stretch) will be used as default linux distro if none is provided. It's mandatory to
@@ -125,6 +128,7 @@ See [molecule directory](https://github.com/idealista/java-role/tree/master/mole
 ## Built With
 
 ![Ansible](https://img.shields.io/badge/ansible-2.4.5.0-green.svg)
+![Packer](https://img.shields.io/badge/packer-1.3.4.0-green.svg)
 
 ## Versioning
 
@@ -136,7 +140,7 @@ Additionaly you can see what change in each version in the [CHANGELOG.md](CHANGE
 
 * **Idealista** - *Work with* - [idealista](https://github.com/idealista)
 
-See also the list of [contributors](https://github.com/idealista/java/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/idealista/java-role/contributors) who participated in this project.
 
 ## License
 
