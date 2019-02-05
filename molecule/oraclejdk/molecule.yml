@@ -13,12 +13,6 @@ platforms:
     groups:
       - oraclejdk
     image: ${DOCKER_IMAGE_BASE:-debian:jessie-slim}
-    privileged: true
-    capabilities:
-      - SYS_ADMIN
-    volumes:
-      - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
-    command: '/lib/systemd/systemd'
 
 provisioner:
   name: ansible
