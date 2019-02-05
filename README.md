@@ -93,7 +93,7 @@ For instance:
 docker pull idealista/jdk:debian8-java-openjdk
 ```
 
-List of versions can be checked on: https://cloud.docker.com/repository/docker/idealista/jdk/tags
+List of versions (tags) can be checked on [Docker Hub](https://cloud.docker.com/repository/docker/idealista/jdk/tags)
 
 ### Ansible
 
@@ -101,17 +101,25 @@ You must choose between `openjdk` or `oraclejdk` implementation overriding `java
 
 [defaults/main.yml](https://github.com/idealista/java-role/blob/master/defaults/main.yml)
 
-A specific OpenJDK version should be selected using `__java_open_jdk_version` variable under `vars/` specific OS variable files. Could be overriden in a Playbook using group vars:
+#### OpenJDK
+
+A specific OpenJDK version should be selected overriding `java_open_jdk_version` variable using group vars/host vars:
 
 Operative System | OpenJDK version
 --- | ---
-Debian Jessie | `8u171-b11-1~bpo8+1`
-Debian Stretch | `8u181-b13-2~deb9u1`
+Debian Jessie | `8u171-b11-1~bpo8+1` (default)
+Debian Stretch | `8u181-b13-2~deb9u1` (default)
 Ubuntu Xenial | `8u191-b12-0ubuntu0.16.04.1`
-Ubuntu Xenial | `11.0.1+13-3ubuntu1~16.04~ppa1`
+Ubuntu Xenial | `9~b114-0ubuntu1` (default)
 Ubuntu Bionic | `8u191-b12-0ubuntu0.18.04.1`
 Ubuntu Bionic | `10.0.2+13-1ubuntu0.18.04.4`
-Ubuntu Bionic | `11.0.1+13-3ubuntu1~18.04~ppa1`
+Ubuntu Bionic | `11.0.1+13-3ubuntu1~18.04~ppa1` (default)
+
+#### OracleJDK
+
+A specific OracleJDK version should be selected overriding `java_oracle_jdk_version` variable using group vars/host vars. Available versions are described in [vars/main.yml](vars/main.yml) file.
+
+**NOTE:** OracleJDK support in this role is deprecated and will be removed.
 
 ## Testing
 

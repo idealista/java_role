@@ -13,9 +13,9 @@
 # Allowing to 'override' variables that are defined using include_vars
 - name: Java | Setting OS specific variables
   set_fact:
-    java_open_jdk_version: "{{ java_open_jdk_version if java_open_jdk_version is defined else __java_open_jdk_version }}"
-    java_required_repositories_openjdk: "{{ java_required_repositories_openjdk if java_required_repositories_openjdk is defined else __java_required_repositories_openjdk }}"
-    java_required_libs_openjdk: "{{ java_required_libs_openjdk if java_required_libs_openjdk is defined else __java_required_libs_openjdk }}"
+    java_open_jdk_version: "{{ java_open_jdk_version if java_open_jdk_version is defined and java_open_jdk_version is not sameas None else __java_open_jdk_version }}"
+    java_required_repositories_openjdk: "{{ java_required_repositories_openjdk if java_required_repositories_openjdk is defined and java_required_repositories_openjdk is not sameas None else __java_required_repositories_openjdk }}"
+    java_required_libs_openjdk: "{{ java_required_libs_openjdk if java_required_libs_openjdk is defined and java_required_libs_openjdk is not sameas None else __java_required_libs_openjdk }}"
 
 - name: Java | Add required repositories
   apt_repository:
