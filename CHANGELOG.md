@@ -4,6 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/java-role/tree/develop)
 
+- Testing all supported platforms in Travis @dortegau
+- Using Packer to deploy images to Docker Hub @dortegau
+- Upgrading to molecule 2.19 @dortegau
+
 ## [3.4.3](https://github.com/idealista/java-role/tree/3.4.3) (2019-01-21)
 [Full Changelog](https://github.com/idealista/java-role/compare/3.4.2...3.4.3)
 ### Fixed
