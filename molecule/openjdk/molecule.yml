@@ -20,7 +20,7 @@ provisioner:
     group_vars:
       openjdk:
         java_implementation: openjdk
-        java_open_jdk_version: ${OPEN_JDK_VERSION}
+        java_open_jdk_version: ${JDK_VERSION}
   lint:
     name: ansible-lint
 scenario:
