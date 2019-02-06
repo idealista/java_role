@@ -112,7 +112,6 @@ Debian Stretch | `8u181-b13-2~deb9u1` (default)
 Ubuntu Xenial | `8u191-b12-0ubuntu0.16.04.1`
 Ubuntu Xenial | `9~b114-0ubuntu1` (default)
 Ubuntu Bionic | `8u191-b12-0ubuntu0.18.04.1`
-Ubuntu Bionic | `10.0.2+13-1ubuntu0.18.04.4`
 Ubuntu Bionic | `11.0.1+13-3ubuntu1~18.04~ppa1` (default)
 
 #### OracleJDK

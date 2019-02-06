@@ -43,7 +43,6 @@ env:
     # Ubuntu Bionic
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic JAVA_IMPLEMENTATION=openjdk
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic JAVA_IMPLEMENTATION=openjdk JDK_VERSION=8u191-b12-2ubuntu0.18.04.1
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic JAVA_IMPLEMENTATION=openjdk JDK_VERSION=10.0.2+13-1ubuntu0.18.04.4
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic JAVA_IMPLEMENTATION=openjdk JDK_VERSION=11.0.1+13-3ubuntu1~18.04~ppa1
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic JAVA_IMPLEMENTATION=oraclejdk
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic JAVA_IMPLEMENTATION=oraclejdk JDK_VERSION=1.8.0_201
