@@ -4,8 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/java-role/tree/develop)
 
-- Installing OpenJDK headless by default @dortegau
+### Added
+- *[#82](https://github.com/idealista/java-role/issues/82) Adding support to OpenJDK 11 in Debian Stretch* @dortegau
 - Testing all supported platforms in Travis @dortegau
+### Changed
+- *[#80](https://github.com/idealista/java-role/issues/80) Installing OpenJDK headless by default* @dortegau
 - Using Packer to deploy images to Docker Hub @dortegau
 - Upgrading to molecule 2.19 @dortegau
 - Simplifying containers for testing with molecule (without unneeded systemd) @dortegau

@@ -109,7 +109,7 @@ Operative System | OpenJDK version
 --- | ---
 Debian Jessie | `8u171-b11-1~bpo8+1` (default)
 Debian Stretch | `8u181-b13-2~deb9u1` (default)
-Ubuntu Xenial | `8u191-b12-0ubuntu0.16.04.1`
+Ubuntu Xenial | `8u191-b12-2ubuntu0.16.04.1`
 Ubuntu Xenial | `9~b114-0ubuntu1` (default)
 Ubuntu Bionic | `8u191-b12-0ubuntu0.18.04.1`
 Ubuntu Bionic | `11.0.1+13-3ubuntu1~18.04~ppa1` (default)
@@ -118,7 +118,7 @@ Ubuntu Bionic | `11.0.1+13-3ubuntu1~18.04~ppa1` (default)
 
 A specific OracleJDK version should be selected overriding `java_oracle_jdk_version` variable using group vars/host vars. Available versions are described in [vars/main.yml](vars/main.yml) file.
 
-**NOTE:** OracleJDK support in this role is deprecated and will be removed.
+**NOTE:** OracleJDK support in this role is considered deprecated and will be removed in future releases.
 
 ## Testing
 

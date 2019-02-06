@@ -28,6 +28,7 @@ env:
     # Debian Stretch
     - DOCKER_IMAGE_BASE=debian:stretch-slim JAVA_IMPLEMENTATION=openjdk
     - DOCKER_IMAGE_BASE=debian:stretch-slim JAVA_IMPLEMENTATION=openjdk JDK_VERSION=8u181-b13-2~deb9u1
+    - DOCKER_IMAGE_BASE=debian:stretch-slim JAVA_IMPLEMENTATION=openjdk JDK_VERSION=11.0.2+9-3~bpo9+1
     - DOCKER_IMAGE_BASE=debian:stretch-slim JAVA_IMPLEMENTATION=oraclejdk
     - DOCKER_IMAGE_BASE=debian:stretch-slim JAVA_IMPLEMENTATION=oraclejdk JDK_VERSION=1.8.0_201
     - DOCKER_IMAGE_BASE=debian:stretch-slim JAVA_IMPLEMENTATION=oraclejdk JDK_VERSION=1.8.0_202
