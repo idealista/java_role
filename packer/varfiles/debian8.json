@@ -1,3 +1,0 @@
-{
-  "docker_image_base": "debian:jessie-slim"
-}
