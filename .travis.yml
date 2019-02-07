@@ -164,3 +164,8 @@ deploy:
     - packer build packer/template.json
   on:
     branch: develop
+    if: |
+      env(DOCKER_IMAGE_BASE) IS present AND \
+      env(JAVA_IMPLEMENTATION) IS present AND \
+      env(JDK_VERSION) IS present AND \
+      env(DOCKER_TAG_TO_PUBLISH) IS present
