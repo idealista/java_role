@@ -2,8 +2,12 @@
     "variables": {
       "ansible_host": "default",
       "ansible_connection": "docker",
+      "docker_image_base": "{{env `DOCKER_IMAGE_BASE`}}",
       "docker_username": "{{env `DOCKER_USERNAME`}}",
-      "docker_password": "{{env `DOCKER_PASSWORD`}}"
+      "docker_password": "{{env `DOCKER_PASSWORD`}}",
+      "docker_tag_to_publish": "{{env `DOCKER_TAG_TO_PUBLISH`}}",
+      "java_implementation": "{{ env `JAVA_IMPLEMENTATION` }}",
+      "jdk_version": "{{env `JDK_VERSION`}}"
     },
     "builders": [
       {
@@ -39,7 +43,11 @@
         "playbook_file": "{{ template_dir }}/playbook.yml",
         "extra_arguments": [
           "--extra-vars",
-          "ansible_host={{user `ansible_host`}} ansible_connection={{user `ansible_connection`}} java_implementation={{user `java_implementation`}}"
+          "ansible_host={{user `ansible_host`}}",
+          "ansible_connection={{user `ansible_connection`}}",
+          "java_implementation={{user `java_implementation`}}",
+          "java_oracle_jdk_version={{user `jdk_version`}}",
+          "java_open_jdk_version={{user `jdk_version`}}"
         ]
       }
     ],
@@ -48,7 +56,7 @@
         {
           "type": "docker-tag",
           "repository": "idealista/jdk",
-          "tag": "{{user `linux_distribution`}}-java-{{user `java_implementation`}}"
+          "tag": "{{user `docker_tag_to_publish`}}"
         },
         {
           "type": "docker-push",

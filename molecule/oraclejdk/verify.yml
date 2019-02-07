@@ -18,11 +18,9 @@
     goss_url: "https://github.com/aelsabbahy/goss/releases/download/{{ goss_version }}/goss-linux-{{ goss_arch }}"
     goss_test_directory: /tmp
     goss_format: documentation
-
-  vars_files:
-    - ../../defaults/main.yml
-    - ../../vars/main.yml
-    - ./group_vars/oraclejdk.yml
+    molecule_file: "{{ lookup('env', 'MOLECULE_FILE') }}"
+    molecule_yml: "{{ lookup('file', molecule_file) | molecule_from_yaml }}"
+    java_oracle_jdk_version: "{{ molecule_yml.provisioner.inventory.group_vars.oraclejdk.java_oracle_jdk_version }}"
 
   tasks:
     - name: Download and install goss

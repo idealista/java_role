@@ -18,14 +18,22 @@
     goss_url: "https://github.com/aelsabbahy/goss/releases/download/{{ goss_version }}/goss-linux-{{ goss_arch }}"
     goss_test_directory: /tmp
     goss_format: documentation
+    molecule_file: "{{ lookup('env', 'MOLECULE_FILE') }}"
+    molecule_yml: "{{ lookup('file', molecule_file) | molecule_from_yaml }}"
+    java_open_jdk_version: "{{ molecule_yml.provisioner.inventory.group_vars.openjdk.java_open_jdk_version }}"
 
   vars_files:
     - ../../defaults/main.yml
     - ../../vars/main.yml
     - ../../vars/{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml
-    - ./group_vars/openjdk.yml
 
   tasks:
+    # Using pattern described in Ansible Best Practices and Conventions (Appendix B), Ansible for Devops (p. 406)
+    # Allowing to 'override' variables that are defined using include_vars
+    - name: Java | Setting OS specific variables
+      set_fact:
+        java_open_jdk_version: "{{ java_open_jdk_version if java_open_jdk_version is defined and java_open_jdk_version|length else __java_open_jdk_version }}"
+
     - name: Download and install goss
       get_url:
         url: "{{ goss_url }}"

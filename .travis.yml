@@ -18,16 +18,141 @@ env:
     - secure: Z5e7AaE11/DrEv2vYKoFxM912Zl5+vdNRQb1Q74LXRT+F+ObMMA3HLrGdbBCyeSoT9BlCSYkfYJ5qFwtfhch1VprSUyXTohG+mEbt5t7tuV+BxBmwcXJMP5BCVgZKU47wRlzOMQWvk4z1/y4fDeWb7cLshvJi+rEE9mox64o01FxrX3WnJcq6vi1Xnmtnfy0FLFlccQMa0czCdgbu7bO6m9WtYmBLXOcA3QDSy5qZmRnszXhxe/DZmsQHu4LVkelkCABG1xdHqj+35/WRhpBSyj9MeN6BlkOIfjfPqsvDV4fyrg2f+F7N1cw2MX5ceehF1kS0Bq8f6MUiltKSEUyGf3A+g8xNr8veLAa4jtuV1qXWbJwTTOTIIU2n0jBJvjjPwx7IJ+hepkIZ1UUfu5P5nKlI5CaZh7a6TBTF0UoC4rMa8tn9p61OpQ3x9Trw0moLOc65tVO+CFv/sRFI3JJXsQ6kMUiKnkbjI3VW2nFGAbNRKd5pe3I7nYKYQwbKH4QzhAcgmyUeZZBn7owaCEZ3lKJjArGnaXMvhVt0E4TM6a5ZyAMPX34wcAynDh6VCXbjQpA6OBejeq+cgNXDt4Oxgy80UTerEFa1IQlrdyzEXz4lI6DKojYFzNHr/Luu5WzvpGs4HOdLAT/2hz+ISKRIgMw+Hgm2VR/FD1FtLnGgZ4=
     - secure: Z7X7zVWFJ8m6Pp863WblJXg2pEt/GBZTKGMIxYL9UK0TFvgrcr2XQhjhvYTEZiK30f57ah5dBEDoMDqZDh+FDGggm9cn39KAVGtyFpsgnDSWJqaOWjBlqrHE+nqssVwKBo/JMgRgB3DsqybvaAvQNrVFccRULsU2uLRJx08hZ+618HiLAdweezepqKWopRvonZol0CvZAp0NDOEBExemamUna+reBtcL+HV4vNM8psY/ntfyOQEMhwITpmzidEWQjjZAh9Cu1GfFTVGeWGJofx5gje87ccRVhyZmJAJz1eqcTtPJH+e6pZM0h3+Z3EFS7/mV3N+2byuJcTxmwoZbHinpWbFkL9klGCsV3rKdaL0iQNxhDAs9Y9LVlEJsJDFQtqBPmg4TFBtRXIEDIT4FAjmwDkmsMe2A2lZiS4tYwAszTPbe1UV9pZ/ivYpzoF+kMvDPIgDoCcsP7iG3Sw9klQr+l6FY2CrQ+HrWaN64SgTLrfiS08BROXj7r1dDsdt5IZI+sq2WKkdLxnBzb1/PPyw2bPzftnjLjcFN5UFCN7EjZ78tv8rpxq3nVioD/4q68SCaC6nL5ZI1Kc1XqosksoXeV6MEQOXWq0u4xi57adTdG4ZsxPWuIKjxyjBWDJqhYdr/4Efyvfbty5Xh6rjn4tHczJno2qdEFr5cMYenipQ=
   matrix:
-    - MOLECULE_DISTRO=debian8 JAVA_IMPLEMENTATION=openjdk
-    - MOLECULE_DISTRO=debian8 JAVA_IMPLEMENTATION=oraclejdk
-    - MOLECULE_DISTRO=debian9 JAVA_IMPLEMENTATION=openjdk
-    - MOLECULE_DISTRO=debian9 JAVA_IMPLEMENTATION=oraclejdk
-    - MOLECULE_DISTRO=ubuntu1604 JAVA_IMPLEMENTATION=openjdk
-    - MOLECULE_DISTRO=ubuntu1604 JAVA_IMPLEMENTATION=oraclejdk
-    - MOLECULE_DISTRO=ubuntu1804 JAVA_IMPLEMENTATION=openjdk
-    - MOLECULE_DISTRO=ubuntu1804 JAVA_IMPLEMENTATION=oraclejdk
+    # Debian Jessie
+    - DOCKER_IMAGE_BASE=debian:jessie-slim 
+      JAVA_IMPLEMENTATION=openjdk 
+      DOCKER_TAG_TO_PUBLISH=8-jessie-${JAVA_IMPLEMENTATION}-headless
+
+    - DOCKER_IMAGE_BASE=debian:jessie-slim 
+      JAVA_IMPLEMENTATION=openjdk 
+      JDK_VERSION=8u171-b11-1~bpo8+1 
+      DOCKER_TAG_TO_PUBLISH=8u171-jessie-${JAVA_IMPLEMENTATION}-headless
+
+    - DOCKER_IMAGE_BASE=debian:jessie-slim 
+      JAVA_IMPLEMENTATION=oraclejdk 
+      DOCKER_TAG_TO_PUBLISH=1.8.0-jessie-${JAVA_IMPLEMENTATION}
+
+    - DOCKER_IMAGE_BASE=debian:jessie-slim 
+      JAVA_IMPLEMENTATION=oraclejdk 
+      JDK_VERSION=1.8.0_201
+      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-jessie-${JAVA_IMPLEMENTATION}
+
+    - DOCKER_IMAGE_BASE=debian:jessie-slim 
+      JAVA_IMPLEMENTATION=oraclejdk 
+      JDK_VERSION=1.8.0_202
+      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-jessie-${JAVA_IMPLEMENTATION}
+
+    - DOCKER_IMAGE_BASE=debian:jessie-slim 
+      JAVA_IMPLEMENTATION=oraclejdk 
+      JDK_VERSION=11.0.2
+      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-jessie-${JAVA_IMPLEMENTATION}
+    
+    # Debian Stretch/OpenJDK
+    - DOCKER_IMAGE_BASE=debian:stretch-slim 
+      JAVA_IMPLEMENTATION=openjdk
+      DOCKER_TAG_TO_PUBLISH=8-stretch-${JAVA_IMPLEMENTATION}-headless
+
+    - DOCKER_IMAGE_BASE=debian:stretch-slim 
+      JAVA_IMPLEMENTATION=openjdk
+      JDK_VERSION=8u181-b13-2~deb9u1
+      DOCKER_TAG_TO_PUBLISH=8u181-stretch-${JAVA_IMPLEMENTATION}-headless
+
+    - DOCKER_IMAGE_BASE=debian:stretch-slim 
+      JAVA_IMPLEMENTATION=openjdk 
+      JDK_VERSION=11.0.2+9-3~bpo9+1
+      DOCKER_TAG_TO_PUBLISH=11.0.2-stretch-${JAVA_IMPLEMENTATION}-headless
+
+    # Debian Stretch/OracleJDK
+    - DOCKER_IMAGE_BASE=debian:stretch-slim 
+      JAVA_IMPLEMENTATION=oraclejdk
+      DOCKER_TAG_TO_PUBLISH=1.8.0-stretch-${JAVA_IMPLEMENTATION}
+
+    - DOCKER_IMAGE_BASE=debian:stretch-slim 
+      JAVA_IMPLEMENTATION=oraclejdk
+      JDK_VERSION=1.8.0_201
+      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-stretch-${JAVA_IMPLEMENTATION}
+
+    - DOCKER_IMAGE_BASE=debian:stretch-slim 
+      JAVA_IMPLEMENTATION=oraclejdk
+      JDK_VERSION=1.8.0_202
+      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-stretch-${JAVA_IMPLEMENTATION}
+
+    - DOCKER_IMAGE_BASE=debian:stretch-slim 
+      JAVA_IMPLEMENTATION=oraclejdk 
+      JDK_VERSION=11.0.2
+      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-stretch-${JAVA_IMPLEMENTATION}
+   
+    # Ubuntu Xenial/OpenJDK
+    - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
+      JAVA_IMPLEMENTATION=openjdk
+      DOCKER_TAG_TO_PUBLISH=9-xenial-${JAVA_IMPLEMENTATION}-headless
+      
+    - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
+      JAVA_IMPLEMENTATION=openjdk 
+      JDK_VERSION=8u191-b12-2ubuntu0.16.04.1
+      DOCKER_TAG_TO_PUBLISH=8u191-xenial-${JAVA_IMPLEMENTATION}-headless
+
+    - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
+      JAVA_IMPLEMENTATION=openjdk 
+      JDK_VERSION=9~b114-0ubuntu1
+      DOCKER_TAG_TO_PUBLISH=9b114-xenial-${JAVA_IMPLEMENTATION}-headless
+
+    # Ubuntu Xenial/OracleJDK
+    - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
+      JAVA_IMPLEMENTATION=oraclejdk
+      DOCKER_TAG_TO_PUBLISH=1.8.0-xenial-${JAVA_IMPLEMENTATION}
+
+    - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
+      JAVA_IMPLEMENTATION=oraclejdk
+      JDK_VERSION=1.8.0_201
+      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-xenial-${JAVA_IMPLEMENTATION}
+
+    - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
+      JAVA_IMPLEMENTATION=oraclejdk 
+      JDK_VERSION=1.8.0_202
+      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-xenial-${JAVA_IMPLEMENTATION}
+
+    - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
+      JAVA_IMPLEMENTATION=oraclejdk 
+      JDK_VERSION=11.0.2
+      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-xenial-${JAVA_IMPLEMENTATION}
+
+    # Ubuntu Bionic/OpenJDK
+    - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
+      JAVA_IMPLEMENTATION=openjdk
+      DOCKER_TAG_TO_PUBLISH=11-bionic-${JAVA_IMPLEMENTATION}-headless
+
+    - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
+      JAVA_IMPLEMENTATION=openjdk
+      JDK_VERSION=8u191-b12-2ubuntu0.18.04.1
+      DOCKER_TAG_TO_PUBLISH=8u191-bionic-${JAVA_IMPLEMENTATION}-headless
+
+    - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
+      JAVA_IMPLEMENTATION=openjdk 
+      JDK_VERSION=11.0.1+13-3ubuntu1~18.04~ppa1
+      DOCKER_TAG_TO_PUBLISH=11.0.1-bionic-${JAVA_IMPLEMENTATION}-headless
+
+    # Ubuntu Bionic/OracleJDK
+    - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
+      JAVA_IMPLEMENTATION=oraclejdk
+      DOCKER_TAG_TO_PUBLISH=1.8.0-bionic-${JAVA_IMPLEMENTATION}
+
+    - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
+      JAVA_IMPLEMENTATION=oraclejdk 
+      JDK_VERSION=1.8.0_201
+      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-bionic-${JAVA_IMPLEMENTATION}
+
+    - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
+      JAVA_IMPLEMENTATION=oraclejdk 
+      JDK_VERSION=1.8.0_202
+      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-bionic-${JAVA_IMPLEMENTATION}
+
+    - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
+      JAVA_IMPLEMENTATION=oraclejdk 
+      JDK_VERSION=11.0.2
+      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-bionic-${JAVA_IMPLEMENTATION}
+
 script:
-  - export MOLECULE_DISTRO=${MOLECULE_DISTRO}
   - pipenv run molecule test -s ${JAVA_IMPLEMENTATION}
 
 notifications:
@@ -36,6 +161,6 @@ notifications:
 deploy:
   provider: script
   script: 
-    - packer build -var 'java_implementation=${JAVA_IMPLEMENTATION}' -var-file=packer/varfiles/${MOLECULE_DISTRO}.json packer/template.json
+    - packer build packer/template.json
   on:
     branch: develop
