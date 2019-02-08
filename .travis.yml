@@ -20,140 +20,140 @@ env:
   matrix:
     # Debian Jessie
     - DOCKER_IMAGE_BASE=debian:jessie-slim 
-      JAVA_IMPLEMENTATION=openjdk 
-      DOCKER_TAG_TO_PUBLISH=8-jessie-${JAVA_IMPLEMENTATION}-headless
+      JDK_IMPLEMENTATION=openjdk 
+      DOCKER_TAG_TO_PUBLISH=8-jessie-${JDK_IMPLEMENTATION}-headless
 
     - DOCKER_IMAGE_BASE=debian:jessie-slim 
-      JAVA_IMPLEMENTATION=openjdk 
+      JDK_IMPLEMENTATION=openjdk 
       JDK_VERSION=8u171-b11-1~bpo8+1 
-      DOCKER_TAG_TO_PUBLISH=8u171-jessie-${JAVA_IMPLEMENTATION}-headless
+      DOCKER_TAG_TO_PUBLISH=8u171-jessie-${JDK_IMPLEMENTATION}-headless
 
     - DOCKER_IMAGE_BASE=debian:jessie-slim 
-      JAVA_IMPLEMENTATION=oraclejdk 
-      DOCKER_TAG_TO_PUBLISH=1.8.0-jessie-${JAVA_IMPLEMENTATION}
+      JDK_IMPLEMENTATION=oraclejdk 
+      DOCKER_TAG_TO_PUBLISH=1.8.0-jessie-${JDK_IMPLEMENTATION}
 
     - DOCKER_IMAGE_BASE=debian:jessie-slim 
-      JAVA_IMPLEMENTATION=oraclejdk 
+      JDK_IMPLEMENTATION=oraclejdk 
       JDK_VERSION=1.8.0_201
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-jessie-${JAVA_IMPLEMENTATION}
+      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-jessie-${JDK_IMPLEMENTATION}
 
     - DOCKER_IMAGE_BASE=debian:jessie-slim 
-      JAVA_IMPLEMENTATION=oraclejdk 
+      JDK_IMPLEMENTATION=oraclejdk 
       JDK_VERSION=1.8.0_202
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-jessie-${JAVA_IMPLEMENTATION}
+      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-jessie-${JDK_IMPLEMENTATION}
 
     - DOCKER_IMAGE_BASE=debian:jessie-slim 
-      JAVA_IMPLEMENTATION=oraclejdk 
+      JDK_IMPLEMENTATION=oraclejdk 
       JDK_VERSION=11.0.2
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-jessie-${JAVA_IMPLEMENTATION}
+      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-jessie-${JDK_IMPLEMENTATION}
     
     # Debian Stretch/OpenJDK
     - DOCKER_IMAGE_BASE=debian:stretch-slim 
-      JAVA_IMPLEMENTATION=openjdk
-      DOCKER_TAG_TO_PUBLISH=8-stretch-${JAVA_IMPLEMENTATION}-headless
+      JDK_IMPLEMENTATION=openjdk
+      DOCKER_TAG_TO_PUBLISH=8-stretch-${JDK_IMPLEMENTATION}-headless
 
     - DOCKER_IMAGE_BASE=debian:stretch-slim 
-      JAVA_IMPLEMENTATION=openjdk
+      JDK_IMPLEMENTATION=openjdk
       JDK_VERSION=8u181-b13-2~deb9u1
-      DOCKER_TAG_TO_PUBLISH=8u181-stretch-${JAVA_IMPLEMENTATION}-headless
+      DOCKER_TAG_TO_PUBLISH=8u181-stretch-${JDK_IMPLEMENTATION}-headless
 
     - DOCKER_IMAGE_BASE=debian:stretch-slim 
-      JAVA_IMPLEMENTATION=openjdk 
+      JDK_IMPLEMENTATION=openjdk 
       JDK_VERSION=11.0.2+9-3~bpo9+1
-      DOCKER_TAG_TO_PUBLISH=11.0.2-stretch-${JAVA_IMPLEMENTATION}-headless
+      DOCKER_TAG_TO_PUBLISH=11.0.2-stretch-${JDK_IMPLEMENTATION}-headless
 
     # Debian Stretch/OracleJDK
     - DOCKER_IMAGE_BASE=debian:stretch-slim 
-      JAVA_IMPLEMENTATION=oraclejdk
-      DOCKER_TAG_TO_PUBLISH=1.8.0-stretch-${JAVA_IMPLEMENTATION}
+      JDK_IMPLEMENTATION=oraclejdk
+      DOCKER_TAG_TO_PUBLISH=1.8.0-stretch-${JDK_IMPLEMENTATION}
 
     - DOCKER_IMAGE_BASE=debian:stretch-slim 
-      JAVA_IMPLEMENTATION=oraclejdk
+      JDK_IMPLEMENTATION=oraclejdk
       JDK_VERSION=1.8.0_201
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-stretch-${JAVA_IMPLEMENTATION}
+      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-stretch-${JDK_IMPLEMENTATION}
 
     - DOCKER_IMAGE_BASE=debian:stretch-slim 
-      JAVA_IMPLEMENTATION=oraclejdk
+      JDK_IMPLEMENTATION=oraclejdk
       JDK_VERSION=1.8.0_202
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-stretch-${JAVA_IMPLEMENTATION}
+      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-stretch-${JDK_IMPLEMENTATION}
 
     - DOCKER_IMAGE_BASE=debian:stretch-slim 
-      JAVA_IMPLEMENTATION=oraclejdk 
+      JDK_IMPLEMENTATION=oraclejdk 
       JDK_VERSION=11.0.2
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-stretch-${JAVA_IMPLEMENTATION}
+      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-stretch-${JDK_IMPLEMENTATION}
    
     # Ubuntu Xenial/OpenJDK
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
-      JAVA_IMPLEMENTATION=openjdk
-      DOCKER_TAG_TO_PUBLISH=9-xenial-${JAVA_IMPLEMENTATION}-headless
+      JDK_IMPLEMENTATION=openjdk
+      DOCKER_TAG_TO_PUBLISH=9-xenial-${JDK_IMPLEMENTATION}-headless
       
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
-      JAVA_IMPLEMENTATION=openjdk 
+      JDK_IMPLEMENTATION=openjdk 
       JDK_VERSION=8u191-b12-2ubuntu0.16.04.1
-      DOCKER_TAG_TO_PUBLISH=8u191-xenial-${JAVA_IMPLEMENTATION}-headless
+      DOCKER_TAG_TO_PUBLISH=8u191-xenial-${JDK_IMPLEMENTATION}-headless
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
-      JAVA_IMPLEMENTATION=openjdk 
+      JDK_IMPLEMENTATION=openjdk 
       JDK_VERSION=9~b114-0ubuntu1
-      DOCKER_TAG_TO_PUBLISH=9b114-xenial-${JAVA_IMPLEMENTATION}-headless
+      DOCKER_TAG_TO_PUBLISH=9b114-xenial-${JDK_IMPLEMENTATION}-headless
 
     # Ubuntu Xenial/OracleJDK
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
-      JAVA_IMPLEMENTATION=oraclejdk
-      DOCKER_TAG_TO_PUBLISH=1.8.0-xenial-${JAVA_IMPLEMENTATION}
+      JDK_IMPLEMENTATION=oraclejdk
+      DOCKER_TAG_TO_PUBLISH=1.8.0-xenial-${JDK_IMPLEMENTATION}
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
-      JAVA_IMPLEMENTATION=oraclejdk
+      JDK_IMPLEMENTATION=oraclejdk
       JDK_VERSION=1.8.0_201
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-xenial-${JAVA_IMPLEMENTATION}
+      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-xenial-${JDK_IMPLEMENTATION}
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
-      JAVA_IMPLEMENTATION=oraclejdk 
+      JDK_IMPLEMENTATION=oraclejdk 
       JDK_VERSION=1.8.0_202
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-xenial-${JAVA_IMPLEMENTATION}
+      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-xenial-${JDK_IMPLEMENTATION}
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
-      JAVA_IMPLEMENTATION=oraclejdk 
+      JDK_IMPLEMENTATION=oraclejdk 
       JDK_VERSION=11.0.2
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-xenial-${JAVA_IMPLEMENTATION}
+      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-xenial-${JDK_IMPLEMENTATION}
 
     # Ubuntu Bionic/OpenJDK
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
-      JAVA_IMPLEMENTATION=openjdk
-      DOCKER_TAG_TO_PUBLISH=11-bionic-${JAVA_IMPLEMENTATION}-headless
+      JDK_IMPLEMENTATION=openjdk
+      DOCKER_TAG_TO_PUBLISH=11-bionic-${JDK_IMPLEMENTATION}-headless
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
-      JAVA_IMPLEMENTATION=openjdk
+      JDK_IMPLEMENTATION=openjdk
       JDK_VERSION=8u191-b12-2ubuntu0.18.04.1
-      DOCKER_TAG_TO_PUBLISH=8u191-bionic-${JAVA_IMPLEMENTATION}-headless
+      DOCKER_TAG_TO_PUBLISH=8u191-bionic-${JDK_IMPLEMENTATION}-headless
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
-      JAVA_IMPLEMENTATION=openjdk 
+      JDK_IMPLEMENTATION=openjdk 
       JDK_VERSION=11.0.1+13-3ubuntu1~18.04~ppa1
-      DOCKER_TAG_TO_PUBLISH=11.0.1-bionic-${JAVA_IMPLEMENTATION}-headless
+      DOCKER_TAG_TO_PUBLISH=11.0.1-bionic-${JDK_IMPLEMENTATION}-headless
 
     # Ubuntu Bionic/OracleJDK
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
-      JAVA_IMPLEMENTATION=oraclejdk
-      DOCKER_TAG_TO_PUBLISH=1.8.0-bionic-${JAVA_IMPLEMENTATION}
+      JDK_IMPLEMENTATION=oraclejdk
+      DOCKER_TAG_TO_PUBLISH=1.8.0-bionic-${JDK_IMPLEMENTATION}
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
-      JAVA_IMPLEMENTATION=oraclejdk 
+      JDK_IMPLEMENTATION=oraclejdk 
       JDK_VERSION=1.8.0_201
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-bionic-${JAVA_IMPLEMENTATION}
+      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-bionic-${JDK_IMPLEMENTATION}
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
-      JAVA_IMPLEMENTATION=oraclejdk 
+      JDK_IMPLEMENTATION=oraclejdk 
       JDK_VERSION=1.8.0_202
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-bionic-${JAVA_IMPLEMENTATION}
+      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-bionic-${JDK_IMPLEMENTATION}
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
-      JAVA_IMPLEMENTATION=oraclejdk 
+      JDK_IMPLEMENTATION=oraclejdk 
       JDK_VERSION=11.0.2
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-bionic-${JAVA_IMPLEMENTATION}
+      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-bionic-${JDK_IMPLEMENTATION}
 
 script:
-  - pipenv run molecule test -s ${JAVA_IMPLEMENTATION}
+  - pipenv run molecule test -s ${JDK_IMPLEMENTATION}
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
@@ -163,5 +163,6 @@ deploy:
   script: 
     - packer build packer/template.json
   on:
-    branch: develop
+    branch: master
+    tags: true
     condition: $JDK_VERSION
