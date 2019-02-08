@@ -4,7 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/java_role/tree/develop)
 
-## [3.4.3](https://github.com/idealista/java_role/tree/4.0.0) (2019-02-08)
+## [4.0.0](https://github.com/idealista/java_role/tree/4.0.0) (2019-02-08)
 [Full Changelog](https://github.com/idealista/java_role/compare/3.4.3...4.0.0)
 
 ### Added
