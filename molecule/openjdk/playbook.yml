@@ -3,4 +3,4 @@
 - name: Converge
   hosts: openjdk
   roles:
-    - java-role
+    - java_role

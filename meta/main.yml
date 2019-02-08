@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  role_name: java-role
+  role_name: java_role
   author: idealista
   company: Idealista S.A.U.
   description: Java role, install openJDK/oracleJDK and set system defaults

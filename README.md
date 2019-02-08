@@ -1,11 +1,11 @@
-![Logo](https://raw.githubusercontent.com/idealista/java-role/master/logo.gif)
+![Logo](https://raw.githubusercontent.com/idealista/java_role/master/logo.gif)
 
-[![Build Status](https://travis-ci.org/idealista/java-role.png)](https://travis-ci.org/idealista/java-role)
+[![Build Status](https://travis-ci.org/idealista/java_role.png)](https://travis-ci.org/idealista/java_role)
 [![Docker Hub pulls](https://img.shields.io/docker/pulls/idealista/java-debian-ansible.svg)](https://hub.docker.com/r/idealista/jdk/)
 
 # Java Ansible role
 
-This Ansible Role installs java ([OpenJDK](http://openjdk.java.net/) or [Oracle JDK](http://www.oracle.com/technetwork/java/javase/overview/index.html)) in a [Debian/Ubuntu environment](https://github.com/idealista/java-role/blob/master/meta/main.yml#L7).
+This Ansible Role installs java ([OpenJDK](http://openjdk.java.net/) or [Oracle JDK](http://www.oracle.com/technetwork/java/javase/overview/index.html)) in a [Debian/Ubuntu environment](https://github.com/idealista/java_role/blob/master/meta/main.yml#L7).
 
 - [Getting Started](#getting-started)
 	- [Prerequisities](#prerequisities)
@@ -41,16 +41,16 @@ For testing purposes you will need [Python 2.7+](https://www.python.org/download
 Create or add to your roles dependency file (e.g requirements.yml):
 
 ```yml
-- src: http://github.com/idealista/java-role.git
+- src: http://github.com/idealista/java_role.git
   scm: git
   version: 4.0.0
   name: java
 ```
 
-or using [Ansible Galaxy](https://galaxy.ansible.com/idealista/java-role/) as origin if you prefer:
+or using [Ansible Galaxy](https://galaxy.ansible.com/idealista/java_role/) as origin if you prefer:
 
 ```yml
-- src: idealista.java-role
+- src: idealista.java_role
   version: 4.0.0
   name: java
 ```
@@ -100,7 +100,7 @@ List of versions (tags) can be checked on [Docker Hub](https://cloud.docker.com/
 
 You must choose between `openjdk` or `oraclejdk` implementation overriding `java_implementation` variable:
 
-[defaults/main.yml](https://github.com/idealista/java-role/blob/master/defaults/main.yml)
+[defaults/main.yml](https://github.com/idealista/java_role/blob/master/defaults/main.yml)
 
 #### OpenJDK
 
@@ -126,13 +126,13 @@ A specific OracleJDK version should be selected overriding `java_oracle_jdk_vers
 
 ```sh
 $ pipenv install -r test-requirements.txt --python 2.7
-$ DOCKER_IMAGE_BASE=(debian:jessie-slim|debian:stretch-slim|amd64/ubuntu:xenial|amd64/ubuntu:bionic) JDK_VERSION=(`selected jdk version` see [.travis.yml](.travis.yml) file to check supported versions) pipenv run molecule test -s (openjdk|oraclejdk)
+$ DOCKER_IMAGE_BASE=(debian:jessie-slim|debian:stretch-slim|amd64/ubuntu:xenial|amd64/ubuntu:bionic) JDK_VERSION=(`selected_jdk_version` see [.travis.yml](.travis.yml) file to check supported versions) pipenv run molecule test -s (openjdk|oraclejdk)
 ```
 
 **Note:** debian9 (Debian Stretch) will be used as default linux distro if none is provided. It's mandatory to
 define a scenario (openjdk or oraclejdk must be selected).
 
-See [molecule directory](https://github.com/idealista/java-role/tree/master/molecule) to check possible testing platforms.
+See [molecule directory](https://github.com/idealista/java_role/tree/master/molecule) to check possible testing platforms.
 
 ## Built With
 
@@ -141,7 +141,7 @@ See [molecule directory](https://github.com/idealista/java-role/tree/master/mole
 
 ## Versioning
 
-For the versions available, see the [tags on this repository](https://github.com/idealista/java-role/tags).
+For the versions available, see the [tags on this repository](https://github.com/idealista/java_role/tags).
 
 Additionaly you can see what change in each version in the [CHANGELOG.md](CHANGELOG.md) file.
 
@@ -149,7 +149,7 @@ Additionaly you can see what change in each version in the [CHANGELOG.md](CHANGE
 
 * **Idealista** - *Work with* - [idealista](https://github.com/idealista)
 
-See also the list of [contributors](https://github.com/idealista/java-role/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/idealista/java_role/contributors) who participated in this project.
 
 ## License
 
