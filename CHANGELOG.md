@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/java-role/tree/develop)
 
+## [3.4.3](https://github.com/idealista/java-role/tree/4.0.0) (2019-02-08)
+[Full Changelog](https://github.com/idealista/java-role/compare/3.4.3...4.0.0)
+
 ### Added
 - *[#82](https://github.com/idealista/java-role/issues/82) Adding support to OpenJDK 11 in Debian Stretch* @dortegau
 - Testing all supported platforms in Travis @dortegau

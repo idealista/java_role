@@ -88,7 +88,7 @@ env:
       DOCKER_TAG_TO_PUBLISH=9-xenial-${JDK_IMPLEMENTATION}-headless
       
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
-      JDK_IMPLEMENTATION=openjdk 
+      JDK_IMPLEMENTATION=openjdk
       JDK_VERSION=8u191-b12-2ubuntu0.16.04.1
       DOCKER_TAG_TO_PUBLISH=8u191-xenial-${JDK_IMPLEMENTATION}-headless
 

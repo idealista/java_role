@@ -81,16 +81,17 @@ We publish every role version as a Docker image in Docker Hub: https://hub.docke
 You can pull our images by executing:
 
 ```bash
-docker pull idealista/jdk:${LINUX_DISTRO}-java-${JAVA_IMPLEMENTATION}
+docker pull idealista/jdk:${JDK_VERSION}-${DOCKER_IMAGE_BASE}-(oraclejdk|openjdk)(-headless)?
 ```
 
-`LINUX_DISTRO`: Currently supporting: `debian8`, `debian9`, `ubuntu1604` and `ubuntu1804` 
-`JAVA_IMPLEMENTATION`: `oraclejdk` or `openjdk`
+`JDK_VERSION:` Preferred JDK version.
+`DOCKER_IMAGE`: Currently supporting: `jessie`/`stretch` to select between Debian versions and `xenial`/`bionic` to select between Ubuntu versions 
+`JAVA_IMPLEMENTATION`: `openjdk` or `oraclejdk`. ***Note:*** `-headless`suffix should be added if `openjdk`is selected.
 
 For instance:
 
 ```bash
-docker pull idealista/jdk:debian8-java-openjdk
+docker pull idealista/jdk:8u191-xenial-openjdk-headless
 ```
 
 List of versions (tags) can be checked on [Docker Hub](https://cloud.docker.com/repository/docker/idealista/jdk/tags)
@@ -125,7 +126,7 @@ A specific OracleJDK version should be selected overriding `java_oracle_jdk_vers
 
 ```sh
 $ pipenv install -r test-requirements.txt --python 2.7
-$ LINUX_DISTRO=(debian8|debian9|ubuntu1604|ubuntu1804) pipenv run molecule test -s (openjdk|oraclejdk)
+$ DOCKER_IMAGE_BASE=(debian:jessie-slim|debian:stretch-slim|amd64/ubuntu:xenial|amd64/ubuntu:bionic) JDK_VERSION=(`selected jdk version` see [.travis.yml](.travis.yml) file to check supported versions) pipenv run molecule test -s (openjdk|oraclejdk)
 ```
 
 **Note:** debian9 (Debian Stretch) will be used as default linux distro if none is provided. It's mandatory to
