@@ -9,19 +9,18 @@ lint:
     config-file: .yamllint
 
 platforms:
-  - name: oraclejdk-${MOLECULE_DISTRO:-debian9}
+  - name: oraclejdk
     groups:
       - oraclejdk
-    image: geerlingguy/docker-${MOLECULE_DISTRO:-debian9}-ansible:latest
-    privileged: true
-    capabilities:
-      - SYS_ADMIN
-    volumes:
-      - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
-    command: '/lib/systemd/systemd'
+    image: ${DOCKER_IMAGE_BASE:-debian:jessie-slim}
 
 provisioner:
   name: ansible
+  inventory:
+    group_vars:
+      oraclejdk:
+        java_implementation: oraclejdk
+        java_oracle_jdk_version: ${JDK_VERSION:-1.8.0_201}
   lint:
     name: ansible-lint
 scenario:
@@ -29,4 +28,4 @@ scenario:
 verifier:
   name: goss
   lint:
-    name: flake8
+    name: yamllint

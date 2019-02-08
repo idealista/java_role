@@ -2,8 +2,5 @@
 
 - name: Converge
   hosts: openjdk
-  pre_tasks:
-    - name: Molecule | Include OS specific vars
-      include_vars: "./vars/{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml"
   roles:
-    - java-role
+    - java_role

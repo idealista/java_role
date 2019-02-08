@@ -1,0 +1,65 @@
+{
+    "variables": {
+      "ansible_host": "default",
+      "ansible_connection": "docker",
+      "docker_image_base": "{{env `DOCKER_IMAGE_BASE`}}",
+      "docker_username": "{{env `DOCKER_USERNAME`}}",
+      "docker_password": "{{env `DOCKER_PASSWORD`}}",
+      "docker_tag_to_publish": "{{env `DOCKER_TAG_TO_PUBLISH`}}",
+      "jdk_implementation": "{{ env `JDK_IMPLEMENTATION` }}",
+      "jdk_version": "{{env `JDK_VERSION`}}"
+    },
+    "builders": [
+      {
+        "type": "docker",
+        "image": "{{user `docker_image_base`}}",
+        "commit": "true",
+        "run_command": [
+          "-d",
+          "-i",
+          "-t",
+          "--name",
+          "{{user `ansible_host`}}",
+          "{{.Image}}",
+          "/bin/bash"
+        ],
+        "changes" : [
+          "LABEL maintainer=\"idealista <labs@idealista.com>\""
+        ]
+      }
+    ],
+    "provisioners": [
+      {
+        "type": "shell",
+        "inline": [
+          "apt-get update",
+          "apt-get install python ca-certificates -yq",
+          "mkdir -p /usr/share/man/man1"
+        ]
+      },
+      {
+        "type": "ansible",
+        "user": "root",
+        "playbook_file": "{{ template_dir }}/playbook.yml",
+        "extra_arguments": [
+          "--extra-vars",
+          "ansible_host={{user `ansible_host`}} ansible_connection={{user `ansible_connection`}} java_implementation={{user `jdk_implementation`}} java_oracle_jdk_version={{user `jdk_version`}} java_open_jdk_version={{user `jdk_version`}}"
+        ]
+      }
+    ],
+    "post-processors": [
+      [
+        {
+          "type": "docker-tag",
+          "repository": "idealista/jdk",
+          "tag": "{{user `docker_tag_to_publish`}}"
+        },
+        {
+          "type": "docker-push",
+          "login": true,
+          "login_username": "{{user `docker_username`}}",
+          "login_password": "{{user `docker_password`}}"
+        }
+      ]
+    ]
+  }
