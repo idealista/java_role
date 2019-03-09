@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/java_role/tree/develop)
+### Changed
+- *[#88](https://github.com/idealista/java_role/issues/88) Reducing Docker image size cleaning APT cache after package installation* @dortegau
 
 ## [3.4.3](https://github.com/idealista/java_role/tree/4.0.0) (2019-02-08)
 [Full Changelog](https://github.com/idealista/java_role/compare/3.4.3...4.0.0)
