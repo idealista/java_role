@@ -5,3 +5,6 @@
   roles:
     - role: ../..
       name: java
+  vars:
+    - ansible_host: default
+    - ansible_connection: docker
