@@ -1,7 +1,7 @@
 ![Logo](https://raw.githubusercontent.com/idealista/java_role/master/logo.gif)
 
 [![Build Status](https://travis-ci.org/idealista/java_role.png)](https://travis-ci.org/idealista/java_role)
-[![Docker Hub pulls](https://img.shields.io/docker/pulls/idealista/java-debian-ansible.svg)](https://hub.docker.com/r/idealista/jdk/)
+[![Docker Hub pulls](https://img.shields.io/docker/pulls/idealista/jdk.svg)](https://hub.docker.com/r/idealista/jdk/)
 
 # Java Ansible role
 
