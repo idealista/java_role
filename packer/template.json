@@ -1,5 +1,7 @@
 {
     "variables": {
+      "ansible_host": "default",	
+      "ansible_connection": "docker",
       "docker_image_base": "{{env `DOCKER_IMAGE_BASE`}}",
       "docker_username": "{{env `DOCKER_USERNAME`}}",
       "docker_password": "{{env `DOCKER_PASSWORD`}}",
@@ -18,7 +20,8 @@
           "-t",
           "--name",
           "{{user `ansible_host`}}",
-          "{{.Image}}"
+          "{{.Image}}",
+          "/bin/bash"
         ],
         "changes" : [
           "LABEL maintainer=\"idealista <labs@idealista.com>\""
@@ -42,7 +45,7 @@
         "playbook_file": "{{ template_dir }}/playbook.yml",
         "extra_arguments": [
           "--extra-vars",
-          "java_implementation={{user `jdk_implementation`}} java_oracle_jdk_version={{user `jdk_version`}} java_open_jdk_version={{user `jdk_version`}}"
+          "ansible_host={{user `ansible_host`}} ansible_connection={{user `ansible_connection`}} java_implementation={{user `jdk_implementation`}} java_oracle_jdk_version={{user `jdk_version`}} java_open_jdk_version={{user `jdk_version`}}"
         ]
       }
     ],
