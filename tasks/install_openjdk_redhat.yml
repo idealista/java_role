@@ -1,0 +1,59 @@
+---
+
+- name: Java | Gather OS specific variables
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml"
+
+# Using pattern described in Ansible Best Practices and Conventions (Appendix B), Ansible for Devops (p. 406)
+# Allowing to 'override' variables that are defined using include_vars
+- name: Java | Setting OS specific variables
+  set_fact:
+    java_open_jdk_version: "{{ java_open_jdk_version if java_open_jdk_version is defined and java_open_jdk_version is not sameas None and java_open_jdk_version|length else __java_open_jdk_version }}"
+    java_required_repositories_openjdk: "{{ java_required_repositories_openjdk if java_required_repositories_openjdk is defined and java_required_repositories_openjdk is not sameas None and java_required_repositories_openjdk|length else __java_required_repositories_openjdk }}"
+    java_required_libs_openjdk: "{{ java_required_libs_openjdk if java_required_libs_openjdk is defined and java_required_libs_openjdk is not sameas None and java_required_libs_openjdk|length else __java_required_libs_openjdk }}"
+
+- name: Java | Setting OS specific variables
+  set_fact:
+    java_home: "{{ java_open_jdk_home }}"
+
+- name: Java | Install required libs
+  yum:
+    name: "{{ java_required_libs_openjdk }}"
+    state: present
+    update_cache: true
+  until: java_required_libs_installed is succeeded
+  register: java_required_libs_installed
+
+- name: Java | Install Java
+  yum:
+    name: "{{ java_open_jdk_package }}-{{ java_open_jdk_version }}"
+    state: present
+    update_cache: true
+  until: java_package_installed is succeeded
+  register: java_package_installed
+
+- name: Java | Update Env
+  alternatives:
+    name: java
+    path: "{{ java_open_jdk_home }}/bin/java"
+
+- name: Java | Ensure Defaults on etc/alternatives systems
+  file:
+    src: "{{ java_open_jdk_home }}"
+    dest: "{{ java_open_jdk_default_java_home }}"
+    force: true
+    state: link
+
+- name: Java | Export environment variables
+  template:
+    src: jdk.sh.j2
+    dest: /etc/profile.d/jdk.sh
+
+- name: Java | Source environment variables
+  shell: source /etc/profile
+  args:
+    executable: /bin/bash
+  changed_when: false
+  tags:
+    skip_ansible_lint
