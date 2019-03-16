@@ -1,10 +1,10 @@
 ---
 
 # OpenJDK implementation
-java_open_jdk_package: java-11-openjdk-headless
+java_open_jdk_package: java-11-openjdk
 # java_open_jdk_version: "11.0.2.7"
 java_open_jdk_version_major: "{{ java_open_jdk_version | regex_search('^([0-9]{1,2})') }}"
-java_open_jdk_home_dir: java-{{ java_open_jdk_version_major }}-openjdk-{{ java_open_jdk_version }}.el7_6.x86_64
+java_open_jdk_home_dir: java-{{ java_open_jdk_version_major }}-openjdk-{{ java_open_jdk_version }}-0.el7_6.x86_64
 # java-11-openjdk-11.0.2.7-0.el7_6.x86_64
 java_open_jdk_home: /usr/lib/jvm/{{ java_open_jdk_home_dir }}
 java_open_jdk_default_java_home: /usr/lib/jvm/default-java

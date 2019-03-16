@@ -1,7 +1,7 @@
 ---
 
 - name: Java | Install OpenJDK implementation, Debian
-  import_tasks: install_openjdk_debian.yml
+  include_tasks: install_openjdk_debian.yml
   when:
     - java_implementation == 'openjdk'
     - ansible_os_family == 'Debian'
@@ -9,7 +9,7 @@
     - install
 
 - name: Java | Install OpenJDK implementation, Redhat
-  import_tasks: install_openjdk_redhat.yml
+  include_tasks: install_openjdk_redhat.yml
   when:
     - java_implementation == 'openjdk'
     - ansible_os_family == 'RedHat'
@@ -17,7 +17,7 @@
     - install
 
 - name: Java | Install OracleJDK implementation using distributed binaries
-  import_tasks: install_oraclejdk.yml
+  include_tasks: install_oraclejdk.yml
   when: java_implementation == 'oraclejdk'
   tags:
     - install
