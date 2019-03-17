@@ -15,3 +15,6 @@ galaxy_info:
       versions:
         - xenial
         - bionic
+    - name: EL
+      versions:
+        - 7
