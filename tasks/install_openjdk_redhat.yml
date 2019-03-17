@@ -3,7 +3,7 @@
 - name: Java | Gather OS specific variables, Redhat
   include_vars: "{{ item }}"
   with_first_found:
-    - "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+    - "{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml"
 
 # Using pattern described in Ansible Best Practices and Conventions (Appendix B), Ansible for Devops (p. 406)
 # Allowing to 'override' variables that are defined using include_vars
