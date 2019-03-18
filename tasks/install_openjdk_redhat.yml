@@ -17,8 +17,6 @@
   set_fact:
     java_home: "{{ java_open_jdk_home }}"
 
-
-
 - name: Java | Install required libs
   yum:
     name: "{{ java_required_libs_openjdk }}"
@@ -34,9 +32,6 @@
     update_cache: true
   until: java_package_installed is succeeded
   register: java_package_installed
-
-
-
 
 - name: Java | Update Env
   alternatives:
