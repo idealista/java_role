@@ -8,5 +8,5 @@ fi
 
 if [ -x "$(command -v yum)" ]; then
 	yum update -y
-	yum install -y curl wget git initscripts
+	yum install -y initscripts
 fi

@@ -20,8 +20,14 @@ env:
   matrix:
     # Centos 7/OpenJDK
     - DOCKER_IMAGE_BASE=centos:7 
-      JDK_IMPLEMENTATION=openjdk
+      JDK_IMPLEMENTATION=oraclejdk
+      JDK_VERSION=11.0.2
       DOCKER_TAG_TO_PUBLISH=11-centos-${JDK_IMPLEMENTATION}
+
+    - DOCKER_IMAGE_BASE=centos:7 
+      JDK_IMPLEMENTATION=openjdk
+      JDK_VERSION=11.0.2.7
+      DOCKER_TAG_TO_PUBLISH=11-centos-${JDK_IMPLEMENTATION}-headless
 
     # Debian Jessie
     - DOCKER_IMAGE_BASE=debian:jessie-slim 

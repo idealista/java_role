@@ -4,6 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/java_role/tree/develop)
 ### Fixed
+- *[#92](https://github.com/idealista/java_role/issues/92) Added CentOS support @apolloclark
 - *[#86](https://github.com/idealista/java_role/issues/86) Fixing Docker Hub image badge url* @dortegau
 
 ## [4.0.0](https://github.com/idealista/java_role/tree/4.0.0) (2019-02-08)
