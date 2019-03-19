@@ -31,24 +31,22 @@
   until: java_required_libs_installed is succeeded
   register: java_required_libs_installed
 
-- name: Java | Install Java, Debian
-  apt:
-    name: "{{ java_open_jdk_package }}={{ java_open_jdk_version }}"
-    state: present
-    cache_valid_time: 3600
-    update_cache: true
-  until: java_package_installed is succeeded
-  register: java_package_installed
+- name: Java | Setting Java Package Name, Debian
+  set_fact:
+    java_open_jdk_package_name: "{{ java_open_jdk_package }}={{ java_open_jdk_version }}"
   when: ansible_os_family == 'Debian'
 
-- name: Java | Install Java, Redhat
-  yum:
-    name: "{{ java_open_jdk_package }}-{{ java_open_jdk_version }}"
+- name: Java | Setting Java Package Name, RedHat
+  set_fact:
+    java_open_jdk_package_name: "{{ java_open_jdk_package }}-{{ java_open_jdk_version }}"
+  when: ansible_os_family == 'RedHat'
+
+- name: Java | Install Java, Debian
+  package:
+    name: "{{ java_open_jdk_package_name }}"
     state: present
-    update_cache: true
   until: java_package_installed is succeeded
   register: java_package_installed
-  when: ansible_os_family == 'RedHat'
 
 - name: Java | Update Env
   alternatives:
