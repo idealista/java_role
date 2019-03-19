@@ -165,7 +165,7 @@ env:
       DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-xenial-${JDK_IMPLEMENTATION}
 
 script:
-  - pipenv run molecule test -s ${JDK_IMPLEMENTATION}
+  - travis_wait 15 pipenv run molecule test -s ${JDK_IMPLEMENTATION}
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
