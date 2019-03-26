@@ -5,7 +5,7 @@
 
 # Java Ansible role
 
-This Ansible Role installs java ([OpenJDK](http://openjdk.java.net/) or [Oracle JDK](http://www.oracle.com/technetwork/java/javase/overview/index.html)) in a [Debian/Ubuntu environment](https://github.com/idealista/java_role/blob/master/meta/main.yml#L7).
+This Ansible Role installs java ([OpenJDK](http://openjdk.java.net/) or [Oracle JDK](http://www.oracle.com/technetwork/java/javase/overview/index.html)) in a [Debian/Ubuntu or CentOS environment](https://github.com/idealista/java_role/blob/master/meta/main.yml#L7).
 
 - [Getting Started](#getting-started)
 	- [Prerequisities](#prerequisities)
@@ -32,7 +32,7 @@ Once launched, it will install Java using APT Packages (default) or downloading 
 To use this role as dependency in your playbook, prerequisites below:
 
 Ansible 2.4.5.0 version installed.
-Inventory destination should be a Debian/Ubuntu environment.
+Inventory destination should be a Debian/Ubuntu or CentOS environment.
 
 For testing purposes you will need [Python 2.7+](https://www.python.org/download/releases/2.7/) and [Pipenv](https://github.com/pypa/pipenv)
 
@@ -55,7 +55,7 @@ or using [Ansible Galaxy](https://galaxy.ansible.com/idealista/java_role/) as or
   name: java
 ```
 
-Alternatively you could find tagged Docker images for Debian Jessie, Stretch, Ubuntu Xenial and Ubuntu Bionic in [Docker Hub](https://hub.docker.com/r/idealista/jdk/).
+Alternatively you could find tagged Docker images for Debian Jessie, Debian Stretch, Ubuntu Xenial, Ubuntu Bionic, and CentOS 7 in [Docker Hub](https://hub.docker.com/r/idealista/jdk/).
 
 Install the role with ansible-galaxy command:
 
@@ -85,7 +85,7 @@ docker pull idealista/jdk:${JDK_VERSION}-${DOCKER_IMAGE_BASE}-(oraclejdk|openjdk
 ```
 
 `JDK_VERSION:` Preferred JDK version.
-`DOCKER_IMAGE`: Currently supporting: `jessie`/`stretch` to select between Debian versions and `xenial`/`bionic` to select between Ubuntu versions 
+`DOCKER_IMAGE`: Currently supporting: `jessie`/`stretch` to select between Debian versions, `xenial`/`bionic` to select between Ubuntu versions, and `7` to select a CentOS version 
 `JAVA_IMPLEMENTATION`: `openjdk` or `oraclejdk`. ***Note:*** `-headless`suffix should be added if `openjdk`is selected.
 
 For instance:
@@ -115,6 +115,7 @@ Ubuntu Xenial | `8u191-b12-2ubuntu0.16.04.1`
 Ubuntu Xenial | `9~b114-0ubuntu1` (default)
 Ubuntu Bionic | `8u191-b12-0ubuntu0.18.04.1`
 Ubuntu Bionic | `11.0.1+13-3ubuntu1~18.04~ppa1` (default)
+CentOS 7 | `11.0.2.7` (default)
 
 #### OracleJDK
 
@@ -126,7 +127,7 @@ A specific OracleJDK version should be selected overriding `java_oracle_jdk_vers
 
 ```sh
 $ pipenv install -r test-requirements.txt --python 2.7
-$ DOCKER_IMAGE_BASE=(debian:jessie-slim|debian:stretch-slim|amd64/ubuntu:xenial|amd64/ubuntu:bionic) JDK_VERSION=(`selected_jdk_version` see [.travis.yml](.travis.yml) file to check supported versions) pipenv run molecule test -s (openjdk|oraclejdk)
+$ DOCKER_IMAGE_BASE=(debian:jessie-slim|debian:stretch-slim|amd64/ubuntu:xenial|amd64/ubuntu:bionic|centos:7) JDK_VERSION=(`selected_jdk_version` see [.travis.yml](.travis.yml) file to check supported versions) pipenv run molecule test -s (openjdk|oraclejdk)
 ```
 
 **Note:** debian9 (Debian Stretch) will be used as default linux distro if none is provided. It's mandatory to
