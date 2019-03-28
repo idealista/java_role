@@ -27,6 +27,8 @@ Once launched, it will install Java using APT Packages (default) or downloading 
 **DISCLAIMER:** Usage of any version of Oracle JDK in this role implies you have accepted the
 [Oracle Binary Code License Agreement for Java SE](http://www.oracle.com/technetwork/java/javase/terms/license/index.html).
 
+**DISCLAIMER:** Because a [issue in Debian Jessie/backport repositories](https://www.lucas-nussbaum.net/blog/?p=947) we decided to follow the workaround of adding **Acquire::Check-Valid-Until no** to Debian Jessie configuration while the issue is not solved, with concerns about security it implies. The other option was removing Debian 8 support. Proceed with caution. 
+
 ### Prerequisities
 
 To use this role as dependency in your playbook, prerequisites below:
