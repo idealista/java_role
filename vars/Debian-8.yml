@@ -4,7 +4,7 @@
 __java_open_jdk_version: "8u171-b11-1~bpo8+1"
 
 __java_required_repositories_openjdk:
-  - deb http://ftp.debian.org/debian jessie-backports main
+  - deb http://archive.debian.org/debian jessie-backports main
 
 __java_required_libs_openjdk:
   - ca-certificates-java=20161107~bpo8+1

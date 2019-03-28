@@ -1,7 +1,7 @@
 ---
 
 # Using pattern described in Ansible Best Practices and Conventions (Appendix B), Ansible for Devops (p. 406)
-__java_open_jdk_version: "8u181-b13-2~deb9u1"
+__java_open_jdk_version: "8u212-b01-1~deb9u1"
 
 __java_required_repositories_openjdk:
   - deb http://ftp.debian.org/debian stretch-backports main
