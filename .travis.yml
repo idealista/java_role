@@ -101,7 +101,7 @@ env:
 
     - DOCKER_IMAGE_BASE=debian:stretch-slim 
       JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=8u181-b13-2~deb9u1
+      JDK_VERSION=8u212-b01-1~deb9u1
       DOCKER_TAG_TO_PUBLISH=8u181-stretch-${JDK_IMPLEMENTATION}-headless
 
     - DOCKER_IMAGE_BASE=debian:stretch-slim 
@@ -165,7 +165,7 @@ env:
       DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-xenial-${JDK_IMPLEMENTATION}
 
 script:
-  - travis_wait 15 pipenv run molecule test -s ${JDK_IMPLEMENTATION}
+  - pipenv run molecule test -s ${JDK_IMPLEMENTATION}
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
