@@ -45,7 +45,7 @@ Create or add to your roles dependency file (e.g requirements.yml):
 ```yml
 - src: http://github.com/idealista/java_role.git
   scm: git
-  version: 4.0.0
+  version: 4.1.0
   name: java
 ```
 
@@ -53,11 +53,11 @@ or using [Ansible Galaxy](https://galaxy.ansible.com/idealista/java_role/) as or
 
 ```yml
 - src: idealista.java_role
-  version: 4.0.0
+  version: 4.1.0
   name: java
 ```
 
-Alternatively you could find tagged Docker images for Debian Jessie, Debian Stretch, Ubuntu Xenial, Ubuntu Bionic, and CentOS 7 in [Docker Hub](https://hub.docker.com/r/idealista/jdk/).
+Alternatively you could find tagged Docker images for Debian Jessie, Debian Stretch, Ubuntu Xenial, Ubuntu Bionic and CentOS 7 in [Docker Hub](https://hub.docker.com/r/idealista/jdk/).
 
 Install the role with ansible-galaxy command:
 
@@ -83,12 +83,12 @@ We publish every role version as a Docker image in Docker Hub: https://hub.docke
 You can pull our images by executing:
 
 ```bash
-docker pull idealista/jdk:${JDK_VERSION}-${DOCKER_IMAGE_BASE}-(oraclejdk|openjdk)(-headless)?
+docker pull idealista/jdk:${JDK_VERSION}-${DOCKER_IMAGE_BASE}-(oraclejdk|openjdk-headless)
 ```
 
 `JDK_VERSION:` Preferred JDK version.
 `DOCKER_IMAGE`: Currently supporting: `jessie`/`stretch` to select between Debian versions, `xenial`/`bionic` to select between Ubuntu versions, and `7` to select a CentOS version 
-`JAVA_IMPLEMENTATION`: `openjdk` or `oraclejdk`. ***Note:*** `-headless`suffix should be added if `openjdk`is selected.
+`JAVA_IMPLEMENTATION`: `openjdk-headless` or `oraclejdk`. 
 
 For instance:
 
@@ -111,7 +111,7 @@ A specific OpenJDK version should be selected overriding `java_open_jdk_version`
 Operative System | OpenJDK version
 --- | ---
 Debian Jessie | `8u171-b11-1~bpo8+1` (default)
-Debian Stretch | `8u181-b13-2~deb9u1` (default)
+Debian Stretch | `8u212-b01-1~deb9u1` (default)
 Debian Stretch | `11.0.2+9-3~bpo9+1`
 Ubuntu Xenial | `8u191-b12-2ubuntu0.16.04.1`
 Ubuntu Xenial | `9~b114-0ubuntu1` (default)
