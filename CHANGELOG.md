@@ -2,6 +2,15 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
+## [4.1.0](https://github.com/idealista/java_role/tree/4.1.0) (2019-02-01)
+[Full Changelog](https://github.com/idealista/java_role/compare/4.0.0...4.1.0)
+
+### Added
+- *[#92](https://github.com/idealista/java_role/issues/92) Added CentOS support @apolloclark
+### Fixed
+- *[#94](https://github.com/idealista/java_role/issues/94) Fix Debian 9 OpenJDK package version and Debian 8 repositories problem* @jnogol
+- *[#86](https://github.com/idealista/java_role/issues/86) Fixing Docker Hub image badge url* @dortegau
+
 ## [Unreleased](https://github.com/idealista/java_role/tree/develop)
 
 ## [4.0.0](https://github.com/idealista/java_role/tree/4.0.0) (2019-02-08)

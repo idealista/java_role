@@ -25,7 +25,7 @@
   vars_files:
     - ../../defaults/main.yml
     - ../../vars/main.yml
-    - ../../vars/{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml
+    - ../../vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml
 
   tasks:
     # Using pattern described in Ansible Best Practices and Conventions (Appendix B), Ansible for Devops (p. 406)

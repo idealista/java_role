@@ -31,10 +31,8 @@
     "provisioners": [
       {
         "type": "shell",
-        "inline": [
-          "apt-get update",
-          "apt-get install python ca-certificates -yq",
-          "mkdir -p /usr/share/man/man1"
+        "scripts": [
+          "install_basics.sh"
         ]
       },
       {
