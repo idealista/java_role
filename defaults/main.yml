@@ -14,3 +14,8 @@ java_open_jdk_package: openjdk-{{ java_open_jdk_version_major }}-jdk-headless
 java_open_jdk_home_dir: java-{{ java_open_jdk_version_major }}-openjdk-amd64
 java_open_jdk_home: /usr/lib/jvm/{{ java_open_jdk_home_dir }}
 java_open_jdk_default_java_home: /usr/lib/jvm/default-java
+java_open_jdk_required_paths:
+  - path: /usr/share/man/man1
+    owner: root
+    group: root
+    mode: "0755"

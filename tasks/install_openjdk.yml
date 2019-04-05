@@ -1,5 +1,14 @@
 ---
 
+- name: Java | Ensure required paths are present
+  file:
+    path: "{{ item.path }}"
+    owner: "{{ item.owner }}"
+    group: "{{ item.group }}"
+    mode: "{{ item.mode }}"
+    state: directory
+  with_items: "{{ java_open_jdk_required_paths }}"
+
 - name: Java | Gather OS specific variables
   include_vars: "{{ item }}"
   with_first_found:
