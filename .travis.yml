@@ -175,6 +175,6 @@ deploy:
   script: 
     - packer build packer/template.json
   on:
-    # branch: master
+    branch: bugs/99
     # tags: true
     condition: $DOCKER_IMAGE_BASE=debian:stretch-slim
