@@ -32,7 +32,7 @@
       {
         "type": "shell",
         "scripts": [
-          "install_basics.sh"
+          "{{ template_dir }}/install_basics.sh"
         ]
       },
       {
