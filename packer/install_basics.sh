@@ -1,5 +1,7 @@
 #!/bin/bash -eux
 
+mkdir -p /usr/share/man/man1
+
 if [ -x "$(command -v apt-get)" ]; then
     apt-get update
     apt-get upgrade -y
