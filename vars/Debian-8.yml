@@ -1,6 +1,7 @@
 ---
 
 # Using pattern described in Ansible Best Practices and Conventions (Appendix B), Ansible for Devops (p. 406)
+# https://packages.debian.org/jessie-backports/openjdk-8-jdk-headless
 __java_open_jdk_version: "8u171-b11-1~bpo8+1"
 
 __java_required_repositories_openjdk:

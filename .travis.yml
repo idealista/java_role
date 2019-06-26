@@ -19,6 +19,7 @@ env:
     - secure: Z7X7zVWFJ8m6Pp863WblJXg2pEt/GBZTKGMIxYL9UK0TFvgrcr2XQhjhvYTEZiK30f57ah5dBEDoMDqZDh+FDGggm9cn39KAVGtyFpsgnDSWJqaOWjBlqrHE+nqssVwKBo/JMgRgB3DsqybvaAvQNrVFccRULsU2uLRJx08hZ+618HiLAdweezepqKWopRvonZol0CvZAp0NDOEBExemamUna+reBtcL+HV4vNM8psY/ntfyOQEMhwITpmzidEWQjjZAh9Cu1GfFTVGeWGJofx5gje87ccRVhyZmJAJz1eqcTtPJH+e6pZM0h3+Z3EFS7/mV3N+2byuJcTxmwoZbHinpWbFkL9klGCsV3rKdaL0iQNxhDAs9Y9LVlEJsJDFQtqBPmg4TFBtRXIEDIT4FAjmwDkmsMe2A2lZiS4tYwAszTPbe1UV9pZ/ivYpzoF+kMvDPIgDoCcsP7iG3Sw9klQr+l6FY2CrQ+HrWaN64SgTLrfiS08BROXj7r1dDsdt5IZI+sq2WKkdLxnBzb1/PPyw2bPzftnjLjcFN5UFCN7EjZ78tv8rpxq3nVioD/4q68SCaC6nL5ZI1Kc1XqosksoXeV6MEQOXWq0u4xi57adTdG4ZsxPWuIKjxyjBWDJqhYdr/4Efyvfbty5Xh6rjn4tHczJno2qdEFr5cMYenipQ=
   matrix:
     # Debian Jessie/OpenJDK
+    # https://packages.debian.org/jessie-backports/openjdk-8-jdk-headless
     - DOCKER_IMAGE_BASE=debian:jessie-slim
       JDK_IMPLEMENTATION=openjdk
       DOCKER_TAG_TO_PUBLISH=8-jessie-${JDK_IMPLEMENTATION}-headless
@@ -29,18 +30,20 @@ env:
       DOCKER_TAG_TO_PUBLISH=8u171-jessie-${JDK_IMPLEMENTATION}-headless
 
     # Debian Stretch/OpenJDK
+    # https://packages.debian.org/stretch-backports/openjdk-11-jdk-headless
+    # https://packages.debian.org/stretch/openjdk-8-jdk-headless
     - DOCKER_IMAGE_BASE=debian:stretch-slim
       JDK_IMPLEMENTATION=openjdk
       DOCKER_TAG_TO_PUBLISH=8-stretch-${JDK_IMPLEMENTATION}-headless
 
     - DOCKER_IMAGE_BASE=debian:stretch-slim
       JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=8u181-b13-2~deb9u1
+      JDK_VERSION=8u212-b03-2~deb9u1
       DOCKER_TAG_TO_PUBLISH=8u181-stretch-${JDK_IMPLEMENTATION}-headless
 
     - DOCKER_IMAGE_BASE=debian:stretch-slim
       JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=11.0.2+9-3~bpo9+1
+      JDK_VERSION=11.0.3+1-1~bpo9+2
       DOCKER_TAG_TO_PUBLISH=11.0.2-stretch-${JDK_IMPLEMENTATION}-headless
 
     # Ubuntu Xenial/OpenJDK
@@ -76,6 +79,16 @@ env:
       JDK_IMPLEMENTATION=openjdk
       JDK_VERSION=11.0.3+7-1ubuntu2~18.04.1
       DOCKER_TAG_TO_PUBLISH=11.0.1-bionic-${JDK_IMPLEMENTATION}-headless
+
+    # CentOS 7/OpenJDK
+    - DOCKER_IMAGE_BASE=amd64/centos:7.6.1810
+      JDK_IMPLEMENTATION=openjdk
+      DOCKER_TAG_TO_PUBLISH=11-centos7-${JDK_IMPLEMENTATION}-headless
+
+    - DOCKER_IMAGE_BASE=amd64/centos:7.6.1810
+      JDK_IMPLEMENTATION=openjdk
+      JDK_VERSION=11.0.2.7
+      DOCKER_TAG_TO_PUBLISH=11.0.2.7-centos7-${JDK_IMPLEMENTATION}-headless
 
 
 
