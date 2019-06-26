@@ -44,7 +44,7 @@ env:
       DOCKER_TAG_TO_PUBLISH=11.0.2-stretch-${JDK_IMPLEMENTATION}-headless
 
     # Ubuntu Xenial/OpenJDK
-    # https://packages.ubuntu.com/xenial/openjdk-8-jdk
+    # https://packages.ubuntu.com/xenial/openjdk-8-jdk 
     # https://packages.ubuntu.com/xenial/openjdk-9-jdk
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial
       JDK_IMPLEMENTATION=openjdk
