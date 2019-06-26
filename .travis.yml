@@ -39,12 +39,12 @@ env:
     - DOCKER_IMAGE_BASE=debian:stretch-slim
       JDK_IMPLEMENTATION=openjdk
       JDK_VERSION=8u212-b03-2~deb9u1
-      DOCKER_TAG_TO_PUBLISH=8u181-stretch-${JDK_IMPLEMENTATION}-headless
+      DOCKER_TAG_TO_PUBLISH=8u212-stretch-${JDK_IMPLEMENTATION}-headless
 
     - DOCKER_IMAGE_BASE=debian:stretch-slim
       JDK_IMPLEMENTATION=openjdk
       JDK_VERSION=11.0.3+1-1~bpo9+2
-      DOCKER_TAG_TO_PUBLISH=11.0.2-stretch-${JDK_IMPLEMENTATION}-headless
+      DOCKER_TAG_TO_PUBLISH=11.0.3-stretch-${JDK_IMPLEMENTATION}-headless
 
     # Ubuntu Xenial/OpenJDK
     # https://packages.ubuntu.com/xenial/openjdk-8-jdk
@@ -78,7 +78,7 @@ env:
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic
       JDK_IMPLEMENTATION=openjdk
       JDK_VERSION=11.0.3+7-1ubuntu2~18.04.1
-      DOCKER_TAG_TO_PUBLISH=11.0.1-bionic-${JDK_IMPLEMENTATION}-headless
+      DOCKER_TAG_TO_PUBLISH=11.0.3-bionic-${JDK_IMPLEMENTATION}-headless
 
     # CentOS 7/OpenJDK
     - DOCKER_IMAGE_BASE=amd64/centos:7.6.1810
@@ -89,88 +89,6 @@ env:
       JDK_IMPLEMENTATION=openjdk
       JDK_VERSION=11.0.2.7
       DOCKER_TAG_TO_PUBLISH=11.0.2.7-centos7-${JDK_IMPLEMENTATION}-headless
-
-
-
-    # Debian Jessie/OracleJDK
-    - DOCKER_IMAGE_BASE=debian:jessie-slim
-      JDK_IMPLEMENTATION=oraclejdk
-      DOCKER_TAG_TO_PUBLISH=1.8.0-jessie-${JDK_IMPLEMENTATION}
-
-    - DOCKER_IMAGE_BASE=debian:jessie-slim
-      JDK_IMPLEMENTATION=oraclejdk
-      JDK_VERSION=1.8.0_201
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-jessie-${JDK_IMPLEMENTATION}
-
-    - DOCKER_IMAGE_BASE=debian:jessie-slim
-      JDK_IMPLEMENTATION=oraclejdk
-      JDK_VERSION=1.8.0_202
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-jessie-${JDK_IMPLEMENTATION}
-
-    - DOCKER_IMAGE_BASE=debian:jessie-slim
-      JDK_IMPLEMENTATION=oraclejdk
-      JDK_VERSION=11.0.2
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-jessie-${JDK_IMPLEMENTATION}
-
-    # Debian Stretch/OracleJDK
-    - DOCKER_IMAGE_BASE=debian:stretch-slim
-      JDK_IMPLEMENTATION=oraclejdk
-      DOCKER_TAG_TO_PUBLISH=1.8.0-stretch-${JDK_IMPLEMENTATION}
-
-    - DOCKER_IMAGE_BASE=debian:stretch-slim
-      JDK_IMPLEMENTATION=oraclejdk
-      JDK_VERSION=1.8.0_201
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-stretch-${JDK_IMPLEMENTATION}
-
-    - DOCKER_IMAGE_BASE=debian:stretch-slim
-      JDK_IMPLEMENTATION=oraclejdk
-      JDK_VERSION=1.8.0_202
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-stretch-${JDK_IMPLEMENTATION}
-
-    - DOCKER_IMAGE_BASE=debian:stretch-slim
-      JDK_IMPLEMENTATION=oraclejdk
-      JDK_VERSION=11.0.2
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-stretch-${JDK_IMPLEMENTATION}
-
-    # Ubuntu Xenial/OracleJDK
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial
-      JDK_IMPLEMENTATION=oraclejdk
-      DOCKER_TAG_TO_PUBLISH=1.8.0-xenial-${JDK_IMPLEMENTATION}
-
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial
-      JDK_IMPLEMENTATION=oraclejdk
-      JDK_VERSION=1.8.0_201
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-xenial-${JDK_IMPLEMENTATION}
-
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial
-      JDK_IMPLEMENTATION=oraclejdk
-      JDK_VERSION=1.8.0_202
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-xenial-${JDK_IMPLEMENTATION}
-
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial
-      JDK_IMPLEMENTATION=oraclejdk
-      JDK_VERSION=11.0.2
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-xenial-${JDK_IMPLEMENTATION}
-
-    # Ubuntu Bionic/OracleJDK
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic
-      JDK_IMPLEMENTATION=oraclejdk
-      DOCKER_TAG_TO_PUBLISH=1.8.0-bionic-${JDK_IMPLEMENTATION}
-
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic
-      JDK_IMPLEMENTATION=oraclejdk
-      JDK_VERSION=1.8.0_201
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-bionic-${JDK_IMPLEMENTATION}
-
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic
-      JDK_IMPLEMENTATION=oraclejdk
-      JDK_VERSION=1.8.0_202
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-bionic-${JDK_IMPLEMENTATION}
-
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic
-      JDK_IMPLEMENTATION=oraclejdk
-      JDK_VERSION=11.0.2
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-bionic-${JDK_IMPLEMENTATION}
 
 script:
   - pipenv run molecule test -s ${JDK_IMPLEMENTATION}
