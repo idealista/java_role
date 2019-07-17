@@ -43,7 +43,7 @@ env:
 
     - DOCKER_IMAGE_BASE=debian:stretch-slim
       JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=11.0.3+1-1~bpo9+2
+      JDK_VERSION=11.0.3+7-5~bpo9+1
       DOCKER_TAG_TO_PUBLISH=11.0.3-stretch-${JDK_IMPLEMENTATION}-headless
 
     # Ubuntu Xenial/OpenJDK
@@ -51,7 +51,7 @@ env:
     # https://packages.ubuntu.com/xenial/openjdk-9-jdk
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial
       JDK_IMPLEMENTATION=openjdk
-      DOCKER_TAG_TO_PUBLISH=9-xenial-${JDK_IMPLEMENTATION}-headless
+      DOCKER_TAG_TO_PUBLISH=11-xenial-${JDK_IMPLEMENTATION}-headless
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial
       JDK_IMPLEMENTATION=openjdk
@@ -60,7 +60,7 @@ env:
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial
       JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=9~b114-0ubuntu1
+      JDK_VERSION=11.0.4+9-1ubuntu1~16.04.1
       DOCKER_TAG_TO_PUBLISH=9b114-xenial-${JDK_IMPLEMENTATION}-headless
 
     # Ubuntu Bionic/OpenJDK
