@@ -52,16 +52,45 @@
     cache_valid_time: 3600
   until: java_package_installed is succeeded
   register: java_package_installed
-  when: ansible_os_family == 'Debian'
+  when:
+    - ansible_os_family == 'Debian'
+    - java_open_jdk_version != '11.x'
+    - java_open_jdk_version != '8.x'
 
-- name: Java | Install Java, RedHat
+- name: Java | Install Java, Debian, latest version
+  apt:
+    name: "{{ java_open_jdk_package }}"
+    state: present
+    update_cache: true
+    cache_valid_time: 3600
+  until: java_package_installed is succeeded
+  register: java_package_installed
+  when:
+    - ansible_os_family == 'Debian'
+    - java_open_jdk_version == '11.x' or java_open_jdk_version == '8.x'
+
+- name: Java | Install Java, RedHat, latest version
   yum:
     name: "{{ java_open_jdk_package }}-{{ java_open_jdk_version }}"
     state: present
     update_cache: true
   until: java_package_installed is succeeded
   register: java_package_installed
-  when: ansible_os_family == 'RedHat'
+  when:
+    - ansible_os_family == 'RedHat'
+    - java_open_jdk_version != '11.x'
+    - java_open_jdk_version != '8.x'
+
+- name: Java | Install Java, RedHat
+  yum:
+    name: "{{ java_open_jdk_package }}"
+    state: present
+    update_cache: true
+  until: java_package_installed is succeeded
+  register: java_package_installed
+  when:
+    - ansible_os_family == 'RedHat'
+    - java_open_jdk_version == '11.x' or java_open_jdk_version == '8.x'
 
 - name: Java | Update Env
   alternatives:
