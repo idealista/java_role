@@ -10,6 +10,8 @@ file:
 
 package:
   {{ java_open_jdk_package }}:
-      installed: true
-      versions:
-        - "{{ java_open_jdk_version }}"
+    installed: true
+{% if java_open_jdk_version_verify == 'true' %}
+    versions:
+      - "{{ java_open_jdk_version }}"
+{% endif -%}

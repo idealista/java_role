@@ -21,6 +21,7 @@
     molecule_file: "{{ lookup('env', 'MOLECULE_FILE') }}"
     molecule_yml: "{{ lookup('file', molecule_file) | molecule_from_yaml }}"
     java_open_jdk_version: "{{ molecule_yml.provisioner.inventory.group_vars.openjdk.java_open_jdk_version }}"
+    java_open_jdk_version_verify: 'true'
 
   vars_files:
     - ../../defaults/main.yml
@@ -34,9 +35,9 @@
       set_fact:
         java_open_jdk_version: "{{ java_open_jdk_version if java_open_jdk_version is defined and java_open_jdk_version|length else __java_open_jdk_version }}"
 
-    - name: Java | Set version number, when using 11.x or 8.x
+    - name: Java | Set flag to check verion number, when using 11.x or 8.x
       set_fact:
-        java_open_jdk_version: "{{ java_open_jdk_version | regex_search('^([0-9]{1,2})') }}"
+        java_open_jdk_version_verify: 'false'
       when:
         - java_open_jdk_version == '11.x' or java_open_jdk_version == '8.x'
 
