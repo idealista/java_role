@@ -1,9 +1,11 @@
 ---
 
 file:
+{% if java_open_jdk_version_verify == 'true' %}
   {{ java_open_jdk_home }}:
     exists: true
     filetype: directory
+{% endif %}
   {{ java_open_jdk_default_java_home }}:
     exists: true
     filetype: symlink
