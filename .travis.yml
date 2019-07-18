@@ -22,7 +22,7 @@ env:
     # https://packages.debian.org/jessie-backports/openjdk-8-jdk-headless
     - DOCKER_IMAGE_BASE=debian:jessie-slim
       JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=8
+      JDK_VERSION=8.x
       DOCKER_TAG_TO_PUBLISH=8-jessie-${JDK_IMPLEMENTATION}-headless
 
     - DOCKER_IMAGE_BASE=debian:jessie-slim
@@ -35,7 +35,7 @@ env:
     # https://packages.debian.org/stretch/openjdk-8-jdk-headless
     - DOCKER_IMAGE_BASE=debian:stretch-slim
       JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=8
+      JDK_VERSION=8.x
       DOCKER_TAG_TO_PUBLISH=8-stretch-${JDK_IMPLEMENTATION}-headless
 
     - DOCKER_IMAGE_BASE=debian:stretch-slim
@@ -45,7 +45,7 @@ env:
 
     - DOCKER_IMAGE_BASE=debian:stretch-slim
       JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=11
+      JDK_VERSION=11.x
       DOCKER_TAG_TO_PUBLISH=11-stretch-${JDK_IMPLEMENTATION}-headless
 
     - DOCKER_IMAGE_BASE=debian:stretch-slim
@@ -58,7 +58,7 @@ env:
     # https://launchpad.net/~openjdk-r/+archive/ubuntu/ppa?field.series_filter=xenial
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial
       JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=8
+      JDK_VERSION=8.x
       DOCKER_TAG_TO_PUBLISH=8-xenial-${JDK_IMPLEMENTATION}-headless
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial
@@ -68,7 +68,7 @@ env:
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial
       JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=11
+      JDK_VERSION=11.x
       DOCKER_TAG_TO_PUBLISH=11-xenial-${JDK_IMPLEMENTATION}-headless
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial
@@ -81,7 +81,7 @@ env:
     # https://launchpad.net/ubuntu/+source/openjdk-lts
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic
       JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=8
+      JDK_VERSION=8.x
       DOCKER_TAG_TO_PUBLISH=8-bionic-${JDK_IMPLEMENTATION}-headless
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic
@@ -91,7 +91,7 @@ env:
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic
       JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=11
+      JDK_VERSION=11.x
       DOCKER_TAG_TO_PUBLISH=11-${JDK_IMPLEMENTATION}-headless
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic
@@ -102,7 +102,7 @@ env:
     # CentOS 7/OpenJDK
     - DOCKER_IMAGE_BASE=amd64/centos:7.6.1810
       JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=11
+      JDK_VERSION=11.x
       DOCKER_TAG_TO_PUBLISH=11-centos7-${JDK_IMPLEMENTATION}-headless
 
     - DOCKER_IMAGE_BASE=amd64/centos:7.6.1810

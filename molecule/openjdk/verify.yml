@@ -34,6 +34,12 @@
       set_fact:
         java_open_jdk_version: "{{ java_open_jdk_version if java_open_jdk_version is defined and java_open_jdk_version|length else __java_open_jdk_version }}"
 
+    - name: Java | Set version number, when using 11.x or 8.x
+      set_fact:
+        java_open_jdk_version_major: "{{ java_open_jdk_version | regex_search('^([0-9]{1,2})') }}"
+      when:
+        - java_open_jdk_version == '11.x' or java_open_jdk_version == '8.x'
+
     - name: Download and install goss
       get_url:
         url: "{{ goss_url }}"

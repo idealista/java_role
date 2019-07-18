@@ -1,8 +1,8 @@
 ---
 
 # Using pattern described in Ansible Best Practices and Conventions (Appendix B), Ansible for Devops (p. 406)
-# https://packages.ubuntu.com/xenial/openjdk-9-jdk
-__java_open_jdk_version: "11.0.4+9-1ubuntu1~16.04.1"
+# https://launchpad.net/~openjdk-r/+archive/ubuntu/ppa?field.series_filter=xenial
+__java_open_jdk_version: "11.0.4+11-1~16.04.1"
 
 
 __java_required_repositories_openjdk:

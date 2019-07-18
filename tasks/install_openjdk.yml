@@ -54,8 +54,8 @@
   register: java_package_installed
   when:
     - ansible_os_family == 'Debian'
-    - java_open_jdk_version != '11'
-    - java_open_jdk_version != '8'
+    - java_open_jdk_version != '11.x'
+    - java_open_jdk_version != '8.x'
 
 - name: Java | Install Java, Debian, latest version
   apt:
@@ -67,7 +67,7 @@
   register: java_package_installed
   when:
     - ansible_os_family == 'Debian'
-    - java_open_jdk_version == '11' or java_open_jdk_version == '8'
+    - java_open_jdk_version == '11.x' or java_open_jdk_version == '8.x'
 
 - name: Java | Install Java, RedHat, latest version
   yum:
@@ -78,8 +78,8 @@
   register: java_package_installed
   when:
     - ansible_os_family == 'RedHat'
-    - java_open_jdk_version != '11'
-    - java_open_jdk_version != '8'
+    - java_open_jdk_version != '11.x'
+    - java_open_jdk_version != '8.x'
 
 - name: Java | Install Java, RedHat
   yum:
@@ -90,7 +90,7 @@
   register: java_package_installed
   when:
     - ansible_os_family == 'RedHat'
-    - java_open_jdk_version == '11' or java_open_jdk_version == '8'
+    - java_open_jdk_version == '11.x' or java_open_jdk_version == '8.x'
 
 - name: Java | Update Env
   alternatives:
