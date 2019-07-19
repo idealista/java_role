@@ -8,7 +8,6 @@ java_implementation: openjdk
 # [1.8.0_201, 1.8.0_202, 11.0.2] (see available urls in ../vars/main.yml)
 java_oracle_jdk_version: 1.8.0_201
 java_oracle_jdk_install_path: /opt/jdk/{{ java_oracle_jdk_version }}
-java_open_jdk_version_installed: ""
 
 # OpenJDK implementation
 java_open_jdk_package: openjdk-{{ java_open_jdk_version_major }}-jdk-headless

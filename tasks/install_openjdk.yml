@@ -69,7 +69,7 @@
     - ansible_os_family == 'Debian'
     - java_open_jdk_version == '11.x' or java_open_jdk_version == '8.x'
 
-- name: Java | Install Java, RedHat, latest version
+- name: Java | Install Java, RedHat
   yum:
     name: "{{ java_open_jdk_package }}-{{ java_open_jdk_version }}"
     state: present
@@ -81,7 +81,7 @@
     - java_open_jdk_version != '11.x'
     - java_open_jdk_version != '8.x'
 
-- name: Java | Install Java, RedHat
+- name: Java | Install Java, RedHat, latest version
   yum:
     name: "{{ java_open_jdk_package }}"
     state: present
@@ -92,35 +92,17 @@
     - ansible_os_family == 'RedHat'
     - java_open_jdk_version == '11.x' or java_open_jdk_version == '8.x'
 
-- name: Java | Determine installed version, on RHEL / CentOS, when installing latest major
-  shell: "ls -1 /usr/lib/jvm/ | grep 'java-' | head -n1"
-  register: java_open_jdk_version_installed
-  changed_when: false
-  when:
-    - ansible_os_family == 'RedHat'
-    - java_open_jdk_version == '11.x' or java_open_jdk_version == '8.x'
-    - java_package_installed is changed
-
-- name: Java | debug, java_open_jdk_version_installed
-  debug:
-    msg: "{{ java_open_jdk_version_installed.stdout }}"
-  when:
-    - java_package_installed is changed
-
-- name: Java | Update the 'java_open_jdk_home', on RHEL / CentOS, when installing latest major
+- name: Java | Update 'java_open_jdk_home', on RHEL / CentOS, when installing latest major
   set_fact:
-    java_open_jdk_home: "/usr/lib/jvm/{{ java_open_jdk_version_installed.stdout }}"
+    java_open_jdk_home: "/usr/lib/jvm/java-{{ java_open_jdk_version_major }}-openjdk-{{ java_open_jdk_version_lastest }}-0.el7_6.x86_64"
   when:
     - ansible_os_family == 'RedHat'
     - java_open_jdk_version == '11.x' or java_open_jdk_version == '8.x'
-    - java_package_installed is changed
 
 - name: Java | Update Env
   alternatives:
     name: java
     path: "{{ java_open_jdk_home }}/bin/java"
-  when:
-    - java_package_installed is changed
 
 - name: Java | Ensure Defaults on etc/alternatives systems
   file:
@@ -128,8 +110,7 @@
     dest: "{{ java_open_jdk_default_java_home }}"
     force: true
     state: link
-  when:
-    - java_package_installed is changed
+
 
 - name: Java | Export environment variables
   template:
