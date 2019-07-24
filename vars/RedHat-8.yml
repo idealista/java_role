@@ -1,0 +1,16 @@
+---
+
+# OpenJDK implementation
+java_open_jdk_package: java-11-openjdk-headless
+java_open_jdk_home_dir: java-{{ java_open_jdk_version_major }}-openjdk-{{ java_open_jdk_version }}-0.el8_0.x86_64
+# java-11-openjdk-11.0.2.7-0.el7_6.x86_64
+
+# Using pattern described in Ansible Best Practices and Conventions (Appendix B), Ansible for Devops (p. 406)
+__java_open_jdk_version: "11.0.4.11"
+# Annoy work-around for when setting the version to "11.x" on CentOS / RHEL.
+# The installation folder has the specific version number, ex:
+# /usr/lib/jvm/java-11-openjdk-11.0.3.7-0.el7_6.x86_64/bin/java
+java_open_jdk_version_lastest: "11.0.4.11"
+
+__java_required_repositories_openjdk: []
+__java_required_libs_openjdk: []

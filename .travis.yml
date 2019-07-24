@@ -110,6 +110,28 @@ env:
       JDK_VERSION=11.0.3.7
       DOCKER_TAG_TO_PUBLISH=11.0.3.7-centos7-${JDK_IMPLEMENTATION}-headless
 
+    # RHEL 7/OpenJDK
+    - DOCKER_IMAGE_BASE=registry.redhat.io/ubi7/ubi
+      JDK_IMPLEMENTATION=openjdk
+      JDK_VERSION=11.x
+      DOCKER_TAG_TO_PUBLISH=11-rhel7-${JDK_IMPLEMENTATION}-headless
+
+    - DOCKER_IMAGE_BASE=registry.redhat.io/ubi7/ubi
+      JDK_IMPLEMENTATION=openjdk
+      JDK_VERSION=11.0.4.11
+      DOCKER_TAG_TO_PUBLISH=11.0.4.11-rhel7-${JDK_IMPLEMENTATION}-headless
+
+    # RHEL 8/OpenJDK
+    - DOCKER_IMAGE_BASE=registry.redhat.io/ubi8/ubi
+      JDK_IMPLEMENTATION=openjdk
+      JDK_VERSION=11.x
+      DOCKER_TAG_TO_PUBLISH=11-rhel8-${JDK_IMPLEMENTATION}-headless
+
+    - DOCKER_IMAGE_BASE=registry.redhat.io/ubi8/ubi
+      JDK_IMPLEMENTATION=openjdk
+      JDK_VERSION=11.0.4.11
+      DOCKER_TAG_TO_PUBLISH=11.0.4.11-rhel8-${JDK_IMPLEMENTATION}-headless
+
 script:
   - pipenv run molecule test -s ${JDK_IMPLEMENTATION}
 
