@@ -107,7 +107,7 @@ env:
 
     - DOCKER_IMAGE_BASE=amd64/centos:7.6.1810
       JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=11.0.3.7
+      JDK_VERSION=11.0.4.11
       DOCKER_TAG_TO_PUBLISH=11.0.3.7-centos7-${JDK_IMPLEMENTATION}-headless
 
     # RHEL 7/OpenJDK
