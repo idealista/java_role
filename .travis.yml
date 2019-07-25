@@ -50,7 +50,7 @@ env:
 
     - DOCKER_IMAGE_BASE=debian:stretch-slim
       JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=11.0.3+7-5~bpo9+1
+      JDK_VERSION=11.0.4+11-1~bpo9+1
       DOCKER_TAG_TO_PUBLISH=11.0.3-stretch-${JDK_IMPLEMENTATION}-headless
 
     # Ubuntu Xenial/OpenJDK
