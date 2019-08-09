@@ -40,7 +40,7 @@ env:
 
     - DOCKER_IMAGE_BASE=debian:stretch-slim
       JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=11.0.4+11-1~deb10u1
+      JDK_VERSION=11.0.4+11-1~bpo9+1
       DOCKER_TAG_TO_PUBLISH=11.0.4-stretch-${JDK_IMPLEMENTATION}-headless
 
     - DOCKER_IMAGE_BASE=debian:stretch-slim
@@ -51,7 +51,7 @@ env:
     - DOCKER_IMAGE_BASE=debian:stretch-slim
       JDK_IMPLEMENTATION=openjdk
       JDK_VERSION=8u222-b10-1~deb9u1
-      DOCKER_TAG_TO_PUBLISH=8u212-stretch-${JDK_IMPLEMENTATION}-headless
+      DOCKER_TAG_TO_PUBLISH=8u222-stretch-${JDK_IMPLEMENTATION}-headless
 
     # Debian Jessie/OpenJDK
     # https://packages.debian.org/jessie-backports/openjdk-8-jdk-headless
@@ -78,7 +78,7 @@ env:
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic
       JDK_IMPLEMENTATION=openjdk
       JDK_VERSION=11.0.4+11-1ubuntu2~18.04.3
-      DOCKER_TAG_TO_PUBLISH=11.0.3-bionic-${JDK_IMPLEMENTATION}-headless
+      DOCKER_TAG_TO_PUBLISH=11.0.4-bionic-${JDK_IMPLEMENTATION}-headless
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic
       JDK_IMPLEMENTATION=openjdk
@@ -88,7 +88,7 @@ env:
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic
       JDK_IMPLEMENTATION=openjdk
       JDK_VERSION=8u222-b10-1ubuntu1~18.04.1 
-      DOCKER_TAG_TO_PUBLISH=8u212-bionic-${JDK_IMPLEMENTATION}-headless
+      DOCKER_TAG_TO_PUBLISH=8u222-bionic-${JDK_IMPLEMENTATION}-headless
 
     # Ubuntu Xenial/OpenJDK
     # https://packages.ubuntu.com/xenial/openjdk-8-jdk
@@ -110,8 +110,8 @@ env:
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial
       JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=8u212-b03-0ubuntu1.16.04.1
-      DOCKER_TAG_TO_PUBLISH=8u212-xenial-${JDK_IMPLEMENTATION}-headless
+      JDK_VERSION=8u222-b10-1ubuntu1~16.04.1 
+      DOCKER_TAG_TO_PUBLISH=8u222-xenial-${JDK_IMPLEMENTATION}-headless
 
 
 

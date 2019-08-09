@@ -111,13 +111,13 @@ A specific OpenJDK version should be selected overriding `java_open_jdk_version`
 Operative System | OpenJDK version
 --- | ---
 Debian Buster | `11.0.4+11-1~deb10u1` (default)
-Debian Stretch | `11.0.4+11-1~deb10u1` (default)
+Debian Stretch | `11.0.4+11-1~bpo9+1` (default)
 Debian Stretch | `8u222-b10-1~deb9u1`
 Debian Jessie | `8u171-b11-1~bpo8+1` (default)
 Ubuntu Bionic | `11.0.4+11-1ubuntu2~18.04.3` (default)
 Ubuntu Bionic | `8u222-b10-1ubuntu1~18.04.1 `
 Ubuntu Xenial | `11.0.4+11-1~16.04.1` (default)
-Ubuntu Xenial | `8u191-b12-2ubuntu0.16.04.1`
+Ubuntu Xenial | `8u222-b10-1ubuntu1~16.04.1 `
 RHEL 8 | `11.0.4.11` (default)
 RHEL 7 | `11.0.4.11` (default)
 CentOS 7 | `11.0.4.11` (default)
