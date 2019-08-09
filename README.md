@@ -110,14 +110,17 @@ A specific OpenJDK version should be selected overriding `java_open_jdk_version`
 
 Operative System | OpenJDK version
 --- | ---
+Debian Buster | `11.0.4+11-1~deb10u1` (default)
+Debian Stretch | `11.0.4+11-1~deb10u1` (default)
+Debian Stretch | `8u222-b10-1~deb9u1`
 Debian Jessie | `8u171-b11-1~bpo8+1` (default)
-Debian Stretch | `8u212-b01-1~deb9u1` (default)
-Debian Stretch | `11.0.2+9-3~bpo9+1`
+Ubuntu Bionic | `11.0.4+11-1ubuntu2~18.04.3` (default)
+Ubuntu Bionic | `8u222-b10-1ubuntu1~18.04.1 `
+Ubuntu Xenial | `11.0.4+11-1~16.04.1` (default)
 Ubuntu Xenial | `8u191-b12-2ubuntu0.16.04.1`
-Ubuntu Xenial | `9~b114-0ubuntu1` (default)
-Ubuntu Bionic | `8u191-b12-0ubuntu0.18.04.1`
-Ubuntu Bionic | `11.0.1+13-3ubuntu1~18.04~ppa1` (default)
-CentOS 7 | `11.0.2.7` (default)
+RHEL 8 | `11.0.4.11` (default)
+RHEL 7 | `11.0.4.11` (default)
+CentOS 7 | `11.0.4.11` (default)
 
 #### OracleJDK
 
@@ -129,7 +132,8 @@ A specific OracleJDK version should be selected overriding `java_oracle_jdk_vers
 
 ```sh
 $ pipenv install -r test-requirements.txt --python 2.7
-$ DOCKER_IMAGE_BASE=(debian:jessie-slim|debian:stretch-slim|amd64/ubuntu:xenial|amd64/ubuntu:bionic|centos:7) JDK_VERSION=(`selected_jdk_version` see [.travis.yml](.travis.yml) file to check supported versions) pipenv run molecule test -s (openjdk|oraclejdk)
+$ DOCKER_IMAGE_BASE=(debian:jessie-slim|debian:stretch-slim|amd64/ubuntu:xenial|amd64/ubuntu:bionic|centos:7) JDK_VERSION=(`selected_jdk_version` see [.travis.yml](.travis.yml) file to check supported versions)
+$ pipenv run molecule test -s (openjdk|oraclejdk)
 ```
 
 **Note:** debian9 (Debian Stretch) will be used as default linux distro if none is provided. It's mandatory to

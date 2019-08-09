@@ -18,6 +18,41 @@ env:
     - secure: Z5e7AaE11/DrEv2vYKoFxM912Zl5+vdNRQb1Q74LXRT+F+ObMMA3HLrGdbBCyeSoT9BlCSYkfYJ5qFwtfhch1VprSUyXTohG+mEbt5t7tuV+BxBmwcXJMP5BCVgZKU47wRlzOMQWvk4z1/y4fDeWb7cLshvJi+rEE9mox64o01FxrX3WnJcq6vi1Xnmtnfy0FLFlccQMa0czCdgbu7bO6m9WtYmBLXOcA3QDSy5qZmRnszXhxe/DZmsQHu4LVkelkCABG1xdHqj+35/WRhpBSyj9MeN6BlkOIfjfPqsvDV4fyrg2f+F7N1cw2MX5ceehF1kS0Bq8f6MUiltKSEUyGf3A+g8xNr8veLAa4jtuV1qXWbJwTTOTIIU2n0jBJvjjPwx7IJ+hepkIZ1UUfu5P5nKlI5CaZh7a6TBTF0UoC4rMa8tn9p61OpQ3x9Trw0moLOc65tVO+CFv/sRFI3JJXsQ6kMUiKnkbjI3VW2nFGAbNRKd5pe3I7nYKYQwbKH4QzhAcgmyUeZZBn7owaCEZ3lKJjArGnaXMvhVt0E4TM6a5ZyAMPX34wcAynDh6VCXbjQpA6OBejeq+cgNXDt4Oxgy80UTerEFa1IQlrdyzEXz4lI6DKojYFzNHr/Luu5WzvpGs4HOdLAT/2hz+ISKRIgMw+Hgm2VR/FD1FtLnGgZ4=
     - secure: Z7X7zVWFJ8m6Pp863WblJXg2pEt/GBZTKGMIxYL9UK0TFvgrcr2XQhjhvYTEZiK30f57ah5dBEDoMDqZDh+FDGggm9cn39KAVGtyFpsgnDSWJqaOWjBlqrHE+nqssVwKBo/JMgRgB3DsqybvaAvQNrVFccRULsU2uLRJx08hZ+618HiLAdweezepqKWopRvonZol0CvZAp0NDOEBExemamUna+reBtcL+HV4vNM8psY/ntfyOQEMhwITpmzidEWQjjZAh9Cu1GfFTVGeWGJofx5gje87ccRVhyZmJAJz1eqcTtPJH+e6pZM0h3+Z3EFS7/mV3N+2byuJcTxmwoZbHinpWbFkL9klGCsV3rKdaL0iQNxhDAs9Y9LVlEJsJDFQtqBPmg4TFBtRXIEDIT4FAjmwDkmsMe2A2lZiS4tYwAszTPbe1UV9pZ/ivYpzoF+kMvDPIgDoCcsP7iG3Sw9klQr+l6FY2CrQ+HrWaN64SgTLrfiS08BROXj7r1dDsdt5IZI+sq2WKkdLxnBzb1/PPyw2bPzftnjLjcFN5UFCN7EjZ78tv8rpxq3nVioD/4q68SCaC6nL5ZI1Kc1XqosksoXeV6MEQOXWq0u4xi57adTdG4ZsxPWuIKjxyjBWDJqhYdr/4Efyvfbty5Xh6rjn4tHczJno2qdEFr5cMYenipQ=
   matrix:
+    # Debian Buster/OpenJDK
+    # https://packages.debian.org/stretch-backports/openjdk-11-jdk-headless
+    - DOCKER_IMAGE_BASE=debian:buster-slim
+      JDK_IMPLEMENTATION=openjdk
+      JDK_VERSION=11.x
+      DOCKER_TAG_TO_PUBLISH=11-buster-${JDK_IMPLEMENTATION}-headless
+
+    - DOCKER_IMAGE_BASE=debian:buster-slim
+      JDK_IMPLEMENTATION=openjdk
+      JDK_VERSION=11.0.4+11-1~deb10u1
+      DOCKER_TAG_TO_PUBLISH=11.0.4-buster-${JDK_IMPLEMENTATION}-headless
+
+    # Debian Stretch/OpenJDK
+    # https://packages.debian.org/stretch-backports/openjdk-11-jdk-headless
+    # https://packages.debian.org/stretch/openjdk-8-jdk-headless
+    - DOCKER_IMAGE_BASE=debian:stretch-slim
+      JDK_IMPLEMENTATION=openjdk
+      JDK_VERSION=11.x
+      DOCKER_TAG_TO_PUBLISH=11-stretch-${JDK_IMPLEMENTATION}-headless
+
+    - DOCKER_IMAGE_BASE=debian:stretch-slim
+      JDK_IMPLEMENTATION=openjdk
+      JDK_VERSION=11.0.4+11-1~deb10u1
+      DOCKER_TAG_TO_PUBLISH=11.0.4-stretch-${JDK_IMPLEMENTATION}-headless
+
+    - DOCKER_IMAGE_BASE=debian:stretch-slim
+      JDK_IMPLEMENTATION=openjdk
+      JDK_VERSION=8.x
+      DOCKER_TAG_TO_PUBLISH=8-stretch-${JDK_IMPLEMENTATION}-headless
+
+    - DOCKER_IMAGE_BASE=debian:stretch-slim
+      JDK_IMPLEMENTATION=openjdk
+      JDK_VERSION=8u222-b10-1~deb9u1
+      DOCKER_TAG_TO_PUBLISH=8u212-stretch-${JDK_IMPLEMENTATION}-headless
+
     # Debian Jessie/OpenJDK
     # https://packages.debian.org/jessie-backports/openjdk-8-jdk-headless
     - DOCKER_IMAGE_BASE=debian:jessie-slim
@@ -30,42 +65,34 @@ env:
       JDK_VERSION=8u171-b11-1~bpo8+1
       DOCKER_TAG_TO_PUBLISH=8u171-jessie-${JDK_IMPLEMENTATION}-headless
 
-    # Debian Stretch/OpenJDK
-    # https://packages.debian.org/stretch-backports/openjdk-11-jdk-headless
-    # https://packages.debian.org/stretch/openjdk-8-jdk-headless
-    - DOCKER_IMAGE_BASE=debian:stretch-slim
-      JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=8.x
-      DOCKER_TAG_TO_PUBLISH=8-stretch-${JDK_IMPLEMENTATION}-headless
 
-    - DOCKER_IMAGE_BASE=debian:stretch-slim
-      JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=8u222-b10-1~deb9u1
-      DOCKER_TAG_TO_PUBLISH=8u212-stretch-${JDK_IMPLEMENTATION}-headless
 
-    - DOCKER_IMAGE_BASE=debian:stretch-slim
+    # Ubuntu Bionic/OpenJDK
+    # https://packages.ubuntu.com/bionic/openjdk-8-jdk
+    # https://launchpad.net/ubuntu/+source/openjdk-lts/+changelog
+    - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic
       JDK_IMPLEMENTATION=openjdk
       JDK_VERSION=11.x
-      DOCKER_TAG_TO_PUBLISH=11-stretch-${JDK_IMPLEMENTATION}-headless
+      DOCKER_TAG_TO_PUBLISH=11-${JDK_IMPLEMENTATION}-headless
 
-    - DOCKER_IMAGE_BASE=debian:stretch-slim
+    - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic
       JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=11.0.4+11-1~bpo9+1
-      DOCKER_TAG_TO_PUBLISH=11.0.3-stretch-${JDK_IMPLEMENTATION}-headless
+      JDK_VERSION=11.0.4+11-1ubuntu2~18.04.3
+      DOCKER_TAG_TO_PUBLISH=11.0.3-bionic-${JDK_IMPLEMENTATION}-headless
+
+    - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic
+      JDK_IMPLEMENTATION=openjdk
+      JDK_VERSION=8.x
+      DOCKER_TAG_TO_PUBLISH=8-bionic-${JDK_IMPLEMENTATION}-headless
+
+    - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic
+      JDK_IMPLEMENTATION=openjdk
+      JDK_VERSION=8u222-b10-1ubuntu1~18.04.1 
+      DOCKER_TAG_TO_PUBLISH=8u212-bionic-${JDK_IMPLEMENTATION}-headless
 
     # Ubuntu Xenial/OpenJDK
     # https://packages.ubuntu.com/xenial/openjdk-8-jdk
     # https://launchpad.net/~openjdk-r/+archive/ubuntu/ppa?field.series_filter=xenial
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial
-      JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=8.x
-      DOCKER_TAG_TO_PUBLISH=8-xenial-${JDK_IMPLEMENTATION}-headless
-
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial
-      JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=8u212-b03-0ubuntu1.16.04.1
-      DOCKER_TAG_TO_PUBLISH=8u212-xenial-${JDK_IMPLEMENTATION}-headless
-
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial
       JDK_IMPLEMENTATION=openjdk
       JDK_VERSION=11.x
@@ -76,62 +103,50 @@ env:
       JDK_VERSION=11.0.4+11-1~16.04.1
       DOCKER_TAG_TO_PUBLISH=11.0.4-xenial-${JDK_IMPLEMENTATION}-headless
 
-    # Ubuntu Bionic/OpenJDK
-    # https://packages.ubuntu.com/bionic/openjdk-8-jdk
-    # https://launchpad.net/ubuntu/+source/openjdk-lts
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic
+    - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial
       JDK_IMPLEMENTATION=openjdk
       JDK_VERSION=8.x
-      DOCKER_TAG_TO_PUBLISH=8-bionic-${JDK_IMPLEMENTATION}-headless
+      DOCKER_TAG_TO_PUBLISH=8-xenial-${JDK_IMPLEMENTATION}-headless
 
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic
+    - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial
       JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=8u212-b03-0ubuntu1.18.04.1
-      DOCKER_TAG_TO_PUBLISH=8u212-bionic-${JDK_IMPLEMENTATION}-headless
+      JDK_VERSION=8u212-b03-0ubuntu1.16.04.1
+      DOCKER_TAG_TO_PUBLISH=8u212-xenial-${JDK_IMPLEMENTATION}-headless
 
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic
-      JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=11.x
-      DOCKER_TAG_TO_PUBLISH=11-${JDK_IMPLEMENTATION}-headless
 
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic
-      JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=11.0.3+7-1ubuntu2~18.04.1
-      DOCKER_TAG_TO_PUBLISH=11.0.3-bionic-${JDK_IMPLEMENTATION}-headless
-
-    # CentOS 7/OpenJDK
-    - DOCKER_IMAGE_BASE=amd64/centos:7.6.1810
-      JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=11.x
-      DOCKER_TAG_TO_PUBLISH=11-centos7-${JDK_IMPLEMENTATION}-headless
-
-    - DOCKER_IMAGE_BASE=amd64/centos:7.6.1810
-      JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=11.0.4.11
-      DOCKER_TAG_TO_PUBLISH=11.0.3.7-centos7-${JDK_IMPLEMENTATION}-headless
-
-    # RHEL 7/OpenJDK
-    - DOCKER_IMAGE_BASE=apolloclark/ubi7
-      JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=11.x
-      DOCKER_TAG_TO_PUBLISH=11-rhel7-${JDK_IMPLEMENTATION}-headless
-
-    - DOCKER_IMAGE_BASE=apolloclark/ubi7
-      JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=11.0.4.11
-      DOCKER_TAG_TO_PUBLISH=11.0.4.11-rhel7-${JDK_IMPLEMENTATION}-headless
 
     # RHEL 8/OpenJDK
-    - DOCKER_IMAGE_BASE=apolloclark/ubi8
+    - DOCKER_IMAGE_BASE=apolloclark/ubi8:8.0
       JDK_IMPLEMENTATION=openjdk
       JDK_VERSION=11.x
       DOCKER_TAG_TO_PUBLISH=11-rhel8-${JDK_IMPLEMENTATION}-headless
 
-    - DOCKER_IMAGE_BASE=apolloclark/ubi8
+    - DOCKER_IMAGE_BASE=apolloclark/ubi8:8.0
       JDK_IMPLEMENTATION=openjdk
       JDK_VERSION=11.0.4.11
       DOCKER_TAG_TO_PUBLISH=11.0.4.11-rhel8-${JDK_IMPLEMENTATION}-headless
 
+    # RHEL 7/OpenJDK
+    - DOCKER_IMAGE_BASE=apolloclark/ubi7:7.6
+      JDK_IMPLEMENTATION=openjdk
+      JDK_VERSION=11.x
+      DOCKER_TAG_TO_PUBLISH=11-rhel7-${JDK_IMPLEMENTATION}-headless
+
+    - DOCKER_IMAGE_BASE=apolloclark/ubi7:7.6
+      JDK_IMPLEMENTATION=openjdk
+      JDK_VERSION=11.0.4.11
+      DOCKER_TAG_TO_PUBLISH=11.0.4.11-rhel7-${JDK_IMPLEMENTATION}-headless
+
+    # CentOS 7/OpenJDK
+    - DOCKER_IMAGE_BASE=amd64/centos:7
+      JDK_IMPLEMENTATION=openjdk
+      JDK_VERSION=11.x
+      DOCKER_TAG_TO_PUBLISH=11-centos7-${JDK_IMPLEMENTATION}-headless
+
+    - DOCKER_IMAGE_BASE=amd64/centos:7
+      JDK_IMPLEMENTATION=openjdk
+      JDK_VERSION=11.0.4.11
+      DOCKER_TAG_TO_PUBLISH=11.0.4.11-centos7-${JDK_IMPLEMENTATION}-headless
 script:
   - pipenv run molecule test -s ${JDK_IMPLEMENTATION}
 
