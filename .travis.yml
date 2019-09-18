@@ -96,8 +96,8 @@ env:
 
     - DOCKER_IMAGE_BASE=debian:stretch-slim 
       JDK_IMPLEMENTATION=openjdk 
-      JDK_VERSION=11.0.2+9-3~bpo9+1
-      DOCKER_TAG_TO_PUBLISH=11.0.2-stretch-${JDK_IMPLEMENTATION}-headless
+      JDK_VERSION=11.0.4+11-1~deb10u1
+      DOCKER_TAG_TO_PUBLISH=11.0.4-stretch-${JDK_IMPLEMENTATION}-headless
 
     # Debian Stretch/OracleJDK
     - DOCKER_IMAGE_BASE=debian:stretch-slim 
@@ -118,11 +118,11 @@ env:
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
       JDK_IMPLEMENTATION=openjdk
       DOCKER_TAG_TO_PUBLISH=9-xenial-${JDK_IMPLEMENTATION}-headless
-      
+
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
       JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=8u191-b12-2ubuntu0.16.04.1
-      DOCKER_TAG_TO_PUBLISH=8u191-xenial-${JDK_IMPLEMENTATION}-headless
+      JDK_VERSION=8u222-b10-1ubuntu1~16.04.1
+      DOCKER_TAG_TO_PUBLISH=8u222-xenial-${JDK_IMPLEMENTATION}-headless
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
       JDK_IMPLEMENTATION=openjdk 
