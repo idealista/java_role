@@ -26,8 +26,8 @@ env:
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
       JDK_IMPLEMENTATION=openjdk 
-      JDK_VERSION=11.0.1+13-3ubuntu1~18.04~ppa1
-      DOCKER_TAG_TO_PUBLISH=11.0.1-bionic-${JDK_IMPLEMENTATION}-headless
+      JDK_VERSION=11.0.4+11-1ubuntu2~18.04.3~ppa1
+      DOCKER_TAG_TO_PUBLISH=11.0.4-bionic-${JDK_IMPLEMENTATION}-headless
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
       JDK_IMPLEMENTATION=openjdk
@@ -101,8 +101,8 @@ env:
 
     - DOCKER_IMAGE_BASE=debian:stretch-slim 
       JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=8u212-b01-1~deb9u1
-      DOCKER_TAG_TO_PUBLISH=8u181-stretch-${JDK_IMPLEMENTATION}-headless
+      JDK_VERSION=8u222-b10-1~deb9u1
+      DOCKER_TAG_TO_PUBLISH=8u222-stretch-${JDK_IMPLEMENTATION}-headless
 
     - DOCKER_IMAGE_BASE=debian:stretch-slim 
       JDK_IMPLEMENTATION=openjdk 
