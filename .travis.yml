@@ -36,7 +36,7 @@ env:
 
     # Centos 7
     - DOCKER_IMAGE_BASE=centos:7 
-      JDK_VERSION=11.0.2.7
+      JDK_VERSION=11.0.3.7
       DOCKER_TAG_TO_PUBLISH=11-centos-openjdk-headless
       SCENARIO=centos7
 
