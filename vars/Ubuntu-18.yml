@@ -1,7 +1,7 @@
 ---
 
 # Using pattern described in Ansible Best Practices and Conventions (Appendix B), Ansible for Devops (p. 406)
-__java_open_jdk_version: "11.0.1+13-3ubuntu1~18.04~ppa1"
+__java_open_jdk_version: "11.0.4+11-1ubuntu2~18.04.3~ppa1"
 
 # Needed because Ubuntu Bionic SRU Exception with OpenJDK
 __java_required_repositories_openjdk:
