@@ -12,7 +12,7 @@ platforms:
   - name: openjdk
     groups:
       - openjdk
-    image: ${DOCKER_IMAGE_BASE:-debian:jessie-slim}
+    image: ${DOCKER_IMAGE_BASE:-debian:stretch-slim}
 
 provisioner:
   name: ansible
