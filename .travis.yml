@@ -69,7 +69,11 @@ env:
       DOCKER_TAG_TO_PUBLISH=9b114-xenial-openjdk-headless
 
 script:
-  - pipenv run molecule test
+  - pipenv run molecule test -s debian_stretch
+  - pipenv run molecule test -s debian_jessie
+  - pipenv run molecule test -s centos7
+  - pipenv run molecule test -s ubuntu_18
+  - pipenv run molecule test -s ubuntu_16
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
