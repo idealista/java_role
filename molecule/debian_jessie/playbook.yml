@@ -1,6 +1,6 @@
 ---
 
 - name: Converge
-  hosts: oraclejdk
+  hosts: openjdk
   roles:
     - java_role

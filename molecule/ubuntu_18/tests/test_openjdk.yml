@@ -1,0 +1,15 @@
+---
+
+file:
+  {{ java_open_jdk_home }}:
+    exists: true
+    filetype: directory
+  {{ java_open_jdk_default_java_home }}:
+    exists: true
+    filetype: symlink
+
+package:
+  {{ java_open_jdk_package }}:
+      installed: true
+      versions:
+        - {{ java_open_jdk_version }}

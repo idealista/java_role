@@ -1,0 +1,30 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint:
+  name: yamllint
+  options:
+    config-file: .yamllint
+
+platforms:
+  - name: openjdk-ubuntu18
+    groups:
+      - openjdk
+    image: ${DOCKER_IMAGE_BASE:-amd64/ubuntu:bionic }
+
+provisioner:
+  name: ansible
+  inventory:
+    group_vars:
+      openjdk:
+        java_open_jdk_version: ${JDK_VERSION}
+  lint:
+    name: ansible-lint
+scenario:
+  name: ubuntu_18
+verifier:
+  name: goss
+  lint:
+    name: yamllint

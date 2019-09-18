@@ -9,22 +9,21 @@ lint:
     config-file: .yamllint
 
 platforms:
-  - name: oraclejdk
+  - name: openjdk-stretch
     groups:
-      - oraclejdk
-    image: ${DOCKER_IMAGE_BASE:-debian:jessie-slim}
+      - openjdk
+    image: ${DOCKER_IMAGE_BASE:-debian:stretch-slim}
 
 provisioner:
   name: ansible
   inventory:
     group_vars:
-      oraclejdk:
-        java_implementation: oraclejdk
-        java_oracle_jdk_version: ${JDK_VERSION:-1.8.0_201}
+      openjdk:
+        java_open_jdk_version: ${JDK_VERSION}
   lint:
     name: ansible-lint
 scenario:
-  name: oraclejdk
+  name: debian_stretch
 verifier:
   name: goss
   lint:

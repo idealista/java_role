@@ -9,22 +9,21 @@ lint:
     config-file: .yamllint
 
 platforms:
-  - name: openjdk
+  - name: centos7
     groups:
       - openjdk
-    image: ${DOCKER_IMAGE_BASE:-debian:stretch-slim}
+    image: ${DOCKER_IMAGE_BASE:-centos:7}
 
 provisioner:
   name: ansible
   inventory:
     group_vars:
       openjdk:
-        java_implementation: openjdk
         java_open_jdk_version: ${JDK_VERSION}
   lint:
     name: ansible-lint
 scenario:
-  name: openjdk
+  name: centos7
 verifier:
   name: goss
   lint:
