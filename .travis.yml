@@ -22,58 +22,66 @@ env:
     # Ubuntu Bionic/OpenJDK
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
       DOCKER_TAG_TO_PUBLISH=11-bionic-openjdk-headless
+      SCENARIO=ubuntu_18
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic  
       JDK_VERSION=11.0.4+11-1ubuntu2~18.04.3
       DOCKER_TAG_TO_PUBLISH=11.0.4-bionic-openjdk-headless
+      SCENARIO=ubuntu_18
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
       JDK_VERSION=8u222-b10-1ubuntu1~18.04.1
       DOCKER_TAG_TO_PUBLISH=8u222-bionic-openjdk-headless
+      SCENARIO=ubuntu_18
 
     # Centos 7
     - DOCKER_IMAGE_BASE=centos:7 
       JDK_VERSION=11.0.2.7
       DOCKER_TAG_TO_PUBLISH=11-centos-openjdk-headless
+      SCENARIO=centos7
 
     # Debian Jessie
     - DOCKER_IMAGE_BASE=debian:jessie-slim  
       DOCKER_TAG_TO_PUBLISH=8-jessie-openjdk-headless
+      SCENARIO=debian_jessie
 
     - DOCKER_IMAGE_BASE=debian:jessie-slim  
       JDK_VERSION=8u171-b11-1~bpo8+1 
       DOCKER_TAG_TO_PUBLISH=8u171-jessie-openjdk-headless
+      SCENARIO=debian_jessie
     
     # Debian Stretch/OpenJDK
     - DOCKER_IMAGE_BASE=debian:stretch-slim 
       DOCKER_TAG_TO_PUBLISH=8-stretch-openjdk-headless
+      SCENARIO=debian_stretch
 
     - DOCKER_IMAGE_BASE=debian:stretch-slim 
       JDK_VERSION=8u222-b10-1~deb9u1
       DOCKER_TAG_TO_PUBLISH=8u222-stretch-openjdk-headless
+      SCENARIO=debian_stretch
 
     - DOCKER_IMAGE_BASE=debian:stretch-slim  
       JDK_VERSION=11.0.4+11-1~deb10u1
       DOCKER_TAG_TO_PUBLISH=11.0.4-stretch-openjdk-headless
+      SCENARIO=debian_stretch
    
     # Ubuntu Xenial/OpenJDK
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
       DOCKER_TAG_TO_PUBLISH=9-xenial-openjdk-headless
+      SCENARIO=ubuntu_16
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
       JDK_VERSION=8u222-b10-1ubuntu1~16.04.1
       DOCKER_TAG_TO_PUBLISH=8u222-xenial-openjdk-headless
+      SCENARIO=ubuntu_16
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial  
       JDK_VERSION=9~b114-0ubuntu1
       DOCKER_TAG_TO_PUBLISH=9b114-xenial-openjdk-headless
+      SCENARIO=ubuntu_16
 
 script:
-  - pipenv run molecule test -s debian_stretch
-  - pipenv run molecule test -s debian_jessie
-  - pipenv run molecule test -s centos7
-  - pipenv run molecule test -s ubuntu_18
-  - pipenv run molecule test -s ubuntu_16
+  - pipenv run molecule test -s ${SCENARIO}
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
