@@ -14,10 +14,10 @@ java_oracle_jdk_latest_versions_urls:
     # https://www.oracle.com/webfolder/s/digest/8u202checksum.html
     sha256: 9a5c32411a6a06e22b69c495b7975034409fa1652d03aeb8eb5b6f59fd4594e0
   1.8.0_211:
-    url: https://download.oracle.com/otn/java/jdk/8u211-b12/478a62b7d4e34b78b671c754eaaf38ab/jdk-8u211-linux-x64.tar.gz
+    url: https://download.oracle.com/otn-pub/java/jdk/8u211-b12/478a62b7d4e34b78b671c754eaaf38ab/jdk-8u211-linux-x64.tar.gz
     # https://www.oracle.com/webfolder/s/digest/8u211checksum.html
     sha256: c0b7e45330c3f79750c89de6ee0d949ed4af946849592154874d22abc9c4668d
   11.0.3:
-    url: https://download.oracle.com/otn/java/jdk/11.0.3+12/37f5e150db5247ab9333b11c1dddcd30/jdk-11.0.3_linux-x64_bin.tar.gz
+    url: https://download.oracle.com/otn-pub/java/jdk/11.0.3+12/37f5e150db5247ab9333b11c1dddcd30/jdk-11.0.3_linux-x64_bin.tar.gz
     # https://www.oracle.com/webfolder/s/digest/11-0-3-checksum.html
     sha256: d50908ea53c2ad154a797aa0930eafb7813247dae13d9d891116df889814ebf3
