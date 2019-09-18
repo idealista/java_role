@@ -61,7 +61,7 @@ env:
       SCENARIO=debian_stretch
 
     - DOCKER_IMAGE_BASE=debian:stretch-slim  
-      JDK_VERSION=11.0.4+11-1~deb10u1
+      JDK_VERSION=11.0.4+11-1~bpo9+1
       DOCKER_TAG_TO_PUBLISH=11.0.4-stretch-openjdk-headless
       SCENARIO=debian_stretch
    
