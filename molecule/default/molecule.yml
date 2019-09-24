@@ -23,7 +23,7 @@ provisioner:
   lint:
     name: ansible-lint
 scenario:
-  name: debian_stretch
+  name: default
 verifier:
   name: goss
   lint:

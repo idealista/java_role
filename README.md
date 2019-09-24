@@ -33,7 +33,7 @@ To use this role as dependency in your playbook, prerequisites below:
 Ansible 2.8.4.0 version installed.
 Inventory destination should be a Debian/Ubuntu or CentOS environment.
 
-For testing purposes you will need [Python 2.7+](https://www.python.org/download/releases/2.7/) and [Pipenv](https://github.com/pypa/pipenv)
+For testing purposes you will need [Python 3.6+](https://www.python.org/downloads/release/python-368/) and [Pipenv](https://github.com/pypa/pipenv)
 
 ### Installing
 
@@ -116,8 +116,8 @@ CentOS 7 | `11.0.3.7` (default)
 ## Testing
 
 ```sh
-$ pipenv install -r test-requirements.txt --python 2.7
-$ DOCKER_IMAGE_BASE=(debian:jessie-slim|debian:stretch-slim|amd64/ubuntu:xenial|amd64/ubuntu:bionic|centos:7) JDK_VERSION=(`selected_jdk_version` see [.travis.yml](.travis.yml) file to check supported versions) pipenv run molecule test -s (debian_jessie|debian_stretch|centos7|ubuntu_16|ubuntu_18)
+$ pipenv install -r test-requirements.txt --python 3.6
+$ DOCKER_IMAGE_BASE=(debian:jessie-slim|debian:stretch-slim|amd64/ubuntu:xenial|amd64/ubuntu:bionic|centos:7) JDK_VERSION=(`selected_jdk_version` see [.travis.yml](.travis.yml) file to check supported versions) pipenv run molecule test
 ```
 
 **Note:** debian9 (Debian Stretch) will be used as default linux distro if none is provided.
