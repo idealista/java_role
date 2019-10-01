@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/java_role/tree/develop)
 
+### Changed
+- *[#106](https://github.com/idealista/java_role/issues/106) Removed oraclejdk support* @jmonterrubio
+
 ### Fixed
 - *[#104](https://github.com/idealista/java_role/issues/104) New Debian 9 and Ubuntu 18 OpenJDK package version* @jmonterrubio
 

@@ -1,6 +1,6 @@
 ---
 language: python
-python: "2.7.13"
+python: 3.6
 sudo: required
 
 services:
@@ -12,7 +12,7 @@ before_script:
 
 install:
   - pip install pipenv
-  - pipenv install -r test-requirements.txt --python 2.7
+  - pipenv install -r test-requirements.txt --python 3.6
 env:
   global:
     - secure: Z5e7AaE11/DrEv2vYKoFxM912Zl5+vdNRQb1Q74LXRT+F+ObMMA3HLrGdbBCyeSoT9BlCSYkfYJ5qFwtfhch1VprSUyXTohG+mEbt5t7tuV+BxBmwcXJMP5BCVgZKU47wRlzOMQWvk4z1/y4fDeWb7cLshvJi+rEE9mox64o01FxrX3WnJcq6vi1Xnmtnfy0FLFlccQMa0czCdgbu7bO6m9WtYmBLXOcA3QDSy5qZmRnszXhxe/DZmsQHu4LVkelkCABG1xdHqj+35/WRhpBSyj9MeN6BlkOIfjfPqsvDV4fyrg2f+F7N1cw2MX5ceehF1kS0Bq8f6MUiltKSEUyGf3A+g8xNr8veLAa4jtuV1qXWbJwTTOTIIU2n0jBJvjjPwx7IJ+hepkIZ1UUfu5P5nKlI5CaZh7a6TBTF0UoC4rMa8tn9p61OpQ3x9Trw0moLOc65tVO+CFv/sRFI3JJXsQ6kMUiKnkbjI3VW2nFGAbNRKd5pe3I7nYKYQwbKH4QzhAcgmyUeZZBn7owaCEZ3lKJjArGnaXMvhVt0E4TM6a5ZyAMPX34wcAynDh6VCXbjQpA6OBejeq+cgNXDt4Oxgy80UTerEFa1IQlrdyzEXz4lI6DKojYFzNHr/Luu5WzvpGs4HOdLAT/2hz+ISKRIgMw+Hgm2VR/FD1FtLnGgZ4=
@@ -21,131 +21,55 @@ env:
 
     # Ubuntu Bionic/OpenJDK
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
-      JDK_IMPLEMENTATION=openjdk
-      DOCKER_TAG_TO_PUBLISH=11-bionic-${JDK_IMPLEMENTATION}-headless
+      DOCKER_TAG_TO_PUBLISH=11-bionic-openjdk-headless
 
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
-      JDK_IMPLEMENTATION=openjdk 
+    - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic  
       JDK_VERSION=11.0.4+11-1ubuntu2~18.04.3
-      DOCKER_TAG_TO_PUBLISH=11.0.4-bionic-${JDK_IMPLEMENTATION}-headless
+      DOCKER_TAG_TO_PUBLISH=11.0.4-bionic-openjdk-headless
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
-      JDK_IMPLEMENTATION=openjdk
       JDK_VERSION=8u222-b10-1ubuntu1~18.04.1
-      DOCKER_TAG_TO_PUBLISH=8u222-bionic-${JDK_IMPLEMENTATION}-headless
-
-    # Ubuntu Bionic/OracleJDK
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
-      JDK_IMPLEMENTATION=oraclejdk
-      DOCKER_TAG_TO_PUBLISH=1.8.0-bionic-${JDK_IMPLEMENTATION}
-
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
-      JDK_IMPLEMENTATION=oraclejdk 
-      JDK_VERSION=1.8.0_211
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-bionic-${JDK_IMPLEMENTATION}
-
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
-      JDK_IMPLEMENTATION=oraclejdk 
-      JDK_VERSION=11.0.3
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-bionic-${JDK_IMPLEMENTATION}
+      DOCKER_TAG_TO_PUBLISH=8u222-bionic-openjdk-headless
 
     # Centos 7
     - DOCKER_IMAGE_BASE=centos:7 
-      JDK_IMPLEMENTATION=oraclejdk
-      JDK_VERSION=11.0.3
-      DOCKER_TAG_TO_PUBLISH=11-centos-${JDK_IMPLEMENTATION}
-
-    - DOCKER_IMAGE_BASE=centos:7 
-      JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=11.0.2.7
-      DOCKER_TAG_TO_PUBLISH=11-centos-${JDK_IMPLEMENTATION}-headless
+      JDK_VERSION=11.0.3.7
+      DOCKER_TAG_TO_PUBLISH=11-centos-openjdk-headless
 
     # Debian Jessie
-    - DOCKER_IMAGE_BASE=debian:jessie-slim 
-      JDK_IMPLEMENTATION=openjdk 
-      DOCKER_TAG_TO_PUBLISH=8-jessie-${JDK_IMPLEMENTATION}-headless
+    - DOCKER_IMAGE_BASE=debian:jessie-slim  
+      DOCKER_TAG_TO_PUBLISH=8-jessie-openjdk-headless
 
-    - DOCKER_IMAGE_BASE=debian:jessie-slim 
-      JDK_IMPLEMENTATION=openjdk 
+    - DOCKER_IMAGE_BASE=debian:jessie-slim  
       JDK_VERSION=8u171-b11-1~bpo8+1 
-      DOCKER_TAG_TO_PUBLISH=8u171-jessie-${JDK_IMPLEMENTATION}-headless
-
-    - DOCKER_IMAGE_BASE=debian:jessie-slim 
-      JDK_IMPLEMENTATION=oraclejdk 
-      DOCKER_TAG_TO_PUBLISH=1.8.0-jessie-${JDK_IMPLEMENTATION}
-
-    - DOCKER_IMAGE_BASE=debian:jessie-slim 
-      JDK_IMPLEMENTATION=oraclejdk 
-      JDK_VERSION=1.8.0_211
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-jessie-${JDK_IMPLEMENTATION}
-
-    - DOCKER_IMAGE_BASE=debian:jessie-slim 
-      JDK_IMPLEMENTATION=oraclejdk 
-      JDK_VERSION=11.0.3
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-jessie-${JDK_IMPLEMENTATION}
+      DOCKER_TAG_TO_PUBLISH=8u171-jessie-openjdk-headless
     
     # Debian Stretch/OpenJDK
     - DOCKER_IMAGE_BASE=debian:stretch-slim 
-      JDK_IMPLEMENTATION=openjdk
-      DOCKER_TAG_TO_PUBLISH=8-stretch-${JDK_IMPLEMENTATION}-headless
+      DOCKER_TAG_TO_PUBLISH=8-stretch-openjdk-headless
 
     - DOCKER_IMAGE_BASE=debian:stretch-slim 
-      JDK_IMPLEMENTATION=openjdk
       JDK_VERSION=8u222-b10-1~deb9u1
-      DOCKER_TAG_TO_PUBLISH=8u222-stretch-${JDK_IMPLEMENTATION}-headless
+      DOCKER_TAG_TO_PUBLISH=8u222-stretch-openjdk-headless
 
-    - DOCKER_IMAGE_BASE=debian:stretch-slim 
-      JDK_IMPLEMENTATION=openjdk 
-      JDK_VERSION=11.0.4+11-1~deb10u1
-      DOCKER_TAG_TO_PUBLISH=11.0.4-stretch-${JDK_IMPLEMENTATION}-headless
-
-    # Debian Stretch/OracleJDK
-    - DOCKER_IMAGE_BASE=debian:stretch-slim 
-      JDK_IMPLEMENTATION=oraclejdk
-      DOCKER_TAG_TO_PUBLISH=1.8.0-stretch-${JDK_IMPLEMENTATION}
-
-    - DOCKER_IMAGE_BASE=debian:stretch-slim 
-      JDK_IMPLEMENTATION=oraclejdk
-      JDK_VERSION=1.8.0_211
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-stretch-${JDK_IMPLEMENTATION}
-
-    - DOCKER_IMAGE_BASE=debian:stretch-slim 
-      JDK_IMPLEMENTATION=oraclejdk 
-      JDK_VERSION=11.0.3
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-stretch-${JDK_IMPLEMENTATION}
+    - DOCKER_IMAGE_BASE=debian:stretch-slim  
+      JDK_VERSION=11.0.4+11-1~bpo9+1
+      DOCKER_TAG_TO_PUBLISH=11.0.4-stretch-openjdk-headless
    
     # Ubuntu Xenial/OpenJDK
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
-      JDK_IMPLEMENTATION=openjdk
-      DOCKER_TAG_TO_PUBLISH=9-xenial-${JDK_IMPLEMENTATION}-headless
+      DOCKER_TAG_TO_PUBLISH=9-xenial-openjdk-headless
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
-      JDK_IMPLEMENTATION=openjdk
       JDK_VERSION=8u222-b10-1ubuntu1~16.04.1
-      DOCKER_TAG_TO_PUBLISH=8u222-xenial-${JDK_IMPLEMENTATION}-headless
+      DOCKER_TAG_TO_PUBLISH=8u222-xenial-openjdk-headless
 
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
-      JDK_IMPLEMENTATION=openjdk 
+    - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial  
       JDK_VERSION=9~b114-0ubuntu1
-      DOCKER_TAG_TO_PUBLISH=9b114-xenial-${JDK_IMPLEMENTATION}-headless
-
-    # Ubuntu Xenial/OracleJDK
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
-      JDK_IMPLEMENTATION=oraclejdk
-      DOCKER_TAG_TO_PUBLISH=1.8.0-xenial-${JDK_IMPLEMENTATION}
-
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
-      JDK_IMPLEMENTATION=oraclejdk 
-      JDK_VERSION=1.8.0_211
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-xenial-${JDK_IMPLEMENTATION}
-
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
-      JDK_IMPLEMENTATION=oraclejdk 
-      JDK_VERSION=11.0.3
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-xenial-${JDK_IMPLEMENTATION}
+      DOCKER_TAG_TO_PUBLISH=9b114-xenial-openjdk-headless
 
 script:
-  - pipenv run molecule test -s ${JDK_IMPLEMENTATION}
+  - pipenv run molecule test
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
