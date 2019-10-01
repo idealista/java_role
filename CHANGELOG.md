@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/java_role/tree/develop)
+
+## [5.0.1](https://github.com/idealista/java_role/tree/5.0.1) (2019-10-01)
 ### Fixed
 - *[#99](https://github.com/idealista/java_role/issues/99) Fixing deploy to DockerHub* @jnogol
 
