@@ -12,26 +12,26 @@ install:
 - pipenv install -r test-requirements.txt --python 3.6
 env:
   global:
-   secure: O6aAOhZ1suL4xB6JHJXvscdi+yevIeFE+mMG3/bHMukImTTS0wvTQegs+czed/f8hePToKDpgTKQFPV1sc9tfMtnYQjl3f3LNUPxTqDSJrj27l9p32qhaxpYOiR1btOIkOQF970Mr/gJBXjgYxLU3iF7iVdePE1rGcDgIe28T8foG/xieO0TtlCjiOj1vbemMoGIbfYsmISGxD3XihKl1vNc2RcbO21MH46a7knasTS00/ozN8490QZmutkX4tI3F4lIjx453+dtS++sqPLPhP0WCEemEPMT9aI2/OWWNW0GtgfnNtrDSWm7FyAKP4/W6E3gzlruCSCMSq1P6eURb+My/6uDPPFITOQPlUzN6Bdj3ftkokUY3K2tWgalWXDvCmU4eb+ZjU1jMIq7tFLl/Lr/kYFH7RFgWb/rDmDookkLcZUGqTkkg1r1RYq0Tqn/qV9++ZkkuePhv/pQWTAI35BRHU2YJ6CJqX9vlf5ojFn7p+nj1kox9oikJnAxgjjiPxtkry2mOPyet1OLw6MI1BO3xkvpkih6e0je6MoTyEeJyHaexIMmcwjhVgnmqTet7tE7YZXAPnZ8TbWCtEcNmr14LY7XNq1xmfhjySEphqiUjfgC/es4z6IGco72Jn+7BBl3bZlAj47OIhvqjDRfXg2UZ92x1dvAoUOAkRPFa1M=
-   secure: "Mo3aB9rSw37kMqEgVwci+jO2jy1RmFsSN1cwcK5XSh8YV8eHVfmFEUJsvzGnUSe4nhjxVZjTHHY3iynSA1j6o3/ppdCl5GHJGu1+F1XqD0KXj4Hpu1XeYCBdoHMkrAwXXFTem09goPJBlASli2SNsq5yUZTLghYUPFwZ9c9bJuaEMiooED+gOoAPvBvsCUaj1Yk7gXCNlWs6HDkuwBC7FCYrUs/1zqNkm7N9g7Mxg+7vbVKHG7rMvTerM4ajg1sUUGSPsvcJEVAQZxkAe3rwJsr9HPtqwOLUix/gHzR1iB316LNa3nKj8r8IhPClzAkDn5IZXjJYb76gklcMm9cL46pdlNSiZqtadfjII4+aC/MScy8s3yUwoYb4rthOZ5rGXnnHAw19usLsMjhJCWLsjTpBJ8fLGDZ5dcrLXVJGUpQVDyD+hG81/s8aBNl+tacOAmdx2gkpqeCDClzWGGxvDFEWYgwxG+c2RrSyy4FPbPtX1M/LkxpKDNhqRWUP1daz9+4XyKHuY1poAh1KTNfAfWxyecUZfdePnKVsytds/ZjKWKjXavT8Bi16AvOGt1oHII87Z79k7pBsNMJ4l/IE4Ks/u+z4aONCaGkWNHfsrWqDfRmJpfqUt3fRJL44Qda0caH/asA+QaVbMMtacSLswMVStz5w9lnidO+fNo61UMQ="
+  - secure: hkbnI6zzYrpp7383Vig4DyQHcz4YTG4+eWr9nOn1vva501sCMtsjZoGpM4e64h/K1jGdkvSxwzLr5kGhfUIb68QlmLcFklaC0OndR/REo3U2Z7K3HQevd+eeCp4RCha28XJWRxex6LPwZlfPpa2pzDIfanvWh/bkPgUH9OHbxfJdQCEduO4DRv+ZXQI7im0OO/RRCXhzZnHDJkJWMsWuEc5VqBFD4oyjjXncg7OPYiUkSgEGh8ZsAxOUQmqxKuAW39f05FWx8EiKN8yuDOi5+8dr4FiSmdWvnTc5FmHnBxL7HJnNj/y9Eichn5Ce00/JtXER61r32ULR6Vp5SOa92Xi2chliRbqhBWvWwe5GpoeNqGv6uQDro4uZZLuV/yWvrOlpq9dPWRnCU+bAo4FizcAiU0Iv+ZUiti07ce4wrYeNbvJ6+rHLlpEV1mTyfd593Daa2+1QsWvKh/Acplgr62yuDrevj0iUMfoJt6YEMxDwU9gzhoPkUnhZH5WSIpOI4oTpjY6B4u/8+B6JClmvbK465wXwxpx750HRCnhYntGB+LHBqpkzmFT4CEzdQ64HjPimFwxReINAFpnQPpvCayyLT9FW5+RcWYLfvbQ1D0pLBluuwsK5m/8jfAy/wFjtpce+dlWj5bHkaFcvWTis3mWEtciuJVzQ1MZfwVG2kio=
+  - secure: Vdv5/lxun+H8putJutWED2MVueiub1wpULUUrnAsX4Uu7yswCAeNYl4bCF9BflngabonCAfPkUEkj56XoJ3yyOPxfSVj1cxHpjslthgS1mdhJJInI9GmgeandOHH5suOmLDR6xREkROCk6hsMsWLa/B9RE7LbJctb3+rITNVxFg8JO5RXjxp/hsoLTa/5aKgD8qVT7Kq7Hez0W0cvbDDeQlLoyWFbbJpR55S+GOOg8/8eOf9jzy+2UryNe+igCemCCJXfFGKXAr1VekwYuFV6b07t/mlqOJKzdQqjezMz8rtHNqie9vjLmsjSpWTfgRdSx3INrA7KXma/Nb0j2DNqdpuQj7OiRL5imqct7JxgTCvYwverOVAVoA7c2T4H4ExIzIXtUMIH2fGgut43uNKgWM/7uPnLmRCruawv90UCGYkvRQF+GJ/vLOs4yXi6AKQ8ViM1IxaZM50Zko79RuHGzHUR53KYV1Ch/3OGhH9Gz/VQuQyM+N59nTX4qpZM3+aNZ241ZW84WbYLd69hzlSHD0HUMvkuQdHQ/QhgM4VaWU9l57agLnPAkyC3sbeIEYrAf/IcNSv8GSGe8bihYhUq54HDsHtcgOc62AYIAHT3RRVgZTmmd2Gc+VqBIuOU2wLmcBCdwrkjFGu/14CGFuNqhKmqgA2g8CnYrerxXuTz7Y=
   matrix:
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic DOCKER_TAG_TO_PUBLISH=11-bionic-openjdk-headless
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic JDK_VERSION=11.0.4+11-1ubuntu2~18.04.3 DOCKER_TAG_TO_PUBLISH=11.0.4-bionic-openjdk-headless
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic JDK_VERSION=8u222-b10-1ubuntu1~18.04.1 DOCKER_TAG_TO_PUBLISH=8u222-bionic-openjdk-headless
-    - DOCKER_IMAGE_BASE=centos:7 JDK_VERSION=11.0.3.7 DOCKER_TAG_TO_PUBLISH=11-centos-openjdk-headless
-    - DOCKER_IMAGE_BASE=debian:jessie-slim DOCKER_TAG_TO_PUBLISH=8-jessie-openjdk-headless
-    - DOCKER_IMAGE_BASE=debian:jessie-slim JDK_VERSION=8u171-b11-1~bpo8+1 DOCKER_TAG_TO_PUBLISH=8u171-jessie-openjdk-headless
-    - DOCKER_IMAGE_BASE=debian:stretch-slim DOCKER_TAG_TO_PUBLISH=8-stretch-openjdk-headless
-    - DOCKER_IMAGE_BASE=debian:stretch-slim JDK_VERSION=8u222-b10-1~deb9u1 DOCKER_TAG_TO_PUBLISH=8u222-stretch-openjdk-headless
-    - DOCKER_IMAGE_BASE=debian:stretch-slim JDK_VERSION=11.0.4+11-1~bpo9+1 DOCKER_TAG_TO_PUBLISH=11.0.4-stretch-openjdk-headless
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial DOCKER_TAG_TO_PUBLISH=9-xenial-openjdk-headless
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial JDK_VERSION=8u222-b10-1ubuntu1~16.04.1 DOCKER_TAG_TO_PUBLISH=8u222-xenial-openjdk-headless
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial JDK_VERSION=9~b114-0ubuntu1 DOCKER_TAG_TO_PUBLISH=9b114-xenial-openjdk-headless
+  - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic DOCKER_TAG_TO_PUBLISH=11-bionic-openjdk-headless
+  - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic JDK_VERSION=11.0.4+11-1ubuntu2~18.04.3 DOCKER_TAG_TO_PUBLISH=11.0.4-bionic-openjdk-headless
+  - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic JDK_VERSION=8u222-b10-1ubuntu1~18.04.1 DOCKER_TAG_TO_PUBLISH=8u222-bionic-openjdk-headless
+  - DOCKER_IMAGE_BASE=centos:7 JDK_VERSION=11.0.3.7 DOCKER_TAG_TO_PUBLISH=11-centos-openjdk-headless
+  - DOCKER_IMAGE_BASE=debian:jessie-slim DOCKER_TAG_TO_PUBLISH=8-jessie-openjdk-headless
+  - DOCKER_IMAGE_BASE=debian:jessie-slim JDK_VERSION=8u171-b11-1~bpo8+1 DOCKER_TAG_TO_PUBLISH=8u171-jessie-openjdk-headless
+  - DOCKER_IMAGE_BASE=debian:stretch-slim DOCKER_TAG_TO_PUBLISH=8-stretch-openjdk-headless
+  - DOCKER_IMAGE_BASE=debian:stretch-slim JDK_VERSION=8u222-b10-1~deb9u1 DOCKER_TAG_TO_PUBLISH=8u222-stretch-openjdk-headless
+  - DOCKER_IMAGE_BASE=debian:stretch-slim JDK_VERSION=11.0.4+11-1~bpo9+1 DOCKER_TAG_TO_PUBLISH=11.0.4-stretch-openjdk-headless
+  - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial DOCKER_TAG_TO_PUBLISH=9-xenial-openjdk-headless
+  - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial JDK_VERSION=8u222-b10-1ubuntu1~16.04.1 DOCKER_TAG_TO_PUBLISH=8u222-xenial-openjdk-headless
+  - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial JDK_VERSION=9~b114-0ubuntu1 DOCKER_TAG_TO_PUBLISH=9b114-xenial-openjdk-headless
 script:
 - pipenv run molecule test
 notifications:
-  webhooks: 
-    - https://galaxy.ansible.com/api/v1/notifications/
+  webhooks:
+  - https://galaxy.ansible.com/api/v1/notifications/
 deploy:
   provider: script
   script: packer build packer/template.json
