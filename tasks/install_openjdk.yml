@@ -66,6 +66,7 @@
 - name: Java | Update Env
   alternatives:
     name: java
+    link: /usr/bin/java
     path: "{{ java_open_jdk_home }}/bin/java"
 
 - name: Java | Ensure Defaults on etc/alternatives systems
