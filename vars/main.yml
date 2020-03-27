@@ -17,3 +17,6 @@ java_oracle_jdk_latest_versions_urls:
     url: https://download.oracle.com/otn-pub/java/jdk/11.0.2+9/f51449fcd52f4d52b93a989c5c56ed3c/jdk-11.0.2_linux-x64_bin.tar.gz
     # https://www.oracle.com/webfolder/s/digest/11-0-2checksum.html
     sha256: 7b4fd8ffcf53e9ff699d964a80e4abf9706b5bdb5644a765c2b96f99e3a2cdc8
+  1.8.0_241:
+    url: https://download.oracle.com/otn/java/jdk/8u241-b07/1f5b5a70bf22433b84d0e960903adac8/jdk-8u241-linux-x64.tar.gz
+    sha256: 419d32677855f676076a25aed58e79432969142bbd778ff8eb57cb618c69e8cb  
