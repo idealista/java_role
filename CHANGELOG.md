@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/java_role/tree/develop)
+### Changed
+- *[#120](https://github.com/idealista/java_role/issues/120) Installs the latest package available for the Java major release by default* @frantsao
 
 ## [5.0.1](https://github.com/idealista/java_role/tree/5.0.1) (2019-10-01)
 ### Fixed
