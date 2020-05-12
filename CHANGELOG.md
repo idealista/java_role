@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 ### Changed
 - *[#120](https://github.com/idealista/java_role/issues/120) Installs the latest package available for the Java major release by default* @frantsao
 - *[#120](https://github.com/idealista/java_role/issues/120) Alternatives are managed by post-install package actions* @frantsao
+- *Upgraded to molecule 3 and goss 0.3.11* @frantsao
 
 ## [5.0.1](https://github.com/idealista/java_role/tree/5.0.1) (2019-10-01)
 ### Fixed
