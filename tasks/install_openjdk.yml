@@ -9,7 +9,7 @@
 # Allowing to 'override' variables that are defined using include_vars
 - name: Java | Setting OS specific variables
   set_fact:
-    java_open_jdk_version_major: "{{ java_open_jdk_version_major if java_open_jdk_version_major is defined and java_open_jdk_version_major is not sameas None and java_open_jdk_version_major|length else __java_open_jdk_version_major }}"  # noqa 204
+    java_open_jdk_version_major: "{{ java_open_jdk_version_major if java_open_jdk_version_major is defined and java_open_jdk_version_major is not sameas None and java_open_jdk_version_major else __java_open_jdk_version_major }}"  # noqa 204
     java_required_repositories_openjdk: "{{ java_required_repositories_openjdk if java_required_repositories_openjdk is defined and java_required_repositories_openjdk is not sameas None and java_required_repositories_openjdk|length else __java_required_repositories_openjdk }}"  # noqa 204
     java_required_libs_openjdk: "{{ java_required_libs_openjdk if java_required_libs_openjdk is defined and java_required_libs_openjdk is not sameas None and java_required_libs_openjdk|length else __java_required_libs_openjdk }}"  # noqa 204
 - name: Java | Setting OS specific variables

@@ -9,7 +9,7 @@ lint: |
     ansible-lint .
 
 platforms:
-  - name: openjdk-stretch
+  - name: openjdktest
     groups:
       - openjdk
     image: ${DOCKER_IMAGE_BASE:-debian:stretch-slim}
@@ -20,6 +20,7 @@ provisioner:
     group_vars:
       openjdk:
         java_open_jdk_version: ${JDK_VERSION}
+        java_open_jdk_version_major: ${JDK_MAJOR}
 scenario:
   name: default
 verifier:
