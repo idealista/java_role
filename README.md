@@ -33,7 +33,7 @@ To use this role as dependency in your playbook, prerequisites below:
 Ansible 2.9.x.x version installed.
 Inventory destination should be a Debian/Ubuntu or CentOS environment.
 
-For testing purposes you will need [Python 3.6+](https://www.python.org/downloads/release/python-368/), [Pipenv](https://github.com/pypa/pipenv) and [Molecule](https://github.com/ansible-community/molecule)
+For testing purposes you will need [Python 3.7+](https://www.python.org/downloads/release/python-377/), [Pipenv](https://github.com/pypa/pipenv).
 
 ### Installing
 
@@ -42,7 +42,7 @@ Create or add to your roles dependency file (e.g requirements.yml):
 ```yml
 - src: http://github.com/idealista/java_role.git
   scm: git
-  version: 5.1.0
+  version: 5.0.0
   name: java
 ```
 
@@ -50,7 +50,7 @@ or using [Ansible Galaxy](https://galaxy.ansible.com/idealista/java_role/) as or
 
 ```yml
 - src: idealista.java_role
-  version: 5.1.0
+  version: 5.0.0
   name: java
 ```
 
@@ -100,22 +100,29 @@ List of versions (tags) can be checked on [Docker Hub](https://cloud.docker.com/
 
 #### OpenJDK
 
-A specific OpenJDK version should be selected overriding `java_open_jdk_version` variable using group vars/host vars:
+A specific OpenJDK version should be selected overriding `java_open_jdk_version_major` variable using group vars/host vars:
 
-Operative System | OpenJDK version
+Operative System | OpenJDK major release
 --- | ---
-Debian Jessie | `8u171-b11-1~bpo8+1` (default)
-Debian Stretch | `8u252-b09-1~deb9u1` (default)
-Debian Stretch | `11.0.6+10-1~bpo9+1`
-Debian Buster | `11.0.7+10-3~deb10u1` (default)
-Ubuntu Xenial | `8u252-b09-1~16.04`
-Ubuntu Xenial | `9~b114-0ubuntu1` (default)
-Ubuntu Bionic | `8u252-b09-1~18.04`
-Ubuntu Bionic | `11.0.7+10-2ubuntu2~18.04` (default)
-Ubuntu Focal | `8u252-b09-1ubuntu1`
-Ubuntu Focal | `14.0.1+7-1ubuntu1` (default)
-CentOS 7 | `11.0.7.10` (default)
-CentOS 8 | `11.0.7.10` (default)
+Debian Jessie | `8` (default)
+Debian Jessie | `7`
+Debian Stretch | `8` (default)
+Debian Stretch | `11`
+Debian Buster | `11` (default)
+Ubuntu Xenial | `8`
+Ubuntu Xenial | `9` (default)
+Ubuntu Bionic | `8`
+Ubuntu Bionic | `11` (default)
+Ubuntu Focal | `8`
+Ubuntu Focal | `11`
+Ubuntu Focal | `13`
+Ubuntu Focal | `14` (default)
+CentOS 7 | `1.6.0`
+CentOS 7 | `1.7.0`
+CentOS 7 | `1.8.0`
+CentOS 7 | `11` (default)
+CentOS 8 | `1.8.0`
+CentOS 8 | `11` (default)
 
 ## Testing
 
