@@ -1,5 +1,7 @@
+---
+dist: bionic
 language: python
-python: 3.6
+python: 3.7
 sudo: required
 services:
 - docker
@@ -9,24 +11,30 @@ before_script:
 - sudo unzip -o /tmp/packer.zip -d /usr/local/bin
 install:
 - pip install pipenv
-- pipenv install -r test-requirements.txt --python 3.6
+- pipenv sync
 env:
   global:
   - secure: WuOSbycFJIECLpysMXvNOYckr004ufS10PoboOldE/7yJPtAwKE6KIVdHLNQ942j70+GU3y18/UErMyY0mjyZl9zzQRhvQKpyGuKniTCCIDgxydhMP/Ik3+DHslG3szfTmbjo1bJ2+uRFLOxTgY7pnxebJbW3i7AKSEpK9XQY0GzGhJzazqJJeylMsC/gTOQFza2clPe1so5b5CoedbK3/Ued82dlDgb/bqY5rlyYvx/qdbNRl5kVdH/YWLWR2xdl1WffL91Lbh/YtqgLAeZuJJsza6dHvjKlFAiVFMuWxX3GBYgcdmxnL+vzy9Ldp4FiFi1B+amSjCQsQ8HB3vJqCAhWBs1pvHE4xlM7Pxaoz+Zz5Iwnb0LwQvwu+ehitHBpHTmKG1s3wVVPAx0xArZuN5fsn9vW/HAyoVM3AkI6jOjlgTEYVMCJSr/+fLvGwjzuhYoHLQfI8R6S4A71xz6n6xU8LoLrbg9V6ypfyNSuEsBD/W+H9cE8cmqiJftMnExj0dQMXDGp0b6gpFLgPo4L5d5szPgcLGTpmwcyRTTGDymjS5veDxIhwVtUQif78PlwIJ/Ky+2M/qREnSkt8OcAtv8msqvfTGfiQIHsWu/kHsRFctVfidBmLTU6KRSxwXhe+br67HsBuYKp6aGtubYE0QGwM+gn5UnIzAy6+5OmTo=
   - secure: jnMLyXO4BXHo5OWGDsgtTnKBoiV+EG5Qd7w+a0RfkJu/SeqW/pm7NOnGqWDxKUdf9UREtKvCO26ZdciC2DwmjOVsSH5KVnvS7fr2QvPalHNJhi8IHkSOi5BP4DUIFlJowBKCGMTftNUJCiZq5tq8GnnwR9eaQg0WqhqcSmRA/dIyN4MycayGhqt/+9gaTiOaiKrun7esAUnizszXOj8P0QBLxjAiXIfDmwUfe6z7vHRaf96L/T5tpDcRd00jxm+QYlsN8zIxYK5CguPwl/ip2jRAdkq2KA8MT5tL7qaqkqAKzzaetHKbSigzuzER8Wua5Qc3JZajI9YMayvJSrow3fXDmGg+T4XYJgRe87HtIO3IwHclvtfsYgrD1kYhLm+jo2czm8uQIKdQZqVkZ8lJxhV24yZ76Xa0ysEzmHXbV2HHmNYud2Kuh8CYPA+M9yB8icwoc58IqOOfj7/N8Siv5oypSuWmEHZdkhPVkPBY4Qq7aDMGy4/Uzy+yu4V++6oJrXZMAKKlDnuMayZylEaN+CLjZnDFDjusYDkTZRoNo1Bt5EiEb0AZQ19caVW0kRD0rseRa/Af/DYJswTo6AyXs4Tk2B4Mm/0XYGhku4QKZw6In3/FxTHxF16y9GZMv1T/0xRXpkmFYYHJE/4vhhsN0shTRNe+9b+tc/zvd5a3/3g=
-  matrix:
-  - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic DOCKER_TAG_TO_PUBLISH=11-bionic-openjdk-headless
-  - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic JDK_VERSION=11.0.4+11-1ubuntu2~18.04.3 DOCKER_TAG_TO_PUBLISH=11.0.4-bionic-openjdk-headless
-  - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic JDK_VERSION=8u222-b10-1ubuntu1~18.04.1 DOCKER_TAG_TO_PUBLISH=8u222-bionic-openjdk-headless
-  - DOCKER_IMAGE_BASE=centos:7 JDK_VERSION=11.0.3.7 DOCKER_TAG_TO_PUBLISH=11-centos-openjdk-headless
+  jobs:
   - DOCKER_IMAGE_BASE=debian:jessie-slim DOCKER_TAG_TO_PUBLISH=8-jessie-openjdk-headless
-  - DOCKER_IMAGE_BASE=debian:jessie-slim JDK_VERSION=8u171-b11-1~bpo8+1 DOCKER_TAG_TO_PUBLISH=8u171-jessie-openjdk-headless
+  - DOCKER_IMAGE_BASE=debian:jessie-slim JDK_MAJOR=8 JDK_VERSION=8u171-b11-1~bpo8+1 DOCKER_TAG_TO_PUBLISH=8u171-jessie-openjdk-headless
   - DOCKER_IMAGE_BASE=debian:stretch-slim DOCKER_TAG_TO_PUBLISH=8-stretch-openjdk-headless
-  - DOCKER_IMAGE_BASE=debian:stretch-slim JDK_VERSION=8u222-b10-1~deb9u1 DOCKER_TAG_TO_PUBLISH=8u222-stretch-openjdk-headless
-  - DOCKER_IMAGE_BASE=debian:stretch-slim JDK_VERSION=11.0.4+11-1~bpo9+1 DOCKER_TAG_TO_PUBLISH=11.0.4-stretch-openjdk-headless
+  - DOCKER_IMAGE_BASE=debian:stretch-slim JDK_MAJOR=8 JDK_VERSION=8u252-b09-1~deb9u1 DOCKER_TAG_TO_PUBLISH=8u252-stretch-openjdk-headless
+  - DOCKER_IMAGE_BASE=debian:stretch-slim JDK_MAJOR=11 JDK_VERSION=11.0.6+10-1~bpo9+1 DOCKER_TAG_TO_PUBLISH=11.0.6-stretch-openjdk-headless
+  - DOCKER_IMAGE_BASE=debian:buster-slim DOCKER_TAG_TO_PUBLISH=11-buster-openjdk-headless
+  - DOCKER_IMAGE_BASE=debian:buster-slim JDK_MAJOR=11 JDK_VERSION=11.0.7+10-3~deb10u1 DOCKER_TAG_TO_PUBLISH=11.0.7-buster-openjdk-headless
   - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial DOCKER_TAG_TO_PUBLISH=9-xenial-openjdk-headless
-  - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial JDK_VERSION=8u222-b10-1ubuntu1~16.04.1 DOCKER_TAG_TO_PUBLISH=8u222-xenial-openjdk-headless
-  - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial JDK_VERSION=9~b114-0ubuntu1 DOCKER_TAG_TO_PUBLISH=9b114-xenial-openjdk-headless
+  - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial JDK_MAJOR=8 JDK_VERSION=8u252-b09-1~16.04 DOCKER_TAG_TO_PUBLISH=8u252-xenial-openjdk-headless
+  - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial JDK_MAJOR=9 JDK_VERSION=9~b114-0ubuntu1 DOCKER_TAG_TO_PUBLISH=9b114-xenial-openjdk-headless
+  - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic DOCKER_TAG_TO_PUBLISH=11-bionic-openjdk-headless
+  - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic JDK_MAJOR=11 JDK_VERSION=11.0.7+10-2ubuntu2~18.04 DOCKER_TAG_TO_PUBLISH=11.0.7-bionic-openjdk-headless
+  - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic JDK_MAJOR=8 JDK_VERSION=8u252-b09-1~18.04 DOCKER_TAG_TO_PUBLISH=8u252-bionic-openjdk-headless
+  - DOCKER_IMAGE_BASE=amd64/ubuntu:focal DOCKER_TAG_TO_PUBLISH=14-focal-openjdk-headless
+  - DOCKER_IMAGE_BASE=amd64/ubuntu:focal JDK_MAJOR=14 JDK_VERSION=14.0.1+7-1ubuntu1 DOCKER_TAG_TO_PUBLISH=14.0.1-focal-openjdk-headless
+  - DOCKER_IMAGE_BASE=amd64/ubuntu:focal JDK_MAJOR=8 JDK_VERSION=8u252-b09-1ubuntu1 DOCKER_TAG_TO_PUBLISH=8u252-focal-openjdk-headless
+  - DOCKER_IMAGE_BASE=centos:7 JDK_MAJOR=11 JDK_VERSION=11.0.7.10 DOCKER_TAG_TO_PUBLISH=11.0.7.10-centos7-openjdk-headless
+  - DOCKER_IMAGE_BASE=centos:8 JDK_MAJOR=11 JDK_VERSION=11.0.7.10 DOCKER_TAG_TO_PUBLISH=11.0.7.10-centos8-openjdk-headless
 script:
 - pipenv run molecule test
 notifications:

@@ -1,9 +1,12 @@
 ---
 
+java_open_jdk_package: "openjdk-{{ java_open_jdk_version_major }}-jdk-headless"
+java_open_jdk_home_dir: "java-{{ java_open_jdk_version_major }}-openjdk-amd64"
+
 # Using pattern described in Ansible Best Practices and Conventions (Appendix B), Ansible for Devops (p. 406)
-__java_open_jdk_version: "8u222-b10-1~deb9u1"
+__java_open_jdk_version_major: 8
+# Supported openjdk major releases: 8 via oldstable, 11 via backports
 
 __java_required_repositories_openjdk:
   - deb http://ftp.debian.org/debian stretch-backports main
-
 __java_required_libs_openjdk: []
