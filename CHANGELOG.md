@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/java_role/tree/develop)
+
+## [5.1.0](https://github.com/idealista/java_role/tree/5.1.0) (2020-05-20)
+[Full Changelog](https://github.com/idealista/java_role/compare/5.0.0...5.1.0)
 ### Changed
 - *[#120](https://github.com/idealista/java_role/issues/120) Installs the latest package available for the Java major release by default* @frantsao
 - *[#120](https://github.com/idealista/java_role/issues/120) Alternatives are managed by post-install package actions* @frantsao
@@ -10,6 +13,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 - *[#107](https://github.com/idealista/java_role/issues/107) [#114](https://github.com/idealista/java_role/issues/114) Added support to the latest OS distribution releases* @frantsao
 
 ## [5.0.1](https://github.com/idealista/java_role/tree/5.0.1) (2019-10-01)
+[Full Changelog](https://github.com/idealista/java_role/compare/5.0.0...5.0.1)
 ### Fixed
 - *[#99](https://github.com/idealista/java_role/issues/99) Fixing deploy to DockerHub* @jnogol
 
