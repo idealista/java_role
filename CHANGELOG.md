@@ -4,6 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/java_role/tree/develop)
 
+## [5.1.1](https://github.com/idealista/java_role/tree/5.1.1) (2020-05-20)
+[Full Changelog](https://github.com/idealista/java_role/compare/5.1.0...5.1.1)
+### Fixed
+- *Hotfix: some docker deployments are broken because missing jdk major release var in packer template* @frantsao
+
 ## [5.1.0](https://github.com/idealista/java_role/tree/5.1.0) (2020-05-20)
 [Full Changelog](https://github.com/idealista/java_role/compare/5.0.0...5.1.0)
 ### Changed
