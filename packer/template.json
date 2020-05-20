@@ -6,7 +6,8 @@
       "docker_username": "{{env `DOCKER_USERNAME`}}",
       "docker_password": "{{env `DOCKER_PASSWORD`}}",
       "docker_tag_to_publish": "{{env `DOCKER_TAG_TO_PUBLISH`}}",
-      "jdk_version": "{{env `JDK_VERSION`}}"
+      "jdk_version": "{{env `JDK_VERSION`}}",
+      "jdk_major":  "{{env `JDK_MAJOR`}}"
     },
     "builders": [
       {
@@ -40,7 +41,7 @@
         "playbook_file": "{{ template_dir }}/playbook.yml",
         "extra_arguments": [
           "--extra-vars",
-          "ansible_host={{user `ansible_host`}} ansible_connection={{user `ansible_connection`}} java_open_jdk_version={{user `jdk_version`}}"
+          "ansible_host={{user `ansible_host`}} ansible_connection={{user `ansible_connection`}} java_open_jdk_version={{user `jdk_version`}} java_open_jdk_version_major={{user `jdk_major`}}"
         ]
       }
     ],
