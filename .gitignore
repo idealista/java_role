@@ -1,8 +1,5 @@
 .molecule
-.vagrant
 .cache
 .python-version
 .project
-Pipfile
-Pipfile.lock
 **/*.retry
