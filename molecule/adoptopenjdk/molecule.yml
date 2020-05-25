@@ -1,0 +1,25 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+
+lint: |
+    yamllint .
+    ansible-lint .
+
+platforms:
+  - name: openjdk-adopt-test
+    groups:
+      - openjdk
+    image: ${DOCKER_IMAGE_BASE:-debian:buster-slim}
+
+provisioner:
+  name: ansible
+  inventory:
+    links:
+      group_vars: ./group_vars
+scenario:
+  name: adoptopenjdk
+verifier:
+  name: ansible
