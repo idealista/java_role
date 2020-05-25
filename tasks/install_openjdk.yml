@@ -23,13 +23,6 @@
   set_fact:
     java_home: "{{ java_open_jdk_home }}"
 
-- name: Java | Install required libs
-  package:
-    name: "{{ java_required_libs_openjdk }}"
-    state: present
-  until: java_required_libs_installed is succeeded
-  register: java_required_libs_installed
-
 # Explanation why:
 # https://www.lucas-nussbaum.net/blog/?p=947
 - name: Java | Disable Debian 8 APT check-valid-until
@@ -52,6 +45,7 @@
       apt_repository:
         repo: "{{ item }}"
         state: present
+        update_cache: true
       with_items: "{{ java_required_repositories_openjdk }}"
   when: ansible_os_family == 'Debian'
 
@@ -70,6 +64,13 @@
         gpgcheck: true
       with_items: "{{ java_required_repositories_openjdk }}"
   when: ansible_os_family == 'RedHat'
+
+- name: Java | Install required libs
+  package:
+    name: "{{ java_required_libs_openjdk }}"
+    state: present
+  until: java_required_libs_installed is succeeded
+  register: java_required_libs_installed
 
 - name: Java | Install Java, Debian
   apt:
