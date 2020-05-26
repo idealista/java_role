@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/java_role/tree/develop)
+- *[#39](https://github.com/idealista/java_role/issues/39) Improved adding extra repositories* @frantsao
 
 ## [5.1.0](https://github.com/idealista/java_role/tree/5.1.0) (2020-05-20)
 [Full Changelog](https://github.com/idealista/java_role/compare/5.0.0...5.1.0)
