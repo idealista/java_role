@@ -1,13 +1,14 @@
 ---
-
+apt_extra_packages:
+  - python-apt
+  - apt-transport-https
 java_open_jdk_version_major: 8
 # Supported major releases: 8 and from 11 to 14; hotspot and openj9 implementations
 
 # For Debian family
 java_required_repositories_openjdk:
   - deb https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/ {{ ansible_distribution_release }} main
-java_required_libs_openjdk:
-  - apt-transport-https
+java_required_libs_openjdk: []
 java_open_jdk_home_dir: adoptopenjdk-{{ java_open_jdk_version_major }}-hotspot-amd64
 
 # For RHEL family

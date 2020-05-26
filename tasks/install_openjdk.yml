@@ -36,12 +36,19 @@
     - ansible_distribution_major_version == '8'
 
 - block:
-    - name: java | add required key repositories, Debian
+    - name: Java | Install extra apt tools
+      package:
+        name: "{{ apt_extra_packages }}"
+        state: present
+      until: apt_tools_installed is succeeded
+      register: apt_tools_installed
+      when: apt_extra_packages |length > 0
+    - name: Java | add required key repositories, Debian
       apt_key:
         url: "{{ item }}"
         state: present
       with_items: "{{ java_required_key_repositories_openjdk }}"
-    - name: java | add required repositories, Debian
+    - name: Java | Add required repositories, Debian
       apt_repository:
         repo: "{{ item }}"
         state: present
@@ -50,12 +57,12 @@
   when: ansible_os_family == 'Debian'
 
 - block:
-    - name: java | add required key repositories, RedHat
+    - name: Java | Add required key repositories, RedHat
       rpm_key:
         key: "{{ item }}"
         state: present
       with_items: "{{ java_required_key_repositories_openjdk }}"
-    - name: java | add required repositories, RedHat
+    - name: Java | Add required repositories, RedHat
       yum_repository:
         name: "{{ item.name }}"
         description: OpenJDK YUM alt repo
