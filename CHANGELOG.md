@@ -4,6 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/java_role/tree/develop)
 - *[#39](https://github.com/idealista/java_role/issues/39) Improved adding extra repositories* @frantsao
+- Fix OpenJDK 8 in Debian 8 installation (removed unwanted OpenJDK 7 package)
 
 ## [5.1.0](https://github.com/idealista/java_role/tree/5.1.0) (2020-05-20)
 [Full Changelog](https://github.com/idealista/java_role/compare/5.0.0...5.1.0)

@@ -110,3 +110,13 @@
   changed_when: false
   tags:
     - skip_ansible_lint
+
+# Ugly task in order to maintain support of Java 8 in Debian. Will remove in a near future.
+- name: Java | Remove installed OpenJDK 7 package because messy dependencies in Debian 8 backports
+  apt:
+    name: "openjdk-7-jre-headless"
+    state: absent
+  when:
+    - ansible_os_family == 'Debian'
+    - ansible_distribution_major_version == '8'
+    - java_open_jdk_version_major != '7'
