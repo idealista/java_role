@@ -5,7 +5,7 @@ java_open_jdk_version_major: 11
 
 # For RHEL family
 java_required_repositories_openjdk:
-  - { name: "AmazonCoretto", baseurl: "https://yum.corretto.aws/$basearch" }
+  - { name: "AmazonCorretto", baseurl: "https://yum.corretto.aws/$basearch" }
 java_required_key_repositories_openjdk:
   - https://yum.corretto.aws/corretto.key
 java_open_jdk_package: java-{{ java_open_jdk_version_major }}-amazon-corretto-devel
