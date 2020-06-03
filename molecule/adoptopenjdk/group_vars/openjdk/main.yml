@@ -1,5 +1,5 @@
 ---
-apt_extra_packages:
+java_open_jdk_apt_extra_packages:
   - python-apt
   - apt-transport-https
 java_open_jdk_version_major: 8

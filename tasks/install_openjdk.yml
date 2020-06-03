@@ -38,11 +38,11 @@
 - block:
     - name: Java | Install extra apt tools
       package:
-        name: "{{ apt_extra_packages }}"
+        name: "{{ java_open_jdk_apt_extra_packages }}"
         state: present
       until: apt_tools_installed is succeeded
       register: apt_tools_installed
-      when: apt_extra_packages |length > 0
+      when: java_open_jdk_apt_extra_packages |length > 0
     - name: Java | add required key repositories, Debian
       apt_key:
         url: "{{ item }}"
