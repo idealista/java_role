@@ -42,7 +42,7 @@ Create or add to your roles dependency file (e.g requirements.yml):
 ```yml
 - src: http://github.com/idealista/java_role.git
   scm: git
-  version: 5.1.0
+  version: 5.2.0
   name: java
 ```
 
@@ -50,7 +50,7 @@ or using [Ansible Galaxy](https://galaxy.ansible.com/idealista/java_role/) as or
 
 ```yml
 - src: idealista.java_role
-  version: 5.1.0
+  version: 5.2.0
   name: java
 ```
 
@@ -124,6 +124,7 @@ CentOS 7 | `11` (default)
 CentOS 8 | `1.8.0`
 CentOS 8 | `11` (default)
 
+Other OpenJDK implementations out of GNU/Linux distributions streams are not officially supported, but it's easy use this role too adding extra repositories (see group vars in AdoptOpenJDK and Corretto molecule tests).
 ## Testing
 
 ```sh

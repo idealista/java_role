@@ -1,0 +1,6 @@
+---
+
+- name: Converge
+  hosts: openjdk
+  roles:
+    - java_role
