@@ -1,8 +1,5 @@
 ---
 
-java_open_jdk_package: "openjdk-{{ java_open_jdk_version_major }}-jdk-headless"
-java_open_jdk_home_dir: "java-{{ java_open_jdk_version_major }}-openjdk-amd64"
-
 # Using pattern described in Ansible Best Practices and Conventions (Appendix B), Ansible for Devops (p. 406)
 __java_open_jdk_version_major: 8
 # Supported openjdk major releases: 7, 8 via backports
@@ -12,3 +9,7 @@ __java_required_repositories_openjdk:
 __java_required_libs_openjdk:
   - ca-certificates-java=20161107~bpo8+1
   - libcups2
+__java_required_key_repositories_openjdk: []
+
+__java_open_jdk_package: openjdk-{{ java_open_jdk_version_major }}-jdk-headless
+__java_open_jdk_home_dir: java-{{ java_open_jdk_version_major }}-openjdk-amd64

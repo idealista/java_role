@@ -1,0 +1,16 @@
+---
+
+file:
+  {{ java_open_jdk_home }}/lib:
+    exists: true
+    filetype: directory
+package:
+{% if java_open_jdk_version is defined and java_open_jdk_version is not sameas None and java_open_jdk_version != "" %}
+  {{ java_open_jdk_package }}:
+      installed: true
+      versions:
+        - {{ java_open_jdk_version }}
+{% else %}
+  {{ java_open_jdk_package }}:
+      installed: true
+{% endif %}

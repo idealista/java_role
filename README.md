@@ -124,6 +124,7 @@ CentOS 7 | `11` (default)
 CentOS 8 | `1.8.0`
 CentOS 8 | `11` (default)
 
+Other OpenJDK implementations out of GNU/Linux distributions streams are not officially supported, but it's easy use this role too adding extra repositories (see group vars in AdoptOpenJDK and Corretto molecule tests).
 ## Testing
 
 ```sh

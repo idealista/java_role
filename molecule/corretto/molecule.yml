@@ -1,0 +1,25 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+
+lint: |
+    yamllint .
+    ansible-lint .
+
+platforms:
+  - name: openjdk-corretto-test
+    groups:
+      - openjdk
+    image: ${DOCKER_IMAGE_BASE:-centos:8}
+
+provisioner:
+  name: ansible
+  inventory:
+    links:
+      group_vars: ./group_vars
+scenario:
+  name: corretto
+verifier:
+  name: ansible

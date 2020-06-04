@@ -7,12 +7,19 @@
 
 # Using pattern described in Ansible Best Practices and Conventions (Appendix B), Ansible for Devops (p. 406)
 # Allowing to 'override' variables that are defined using include_vars
-- name: Java | Setting OS specific variables
+- name: Java | Setting OS specific variables (I)
   set_fact:
     java_open_jdk_version_major: "{{ java_open_jdk_version_major if java_open_jdk_version_major is defined and java_open_jdk_version_major is not sameas None and java_open_jdk_version_major else __java_open_jdk_version_major }}"  # noqa 204
     java_required_repositories_openjdk: "{{ java_required_repositories_openjdk if java_required_repositories_openjdk is defined and java_required_repositories_openjdk is not sameas None and java_required_repositories_openjdk|length else __java_required_repositories_openjdk }}"  # noqa 204
+    java_required_key_repositories_openjdk: "{{ java_required_key_repositories_openjdk if java_required_key_repositories_openjdk is defined and java_required_key_repositories_openjdk is not sameas None and java_required_key_repositories_openjdk|length  else __java_required_key_repositories_openjdk }}"  # noqa 204
     java_required_libs_openjdk: "{{ java_required_libs_openjdk if java_required_libs_openjdk is defined and java_required_libs_openjdk is not sameas None and java_required_libs_openjdk|length else __java_required_libs_openjdk }}"  # noqa 204
-- name: Java | Setting OS specific variables
+
+- name: Java | Setting OS specific variables (II)
+  set_fact:
+    java_open_jdk_home_dir: "{{ java_open_jdk_home_dir if java_open_jdk_home_dir is defined and java_open_jdk_home_dir is not sameas None and java_open_jdk_home_dir else __java_open_jdk_home_dir }}"  # noqa 204
+    java_open_jdk_package: "{{ java_open_jdk_package if java_open_jdk_package is defined and java_open_jdk_package is not sameas None and java_open_jdk_package else __java_open_jdk_package }}"  # noqa 204
+
+- name: Java | Setting specific variables
   set_fact:
     java_home: "{{ java_open_jdk_home }}"
 
@@ -28,13 +35,42 @@
     - ansible_os_family == 'Debian'
     - ansible_distribution_major_version == '8'
 
-- name: Java | Add required repositories, Debian
-  apt_repository:
-    repo: "{{ item }}"
-    state: present
-    update_cache: true
-  with_items: "{{ java_required_repositories_openjdk }}"
+- block:
+    - name: Java | Install extra apt tools
+      package:
+        name: "{{ java_open_jdk_apt_extra_packages }}"
+        state: present
+      until: apt_tools_installed is succeeded
+      register: apt_tools_installed
+      when: java_open_jdk_apt_extra_packages |length > 0
+    - name: Java | add required key repositories, Debian
+      apt_key:
+        url: "{{ item }}"
+        state: present
+      with_items: "{{ java_required_key_repositories_openjdk }}"
+    - name: Java | Add required repositories, Debian
+      apt_repository:
+        repo: "{{ item }}"
+        state: present
+        update_cache: true
+      with_items: "{{ java_required_repositories_openjdk }}"
   when: ansible_os_family == 'Debian'
+
+- block:
+    - name: Java | Add required key repositories, RedHat
+      rpm_key:
+        key: "{{ item }}"
+        state: present
+      with_items: "{{ java_required_key_repositories_openjdk }}"
+    - name: Java | Add required repositories, RedHat
+      yum_repository:
+        name: "{{ item.name }}"
+        description: OpenJDK YUM alt repo
+        file: "{{ item.name }}.repo"
+        baseurl: "{{ item.baseurl }}"
+        gpgcheck: true
+      with_items: "{{ java_required_repositories_openjdk }}"
+  when: ansible_os_family == 'RedHat'
 
 - name: Java | Install required libs
   package:
@@ -74,3 +110,13 @@
   changed_when: false
   tags:
     - skip_ansible_lint
+
+# Ugly task in order to maintain support of Java 8 in Debian. Will remove in a near future.
+- name: Java | Remove installed OpenJDK 7 package because messy dependencies in Debian 8 backports
+  apt:
+    name: "openjdk-7-jre-headless"
+    state: absent
+  when:
+    - ansible_os_family == 'Debian'
+    - ansible_distribution_major_version == '8'
+    - java_open_jdk_version_major != '7'
