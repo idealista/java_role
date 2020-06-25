@@ -46,19 +46,19 @@ env:
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
       JDK_IMPLEMENTATION=oraclejdk 
-      JDK_VERSION=11.0.2
+      JDK_VERSION=11.0.7
       DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-bionic-${JDK_IMPLEMENTATION}
 
     # Centos 7
     - DOCKER_IMAGE_BASE=centos:7 
       JDK_IMPLEMENTATION=oraclejdk
-      JDK_VERSION=11.0.2
+      JDK_VERSION=11.0.7
       DOCKER_TAG_TO_PUBLISH=11-centos-${JDK_IMPLEMENTATION}
 
     - DOCKER_IMAGE_BASE=centos:7 
       JDK_IMPLEMENTATION=openjdk
       JDK_VERSION=11.0.7.10
-      DOCKER_TAG_TO_PUBLISH=11-centos-${JDK_IMPLEMENTATION}-headless
+      DOCKER_TAG_TO_PUBLISH=11.0.7.10-centos-${JDK_IMPLEMENTATION}-headless
 
     # Debian Jessie
     - DOCKER_IMAGE_BASE=debian:jessie-slim 
@@ -81,7 +81,7 @@ env:
       
     - DOCKER_IMAGE_BASE=debian:jessie-slim 
       JDK_IMPLEMENTATION=oraclejdk 
-      JDK_VERSION=11.0.2
+      JDK_VERSION=11.0.7
       DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-jessie-${JDK_IMPLEMENTATION}
     
     # Debian Stretch/OpenJDK
@@ -111,7 +111,7 @@ env:
 
     - DOCKER_IMAGE_BASE=debian:stretch-slim 
       JDK_IMPLEMENTATION=oraclejdk 
-      JDK_VERSION=11.0.2
+      JDK_VERSION=11.0.7
       DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-stretch-${JDK_IMPLEMENTATION}
    
     # Ubuntu Xenial/OpenJDK
@@ -141,7 +141,7 @@ env:
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
       JDK_IMPLEMENTATION=oraclejdk 
-      JDK_VERSION=11.0.2
+      JDK_VERSION=11.0.
       DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-xenial-${JDK_IMPLEMENTATION}
 
 script:
