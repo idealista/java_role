@@ -41,12 +41,7 @@ env:
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
       JDK_IMPLEMENTATION=oraclejdk 
-      JDK_VERSION=1.8.0_201
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-bionic-${JDK_IMPLEMENTATION}
-
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
-      JDK_IMPLEMENTATION=oraclejdk 
-      JDK_VERSION=1.8.0_202
+      JDK_VERSION=1.8.0_251
       DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-bionic-${JDK_IMPLEMENTATION}
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
@@ -81,14 +76,9 @@ env:
 
     - DOCKER_IMAGE_BASE=debian:jessie-slim 
       JDK_IMPLEMENTATION=oraclejdk 
-      JDK_VERSION=1.8.0_201
+      JDK_VERSION=1.8.0_251
       DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-jessie-${JDK_IMPLEMENTATION}
-
-    - DOCKER_IMAGE_BASE=debian:jessie-slim 
-      JDK_IMPLEMENTATION=oraclejdk 
-      JDK_VERSION=1.8.0_202
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-jessie-${JDK_IMPLEMENTATION}
-
+      
     - DOCKER_IMAGE_BASE=debian:jessie-slim 
       JDK_IMPLEMENTATION=oraclejdk 
       JDK_VERSION=11.0.2
@@ -116,12 +106,7 @@ env:
 
     - DOCKER_IMAGE_BASE=debian:stretch-slim 
       JDK_IMPLEMENTATION=oraclejdk
-      JDK_VERSION=1.8.0_201
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-stretch-${JDK_IMPLEMENTATION}
-
-    - DOCKER_IMAGE_BASE=debian:stretch-slim 
-      JDK_IMPLEMENTATION=oraclejdk
-      JDK_VERSION=1.8.0_202
+      JDK_VERSION=1.8.0_251
       DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-stretch-${JDK_IMPLEMENTATION}
 
     - DOCKER_IMAGE_BASE=debian:stretch-slim 
@@ -151,12 +136,7 @@ env:
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
       JDK_IMPLEMENTATION=oraclejdk
-      JDK_VERSION=1.8.0_201
-      DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-xenial-${JDK_IMPLEMENTATION}
-
-    - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
-      JDK_IMPLEMENTATION=oraclejdk 
-      JDK_VERSION=1.8.0_202
+      JDK_VERSION=1.8.0_251
       DOCKER_TAG_TO_PUBLISH=${JDK_VERSION}-xenial-${JDK_IMPLEMENTATION}
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
