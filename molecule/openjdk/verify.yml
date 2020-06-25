@@ -24,7 +24,6 @@
 
   vars_files:
     - ../../defaults/main.yml
-    - ../../vars/main.yml
     - ../../vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml
 
   tasks:
