@@ -20,9 +20,9 @@ java_open_jdk_version_major: "{{ java_open_jdk_version | regex_search('^([0-9]{1
 # Older versions requires login to be downloaded
 # http://www.oracle.com/technetwork/java/archive-139210.html
 java_oracle_jdk_latest_versions_urls:
-  11.0.2:
-    url: https://download.oracle.com/otn-pub/java/jdk/11.0.2+9/f51449fcd52f4d52b93a989c5c56ed3c/jdk-11.0.2_linux-x64_bin.tar.gz
-    sha256: 7b4fd8ffcf53e9ff699d964a80e4abf9706b5bdb5644a765c2b96f99e3a2cdc8
+  11.0.7:
+    url: https://download.oracle.com/otn-pub/java/jdk/11.0.7%2B8/8c7daf89330c48f0b9e32f57169f7bac/jdk-11.0.7_linux-x64_bin.tar.gz
+    sha256: a7334a400fe9a9dbb329e299ca5ebab6ec969b5659a3a72fe0d6f981dbca0224
   1.8.0_251:
     url: https://download.oracle.com/otn-pub/java/jdk/8u251-b08/3d5a2bb8f8d4428bbe94aed7ec7ae784/jdk-8u251-linux-x64.tar.gz
     sha256: 777a8d689e863275a647ae52cb30fd90022a3af268f34fc5b9867ce32f1b374e
