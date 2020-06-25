@@ -4,6 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [4.1.1](https://github.com/idealista/java_role/tree/4.1.1) (2020-06-25)
 - Updated oraclejdk repositories and changed vars to default @dgalcantara
+- Updated all repositories and versions for travis @dgalcantara
 
 ## [4.1.0](https://github.com/idealista/java_role/tree/4.1.0) (2019-02-01)
 [Full Changelog](https://github.com/idealista/java_role/compare/4.0.0...4.1.0)

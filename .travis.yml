@@ -26,13 +26,13 @@ env:
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
       JDK_IMPLEMENTATION=openjdk 
-      JDK_VERSION=11.0.1+13-3ubuntu1~18.04~ppa1
+      JDK_VERSION=11.0.7+10-2ubuntu2~18.04
       DOCKER_TAG_TO_PUBLISH=11.0.1-bionic-${JDK_IMPLEMENTATION}-headless
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
       JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=8u191-b12-2ubuntu0.18.04.1
-      DOCKER_TAG_TO_PUBLISH=8u191-bionic-${JDK_IMPLEMENTATION}-headless
+      JDK_VERSION=8u252-b09-1~18.04
+      DOCKER_TAG_TO_PUBLISH=8u252-bionic-${JDK_IMPLEMENTATION}-headless
 
     # Ubuntu Bionic/OracleJDK
     - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic 
@@ -57,7 +57,7 @@ env:
 
     - DOCKER_IMAGE_BASE=centos:7 
       JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=11.0.2.7
+      JDK_VERSION=11.0.7.10
       DOCKER_TAG_TO_PUBLISH=11-centos-${JDK_IMPLEMENTATION}-headless
 
     # Debian Jessie
@@ -91,13 +91,13 @@ env:
 
     - DOCKER_IMAGE_BASE=debian:stretch-slim 
       JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=8u212-b01-1~deb9u1
-      DOCKER_TAG_TO_PUBLISH=8u181-stretch-${JDK_IMPLEMENTATION}-headless
+      JDK_VERSION=8u252-b09-1~deb9u1
+      DOCKER_TAG_TO_PUBLISH=8u252-stretch-${JDK_IMPLEMENTATION}-headless
 
     - DOCKER_IMAGE_BASE=debian:stretch-slim 
       JDK_IMPLEMENTATION=openjdk 
-      JDK_VERSION=11.0.2+9-3~bpo9+1
-      DOCKER_TAG_TO_PUBLISH=11.0.2-stretch-${JDK_IMPLEMENTATION}-headless
+      JDK_VERSION=11.0.6+10-1~bpo9+1
+      DOCKER_TAG_TO_PUBLISH=11.0.6-stretch-${JDK_IMPLEMENTATION}-headless
 
     # Debian Stretch/OracleJDK
     - DOCKER_IMAGE_BASE=debian:stretch-slim 
@@ -121,8 +121,8 @@ env:
       
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
       JDK_IMPLEMENTATION=openjdk
-      JDK_VERSION=8u191-b12-2ubuntu0.16.04.1
-      DOCKER_TAG_TO_PUBLISH=8u191-xenial-${JDK_IMPLEMENTATION}-headless
+      JDK_VERSION=8u252-b09-1~16.04
+      DOCKER_TAG_TO_PUBLISH=8u252-xenial-${JDK_IMPLEMENTATION}-headless
 
     - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial 
       JDK_IMPLEMENTATION=openjdk 
