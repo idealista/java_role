@@ -54,7 +54,7 @@ or using [Ansible Galaxy](https://galaxy.ansible.com/idealista/java_role/) as or
   name: java
 ```
 
-Alternatively you could find tagged Docker images for Debian Jessie, Stretch and Buster, Ubuntu Xenial, Bionic and Focal, and CentOS 7 and 8 in [Docker Hub](https://hub.docker.com/r/idealista/jdk/).
+Alternatively you could find tagged Docker images for Debian Stretch and Buster, Ubuntu Xenial, Bionic and Focal, and CentOS 7 and 8 in [Docker Hub](https://hub.docker.com/r/idealista/jdk/).
 
 Install the role with ansible-galaxy command:
 
@@ -84,7 +84,7 @@ docker pull idealista/jdk:${JDK_VERSION}-${DOCKER_IMAGE_BASE}-(openjdk-headless)
 ```
 
 `JDK_VERSION:` Preferred JDK version.
-`DOCKER_IMAGE`: Currently supporting: `jessie`/`stretch`/`buster` to select between Debian versions, `xenial`/`bionic`/`focal` to select between Ubuntu versions, and `7`/`8` to select a CentOS version. 
+`DOCKER_IMAGE`: Currently supporting: `stretch`/`buster` to select between Debian versions, `xenial`/`bionic`/`focal` to select between Ubuntu versions, and `7`/`8` to select a CentOS version.
 
 For instance:
 
@@ -104,8 +104,6 @@ A specific OpenJDK version should be selected overriding `java_open_jdk_version_
 
 Operative System | OpenJDK major release
 --- | ---
-Debian Jessie | `8` (default)
-Debian Jessie | `7`
 Debian Stretch | `8` (default)
 Debian Stretch | `11`
 Debian Buster | `11` (default)
@@ -129,7 +127,7 @@ Other OpenJDK implementations out of GNU/Linux distributions streams are not off
 
 ```sh
 $ pipenv sync
-$ DOCKER_IMAGE_BASE=(debian:jessie-slim|debian:stretch-slim|debian:buster-slim|amd64/ubuntu:xenial|amd64/ubuntu:bionic|amd64/ubuntu:focal|centos:7|centos:8) JDK_MAJOR=(`java_open_jdk_version_major` see [.travis.yml](.travis.yml) file to check supported versions) JDK_VERSION=(`java_open_jdk_version` see [.travis.yml](.travis.yml) file to check supported versions) pipenv run molecule test
+$ DOCKER_IMAGE_BASE=(debian:stretch-slim|debian:buster-slim|amd64/ubuntu:xenial|amd64/ubuntu:bionic|amd64/ubuntu:focal|centos:7|centos:8) JDK_MAJOR=(`java_open_jdk_version_major` see [.travis.yml](.travis.yml) file to check supported versions) JDK_VERSION=(`java_open_jdk_version` see [.travis.yml](.travis.yml) file to check supported versions) pipenv run molecule test
 ```
 **Note:** JDK_VERSION is an optional parameter, if not defined this role will install the latest available package for the selected Java major release.
 **Note:** debian9 (Debian Stretch) will be used as default linux distro if none is provided.
