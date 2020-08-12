@@ -4,6 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/java_role/tree/develop)
 - *[#132](https://github.com/idealista/java_role/issues/132) Removed Jessie support* @frantsao
+- *[#132](https://github.com/idealista/java_role/issues/132) Updated JRE versions in travis tests* @frantsao
+- *[#132](https://github.com/idealista/java_role/issues/132) Updated Debian Buster is default in molecule tests* @frantsao
 
 ## [5.2.0](https://github.com/idealista/java_role/tree/5.2.0) (2020-06-04)
 [Full Changelog](https://github.com/idealista/java_role/compare/5.1.0...5.2.0)
