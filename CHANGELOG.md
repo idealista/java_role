@@ -3,15 +3,20 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/java_role/tree/develop)
-- *[#132](https://github.com/idealista/java_role/issues/132) Removed Jessie support* @frantsao
-- *[#132](https://github.com/idealista/java_role/issues/132) Updated JRE versions in travis tests* @frantsao
+
+## [6.0.0](https://github.com/idealista/java_role/tree/6.0.0) (2020-08-13)
+[Full Changelog](https://github.com/idealista/java_role/compare/5.2.0...6.0.0)
+### Changed
+- *[#132](https://github.com/idealista/java_role/issues/132) Breaking: Removed Jessie support* @frantsao
 - *[#132](https://github.com/idealista/java_role/issues/132) Updated Debian Buster is default in molecule tests* @frantsao
+### Fixed
+- *[#132](https://github.com/idealista/java_role/issues/132) Updated JRE versions in travis tests* @frantsao
 
 ## [5.2.0](https://github.com/idealista/java_role/tree/5.2.0) (2020-06-04)
 [Full Changelog](https://github.com/idealista/java_role/compare/5.1.0...5.2.0)
 ### Changed
 - *[#39](https://github.com/idealista/java_role/issues/39) Improved adding extra repositories* @frantsao
-### Fixed
+yy### Fixed
 - Fix OpenJDK 8 in Debian 8 installation (removed unwanted OpenJDK 7 package)
 
 ## [5.1.0](https://github.com/idealista/java_role/tree/5.1.0) (2020-05-20)
