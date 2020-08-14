@@ -9,7 +9,6 @@ galaxy_info:
   platforms:
     - name: Debian
       versions:
-        - jessie
         - stretch
         - buster
     - name: Ubuntu

@@ -23,18 +23,6 @@
   set_fact:
     java_home: "{{ java_open_jdk_home }}"
 
-# Explanation why:
-# https://www.lucas-nussbaum.net/blog/?p=947
-- name: Java | Disable Debian 8 APT check-valid-until
-  lineinfile:
-    line: "Acquire::Check-Valid-Until no;"
-    path: /etc/apt/apt.conf.d/99no-check-valid-until
-    state: present
-    create: true
-  when:
-    - ansible_os_family == 'Debian'
-    - ansible_distribution_major_version == '8'
-
 - block:
     - name: Java | Install extra apt tools
       package:
@@ -110,13 +98,3 @@
   changed_when: false
   tags:
     - skip_ansible_lint
-
-# Ugly task in order to maintain support of Java 8 in Debian. Will remove in a near future.
-- name: Java | Remove installed OpenJDK 7 package because messy dependencies in Debian 8 backports
-  apt:
-    name: "openjdk-7-jre-headless"
-    state: absent
-  when:
-    - ansible_os_family == 'Debian'
-    - ansible_distribution_major_version == '8'
-    - java_open_jdk_version_major != '7'

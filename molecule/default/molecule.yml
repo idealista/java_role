@@ -12,7 +12,7 @@ platforms:
   - name: openjdktest
     groups:
       - openjdk
-    image: ${DOCKER_IMAGE_BASE:-debian:stretch-slim}
+    image: ${DOCKER_IMAGE_BASE:-debian:buster-slim}
 
 provisioner:
   name: ansible
