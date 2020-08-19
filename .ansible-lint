@@ -5,3 +5,4 @@ exclude_paths:
  - molecule/adoptopenjdk/tests
  - molecule/corretto/tests
  - molecule/default/tests
+ 
