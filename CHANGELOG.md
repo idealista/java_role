@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/java_role/tree/develop)
+- *[#63](https://github.com/idealista/java_role/issues/63) Solve Ansible Galaxy Warnings* @vicsufer
 
 ## [6.0.0](https://github.com/idealista/java_role/tree/6.0.0) (2020-08-13)
 [Full Changelog](https://github.com/idealista/java_role/compare/5.2.0...6.0.0)
