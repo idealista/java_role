@@ -98,3 +98,10 @@
   changed_when: false
   tags:
     - skip_ansible_lint
+
+- name: Correct java version selected /usr/lib/jvm/{{ java_open_jdk_home_dir }}/jre/bin/java"
+  alternatives:
+    name: java
+    path: "/usr/lib/jvm/{{ java_open_jdk_home_dir }}/jre/bin/java"
+  when: ansible_os_family == 'Debian'
+
