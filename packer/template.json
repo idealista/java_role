@@ -41,7 +41,6 @@
         "user": "root",
         "playbook_file": "{{ template_dir }}/playbook.yml",
         "extra_arguments": [
-          "-vvv",
           "--extra-vars",
           "ansible_host={{user `ansible_host`}} ansible_connection={{user `ansible_connection`}} jdk_build={{user `jdk_build`}} java_open_jdk_version={{user `jdk_version`}} java_open_jdk_version_major={{user `jdk_major`}}"
         ]
