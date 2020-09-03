@@ -31,6 +31,9 @@
     # Using pattern described in Ansible Best Practices and Conventions (Appendix B), Ansible for Devops (p. 406)
     # Allowing to 'override' variables that are defined using include_vars
 
+    - name: Java | Gather JDK build variables
+      include_vars: "../../vars/{{ jdk_build }}.yml"
+
     - name: Java | Setting OS specific variables
       set_fact:
         java_open_jdk_version: "{{ java_open_jdk_version if java_open_jdk_version is defined and java_open_jdk_version is not sameas None }}"
