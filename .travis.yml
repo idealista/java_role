@@ -35,7 +35,7 @@ env:
   - DOCKER_IMAGE_BASE=centos:7 JDK_MAJOR=11 JDK_VERSION=11.0.8.10 DOCKER_TAG_TO_PUBLISH=11.0.8.10-centos7-openjdk-headless
   - DOCKER_IMAGE_BASE=centos:8 JDK_MAJOR=11 JDK_VERSION=11.0.8.10 DOCKER_TAG_TO_PUBLISH=11.0.8.10-centos8-openjdk-headless
 script:
-- pipenv run molecule test
+- pipenv run molecule test --scenario-name=${JDK_VENDOR:-default}
 notifications:
   webhooks:
   - https://galaxy.ansible.com/api/v1/notifications/
