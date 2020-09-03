@@ -1,5 +1,5 @@
 ---
-jdk_build: adoptopenjdk
+jdk_build: corretto
 
 java_open_jdk_version_major: 11
 # Supported versions: 8 (1.8.0 in RHEL), 11
