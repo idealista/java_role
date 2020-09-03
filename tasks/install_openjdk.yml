@@ -3,12 +3,12 @@
 - name: Java | Gather OS specific variables
   include_vars: "{{ item }}"
   with_first_found:
-    - "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+    - "os-distributions/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
 
 - name: Java | Gather JDK build specific variables
   include_vars: "{{ item }}"
   with_first_found:
-    - "{{ jdk_build }}.yml"
+    - "jdk-builds/{{ jdk_build }}.yml"
 
 # Using pattern described in Ansible Best Practices and Conventions (Appendix B), Ansible for Devops (p. 406)
 # Allowing to 'override' variables that are defined using include_vars
