@@ -1,3 +1,0 @@
----
-java_open_jdk_apt_extra_packages: []
-java_open_jdk_home: /usr/lib/jvm/{{ java_open_jdk_home_dir }}
