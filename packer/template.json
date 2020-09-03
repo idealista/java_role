@@ -42,9 +42,7 @@
         "extra_arguments": [
           "-vvv",
           "--extra-vars",
-          "ansible_host={{user `ansible_host`}} ansible_connection={{user `ansible_connection`}} java_open_jdk_version={{user `jdk_version`}} java_open_jdk_version_major={{user `jdk_major`}}",
-          "--extra-vars",
-          "@./molecule/adoptopenjdk/group_vars/openjdk/main.yml"
+          "ansible_host={{user `ansible_host`}} ansible_connection={{user `ansible_connection`}} java_open_jdk_version={{user `jdk_version`}} java_open_jdk_version_major={{user `jdk_major`}}"
         ]
       }
     ],
