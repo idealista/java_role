@@ -1,5 +1,5 @@
 ---
-jdk_build: adoptopenjdk
+java_jdk_vendor: adoptopenjdk
 java_open_jdk_apt_extra_packages:
   - python-apt
   - apt-transport-https

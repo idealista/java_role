@@ -32,7 +32,7 @@
     # Allowing to 'override' variables that are defined using include_vars
 
     - name: Java | Gather JDK build variables
-      include_vars: "../../vars/jdk-builds/{{ jdk_build }}.yml"
+      include_vars: "../../vars/jdk-builds/{{ java_jdk_vendor }}.yml"
 
     - name: Java | Setting OS specific variables
       set_fact:
