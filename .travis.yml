@@ -39,7 +39,7 @@ env:
   - DOCKER_IMAGE_BASE=centos:8 JDK_VENDOR=adoptopenjdk JDK_MAJOR=8 JDK_VERSION=8u265_b01 DOCKER_TAG_TO_PUBLISH=8u265-centos8-adoptopenjdk-headless
   # corretto
   - DOCKER_IMAGE_BASE=debian:buster-slim JDK_VENDOR=corretto JDK_MAJOR=1.8.0 JDK_VERSION=1:8.265.01-1 DOCKER_TAG_TO_PUBLISH=8u265-buster-corretto-headless
-  - DOCKER_IMAGE_BASE=centos:8 JDK_VENDOR=corretto JDK_MAJOR=1.8.0 JDK_VERSION=1:1.8.0_265.b01-1 DOCKER_TAG_TO_PUBLISH=8u265-centos8-corretto-headless
+  - DOCKER_IMAGE_BASE=centos:8 JDK_VENDOR=corretto JDK_MAJOR=1.8.0 JDK_VERSION=1.8.0_265.b01 DOCKER_TAG_TO_PUBLISH=8u265-centos8-corretto-headless
 script:
 - pipenv run molecule test --scenario-name=${JDK_VENDOR:-default}
 notifications:
