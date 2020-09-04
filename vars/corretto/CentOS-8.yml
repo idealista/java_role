@@ -1,5 +1,5 @@
 ---
-
+java_jdk_vendor: adoptopenjdk
 __java_open_jdk_version_major: 11
 # Supported versions: 8 (1.8.0 in RHEL), 11
 
@@ -7,7 +7,8 @@ __java_required_repositories_openjdk:
   - { name: "AmazonCorretto", baseurl: "https://yum.corretto.aws/$basearch" }
 __java_required_key_repositories_openjdk:
   - https://yum.corretto.aws/corretto.key
+__java_required_libs_openjdk: []
 __java_open_jdk_package: java-{{ java_open_jdk_version_major }}-amazon-corretto-devel
 
-java_open_jdk_home_dir: java-{{ java_open_jdk_version_major }}-amazon-corretto
-java_open_jdk_home: /usr/lib/jvm/{{ java_open_jdk_home_dir }}
+__java_open_jdk_home_dir: java-{{ java_open_jdk_version_major }}-amazon-corretto
+__java_open_jdk_home: /usr/lib/jvm/{{ java_open_jdk_home_dir }}

@@ -1,15 +1,13 @@
 ---
-
 __java_open_jdk_version_major: 11
 # Supported versions: 8 (1.8.0 in RHEL), 11
 
 __java_required_repositories_openjdk:
- - deb https://apt.corretto.aws stable main
+  - deb https://apt.corretto.aws stable main
 __java_required_key_repositories_openjdk:
   - https://apt.corretto.aws/corretto.key
 __java_required_libs_openjdk:
   - apt-transport-https
 __java_open_jdk_package: java-{{ java_open_jdk_version_major }}-amazon-corretto-jdk
 
-java_open_jdk_home_dir: java-{{ java_open_jdk_version_major }}-amazon-corretto
-java_open_jdk_home: /usr/lib/jvm/{{ java_open_jdk_home_dir }}
+__java_open_jdk_home_dir: java-{{ java_open_jdk_version_major }}-amazon-corretto

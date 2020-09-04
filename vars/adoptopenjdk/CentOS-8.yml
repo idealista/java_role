@@ -1,5 +1,5 @@
 ---
-__java_open_jdk_apt_extra_packages:
+java_open_jdk_apt_extra_packages:
   - python-apt
   - apt-transport-https
 __java_open_jdk_version_major: 8
@@ -7,9 +7,9 @@ __java_open_jdk_version_major: 8
 
 __java_required_repositories_openjdk:
   - { name: "AdoptOpenJDK", baseurl: "http://adoptopenjdk.jfrog.io/adoptopenjdk/rpm/centos/$releasever/$basearch" }
+__java_required_libs_openjdk: []
 __java_open_jdk_home_dir: adoptopenjdk-{{ java_open_jdk_version_major }}-hotspot
 
 __java_required_key_repositories_openjdk:
   - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public
 __java_open_jdk_package: adoptopenjdk-{{ java_open_jdk_version_major }}-hotspot
-__java_open_jdk_home: /usr/lib/jvm/{{ java_open_jdk_home_dir }}
