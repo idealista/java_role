@@ -80,11 +80,12 @@ We publish every role version as a Docker image in Docker Hub: https://hub.docke
 You can pull our images by executing:
 
 ```bash
-docker pull idealista/jdk:${JDK_VERSION}-${DOCKER_IMAGE_BASE}-(openjdk-headless)
+docker pull idealista/jdk:${JDK_VERSION}-${DOCKER_IMAGE_BASE}-${JDK_VENDOR}headless)
 ```
 
 `JDK_VERSION:` Preferred JDK version.
 `DOCKER_IMAGE`: Currently supporting: `stretch`/`buster` to select between Debian versions, `xenial`/`bionic`/`focal` to select between Ubuntu versions, and `7`/`8` to select a CentOS version.
+`JDK_VENDOR`: Currently supporting `openjdk`/ `adoptopenjdk`/`corretto`
 
 For instance:
 
@@ -122,13 +123,14 @@ CentOS 7 | `11` (default)
 CentOS 8 | `1.8.0`
 CentOS 8 | `11` (default)
 
-Other OpenJDK implementations out of GNU/Linux distributions streams are not officially supported, but it's easy use this role too adding extra repositories (see group vars in AdoptOpenJDK and Corretto molecule tests).
+Other OpenJDK implementations out of GNU/Linux distributions streams are not officially supported, but it's easy use this role too adding extra repositories (see vars/ in AdoptOpenJDK and Corretto directories).
 ## Testing
 
 ```sh
 $ pipenv sync
-$ DOCKER_IMAGE_BASE=(debian:stretch-slim|debian:buster-slim|amd64/ubuntu:xenial|amd64/ubuntu:bionic|amd64/ubuntu:focal|centos:7|centos:8) JDK_MAJOR=(`java_open_jdk_version_major` see [.travis.yml](.travis.yml) file to check supported versions) JDK_VERSION=(`java_open_jdk_version` see [.travis.yml](.travis.yml) file to check supported versions) pipenv run molecule test
+$ DOCKER_IMAGE_BASE=(debian:stretch-slim|debian:buster-slim|amd64/ubuntu:xenial|amd64/ubuntu:bionic|amd64/ubuntu:focal|centos:7|centos:8) JDK_VENDOR=(`java_jdk_version` openjdk|adoptopenjdk|corretto) JDK_MAJOR=(`java_open_jdk_version_major` see [.travis.yml](.travis.yml) file to check supported versions) JDK_VERSION=(`java_open_jdk_version` see [.travis.yml](.travis.yml) file to check supported versions) pipenv run molecule test
 ```
+**Note:** JDK_VENDOR is an optional parameter, if not defined this role will use openjdk.
 **Note:** JDK_VERSION is an optional parameter, if not defined this role will install the latest available package for the selected Java major release.
 **Note:** debian9 (Debian Stretch) will be used as default linux distro if none is provided.
 
