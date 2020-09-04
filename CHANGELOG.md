@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/java_role/tree/develop)
+### Added
+- *[#138](https://github.com/idealista/java_role/issues/138) Support for adoptopenjdk and corretto for buster/centos8* @vicsufer
+- *[#138](https://github.com/idealista/java_role/issues/138) Create images at dockerhub for adoptopenjdk and corretto* @vicsufer
+### Changed
+- *[#138](https://github.com/idealista/java_role/issues/138) Adapt adoptopenjdk and corretto test scenarios for future supported platforms.
 ### Fixed
 - *[#63](https://github.com/idealista/java_role/issues/63) Solve Ansible Galaxy Warnings* @vicsufer
 
