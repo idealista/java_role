@@ -23,6 +23,29 @@
     molecule_yml: "{{ lookup('file', molecule_file) | molecule_from_yaml }}"
 
   tasks:
+    - name: Set JDK Vendor
+      set_fact:
+        java_jdk_vendor: adoptopenjdk
+
+    - name: Gather OS specific variables
+      include_vars: "../../vars/{{  java_jdk_vendor  }}/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+    # Using pattern described in Ansible Best Practices and Conventions (Appendix B), Ansible for Devops (p. 406)
+    # Allowing to 'override' variables that are defined using include_vars
+
+    - name: Setting OS specific variables
+      set_fact:
+        java_open_jdk_version: "{{ java_open_jdk_version if java_open_jdk_version is defined and java_open_jdk_version is not sameas None }}"
+        java_open_jdk_version_major: "{{ java_open_jdk_version_major if java_open_jdk_version_major is defined and java_open_jdk_version_major is not sameas None and java_open_jdk_version_major else __java_open_jdk_version_major }}"  # noqa 204
+
+    - name: Setting OS specific variables (II)
+      set_fact:
+        java_open_jdk_home_dir: "{{ java_open_jdk_home_dir if java_open_jdk_home_dir is defined and java_open_jdk_home_dir is not sameas None and java_open_jdk_home_dir else __java_open_jdk_home_dir }}"  # noqa 204
+        java_open_jdk_package: "{{ java_open_jdk_package if java_open_jdk_package is defined and java_open_jdk_package is not sameas None and java_open_jdk_package else __java_open_jdk_package }}"  # noqa 204
+
+    - name: Setting specific variables
+      set_fact:
+        java_home: "{{ java_open_jdk_home }}"
+
     - name: Download and install goss
       get_url:
         url: "{{ goss_url }}"

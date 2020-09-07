@@ -19,6 +19,7 @@ provisioner:
   inventory:
     group_vars:
       openjdk:
+        java_jdk_vendor: openjdk
         java_open_jdk_version: ${JDK_VERSION}
         java_open_jdk_version_major: ${JDK_MAJOR}
 scenario:
