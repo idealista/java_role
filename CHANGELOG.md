@@ -4,6 +4,17 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/java_role/tree/develop)
 
+
+## [6.1.0](https://github.com/idealista/java_role/tree/6.1.0) (2020-09-11)
+[Full Changelog](https://github.com/idealista/java_role/compare/6.0.0...6.1.0)
+### Added
+- *[#138](https://github.com/idealista/java_role/issues/138) Support for adoptopenjdk and corretto for buster/centos8* @vicsufer
+- *[#138](https://github.com/idealista/java_role/issues/138) Create images at dockerhub for adoptopenjdk and corretto* @vicsufer
+### Changed
+- *[#138](https://github.com/idealista/java_role/issues/138) Adapt adoptopenjdk and corretto test scenarios for future supported platforms.
+### Fixed
+- *[#63](https://github.com/idealista/java_role/issues/63) Solve Ansible Galaxy Warnings* @vicsufer
+
 ## [6.0.0](https://github.com/idealista/java_role/tree/6.0.0) (2020-08-13)
 [Full Changelog](https://github.com/idealista/java_role/compare/5.2.0...6.0.0)
 ### Changed

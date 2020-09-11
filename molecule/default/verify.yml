@@ -27,7 +27,7 @@
 
   tasks:
     - name: Java | Gather OS specific variables
-      include_vars: "../../vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+      include_vars: "../../vars/{{  java_jdk_vendor  }}/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
     # Using pattern described in Ansible Best Practices and Conventions (Appendix B), Ansible for Devops (p. 406)
     # Allowing to 'override' variables that are defined using include_vars
 
@@ -61,12 +61,14 @@
     - name: Register test files
       shell: "ls {{ goss_test_directory }}/test_*.yml"
       register: test_files
+      changed_when: false
 
     - name: Execute Goss tests
       command: "goss -g {{ item }} validate --format {{ goss_format }}"
       register: test_results
       with_items: "{{ test_files.stdout_lines }}"
       ignore_errors: true
+      changed_when: false
 
     - name: Display details about the goss results
       debug:

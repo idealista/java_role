@@ -1,0 +1,16 @@
+---
+java_open_jdk_apt_extra_packages:
+  - python-apt
+  - apt-transport-https
+
+__java_open_jdk_version_major: 1.8.0
+# Supported versions: 8 (1.8.0L), 11
+
+__java_required_repositories_openjdk:
+  - deb https://apt.corretto.aws stable main
+__java_required_key_repositories_openjdk:
+  - https://apt.corretto.aws/corretto.key
+__java_required_libs_openjdk: []
+__java_open_jdk_package: java-{{ java_open_jdk_version_major }}-amazon-corretto-jdk
+
+__java_open_jdk_home_dir: java-{{ java_open_jdk_version_major }}-amazon-corretto
