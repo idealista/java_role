@@ -5,7 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 ## [Unreleased](https://github.com/idealista/java_role/tree/develop)
 
 
-## [6.0.0](https://github.com/idealista/java_role/tree/6.1.0) (2020-09-11)
+## [6.1.0](https://github.com/idealista/java_role/tree/6.1.0) (2020-09-11)
 [Full Changelog](https://github.com/idealista/java_role/compare/6.0.0...6.1.0)
 ### Added
 - *[#138](https://github.com/idealista/java_role/issues/138) Support for adoptopenjdk and corretto for buster/centos8* @vicsufer
