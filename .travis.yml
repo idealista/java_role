@@ -47,7 +47,7 @@ notifications:
   - https://galaxy.ansible.com/api/v1/notifications/
 deploy:
   provider: script
-  script: packer build packer/template.json
+  script: JDK_VENDOR=${JDK_VENDOR:-openjdk} packer build packer/template.json
   on:
     branch: master
     tags: true
