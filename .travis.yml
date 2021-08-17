@@ -39,9 +39,11 @@ env:
   - DOCKER_IMAGE_BASE=centos:7 JDK_MAJOR=11 JDK_VERSION=11.0.12.0.7 DOCKER_TAG_TO_PUBLISH=11.0.12.0.7-centos7-openjdk-headless
   - DOCKER_IMAGE_BASE=centos:8 JDK_MAJOR=11 JDK_VERSION=11.0.12.0.7 DOCKER_TAG_TO_PUBLISH=11.0.12.0.7-centos8-openjdk-headless
   # adoptopenjdk
+  - DOCKER_IMAGE_BASE=debian:bullseye-slim JDK_VENDOR=adoptopenjdk JDK_MAJOR=8 JDK_VERSION=8u292-b10-3 DOCKER_TAG_TO_PUBLISH=8u292-bullseye-adoptopenjdk-headless
   - DOCKER_IMAGE_BASE=debian:buster-slim JDK_VENDOR=adoptopenjdk JDK_MAJOR=8 JDK_VERSION=8u292-b10-3 DOCKER_TAG_TO_PUBLISH=8u292-buster-adoptopenjdk-headless
   - DOCKER_IMAGE_BASE=centos:8 JDK_VENDOR=adoptopenjdk JDK_MAJOR=8 JDK_VERSION=8u292_b10 DOCKER_TAG_TO_PUBLISH=8u292-centos8-adoptopenjdk-headless
   # corretto
+  - DOCKER_IMAGE_BASE=debian:bullseye-slim JDK_VENDOR=corretto JDK_MAJOR=1.8.0 JDK_VERSION=1:8.302.08-1 DOCKER_TAG_TO_PUBLISH=8u302-bullseye-corretto-headless
   - DOCKER_IMAGE_BASE=debian:buster-slim JDK_VENDOR=corretto JDK_MAJOR=1.8.0 JDK_VERSION=1:8.302.08-1 DOCKER_TAG_TO_PUBLISH=8u302-buster-corretto-headless
   - DOCKER_IMAGE_BASE=centos:8 JDK_VENDOR=corretto JDK_MAJOR=1.8.0 JDK_VERSION=1.8.0_302.b08 DOCKER_TAG_TO_PUBLISH=8u302-centos8-corretto-headless
 script:
