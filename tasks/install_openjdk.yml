@@ -90,6 +90,9 @@
   template:
     src: jdk.sh.j2
     dest: /etc/profile.d/jdk.sh
+    mode: 0755
+    owner: root
+    group: root
 
 - name: Java | Source environment variables
   shell: source /etc/profile
