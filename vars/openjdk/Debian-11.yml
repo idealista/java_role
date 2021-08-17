@@ -1,0 +1,15 @@
+---
+
+# Using pattern described in Ansible Best Practices and Conventions (Appendix B), Ansible for Devops (p. 406)
+__java_open_jdk_version_major: 11
+# Supported openjdk major releases: 11, 17
+
+__java_required_repositories_openjdk: []
+__java_required_libs_openjdk: []
+__java_required_key_repositories_openjdk: []
+__java_open_jdk_apt_extra_packages: []
+
+__java_open_jdk_package: openjdk-{{ java_open_jdk_version_major }}-jdk-headless
+__java_open_jdk_home_dir: java-{{ java_open_jdk_version_major }}-openjdk-amd64
+
+ansible_python_interpreter: /usr/bin/python3
