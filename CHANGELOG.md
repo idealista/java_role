@@ -4,6 +4,12 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/java_role/tree/develop)
 
+## [7.0.0](https://github.com/idealista/java_role/tree/7.0.0) (2021-08-18)
+### Fixed
+- *[#153](https://github.com/idealista/java_role/issues/153) Prepare version updates in order to fix Debian 11 release issues.* @frantsao
+- *[#153](https://github.com/idealista/java_role/issues/153) Update test dependencies (Ansible 4, Molecule 3.4.* @frantsao
+- *[#153](https://github.com/idealista/java_role/issues/153) Add Debian 11 'Bullseye' support.* @frantsao
+
 ## [6.1.1](https://github.com/idealista/java_role/tree/6.1.1) (2020-09-11)
 [Full Changelog](https://github.com/idealista/java_role/compare/6.1.0...6.1.1)
 ### Fixed

@@ -2,7 +2,6 @@
 rules:
   line-length: disable
 exclude_paths:
- - molecule/adoptopenjdk/tests
- - molecule/corretto/tests
- - molecule/default/tests
- 
+  - molecule/adoptopenjdk/tests
+  - molecule/corretto/tests
+  - molecule/default/tests

@@ -24,13 +24,11 @@ These instructions will get you a copy of the role for your Ansible playbook.
 
 Once launched, it will install Java using Debian or RHEL packages.
 
-**DISCLAIMER:** Because a [issue in Debian Jessie/backport repositories](https://www.lucas-nussbaum.net/blog/?p=947) we decided to follow the workaround of adding **Acquire::Check-Valid-Until no** to Debian Jessie configuration while the issue is not solved, with concerns about security it implies. The other option was removing Debian 8 support. Proceed with caution. 
-
 ### Prerequisities
 
 To use this role as dependency in your playbook, prerequisites below:
 
-Ansible 2.9.x.x version installed.
+Ansible >=2.9.0 version installed.
 Inventory destination should be a Debian/Ubuntu or CentOS environment.
 
 For testing purposes you will need [Python 3.7+](https://www.python.org/downloads/release/python-377/), [Pipenv](https://github.com/pypa/pipenv).
@@ -42,7 +40,7 @@ Create or add to your roles dependency file (e.g requirements.yml):
 ```yml
 - src: http://github.com/idealista/java_role.git
   scm: git
-  version: 6.0.0
+  version: 7.0.0
   name: java
 ```
 
@@ -50,7 +48,7 @@ or using [Ansible Galaxy](https://galaxy.ansible.com/idealista/java_role/) as or
 
 ```yml
 - src: idealista.java_role
-  version: 6.0.0
+  version: 7.0.0
   name: java
 ```
 
@@ -84,7 +82,7 @@ docker pull idealista/jdk:${JDK_VERSION}-${DOCKER_IMAGE_BASE}-${JDK_VENDOR}headl
 ```
 
 `JDK_VERSION:` Preferred JDK version.
-`DOCKER_IMAGE`: Currently supporting: `stretch`/`buster` to select between Debian versions, `xenial`/`bionic`/`focal` to select between Ubuntu versions, and `7`/`8` to select a CentOS version.
+`DOCKER_IMAGE`: Currently supporting: `stretch`/`buster/bullseye` to select between Debian versions, `xenial`/`bionic`/`focal` to select between Ubuntu versions, and `7`/`8` to select a CentOS version.
 `JDK_VENDOR`: Currently supporting `openjdk`/ `adoptopenjdk`/`corretto`
 
 For instance:
@@ -108,6 +106,8 @@ Operative System | OpenJDK major release
 Debian Stretch | `8` (default)
 Debian Stretch | `11`
 Debian Buster | `11` (default)
+Debian Bullseye | `17`
+Debian Bullseye | `11` (default)
 Ubuntu Xenial | `8`
 Ubuntu Xenial | `9` (default)
 Ubuntu Bionic | `8`
@@ -128,7 +128,7 @@ Other OpenJDK implementations out of GNU/Linux distributions streams are not off
 
 ```sh
 $ pipenv sync
-$ DOCKER_IMAGE_BASE=(debian:stretch-slim|debian:buster-slim|amd64/ubuntu:xenial|amd64/ubuntu:bionic|amd64/ubuntu:focal|centos:7|centos:8) JDK_VENDOR=(`java_jdk_version` openjdk|adoptopenjdk|corretto) JDK_MAJOR=(`java_open_jdk_version_major` see [.travis.yml](.travis.yml) file to check supported versions) JDK_VERSION=(`java_open_jdk_version` see [.travis.yml](.travis.yml) file to check supported versions) pipenv run molecule test
+$ DOCKER_IMAGE_BASE=(debian:stretch-slim|debian:buster-slim|debian_bullseye-slim|amd64/ubuntu:xenial|amd64/ubuntu:bionic|amd64/ubuntu:focal|centos:7|centos:8) JDK_VENDOR=(`java_jdk_version` openjdk|adoptopenjdk|corretto) JDK_MAJOR=(`java_open_jdk_version_major` see [.travis.yml](.travis.yml) file to check supported versions) JDK_VERSION=(`java_open_jdk_version` see [.travis.yml](.travis.yml) file to check supported versions) pipenv run molecule test
 ```
 **Note:** JDK_VENDOR is an optional parameter, if not defined this role will use openjdk.
 **Note:** JDK_VERSION is an optional parameter, if not defined this role will install the latest available package for the selected Java major release.
@@ -138,7 +138,8 @@ See [molecule directory](https://github.com/idealista/java_role/tree/master/mole
 
 ## Built With
 
-![Ansible](https://img.shields.io/badge/ansible-2.9.7-green.svg)
+![Ansible](https://img.shields.io/badge/ansible-4.4.0-green.svg)
+![Molecule](https://img.shields.io/badge/molecule-3.4.0-green.svg)
 ![Packer](https://img.shields.io/badge/packer-1.3.4.0-green.svg)
 
 ## Versioning
