@@ -4,6 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/java_role/tree/develop)
 
+## [7.0.2](https://github.com/idealista/java_role/tree/7.0.2) (2021-08-19)
+[Full Changelog](https://github.com/idealista/java_role/compare/7.0.1...7.0.2)
+### Fixed
+- *[#153](https://github.com/idealista/java_role/issues/153) Hotfix Debian Bullseye containers build.* @frantsao
+
 ## [7.0.1](https://github.com/idealista/java_role/tree/7.0.1) (2021-08-19)
 [Full Changelog](https://github.com/idealista/java_role/compare/7.0.0...7.0.1)
 ### Fixed
