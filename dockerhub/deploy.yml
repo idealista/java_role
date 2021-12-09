@@ -1,0 +1,60 @@
+---
+- name: Create
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Create Dockerfile
+      template:
+        src: Dockerfile.j2
+        dest: Dockerfile
+    
+    - name: Build Docker Image
+      docker_image:
+        name: "idealista/jdk:{{ docker_tag }}"
+        source: build
+        build:
+          path: "."
+
+    - name: Create Docker container
+      docker_container:
+        name: "jdk"
+        hostname: "jdk"
+        image: "idealista/jdk:{{ docker_tag }}"
+        privileged: true
+
+    - name: Add container to in-memory inventory
+      add_host:
+        name: "jdk"
+        ansible_connection: docker
+
+# Due an Ansible Bug it's not possible to execute this task using "delegate_to" in play defined before
+# because was launched using "connection: local" :(
+- name: Execute Java role in Docker container
+  hosts: jdk
+  connection: local
+  roles:
+    - java_role
+
+- name: Deploy to Docker Hub
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Commit container file changes to new image
+      command: docker commit \
+        jdk idealista/jdk
+
+    - name: Log into Docker Hub
+      docker_login:
+        email: "{{ docker_hub_email }}"
+        username: "{{ docker_hub_username }}"
+        password: "{{ docker_hub_password }}"
+
+    - name: Tag and push to Docker Hub
+      command: docker push idealista/jdk:{{ docker_tag }}
+
+    - name: Remove the container
+      docker_container:
+        name: "jdk"
+        state: absent
