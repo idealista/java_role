@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/java_role/tree/develop)
+### Added
+- *[#161](https://github.com/idealista/java_role/issues/161) Remove packer for playbook for the task of pushing images to Dockerhub* @aarenzana
 
 ## [7.0.0](https://github.com/idealista/java_role/tree/7.0.0) (2021-08-18)
 ### Fixed
