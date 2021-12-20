@@ -20,19 +20,21 @@
       docker_container:
         name: "jdk"
         hostname: "jdk"
+        detach: true
         image: "idealista/jdk:{{ docker_tag }}"
-        privileged: true
 
     - name: Add container to in-memory inventory
       add_host:
         name: "jdk"
         ansible_connection: docker
 
-# Due an Ansible Bug it's not possible to execute this task using "delegate_to" in play defined before
-# because was launched using "connection: local" :(
 - name: Execute Java role in Docker container
   hosts: jdk
   connection: local
+  vars:
+    - java_jdk_vendor: "{{ jdk_vendor | default('openjdk') }}"
+    - java_open_jdk_version: "{{ jdk_version if jdk_version is defined and jdk_version is not sameas None and jdk_version != '' }}"
+    - java_open_jdk_version_major: "{{ jdk_major if jdk_major is defined and jdk_major is not sameas None and jdk_major != ''}}"
   roles:
     - java_role
 
@@ -41,9 +43,19 @@
   connection: local
   gather_facts: false
   tasks:
+
+    - name: Get JAVA_HOME variable
+      community.docker.docker_container_exec:
+        container: jdk
+        command: grep -i -o 'JAVA_HOME.*' /etc/profile.d/jdk.sh
+      register: java_home
+    
+    - set_fact: java_home="{{ java_home.stdout }}"
+      
     - name: Commit container file changes to new image
       command: docker commit \
-        jdk idealista/jdk
+        --change "ENV {{ java_home }}" \
+        jdk idealista/jdk:{{ docker_tag }}
 
     - name: Log into Docker Hub
       docker_login:
