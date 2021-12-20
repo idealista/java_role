@@ -3,7 +3,7 @@ galaxy_info:
   role_name: java_role
   author: idealista
   company: Idealista S.A.U.
-  description: Java role, install openJDK and set system defaults
+  description: Java role, installs JDKs from different vendors (OpenJDK, AdoptOpenJDK and Corretto) and sets system defaults
   min_ansible_version: 2.8.4.0
   license: Apache 2.0
   platforms:
