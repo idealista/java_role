@@ -6,7 +6,18 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 ### Added
 - *[#161](https://github.com/idealista/java_role/issues/161) Remove packer for playbook for the task of pushing images to Dockerhub* @aren-pulid0
 
+## [7.0.2](https://github.com/idealista/java_role/tree/7.0.2) (2021-08-19)
+[Full Changelog](https://github.com/idealista/java_role/compare/7.0.1...7.0.2)
+### Fixed
+- *[#153](https://github.com/idealista/java_role/issues/153) Hotfix Debian Bullseye containers build.* @frantsao
+
+## [7.0.1](https://github.com/idealista/java_role/tree/7.0.1) (2021-08-19)
+[Full Changelog](https://github.com/idealista/java_role/compare/7.0.0...7.0.1)
+### Fixed
+- *[#153](https://github.com/idealista/java_role/issues/153) Hotfix Docker Hub credentials for TravisCI.* @frantsao
+
 ## [7.0.0](https://github.com/idealista/java_role/tree/7.0.0) (2021-08-18)
+[Full Changelog](https://github.com/idealista/java_role/compare/6.1.1...7.0.0)
 ### Fixed
 - *[#153](https://github.com/idealista/java_role/issues/153) Prepare version updates in order to fix Debian 11 release issues.* @frantsao
 - *[#153](https://github.com/idealista/java_role/issues/153) Update test dependencies (Ansible 4, Molecule 3.4.* @frantsao
