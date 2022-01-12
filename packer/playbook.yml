@@ -1,7 +1,0 @@
----
-
-- name: Provisioning Java into built Docker Container
-  hosts: all
-  roles:
-    - role: ../..
-      name: java
