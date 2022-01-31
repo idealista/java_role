@@ -19,8 +19,8 @@
 
 - name: Tag and push to Docker Hub
   command: docker push idealista/jdk:{{ docker_tag + '-' + item }}
-  
+
 - name: Remove the container
   docker_container:
-   name: "{{ 'jdk' + '-' + item }}"
-   state: absent
+    name: "{{ 'jdk' + '-' + item }}"
+    state: absent
