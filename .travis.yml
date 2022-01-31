@@ -7,10 +7,6 @@ services:
 install:
 - pip install pipenv
 - pipenv sync
-
-arch:
-  - amd64
-  - arm64
 env:
   global:
   - PY_COLOR=1
@@ -19,24 +15,22 @@ env:
   - secure: iDwnM7B1yrglkhI8eb5FpJZLn7siOaAcRSRN2gJYc+e3aWb4Wr2s5Fbs2Y7MOuziub+CDD9l1PREOqzuEnaSjwz20o7eauD/msedZdDJFGxSxIdBModPqqD9GMZgC8z2iP+erlFERhL+jSZmeArEX40zR1ZYzPO58DlwNb5J4+w+JD76gY1FxWLS2tPl6nvhqtFh0gWLZwzJB9sdnlxfXCLOcvdYt+5izHaWpGLlmWKPFvHu6knN2fvBeDyglfLRvTkEsQ9U2ROixoOoz4cQY1e/rJhrMBMfVkpBCb8ps+RdcTN3zvGE3rF2T/o6OGQa4HyrmH1QP7nhW6KFssaW3+938LBPHnICuFOEovfrdnopqiupkS05j0Ee0pf9XPc8n+dqN+rG+BtKjieSLlvfoDuQTiUUSqCFw4y74OVt9ZjoUWODo9Mv2iwM5r11+WS2Zbb+H5NSszxuI1QQ70tH8IbDp9oBDab9VJwg6edrga+KmWFkH+KUmXaLv/W8i3oqFOd/nLiqayJRIWOn/h1PWjfSUBGpYdrDmRg203p3nUfb9yjPNRbM+IcpBwNgW+Nb3oSSEyiiLQyaZ6AOHDxHRB5LR5wyNi/w3v7qj07v/lRChHwbH7bO0Eubxv0utyLIOiOiEdxlGoINQx0qqareQxBBocm4P5HaL5z5ewlTH/g=
   - secure: cKmHo2WLSiXZJCllKUGyWpgs5OkxCqE3stnDH9GnPYvIRWBNexrJj+Ye2OXFWfKHcLH07SAgsWai+N0S+rcOg9qu6CAiVLg9TGitZjXfacSKvJK4JFkpqouimDSHP0mFokcDGm74GwU3PZb3jR0Rb89AFb78CTfTIPye0hP/E72xZCF+YekPZCJw7IoqR2zTZSSBgHwpMv5HbyKM1zWK/P3zUCnOFfxE3ygLKbGsc1DTHFDZo2scVI2nUP/PlP4T0uqkEf/7Jnm0FJGr10IltT0G0zC7OP1zr9kCsyLZkkjWldPd6YHIuCBxj6Swe81AVZHqjJFKp6auNivl8XZKeTOyV4kRjjz+hkPRKQSMq1LuOUSQk3OL75CI40doOGeppVQXE/BAp4ADAsHrbUGWEE6n7Hh/MifrXDY4TU9FksVHhOQIemyYs8W89H9EyNxErr9YpzuP8a2VqAIwO7v4zuxB2M1wephKs6ZEdcloaJ0rqowB0++Ee7oAWTssYG9YVZPasl005KQLUGN29KpNW7vC+49jERkRN30oGrW009lvf0g2rnvSxrbcdE47Hh+uCD0riopLtZYWaRdq+kgkqVgXDMgEyqOp5R1EHGFLQarOr5Q1mlVc30s+cIHB/kolw8Ik04d3LFhPJUc7BFSMNpTvTpIkw2sMFS/efH4XHlM=
   jobs:
-
-  # AMD64
   - DOCKER_IMAGE_BASE=debian:stretch-slim DOCKER_TAG_TO_PUBLISH=8-stretch-openjdk-headless
   - DOCKER_IMAGE_BASE=debian:stretch-slim JDK_MAJOR=8 JDK_VERSION=8u312-b07-1~deb9u1 DOCKER_TAG_TO_PUBLISH=8u312-stretch-openjdk-headless
   - DOCKER_IMAGE_BASE=debian:stretch-slim JDK_MAJOR=11 JDK_VERSION=11.0.6+10-1~bpo9+1 DOCKER_TAG_TO_PUBLISH=11.0.6-stretch-openjdk-headless
   - DOCKER_IMAGE_BASE=debian:buster-slim DOCKER_TAG_TO_PUBLISH=11-buster-openjdk-headless
-  - DOCKER_IMAGE_BASE=debian:buster-slim JDK_MAJOR=11 JDK_VERSION=11.0.13+8-1~deb10u1 DOCKER_TAG_TO_PUBLISH=11.0.13-buster-openjdk-headless
+  - DOCKER_IMAGE_BASE=debian:buster-slim JDK_MAJOR=11 JDK_VERSION=11.0.14+9-1~deb10u1 DOCKER_TAG_TO_PUBLISH=11.0.14-buster-openjdk-headless
   - DOCKER_IMAGE_BASE=debian:bullseye-slim DOCKER_TAG_TO_PUBLISH=11-bullseye-openjdk-headless
   - DOCKER_IMAGE_BASE=debian:bullseye-slim JDK_MAJOR=11 JDK_VERSION=11.0.13+8-1~deb11u1 DOCKER_TAG_TO_PUBLISH=11.0.13-bullseye-openjdk-headless
-  - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial DOCKER_TAG_TO_PUBLISH=9-xenial-openjdk-headless
-  - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial JDK_MAJOR=8 JDK_VERSION=8u292-b10-0ubuntu1~16.04.1 DOCKER_TAG_TO_PUBLISH=8u292-xenial-openjdk-headless
-  - DOCKER_IMAGE_BASE=amd64/ubuntu:xenial JDK_MAJOR=9 JDK_VERSION=9~b114-0ubuntu1 DOCKER_TAG_TO_PUBLISH=9b114-xenial-openjdk-headless
-  - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic DOCKER_TAG_TO_PUBLISH=11-bionic-openjdk-headless
-  - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic JDK_MAJOR=11 JDK_VERSION=11.0.13+8-0ubuntu1~18.04 DOCKER_TAG_TO_PUBLISH=11.0.13-bionic-openjdk-headless
-  - DOCKER_IMAGE_BASE=amd64/ubuntu:bionic JDK_MAJOR=8 JDK_VERSION=8u312-b07-0ubuntu1~18.04 DOCKER_TAG_TO_PUBLISH=8u312-bionic-openjdk-headless
-  - DOCKER_IMAGE_BASE=amd64/ubuntu:focal DOCKER_TAG_TO_PUBLISH=17-focal-openjdk-headless
-  - DOCKER_IMAGE_BASE=amd64/ubuntu:focal JDK_MAJOR=17 JDK_VERSION=17.0.1+12-1~20.04 DOCKER_TAG_TO_PUBLISH=17.0.1-focal-openjdk-headless
-  - DOCKER_IMAGE_BASE=amd64/ubuntu:focal JDK_MAJOR=8 JDK_VERSION=8u312-b07-0ubuntu1~20.04 DOCKER_TAG_TO_PUBLISH=8u312-focal-openjdk-headless
+  - DOCKER_IMAGE_BASE=ubuntu:xenial DOCKER_TAG_TO_PUBLISH=9-xenial-openjdk-headless
+  - DOCKER_IMAGE_BASE=ubuntu:xenial JDK_MAJOR=8 JDK_VERSION=8u292-b10-0ubuntu1~16.04.1 DOCKER_TAG_TO_PUBLISH=8u292-xenial-openjdk-headless
+  - DOCKER_IMAGE_BASE=ubuntu:xenial JDK_MAJOR=9 JDK_VERSION=9~b114-0ubuntu1 DOCKER_TAG_TO_PUBLISH=9b114-xenial-openjdk-headless
+  - DOCKER_IMAGE_BASE=ubuntu:bionic DOCKER_TAG_TO_PUBLISH=11-bionic-openjdk-headless
+  - DOCKER_IMAGE_BASE=ubuntu:bionic JDK_MAJOR=11 JDK_VERSION=11.0.13+8-0ubuntu1~18.04 DOCKER_TAG_TO_PUBLISH=11.0.13-bionic-openjdk-headless
+  - DOCKER_IMAGE_BASE=ubuntu:bionic JDK_MAJOR=8 JDK_VERSION=8u312-b07-0ubuntu1~18.04 DOCKER_TAG_TO_PUBLISH=8u312-bionic-openjdk-headless
+  - DOCKER_IMAGE_BASE=ubuntu:focal DOCKER_TAG_TO_PUBLISH=17-focal-openjdk-headless
+  - DOCKER_IMAGE_BASE=ubuntu:focal JDK_MAJOR=17 JDK_VERSION=17.0.1+12-1~20.04 DOCKER_TAG_TO_PUBLISH=17.0.1-focal-openjdk-headless
+  - DOCKER_IMAGE_BASE=ubuntu:focal JDK_MAJOR=8 JDK_VERSION=8u312-b07-0ubuntu1~20.04 DOCKER_TAG_TO_PUBLISH=8u312-focal-openjdk-headless
   - DOCKER_IMAGE_BASE=centos:7 JDK_MAJOR=11 JDK_VERSION=11.0.12.0.7 DOCKER_TAG_TO_PUBLISH=11.0.12.0.7-centos7-openjdk-headless
   - DOCKER_IMAGE_BASE=centos:8 JDK_MAJOR=11 JDK_VERSION=11.0.13.0.8 DOCKER_TAG_TO_PUBLISH=11.0.13.0.8-centos8-openjdk-headless
   - DOCKER_IMAGE_BASE=debian:bullseye-slim JDK_VENDOR=adoptopenjdk JDK_MAJOR=8 JDK_VERSION=8u292-b10-3 DOCKER_TAG_TO_PUBLISH=8u292-bullseye-adoptopenjdk-headless
@@ -46,32 +40,6 @@ env:
   - DOCKER_IMAGE_BASE=debian:buster-slim JDK_VENDOR=corretto JDK_MAJOR=1.8.0 JDK_VERSION=1:8.302.08-1 DOCKER_TAG_TO_PUBLISH=8u302-buster-corretto-headless
   - DOCKER_IMAGE_BASE=centos:8 JDK_VENDOR=corretto JDK_MAJOR=1.8.0 JDK_VERSION=1.8.0_302.b08 DOCKER_TAG_TO_PUBLISH=8u302-centos8-corretto-headless
 
-  # ARM
-  - DOCKER_IMAGE_BASE=arm64v8/debian:stretch-slim DOCKER_TAG_TO_PUBLISH=8-stretch-openjdk-headless
-  - DOCKER_IMAGE_BASE=arm64v8/debian:stretch-slim JDK_MAJOR=8 JDK_VERSION=8u312-b07-1~deb9u1 DOCKER_TAG_TO_PUBLISH=8u312-stretch-openjdk-headless
-  - DOCKER_IMAGE_BASE=arm64v8/debian:stretch-slim JDK_MAJOR=11 JDK_VERSION=11.0.6+10-1~bpo9+1 DOCKER_TAG_TO_PUBLISH=11.0.6-stretch-openjdk-headless
-  - DOCKER_IMAGE_BASE=arm64v8/debian:buster-slim DOCKER_TAG_TO_PUBLISH=11-buster-openjdk-headless
-  - DOCKER_IMAGE_BASE=arm64v8/debian:buster-slim JDK_MAJOR=11 JDK_VERSION=11.0.13+8-1~deb10u1 DOCKER_TAG_TO_PUBLISH=11.0.13-buster-openjdk-headless
-  - DOCKER_IMAGE_BASE=arm64v8/debian:bullseye-slim DOCKER_TAG_TO_PUBLISH=11-bullseye-openjdk-headless
-  - DOCKER_IMAGE_BASE=arm64v8/debian:bullseye-slim JDK_MAJOR=11 JDK_VERSION=11.0.13+8-1~deb11u1 DOCKER_TAG_TO_PUBLISH=11.0.13-bullseye-openjdk-headless
-  - DOCKER_IMAGE_BASE=arm64v8/ubuntu:xenial DOCKER_TAG_TO_PUBLISH=9-xenial-openjdk-headless
-  - DOCKER_IMAGE_BASE=arm64v8/ubuntu:xenial JDK_MAJOR=8 JDK_VERSION=8u292-b10-0ubuntu1~16.04.1 DOCKER_TAG_TO_PUBLISH=8u292-xenial-openjdk-headless
-  - DOCKER_IMAGE_BASE=arm64v8/ubuntu:xenial JDK_MAJOR=9 JDK_VERSION=9~b114-0ubuntu1 DOCKER_TAG_TO_PUBLISH=9b114-xenial-openjdk-headless
-  - DOCKER_IMAGE_BASE=arm64v8/ubuntu:bionic DOCKER_TAG_TO_PUBLISH=11-bionic-openjdk-headless
-  - DOCKER_IMAGE_BASE=arm64v8/ubuntu:bionic JDK_MAJOR=11 JDK_VERSION=11.0.13+8-0ubuntu1~18.04 DOCKER_TAG_TO_PUBLISH=11.0.13-bionic-openjdk-headless
-  - DOCKER_IMAGE_BASE=arm64v8/ubuntu:bionic JDK_MAJOR=8 JDK_VERSION=8u312-b07-0ubuntu1~18.04 DOCKER_TAG_TO_PUBLISH=8u312-bionic-openjdk-headless
-  - DOCKER_IMAGE_BASE=arm64v8/ubuntu:focal DOCKER_TAG_TO_PUBLISH=17-focal-openjdk-headless
-  - DOCKER_IMAGE_BASE=arm64v8/ubuntu:focal JDK_MAJOR=17 JDK_VERSION=17.0.1+12-1~20.04 DOCKER_TAG_TO_PUBLISH=17.0.1-focal-openjdk-headless
-  - DOCKER_IMAGE_BASE=arm64v8/ubuntu:focal JDK_MAJOR=8 JDK_VERSION=8u312-b07-0ubuntu1~20.04 DOCKER_TAG_TO_PUBLISH=8u312-focal-openjdk-headless
-  - DOCKER_IMAGE_BASE=arm64v8/centos:7 JDK_MAJOR=11 JDK_VERSION=11.0.12.0.7 DOCKER_TAG_TO_PUBLISH=11.0.12.0.7-centos7-openjdk-headless
-  - DOCKER_IMAGE_BASE=arm64v8/centos:8 JDK_MAJOR=11 JDK_VERSION=11.0.13.0.8 DOCKER_TAG_TO_PUBLISH=11.0.13.0.8-centos8-openjdk-headless
-  - DOCKER_IMAGE_BASE=arm64v8/debian:bullseye-slim JDK_VENDOR=adoptopenjdk JDK_MAJOR=8 JDK_VERSION=8u292-b10-3 DOCKER_TAG_TO_PUBLISH=8u292-bullseye-adoptopenjdk-headless
-  - DOCKER_IMAGE_BASE=arm64v8/debian:buster-slim JDK_VENDOR=adoptopenjdk JDK_MAJOR=8 JDK_VERSION=8u292-b10-3 DOCKER_TAG_TO_PUBLISH=8u292-buster-adoptopenjdk-headless
-  - DOCKER_IMAGE_BASE=arm64v8/centos:8 JDK_VENDOR=adoptopenjdk JDK_MAJOR=8 JDK_VERSION=8u292_b10 DOCKER_TAG_TO_PUBLISH=8u292-centos8-adoptopenjdk-headless
-  - DOCKER_IMAGE_BASE=arm64v8/debian:bullseye-slim JDK_VENDOR=corretto JDK_MAJOR=1.8.0 JDK_VERSION=1:8.302.08-1 DOCKER_TAG_TO_PUBLISH=8u302-bullseye-corretto-headless
-  - DOCKER_IMAGE_BASE=arm64v8/debian:buster-slim JDK_VENDOR=corretto JDK_MAJOR=1.8.0 JDK_VERSION=1:8.302.08-1 DOCKER_TAG_TO_PUBLISH=8u302-buster-corretto-headless
-  - DOCKER_IMAGE_BASE=arm64v8/centos:8 JDK_VENDOR=corretto JDK_MAJOR=1.8.0 JDK_VERSION=1.8.0_302.b08 DOCKER_TAG_TO_PUBLISH=8u302-centos8-corretto-headless
-
 script:
 - pipenv run molecule test --scenario-name=${JDK_VENDOR:-default}
 notifications:
@@ -79,7 +47,7 @@ notifications:
   - https://galaxy.ansible.com/api/v1/notifications/
 deploy:
   provider: script
-  script: ANSIBLE_ROLES_PATH=../ pipenv run ansible-playbook dockerhub/deploy.yml --extra-vars "docker_hub_email=${DOCKER_EMAIL} docker_hub_username=${DOCKER_USERNAME} docker_hub_password=${DOCKER_PASSWORD} docker_image_base=${DOCKER_IMAGE_BASE} docker_tag=${DOCKER_TAG_TO_PUBLISH}"
+  script: ANSIBLE_ROLES_PATH=../ pipenv run ansible-playbook dockerhub/main.yml --extra-vars "docker_hub_email=${DOCKER_EMAIL} docker_hub_username=${DOCKER_USERNAME} docker_hub_password=${DOCKER_PASSWORD} docker_image_base=${DOCKER_IMAGE_BASE} jdk_version=${JDK_VERSION} jdk_major=${JDK_MAJOR} jdk_vendor=${JDK_VENDOR}  docker_tag=${DOCKER_TAG_TO_PUBLISH}"
 
   on:
     branch: master

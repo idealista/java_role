@@ -1,0 +1,66 @@
+---
+- name: Create Dockerfile, images and build containers
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Create Dockerfile
+      template:
+        src: Dockerfile.j2
+        dest: Dockerfile
+    
+    # As seen this is the only way to make arm images, otherwise dpkg gives error code 100.
+    # Problem: https://github.com/docker/buildx/issues/495
+    # Solution: https://github.com/docker/buildx/issues/495#issuecomment-761562905
+    - name: Setup builder
+      command: docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+    
+    - name: Create builder
+      command: docker buildx create --name multiarch --driver docker-container --use
+
+    - name: Use builder
+      command: docker buildx inspect --bootstrap
+    
+    - name: Build containers
+      include_tasks: build_containers.yml
+      with_items: ['amd64','arm64']
+
+
+- name: Execute Java role in Docker containers
+  hosts: jdk_containers
+  connection: local
+  vars:
+    - java_jdk_vendor: "{{ jdk_vendor if jdk_vendor is defined and jdk_vendor is not sameas None and jdk_vendor != '' else 'openjdk' }}"
+    - java_open_jdk_version: "{{ jdk_version if jdk_version is defined and jdk_version is not sameas None and jdk_version != '' }}"
+    - java_open_jdk_version_major: "{{ jdk_major if jdk_major is defined and jdk_major is not sameas None and jdk_major != ''}}"
+  roles:
+    - java_role
+
+
+- name: Deploy images to DockerHub
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+
+    - name: Deploy images
+      include_tasks: deploy_images.yml
+      with_items: ['amd64','arm64']
+
+
+- name: Deploy multiarch manifest to DockerHub and cleanup
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+
+    - name: Create manifest
+      command: docker manifest create idealista/jdk:{{ docker_tag }} 
+                --amend idealista/jdk:{{ docker_tag + '-amd64' }} 
+                --amend idealista/jdk:{{ docker_tag + '-arm64' }}
+
+    - name: Push manifest
+      command: docker manifest push idealista/jdk:{{ docker_tag }}
+    
+    - name: Delete builder
+      command: docker buildx rm multiarch
