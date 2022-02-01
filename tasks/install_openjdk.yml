@@ -14,9 +14,17 @@
     java_required_key_repositories_openjdk: "{{ java_required_key_repositories_openjdk if java_required_key_repositories_openjdk is defined and java_required_key_repositories_openjdk is not sameas None and java_required_key_repositories_openjdk|length  else __java_required_key_repositories_openjdk }}"  # noqa 204
     java_required_libs_openjdk: "{{ java_required_libs_openjdk if java_required_libs_openjdk is defined and java_required_libs_openjdk is not sameas None and java_required_libs_openjdk|length else __java_required_libs_openjdk }}"  # noqa 204
 
-- name: Java | Setting OS specific variables (II)
+- name: Java | Setting OS and architecture specific variables (II)
   set_fact:
-    java_open_jdk_home_dir: "{{ java_open_jdk_home_dir if java_open_jdk_home_dir is defined and java_open_jdk_home_dir is not sameas None and java_open_jdk_home_dir else __java_open_jdk_home_dir }}"  # noqa 204
+    java_open_jdk_home_dir: |-
+      {% if ansible_facts.architecture == "x86_64" %}
+      {{ java_open_jdk_home_dir if java_open_jdk_home_dir is defined and java_open_jdk_home_dir is not sameas None and java_open_jdk_home_dir else __java_open_jdk_home_dir }}
+      {%- endif %}
+      {%- if ansible_facts.architecture == "aarch64" and (ansible_distribution == "Debian" or ansible_distribution == "Ubuntu") and (java_jdk_vendor == "adoptopenjdk" or java_jdk_vendor == "openjdk") %}
+      {{ java_open_jdk_home_dir if java_open_jdk_home_dir is defined and java_open_jdk_home_dir is not sameas None and java_open_jdk_home_dir else __java_open_jdk_home_dir_arm64 }}
+      {%- endif %}
+
+
     java_open_jdk_package: "{{ java_open_jdk_package if java_open_jdk_package is defined and java_open_jdk_package is not sameas None and java_open_jdk_package else __java_open_jdk_package }}"  # noqa 204
 
 - name: Java | Setting specific variables

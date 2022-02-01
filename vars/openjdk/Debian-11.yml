@@ -11,5 +11,6 @@ __java_open_jdk_apt_extra_packages: []
 
 __java_open_jdk_package: openjdk-{{ java_open_jdk_version_major }}-jdk-headless
 __java_open_jdk_home_dir: java-{{ java_open_jdk_version_major }}-openjdk-amd64
+__java_open_jdk_home_dir_arm64: java-{{ java_open_jdk_version_major }}-openjdk-arm64
 
 ansible_python_interpreter: /usr/bin/python3

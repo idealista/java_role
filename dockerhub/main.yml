@@ -17,6 +17,7 @@
 
     - name: Create builder
       command: docker buildx create --name multiarch --driver docker-container --use
+      ignore_errors: true
 
     - name: Use builder
       command: docker buildx inspect --bootstrap
