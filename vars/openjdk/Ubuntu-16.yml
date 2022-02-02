@@ -9,5 +9,4 @@ __java_required_libs_openjdk: []
 __java_required_key_repositories_openjdk: []
 
 __java_open_jdk_package: openjdk-{{ java_open_jdk_version_major }}-jdk-headless
-__java_open_jdk_home_dir: java-{{ java_open_jdk_version_major }}-openjdk-amd64
-__java_open_jdk_home_dir_arm64: java-{{ java_open_jdk_version_major }}-openjdk-arm64
+__java_open_jdk_home_dir: java-{{ java_open_jdk_version_major }}-openjdk-{{ 'arm64' if ansible_facts.architecture == 'aarch64' else 'amd64'}}
