@@ -5,6 +5,11 @@
   with_first_found:
     - "{{ java_jdk_vendor }}/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
 
+- name: Java | Gather architecture specific variables
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "architecture.yml"
+
 # Using pattern described in Ansible Best Practices and Conventions (Appendix B), Ansible for Devops (p. 406)
 # Allowing to 'override' variables that are defined using include_vars
 - name: Java | Setting OS specific variables (I)
