@@ -1,0 +1,17 @@
+---
+
+- name: Build Docker images
+  command: docker buildx build --platform linux/{{item}} --load -t idealista/jdk:{{ docker_tag + '-' + item }}  .
+
+- name: Create Docker container
+  docker_container:
+    name: "{{ 'jdk' + '-' + item }}"
+    hostname: "{{ 'jdk' + '-' + item if item }}"
+    detach: true
+    image: "idealista/jdk:{{ docker_tag + '-' + item }}"
+
+- name: Add container to in-memory inventory
+  add_host:
+    name: "{{ 'jdk' + '-' + item }}"
+    ansible_connection: docker
+    groups: jdk_containers
