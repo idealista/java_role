@@ -1,0 +1,26 @@
+---
+
+- name: Get JAVA_HOME variable
+  community.docker.docker_container_exec:
+    container: "{{ 'jdk' + '-' + item }}"
+    command: grep -i -o 'JAVA_HOME.*' /etc/profile.d/jdk.sh
+  register: java_home
+
+- set_fact: java_home="{{ java_home.stdout }}"
+
+- name: Commit container JAVA_HOME variable to image
+  command: docker commit --change "ENV {{ java_home }}" {{ 'jdk' + '-' + item }} idealista/jdk:{{ docker_tag + '-' + item}}
+
+- name: Log into Docker Hub
+  docker_login:
+    email: "{{ docker_hub_email }}"
+    username: "{{ docker_hub_username }}"
+    password: "{{ docker_hub_password }}"
+
+- name: Tag and push to Docker Hub
+  command: docker push idealista/jdk:{{ docker_tag + '-' + item }}
+
+- name: Remove the container
+  docker_container:
+    name: "{{ 'jdk' + '-' + item }}"
+    state: absent

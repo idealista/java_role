@@ -1,0 +1,2 @@
+---
+java_open_jdk_home_dir_suffix: "{{ 'arm64' if ansible_facts.architecture == 'aarch64' else 'amd64'}}"

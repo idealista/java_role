@@ -5,7 +5,7 @@
 
 # Java Ansible role
 
-This Ansible Role installs java ([OpenJDK](http://openjdk.java.net/) in a [Debian/Ubuntu or CentOS environment](https://github.com/idealista/java_role/blob/master/meta/main.yml#L7).
+This Ansible Role installs JDKs from different vendors (OpenJDK, AdoptOpenJDK and Corretto) in a [Debian/Ubuntu or CentOS environment](https://github.com/idealista/java_role/blob/master/meta/main.yml#L7).
 
 - [Getting Started](#getting-started)
 	- [Prerequisities](#prerequisities)
