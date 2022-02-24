@@ -1,0 +1,12 @@
+---
+
+- name: Execute role
+  block:
+    - include_role:
+        name: java_role
+  rescue:
+    - set_fact:
+        failed_execution:  True
+    - debug:
+        msg: "The container {{ ansible_nodename }} couldn't execute roles correctly."
+    

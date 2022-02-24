@@ -10,6 +10,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 - *[#160](https://github.com/idealista/java_role/issues/160) Remove packer for playbook for the task of pushing images to Dockerhub* @aren-pulid0
 - *[#165](https://github.com/idealista/java_role/issues/165) Add JAVA_HOME as ENV in docker image* @aren-pulid0
 - *[#167](https://github.com/idealista/java_role/issues/167) Support for multiarch images* @aren-pulid0
+- *[#175](https://github.com/idealista/java_role/issues/175) Error handling on deploy playbook @aren-pulid0
+
 
 ## [7.0.2](https://github.com/idealista/java_role/tree/7.0.2) (2021-08-19)
 [Full Changelog](https://github.com/idealista/java_role/compare/7.0.1...7.0.2)
