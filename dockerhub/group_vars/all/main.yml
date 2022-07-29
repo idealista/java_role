@@ -1,1 +1,3 @@
+---
+
 dockerhub_image_architectures: ['amd64', 'arm64']

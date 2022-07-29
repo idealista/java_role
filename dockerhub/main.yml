@@ -29,7 +29,7 @@
 - name: Execute Java role in Docker containers
   hosts: jdk_containers
   connection: localhost
-  gather_facts: True
+  gather_facts: true
   vars:
     - java_jdk_vendor: "{{ jdk_vendor if jdk_vendor is defined and jdk_vendor is not sameas None and jdk_vendor != '' else 'openjdk' }}"
     - java_open_jdk_version: "{{ jdk_version if jdk_version is defined and jdk_version is not sameas None and jdk_version != '' }}"
@@ -41,12 +41,12 @@
 - name: Deploy images to DockerHub
   hosts: localhost
   connection: local
-  gather_facts: True
+  gather_facts: true
   tasks:
 
     - name: Check failed containers
       set_fact:
-        failed_architectures:  "{{ failed_architectures + [ item ] }}"
+        failed_architectures: "{{ failed_architectures + [ item ] }}"
       with_items: "{{ groups['jdk_containers'] }}"
       when: "{{ hostvars[item]['failed_execution'] is defined and hostvars[item]['failed_execution'] == True }}"
 
@@ -62,7 +62,7 @@
   tasks:
 
     - name: Create manifest
-      command: docker manifest create idealista/jdk:{{ docker_tag }} 
+      command: docker manifest create idealista/jdk:{{ docker_tag }}
                 {% for architecture in dockerhub_image_architectures %}
                   {% if failed_architectures is not defined or not failed_architectures | join('|') | regex_search(architecture) %}
                     --amend idealista/jdk:{{ docker_tag + '-' + architecture }}
@@ -79,4 +79,3 @@
       fail:
         msg: Atleast one of the architectures could not be uploaded see logs for more information.
       when: failed_architectures is defined and failed_architectures | length != 0
-
