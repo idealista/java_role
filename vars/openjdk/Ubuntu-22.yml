@@ -1,8 +1,11 @@
 ---
-
+java_open_jdk_apt_extra_packages:
+  - python3-apt
+  - apt-transport-https
+  - gnupg2
 # Using pattern described in Ansible Best Practices and Conventions (Appendix B), Ansible for Devops (p. 406)
-__java_open_jdk_version_major: 9
-# Supported openjdk major releases: 8, 9
+__java_open_jdk_version_major: 17
+# Supported openjdk major releases: 8, 11, 13, 14, 17
 
 __java_required_repositories_openjdk: []
 __java_required_libs_openjdk: []
