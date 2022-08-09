@@ -6,7 +6,6 @@
         name: java_role
   rescue:
     - set_fact:
-        failed_execution:  True
+        failed_execution: true
     - debug:
         msg: "The container {{ ansible_nodename }} couldn't execute roles correctly."
-    
