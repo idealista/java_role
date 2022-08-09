@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/java_role/tree/develop)
+
+## [8.0.0](https://github.com/idealista/java_role/tree/8.0.0) (2022-08-10)
+[Full Changelog](https://github.com/idealista/java_role/compare/7.1.0...8.0.0)
 ### Added
 - *[#178](https://github.com/idealista/java_role/issues/178) Add support for Java 17 on Debian 11 & Java 11, 17 in Ubuntu 22* @blalop
 ### Changed
