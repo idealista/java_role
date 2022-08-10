@@ -9,15 +9,14 @@ galaxy_info:
   platforms:
     - name: Debian
       versions:
-        - stretch
         - buster
         - bullseye
     - name: Ubuntu
       versions:
-        - xenial
         - bionic
         - focal
+        - jammy
     - name: EL
       versions:
-        - 7
-        - 8
+        - "7"
+        - "8"

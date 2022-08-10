@@ -14,21 +14,22 @@
 # Allowing to 'override' variables that are defined using include_vars
 - name: Java | Setting OS specific variables (I)
   set_fact:
-    java_open_jdk_version_major: "{{ java_open_jdk_version_major if java_open_jdk_version_major is defined and java_open_jdk_version_major is not sameas None and java_open_jdk_version_major else __java_open_jdk_version_major }}"  # noqa 204
-    java_required_repositories_openjdk: "{{ java_required_repositories_openjdk if java_required_repositories_openjdk is defined and java_required_repositories_openjdk is not sameas None and java_required_repositories_openjdk|length else __java_required_repositories_openjdk }}"  # noqa 204
-    java_required_key_repositories_openjdk: "{{ java_required_key_repositories_openjdk if java_required_key_repositories_openjdk is defined and java_required_key_repositories_openjdk is not sameas None and java_required_key_repositories_openjdk|length  else __java_required_key_repositories_openjdk }}"  # noqa 204
-    java_required_libs_openjdk: "{{ java_required_libs_openjdk if java_required_libs_openjdk is defined and java_required_libs_openjdk is not sameas None and java_required_libs_openjdk|length else __java_required_libs_openjdk }}"  # noqa 204
+    java_open_jdk_version_major: "{{ java_open_jdk_version_major if java_open_jdk_version_major is defined and java_open_jdk_version_major is not sameas None and java_open_jdk_version_major else __java_open_jdk_version_major }}"
+    java_required_repositories_openjdk: "{{ java_required_repositories_openjdk if java_required_repositories_openjdk is defined and java_required_repositories_openjdk is not sameas None and java_required_repositories_openjdk | length else __java_required_repositories_openjdk }}"
+    java_required_key_repositories_openjdk: "{{ java_required_key_repositories_openjdk if java_required_key_repositories_openjdk is defined and java_required_key_repositories_openjdk is not sameas None and java_required_key_repositories_openjdk | length  else __java_required_key_repositories_openjdk }}"
+    java_required_libs_openjdk: "{{ java_required_libs_openjdk if java_required_libs_openjdk is defined and java_required_libs_openjdk is not sameas None and java_required_libs_openjdk | length else __java_required_libs_openjdk }}"
 
 - name: Java | Setting OS and architecture specific variables (II)
   set_fact:
-    java_open_jdk_home_dir: "{{ java_open_jdk_home_dir if java_open_jdk_home_dir is defined and java_open_jdk_home_dir is not sameas None and java_open_jdk_home_dir else __java_open_jdk_home_dir }}"  # noqa 204
-    java_open_jdk_package: "{{ java_open_jdk_package if java_open_jdk_package is defined and java_open_jdk_package is not sameas None and java_open_jdk_package else __java_open_jdk_package }}"  # noqa 204
+    java_open_jdk_home_dir: "{{ java_open_jdk_home_dir if java_open_jdk_home_dir is defined and java_open_jdk_home_dir is not sameas None and java_open_jdk_home_dir else __java_open_jdk_home_dir }}"
+    java_open_jdk_package: "{{ java_open_jdk_package if java_open_jdk_package is defined and java_open_jdk_package is not sameas None and java_open_jdk_package else __java_open_jdk_package }}"
 
 - name: Java | Setting specific variables
   set_fact:
     java_home: "{{ java_open_jdk_home }}"
 
-- block:
+- name: Java | Debian pre-requisites
+  block:
     - name: Java | Install extra apt tools
       package:
         name: "{{ java_open_jdk_apt_extra_packages }}"
@@ -49,7 +50,8 @@
       with_items: "{{ java_required_repositories_openjdk }}"
   when: ansible_os_family == 'Debian'
 
-- block:
+- name: Java | RedHat pre-requisites
+  block:
     - name: Java | Add required key repositories, RedHat
       rpm_key:
         key: "{{ item }}"
@@ -74,7 +76,7 @@
 
 - name: Java | Install Java, Debian
   apt:
-    name: "{{ ( java_open_jdk_package + '=' + java_open_jdk_version ) if java_open_jdk_version is defined  and java_open_jdk_version is not sameas None else java_open_jdk_package }}"  # noqa 204
+    name: "{{ ( java_open_jdk_package + '=' + java_open_jdk_version ) if java_open_jdk_version is defined  and java_open_jdk_version is not sameas None else java_open_jdk_package }}"
     state: present
     update_cache: true
     cache_valid_time: 3600
@@ -84,7 +86,7 @@
 
 - name: Java | Install Java, RedHat
   yum:
-    name: "{{ ( java_open_jdk_package + '-' + java_open_jdk_version ) if java_open_jdk_version is defined and java_open_jdk_version is not sameas None else java_open_jdk_package }}"  # noqa 204
+    name: "{{ ( java_open_jdk_package + '-' + java_open_jdk_version ) if java_open_jdk_version is defined and java_open_jdk_version is not sameas None else java_open_jdk_package }}"
     state: present
     update_cache: true
   until: java_package_installed is succeeded

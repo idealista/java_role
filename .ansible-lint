@@ -1,6 +1,6 @@
 ---
-rules:
-  line-length: disable
+warn_list:
+  - 'fqcn-builtins'
 exclude_paths:
   - molecule/adoptopenjdk/tests
   - molecule/corretto/tests
