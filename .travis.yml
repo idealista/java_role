@@ -82,5 +82,4 @@ deploy:
     jdk_vendor=${JDK_VENDOR}  docker_tag=${DOCKER_TAG_TO_PUBLISH}"
   on:
     branch: master
-    tags: true
     condition: "$JDK_VERSION"
