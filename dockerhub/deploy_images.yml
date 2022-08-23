@@ -15,7 +15,6 @@
 
     - name: Log into Docker Hub
       docker_login:
-        email: "{{ docker_hub_email }}"
         username: "{{ docker_hub_username }}"
         password: "{{ docker_hub_password }}"
 
