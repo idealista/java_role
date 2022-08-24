@@ -14,7 +14,7 @@
       command: docker commit --change "ENV {{ java_home }}" {{ 'jdk' + '-' + item }} idealista/jdk:{{ docker_tag + '-' + item}}
 
     - name: Log into Docker Hub
-      docker_login:
+      community.docker.docker_login:
         username: "{{ docker_hub_username }}"
         password: "{{ docker_hub_password }}"
 
