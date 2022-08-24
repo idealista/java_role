@@ -15,7 +15,7 @@
 
     - name: Log into Docker Hub
       community.docker.docker_login:
-        username: "{{ docker_hub_username }}"
+        username: idealista
         password: "{{ docker_hub_password }}"
 
     - name: Tag and push to Docker Hub
