@@ -1,12 +1,12 @@
-dist: xenial
+dist: bionic
 language: python
-python: 3.7
+python: 3.9
 sudo: required
 services:
 - docker
 install:
 - pip install pipenv
-- pipenv install -r test-requirements.txt
+- pipenv sync
 env:
   global:
   - PY_COLOR=1
@@ -77,7 +77,7 @@ notifications:
   - https://galaxy.ansible.com/api/v1/notifications/
 deploy:
   provider: script
-  script: ANSIBLE_ROLES_PATH=../ pipenv run ansible-playbook dockerhub/main.yml --extra-vars "docker_hub_email=${DOCKER_EMAIL} docker_hub_username=${DOCKER_USERNAME} docker_hub_password=${DOCKER_PASSWORD} docker_image_base=${DOCKER_IMAGE_BASE} jdk_version=${JDK_VERSION} jdk_major=${JDK_MAJOR} jdk_vendor=${JDK_VENDOR}  docker_tag=${DOCKER_TAG_TO_PUBLISH}"
+  script: ANSIBLE_ROLES_PATH=../ pipenv run ansible-playbook dockerhub/main.yml --extra-vars "docker_hub_email=${DOCKER_EMAIL} docker_hub_username=${DOCKER_USERNAME} docker_hub_password=${DOCKER_PASS} docker_image_base=${DOCKER_IMAGE_BASE} jdk_version=${JDK_VERSION} jdk_major=${JDK_MAJOR} jdk_vendor=${JDK_VENDOR}  docker_tag=${DOCKER_TAG_TO_PUBLISH}"
 
   on:
     branch: master
