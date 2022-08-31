@@ -15,6 +15,8 @@
 
     - name: Log into Docker Hub
       community.docker.docker_login:
+        debug: yes
+        reauthorize: true
         username: "{{ docker_hub_username }}"
         password: "{{ docker_hub_password }}"
 
