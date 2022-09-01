@@ -7,7 +7,7 @@ FROM {{ item.image }}
 {% endif %}
 
 RUN mkdir -p /usr/share/man/man1
-RUN sed -i -e 's/^APT/# APT/' -e 's/^DPkg/# DPkg/' \
+RUN if [ $(command -v apt-get) ]; then sed -i -e 's/^APT/# APT/' -e 's/^DPkg/# DPkg/' \
       /etc/apt/apt.conf.d/docker-clean
 
 RUN if [ $(command -v apt-get) ]; then apt-get update && apt-get upgrade -y && apt-get install -y python3 sudo bash ca-certificates && apt-get clean; \
