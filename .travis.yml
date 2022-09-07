@@ -50,9 +50,9 @@ env:
   - DOCKER_IMAGE_BASE=ubuntu:focal JDK_MAJOR=11 JDK_VERSION=11.0.16+8-0ubuntu1~20.04
     DOCKER_TAG_TO_PUBLISH=11.0.16-focal-openjdk-headless
 
-  - DOCKER_IMAGE_BASE=ubuntu:jammy DOCKER_TAG_TO_PUBLISH=11-jammy-openjdk-headless
-  - DOCKER_IMAGE_BASE=ubuntu:jammy JDK_MAJOR=11 JDK_VERSION=11.0.16+8-0ubuntu1~22.04
-    DOCKER_TAG_TO_PUBLISH=11.0.16-jammy-openjdk-headless
+  #- DOCKER_IMAGE_BASE=ubuntu:jammy DOCKER_TAG_TO_PUBLISH=11-jammy-openjdk-headless
+  #- DOCKER_IMAGE_BASE=ubuntu:jammy JDK_MAJOR=11 JDK_VERSION=11.0.16+8-0ubuntu1~22.04
+  #  DOCKER_TAG_TO_PUBLISH=11.0.16-jammy-openjdk-headless
 
   - DOCKER_IMAGE_BASE=centos:7 JDK_MAJOR=11 JDK_VERSION=11.0.12.0.7 DOCKER_TAG_TO_PUBLISH=11.0.12.0.7-centos7-openjdk-headless
   - DOCKER_IMAGE_BASE=quay.io/centos/centos:stream8 JDK_MAJOR=11 JDK_VERSION=11.0.13.0.8
@@ -67,9 +67,9 @@ env:
   - DOCKER_IMAGE_BASE=ubuntu:focal JDK_MAJOR=17 JDK_VERSION=17.0.4+8-1~20.04
     DOCKER_TAG_TO_PUBLISH=17.0.4-focal-openjdk-headless
 
-  - DOCKER_IMAGE_BASE=ubuntu:jammy DOCKER_TAG_TO_PUBLISH=17-jammy-openjdk-headless
-  - DOCKER_IMAGE_BASE=ubuntu:jammy JDK_MAJOR=17 JDK_VERSION=17.0.4+8-1~22.04
-    DOCKER_TAG_TO_PUBLISH=17.0.4-jammy-openjdk-headless
+  #- DOCKER_IMAGE_BASE=ubuntu:jammy DOCKER_TAG_TO_PUBLISH=17-jammy-openjdk-headless
+  #- DOCKER_IMAGE_BASE=ubuntu:jammy JDK_MAJOR=17 JDK_VERSION=17.0.4+8-1~22.04
+  #  DOCKER_TAG_TO_PUBLISH=17.0.4-jammy-openjdk-headless
 script:
 - pipenv run molecule test --scenario-name=${JDK_VENDOR:-default}
 notifications:
