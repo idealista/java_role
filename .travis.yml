@@ -43,7 +43,7 @@ env:
     DOCKER_TAG_TO_PUBLISH=11.0.18-bullseye-openjdk-headless
 
   - DOCKER_IMAGE_BASE=ubuntu:bionic DOCKER_TAG_TO_PUBLISH=11-bionic-openjdk-headless
-  - DOCKER_IMAGE_BASE=ubuntu:bionic JDK_MAJOR=11 JDK_VERSION=11.0.17+8-0ubuntu2~18.04
+  - DOCKER_IMAGE_BASE=ubuntu:bionic JDK_MAJOR=11 JDK_VERSION=11.0.17+8-1ubuntu2~18.04
     DOCKER_TAG_TO_PUBLISH=11.0.16-bionic-openjdk-headless
 
   - DOCKER_IMAGE_BASE=ubuntu:focal DOCKER_TAG_TO_PUBLISH=11-focal-openjdk-headless
