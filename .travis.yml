@@ -36,23 +36,19 @@ env:
 
   # Java 11
   - DOCKER_IMAGE_BASE=debian:buster-slim DOCKER_TAG_TO_PUBLISH=11-buster-openjdk-headless
-  - DOCKER_IMAGE_BASE=debian:buster-slim JDK_MAJOR=11 JDK_VERSION=11.0.16+8-1~deb10u1
-    DOCKER_TAG_TO_PUBLISH=11.0.16-buster-openjdk-headless
+  - DOCKER_IMAGE_BASE=debian:buster-slim JDK_MAJOR=11 JDK_VERSION=11.0.18+10-1~deb10u1
+    DOCKER_TAG_TO_PUBLISH=11.0.18-buster-openjdk-headless
   - DOCKER_IMAGE_BASE=debian:bullseye-slim DOCKER_TAG_TO_PUBLISH=11-bullseye-openjdk-headless
-  - DOCKER_IMAGE_BASE=debian:bullseye-slim JDK_MAJOR=11 JDK_VERSION=11.0.16+8-1~deb11u1
-    DOCKER_TAG_TO_PUBLISH=11.0.16-bullseye-openjdk-headless
+  - DOCKER_IMAGE_BASE=debian:bullseye-slim JDK_MAJOR=11 JDK_VERSION=11.0.18+10-1~deb11u1
+    DOCKER_TAG_TO_PUBLISH=11.0.18-bullseye-openjdk-headless
 
   - DOCKER_IMAGE_BASE=ubuntu:bionic DOCKER_TAG_TO_PUBLISH=11-bionic-openjdk-headless
-  - DOCKER_IMAGE_BASE=ubuntu:bionic JDK_MAJOR=11 JDK_VERSION=11.0.16+8-0ubuntu1~18.04
+  - DOCKER_IMAGE_BASE=ubuntu:bionic JDK_MAJOR=11 JDK_VERSION=11.0.17+8-0ubuntu2~18.04
     DOCKER_TAG_TO_PUBLISH=11.0.16-bionic-openjdk-headless
 
   - DOCKER_IMAGE_BASE=ubuntu:focal DOCKER_TAG_TO_PUBLISH=11-focal-openjdk-headless
-  - DOCKER_IMAGE_BASE=ubuntu:focal JDK_MAJOR=11 JDK_VERSION=11.0.16+8-0ubuntu1~20.04
-    DOCKER_TAG_TO_PUBLISH=11.0.16-focal-openjdk-headless
-
-  #- DOCKER_IMAGE_BASE=ubuntu:jammy DOCKER_TAG_TO_PUBLISH=11-jammy-openjdk-headless
-  #- DOCKER_IMAGE_BASE=ubuntu:jammy JDK_MAJOR=11 JDK_VERSION=11.0.16+8-0ubuntu1~22.04
-  #  DOCKER_TAG_TO_PUBLISH=11.0.16-jammy-openjdk-headless
+  - DOCKER_IMAGE_BASE=ubuntu:focal JDK_MAJOR=11 JDK_VERSION=11.0.17+8-1ubuntu2~20.04
+    DOCKER_TAG_TO_PUBLISH=11.0.17-focal-openjdk-headless
 
   - DOCKER_IMAGE_BASE=centos:7 JDK_MAJOR=11 JDK_VERSION=11.0.12.0.7 DOCKER_TAG_TO_PUBLISH=11.0.12.0.7-centos7-openjdk-headless
   - DOCKER_IMAGE_BASE=quay.io/centos/centos:stream8 JDK_MAJOR=11 JDK_VERSION=11.0.13.0.8
@@ -60,16 +56,13 @@ env:
 
   # Java 17
   - DOCKER_IMAGE_BASE=debian:bullseye-slim DOCKER_TAG_TO_PUBLISH=17-bullseye-openjdk-headless
-  - DOCKER_IMAGE_BASE=debian:bullseye-slim JDK_MAJOR=17 JDK_VERSION=17.0.4+8-1~deb11u1
-    DOCKER_TAG_TO_PUBLISH=17.0.4-bullseye-openjdk-headless
+  - DOCKER_IMAGE_BASE=debian:bullseye-slim JDK_MAJOR=17 JDK_VERSION=17.0.6+10-1~deb11u1
+    DOCKER_TAG_TO_PUBLISH=17.0.6-bullseye-openjdk-headless
 
   - DOCKER_IMAGE_BASE=ubuntu:focal DOCKER_TAG_TO_PUBLISH=17-focal-openjdk-headless
-  - DOCKER_IMAGE_BASE=ubuntu:focal JDK_MAJOR=17 JDK_VERSION=17.0.4+8-1~20.04
-    DOCKER_TAG_TO_PUBLISH=17.0.4-focal-openjdk-headless
+  - DOCKER_IMAGE_BASE=ubuntu:focal JDK_MAJOR=17 JDK_VERSION=17.0.5+8-2ubuntu1~20.04
+    DOCKER_TAG_TO_PUBLISH=17.0.5-focal-openjdk-headless
 
-  #- DOCKER_IMAGE_BASE=ubuntu:jammy DOCKER_TAG_TO_PUBLISH=17-jammy-openjdk-headless
-  #- DOCKER_IMAGE_BASE=ubuntu:jammy JDK_MAJOR=17 JDK_VERSION=17.0.4+8-1~22.04
-  #  DOCKER_TAG_TO_PUBLISH=17.0.4-jammy-openjdk-headless
 script:
 - pipenv run molecule test --scenario-name=${JDK_VENDOR:-default}
 notifications:
