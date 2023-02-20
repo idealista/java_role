@@ -19,9 +19,9 @@ env:
   - DOCKER_IMAGE_BASE=debian:buster-slim JDK_VENDOR=adoptopenjdk JDK_MAJOR=8 JDK_VERSION=8u292-b10-3
     DOCKER_TAG_TO_PUBLISH=8u292-buster-adoptopenjdk-headless
 
-  - DOCKER_IMAGE_BASE=ubuntu:bionic JDK_MAJOR=8 JDK_VERSION=8u342-b07-0ubuntu1~18.04
-    DOCKER_TAG_TO_PUBLISH=8u342-bionic-openjdk-headless
-  - DOCKER_IMAGE_BASE=ubuntu:focal JDK_MAJOR=8 JDK_VERSION=8u342-b07-0ubuntu1~20.04
+  - DOCKER_IMAGE_BASE=ubuntu:bionic JDK_MAJOR=8 JDK_VERSION=8u352-ga-1~18.04
+    DOCKER_TAG_TO_PUBLISH=8u352-bionic-openjdk-headless
+  - DOCKER_IMAGE_BASE=ubuntu:focal JDK_MAJOR=8 JDK_VERSION=8u352-ga-1~20.04
     DOCKER_TAG_TO_PUBLISH=8u342-focal-openjdk-headless
 
   - DOCKER_IMAGE_BASE=quay.io/centos/centos:stream8 JDK_VENDOR=adoptopenjdk JDK_MAJOR=8
