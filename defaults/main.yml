@@ -3,3 +3,9 @@ java_jdk_vendor: openjdk
 
 java_open_jdk_apt_extra_packages: []
 java_open_jdk_home: /usr/lib/jvm/{{ java_open_jdk_home_dir }}
+
+# java_certs:
+#   - java_cert_path: /path/to/cert/ssl.crt
+#     java_cert_alias: ssl
+#
+# java_cert_keystore_pass: changeit
