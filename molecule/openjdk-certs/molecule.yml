@@ -23,6 +23,6 @@ provisioner:
         java_open_jdk_version: ${JDK_VERSION}
         java_open_jdk_version_major: ${JDK_MAJOR}
 scenario:
-  name: certs
+  name: openjdk-certs
 verifier:
   name: ansible
