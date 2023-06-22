@@ -1,0 +1,28 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+
+lint: |
+    yamllint .
+    ansible-lint .
+
+platforms:
+  - name: openjdktest
+    groups:
+      - openjdk
+    image: ${DOCKER_IMAGE_BASE:-debian:buster-slim}
+
+provisioner:
+  name: ansible
+  inventory:
+    group_vars:
+      openjdk:
+        java_jdk_vendor: openjdk
+        java_open_jdk_version: ${JDK_VERSION}
+        java_open_jdk_version_major: ${JDK_MAJOR}
+scenario:
+  name: openjdk-certs
+verifier:
+  name: ansible

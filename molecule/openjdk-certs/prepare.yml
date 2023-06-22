@@ -1,0 +1,9 @@
+---
+- name: Prepare
+  hosts: openjdktest
+  gather_facts: false
+  tasks:
+    - name: Copy SSL certificate
+      copy:
+        src: "{{ playbook_dir }}/files/ssl.crt"
+        dest: /tmp/ssl.crt

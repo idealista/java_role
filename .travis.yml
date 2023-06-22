@@ -54,6 +54,9 @@ env:
   - DOCKER_IMAGE_BASE=quay.io/centos/centos:stream8 JDK_MAJOR=11 JDK_VERSION=11.0.13.0.8
     DOCKER_TAG_TO_PUBLISH=11.0.13.0.8-centos8-openjdk-headless
 
+  # SSL certificates scenario  
+  - DOCKER_IMAGE_BASE=debian:buster-slim JDK_VENDOR=openjdk-certs
+
   # Java 17
   - DOCKER_IMAGE_BASE=debian:bullseye-slim DOCKER_TAG_TO_PUBLISH=17-bullseye-openjdk-headless
   - DOCKER_IMAGE_BASE=debian:bullseye-slim JDK_MAJOR=17 JDK_VERSION=17.0.6+10-1~deb11u1

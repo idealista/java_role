@@ -1,6 +1,7 @@
 ---
 java_open_jdk_apt_extra_packages: []
 __java_open_jdk_version_major: 8
+__java_keystore_dir: jre/lib/security
 # Supported major releases: 8 and from 11 to 14; hotspot and openj9 implementations
 
 __java_required_repositories_openjdk:
