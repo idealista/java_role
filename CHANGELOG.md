@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/java_role/tree/develop)
+
+## [8.1.0](https://github.com/idealista/java_role/tree/8.1.0) (2023-06-22)
 ### Added
 - *[#207](https://github.com/idealista/java_role/issues/207) Add support for import SSL certificates into Java's truststore* @emepege
 
