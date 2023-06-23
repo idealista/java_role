@@ -124,6 +124,16 @@ CentOS 8 | `1.8.0`
 CentOS 8 | `11` (default)
 
 Other OpenJDK implementations out of GNU/Linux distributions streams are not officially supported, but it's easy use this role too adding extra repositories (see vars/ in AdoptOpenJDK and Corretto directories).
+
+### Adding certificates into Java's truststore
+
+This role supports adding certificates into Java's truststore. Truststore location may change depending on Java version:
+
+- Truststore location for Java 9 onwards: $JAVA_HOME/lib/security/cacerts
+- Truststore location for Java prior to 9: $JAVA_HOME/jre/lib/security/cacerts
+
+A specific truststore location should be selected overriding `java_keystore_dir` variable using group vars/host vars. In addition, you must to set which certificates you want to add setting `java_certs` variable and the truststore password setting `java_cert_keystore_pass`
+
 ## Testing
 
 ```sh

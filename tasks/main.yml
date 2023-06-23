@@ -4,3 +4,9 @@
   include_tasks: install_openjdk.yml
   tags:
     - install
+
+- name: Java | Import certificates into Java Keystore
+  include_tasks: import_certs.yml
+  when: java_certs is defined
+  tags:
+    - certs

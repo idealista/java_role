@@ -1,0 +1,7 @@
+---
+
+java_certs:
+  - java_cert_path: /tmp/ssl.crt
+    java_cert_alias: ssl
+
+java_cert_keystore_pass: changeit

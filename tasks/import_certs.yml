@@ -1,0 +1,26 @@
+---
+
+- name: Java | Check if certificates exists
+  stat:
+    path: "{{ item.java_cert_path }}"
+  with_items: "{{ java_certs }}"
+  register: check_java_certs
+
+- name: Java | Fail if some cert doesn't exist
+  fail:
+    msg: "Certificate {{ item.item.java_cert_path }} doesn't exist"
+  with_items: "{{ check_java_certs.results }}"
+  when: not item.stat.exists
+
+- name: Java | Setting keystore variables
+  set_fact:
+    java_keystore_dir: "{{ java_keystore_dir if java_keystore_dir is defined and java_keystore_dir is not sameas None and java_keystore_dir else __java_keystore_dir }}"
+
+- name: Java | Import SSL certificates
+  java_cert:
+    cert_path: "{{ item.java_cert_path }}"
+    keystore_path: "{{ java_open_jdk_home }}/{{ java_keystore_dir }}/cacerts"
+    keystore_pass: "{{ java_cert_keystore_pass }}"
+    state: present
+    cert_alias: "{{ item.java_cert_alias }}"
+  with_items: "{{ java_certs }}"

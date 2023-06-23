@@ -1,0 +1,86 @@
+---
+# This is an example playbook to execute goss tests.
+# Tests need distributed to the appropriate ansible host/groups
+# prior to execution by `goss validate`.
+#
+# The goss ansible module is installed with molecule.  The ANSIBLE_LIBRARY
+# path is updated appropriately on `molecule verify`.
+
+# Details about ansible module:
+#  - https://github.com/indusbox/goss-ansible
+
+- name: Verify
+  hosts: all
+  vars:
+    goss_version: v0.3.16
+    goss_sha256sum: 827e354b48f93bce933f5efcd1f00dc82569c42a179cf2d384b040d8a80bfbfb
+    goss_arch: amd64
+    goss_dst: /usr/local/bin/goss
+    goss_url: "https://github.com/aelsabbahy/goss/releases/download/{{ goss_version }}/goss-linux-{{ goss_arch }}"
+    goss_test_directory: /tmp
+    goss_format: documentation
+    molecule_file: "{{ lookup('env', 'MOLECULE_FILE') }}"
+    molecule_yml: "{{ lookup('file', molecule_file) | molecule_from_yaml }}"
+
+  vars_files:
+    - ../../defaults/main.yml
+
+  tasks:
+    - name: Java | Gather OS specific variables
+      include_vars: "../../vars/{{  java_jdk_vendor  }}/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+
+    - name: Gather architecture specific variables
+      include_vars: "../../vars/architecture.yml"
+
+    # Using pattern described in Ansible Best Practices and Conventions (Appendix B), Ansible for Devops (p. 406)
+    # Allowing to 'override' variables that are defined using include_vars
+
+    - name: Java | Setting OS specific variables
+      set_fact:
+        java_open_jdk_version: "{{ java_open_jdk_version if java_open_jdk_version is defined and java_open_jdk_version is not sameas None }}"
+        java_open_jdk_version_major: "{{ java_open_jdk_version_major if java_open_jdk_version_major is defined and java_open_jdk_version_major is not sameas None and java_open_jdk_version_major else __java_open_jdk_version_major }}"  # noqa 204
+
+    - name: Java | Setting OS specific variables (II)
+      set_fact:
+        java_open_jdk_home_dir: "{{ java_open_jdk_home_dir if java_open_jdk_home_dir is defined and java_open_jdk_home_dir is not sameas None and java_open_jdk_home_dir else __java_open_jdk_home_dir }}"  # noqa 204
+        java_open_jdk_package: "{{ java_open_jdk_package if java_open_jdk_package is defined and java_open_jdk_package is not sameas None and java_open_jdk_package else __java_open_jdk_package }}"  # noqa 204
+
+    - name: Java | Setting specific variables
+      set_fact:
+        java_home: "{{ java_open_jdk_home }}"
+
+    - name: Download and install goss
+      get_url:
+        url: "{{ goss_url }}"
+        dest: "{{ goss_dst }}"
+        mode: 0755
+
+    - name: Copy tests to remote
+      template:
+        src: "{{ item }}"
+        dest: "{{ goss_test_directory }}/{{ item | basename }}"
+      with_fileglob:
+        - "{{ playbook_dir }}/tests/test_*.yml"
+
+    - name: Register test files
+      shell: "ls {{ goss_test_directory }}/test_*.yml"
+      register: test_files
+      changed_when: false
+
+    - name: Execute Goss tests
+      command: "goss -g {{ item }} validate --format {{ goss_format }}"
+      register: test_results
+      with_items: "{{ test_files.stdout_lines }}"
+      ignore_errors: true
+      changed_when: false
+
+    - name: Display details about the goss results
+      debug:
+        msg: "{{ item.stdout_lines }}"
+      with_items: "{{ test_results.results }}"
+
+    - name: Fail when tests fail
+      fail:
+        msg: "Goss failed to validate"
+      when: item.rc != 0
+      with_items: "{{ test_results.results }}"
