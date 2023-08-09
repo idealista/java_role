@@ -1,5 +1,11 @@
 ---
 
+- name: Java | Migrate adoptopenjdk to temurin (if selected)
+  set_fact:
+    java_jdk_vendor: "temurin"
+  when: "java_jdk_vendor == 'adoptopenjdk'"
+
+
 - name: Java | Gather OS specific variables
   include_vars: "{{ item }}"
   with_first_found:
@@ -114,4 +120,3 @@
     name: java
     path: "/usr/lib/jvm/{{ java_open_jdk_home_dir }}/jre/bin/java"
   when: ansible_os_family == 'Debian'
-
