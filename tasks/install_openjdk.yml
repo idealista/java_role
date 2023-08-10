@@ -119,4 +119,11 @@
   alternatives:
     name: java
     path: "/usr/lib/jvm/{{ java_open_jdk_home_dir }}/jre/bin/java"
-  when: ansible_os_family == 'Debian'
+  when: "ansible_os_family == 'Debian' and java_open_jdk_version_major < '11'"
+
+
+- name: Correct java version selected /usr/lib/jvm/{{ java_open_jdk_home_dir }}/bin/java"
+  alternatives:
+    name: java
+    path: "/usr/lib/jvm/{{ java_open_jdk_home_dir }}/bin/java"
+  when: "ansible_os_family == 'Debian' and java_open_jdk_version_major >= '11'"
