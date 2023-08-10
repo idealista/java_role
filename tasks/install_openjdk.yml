@@ -115,14 +115,14 @@
   tags:
     - skip_ansible_lint
 
-- name: Correct java version selected /usr/lib/jvm/{{ java_open_jdk_home_dir }}/jre/bin/java"
+- name: "Correct java version selected /usr/lib/jvm/{{ java_open_jdk_home_dir }}/jre/bin/java in java < 11"
   alternatives:
     name: java
     path: "/usr/lib/jvm/{{ java_open_jdk_home_dir }}/jre/bin/java"
   when: "ansible_os_family == 'Debian' and java_open_jdk_version_major < '11'"
 
 
-- name: Correct java version selected /usr/lib/jvm/{{ java_open_jdk_home_dir }}/bin/java"
+- name: "Correct java version selected /usr/lib/jvm/{{ java_open_jdk_home_dir }}/bin/java in java >= 11"
   alternatives:
     name: java
     path: "/usr/lib/jvm/{{ java_open_jdk_home_dir }}/bin/java"

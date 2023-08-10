@@ -42,6 +42,11 @@ env:
   - DOCKER_IMAGE_BASE=debian:bullseye-slim JDK_MAJOR=11 JDK_VERSION=11.0.18+10-1~deb11u1
     DOCKER_TAG_TO_PUBLISH=11.0.18-bullseye-openjdk-headless
 
+  - DOCKER_IMAGE_BASE=debian:buster-slim JDK_MAJOR=11 JDK_VENDOR=temurin JDK_VERSION=11.0.20.0.0+8
+    DOCKER_TAG_TO_PUBLISH=11.0.20-buster-temurin-jdk
+  - DOCKER_IMAGE_BASE=debian:bullseye-slim JDK_MAJOR=11 JDK_VENDOR=temurin JDK_VERSION=11.0.20.0.0+8
+    DOCKER_TAG_TO_PUBLISH=11.0.20-bullseye-temurin-jdk
+
   - DOCKER_IMAGE_BASE=ubuntu:bionic DOCKER_TAG_TO_PUBLISH=11-bionic-openjdk-headless
   - DOCKER_IMAGE_BASE=ubuntu:bionic JDK_MAJOR=11 JDK_VERSION=11.0.17+8-1ubuntu2~18.04
     DOCKER_TAG_TO_PUBLISH=11.0.17-bionic-openjdk-headless
@@ -61,6 +66,9 @@ env:
   - DOCKER_IMAGE_BASE=debian:bullseye-slim DOCKER_TAG_TO_PUBLISH=17-bullseye-openjdk-headless
   - DOCKER_IMAGE_BASE=debian:bullseye-slim JDK_MAJOR=17 JDK_VERSION=17.0.6+10-1~deb11u1
     DOCKER_TAG_TO_PUBLISH=17.0.6-bullseye-openjdk-headless
+
+  - DOCKER_IMAGE_BASE=debian:bullseye-slim JDK_MAJOR=17 JDK_VENDOR=temurin JDK_VERSION=17.0.8.0.0+7
+    DOCKER_TAG_TO_PUBLISH=17.0.8-bullseye-temurin-jdk
 
   - DOCKER_IMAGE_BASE=ubuntu:focal DOCKER_TAG_TO_PUBLISH=17-focal-openjdk-headless
   - DOCKER_IMAGE_BASE=ubuntu:focal JDK_MAJOR=17 JDK_VERSION=17.0.5+8-2ubuntu1~20.04
