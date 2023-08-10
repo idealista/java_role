@@ -123,7 +123,7 @@ CentOS 7 | `11` (default)
 CentOS 8 | `1.8.0`
 CentOS 8 | `11` (default)
 
-Other OpenJDK implementations out of GNU/Linux distributions streams are not officially supported, but it's easy use this role too adding extra repositories (see vars/ in AdoptOpenJDK and Corretto directories).
+Other OpenJDK implementations out of GNU/Linux distributions streams are not officially supported, but it's easy use this role too adding extra repositories (see vars/ in AdoptOpenJDK/Temurin and Corretto directories).
 
 ### Adding certificates into Java's truststore
 
