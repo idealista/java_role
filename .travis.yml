@@ -24,9 +24,6 @@ env:
   - DOCKER_IMAGE_BASE=ubuntu:focal JDK_MAJOR=8 JDK_VERSION=8u382-ga-1~20.04.1
     DOCKER_TAG_TO_PUBLISH=8u342-focal-openjdk-headless
 
-  - DOCKER_IMAGE_BASE=quay.io/centos/centos:stream8 JDK_VENDOR=temurin JDK_MAJOR=8
-    JDK_VERSION=8.0.332.0.0.9-1 DOCKER_TAG_TO_PUBLISH=8u332-centos8-temurin-headless
-
   - DOCKER_IMAGE_BASE=debian:bullseye-slim JDK_VENDOR=corretto JDK_MAJOR=1.8.0 JDK_VERSION=1:8.302.08-1
     DOCKER_TAG_TO_PUBLISH=8u302-bullseye-corretto-headless
   - DOCKER_IMAGE_BASE=debian:buster-slim JDK_VENDOR=corretto JDK_MAJOR=1.8.0 JDK_VERSION=1:8.302.08-1
