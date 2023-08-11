@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/java_role/tree/develop)
+### Added
+- *[#210](https://github.com/idealista/java_role/issues/210) Temurin support* @sorobon
+- *[#210](https://github.com/idealista/java_role/issues/210) Debian 12 support* @sorobon
+### Removed
+- *[#210](https://github.com/idealista/java_role/issues/210) Removed adoptopenjdk* @sorobon
 
 ## [8.1.0](https://github.com/idealista/java_role/tree/8.1.0) (2023-06-22)
 ### Added
