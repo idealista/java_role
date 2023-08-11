@@ -108,14 +108,17 @@ Debian Stretch | `11`
 Debian Buster | `11` (default)
 Debian Bullseye | `17`
 Debian Bullseye | `11` (default)
+Debian Bookworm | `17`
+Debian Bookworm | `17` (default)
 Ubuntu Xenial | `8`
 Ubuntu Xenial | `9` (default)
 Ubuntu Bionic | `8`
 Ubuntu Bionic | `11` (default)
 Ubuntu Focal | `8`
 Ubuntu Focal | `11`
-Ubuntu Focal | `13`
-Ubuntu Focal | `14` (default)
+Ubuntu Focal | `17` (default)
+Ubuntu Jammy | `11`
+Ubuntu Jammy | `17` (default)
 CentOS 7 | `1.6.0`
 CentOS 7 | `1.7.0`
 CentOS 7 | `1.8.0`
