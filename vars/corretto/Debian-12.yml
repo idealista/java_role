@@ -16,3 +16,4 @@ __java_required_libs_openjdk: []
 __java_open_jdk_package: java-{{ java_open_jdk_version_major }}-amazon-corretto-jdk
 
 __java_open_jdk_home_dir: java-{{ java_open_jdk_version_major }}-amazon-corretto
+__java_deprecated_repositories_adoptopenjdk: []

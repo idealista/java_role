@@ -41,6 +41,7 @@
         repo: "{{ item }}"
         state: absent
       with_items: "{{ java_deprecated_repositories_adoptopenjdk }}"
+      when: java_deprecated_repositories_adoptopenjdk | length > 0
     - name: Java | Install extra apt tools
       package:
         name: "{{ java_open_jdk_apt_extra_packages }}"
