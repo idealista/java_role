@@ -14,3 +14,5 @@ __java_required_repositories_openjdk:
   - deb https://packages.adoptium.net/artifactory/deb {{ ansible_distribution_release }} main
 __java_open_jdk_home_dir: temurin-{{ java_open_jdk_version_major }}-jdk-{{ java_open_jdk_home_dir_suffix }}
 __java_open_jdk_package: temurin-{{ java_open_jdk_version_major }}-jdk
+__java_deprecated_repositories_adoptopenjdk:
+  - deb https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/ {{ ansible_distribution_release }} main
