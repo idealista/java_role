@@ -11,3 +11,4 @@ __java_required_key_repositories_openjdk: []
 
 __java_open_jdk_package: "java-{{ java_open_jdk_version_major }}-openjdk-headless"
 __java_open_jdk_home_dir: "jre-{{ java_open_jdk_version_major }}"
+__java_deprecated_repositories_adoptopenjdk: []

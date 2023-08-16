@@ -7,7 +7,6 @@ FROM {{ item.image }}
 {% endif %}
 
 RUN mkdir -p /usr/share/man/man1
-RUN if [ $(command -v apt-get) ]; then sed -i -e 's/^APT/# APT/' -e 's/^DPkg/# DPkg/' /etc/apt/apt.conf.d/docker-clean; fi
 
 {% if 'stretch' in item.image %}
 RUN echo "deb http://archive.debian.org/debian/ stretch contrib main non-free" > /etc/apt/sources.list && \

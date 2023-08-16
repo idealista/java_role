@@ -12,3 +12,4 @@ __java_open_jdk_package: java-{{ java_open_jdk_version_major }}-amazon-corretto-
 
 __java_open_jdk_home_dir: java-{{ java_open_jdk_version_major }}-amazon-corretto
 __java_open_jdk_home: /usr/lib/jvm/{{ java_open_jdk_home_dir }}
+__java_deprecated_repositories_adoptopenjdk: []
