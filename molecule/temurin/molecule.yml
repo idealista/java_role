@@ -9,7 +9,7 @@ lint: |
     ansible-lint .
 
 platforms:
-  - name: openjdk-adopt-test
+  - name: temurin-test
     groups:
       - openjdk
     image: ${DOCKER_IMAGE_BASE:-debian:buster-slim}
@@ -25,6 +25,6 @@ provisioner:
         java_open_jdk_version_major: ${JDK_MAJOR}
 
 scenario:
-  name: adoptopenjdk
+  name: temurin
 verifier:
   name: ansible

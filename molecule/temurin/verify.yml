@@ -25,7 +25,7 @@
   tasks:
     - name: Set JDK Vendor
       set_fact:
-        java_jdk_vendor: adoptopenjdk
+        java_jdk_vendor: temurin
 
     - name: Gather OS specific variables
       include_vars: "../../vars/{{  java_jdk_vendor  }}/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"

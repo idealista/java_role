@@ -1,5 +1,10 @@
 ---
 
+- name: Java | Migrate adoptopenjdk to temurin (if selected)
+  set_fact:
+    java_jdk_vendor: "temurin"
+  when: "java_jdk_vendor == 'adoptopenjdk'"
+
 - name: Java | Gather OS specific variables
   include_vars: "{{ item }}"
   with_first_found:
@@ -18,6 +23,7 @@
     java_required_repositories_openjdk: "{{ java_required_repositories_openjdk if java_required_repositories_openjdk is defined and java_required_repositories_openjdk is not sameas None and java_required_repositories_openjdk | length else __java_required_repositories_openjdk }}"
     java_required_key_repositories_openjdk: "{{ java_required_key_repositories_openjdk if java_required_key_repositories_openjdk is defined and java_required_key_repositories_openjdk is not sameas None and java_required_key_repositories_openjdk | length  else __java_required_key_repositories_openjdk }}"
     java_required_libs_openjdk: "{{ java_required_libs_openjdk if java_required_libs_openjdk is defined and java_required_libs_openjdk is not sameas None and java_required_libs_openjdk | length else __java_required_libs_openjdk }}"
+    java_deprecated_repositories_adoptopenjdk: "{{ java_deprecated_repositories_adoptopenjdk if java_deprecated_repositories_adoptopenjdk is defined and java_deprecated_repositories_adoptopenjdk is not sameas None and java_deprecated_repositories_adoptopenjdk | length else __java_deprecated_repositories_adoptopenjdk }}"
 
 - name: Java | Setting OS and architecture specific variables (II)
   set_fact:
@@ -30,6 +36,12 @@
 
 - name: Java | Debian pre-requisites
   block:
+    - name: Java | Remove deprecated repositories
+      apt_repository:
+        repo: "{{ item }}"
+        state: absent
+      with_items: "{{ java_deprecated_repositories_adoptopenjdk }}"
+      when: java_deprecated_repositories_adoptopenjdk | length > 0
     - name: Java | Install extra apt tools
       package:
         name: "{{ java_open_jdk_apt_extra_packages }}"
@@ -109,9 +121,19 @@
   tags:
     - skip_ansible_lint
 
-- name: Correct java version selected /usr/lib/jvm/{{ java_open_jdk_home_dir }}/jre/bin/java"
+- name: "Correct java version selected /usr/lib/jvm/{{ java_open_jdk_home_dir }}/jre/bin/java in java < 11"
   alternatives:
     name: java
     path: "/usr/lib/jvm/{{ java_open_jdk_home_dir }}/jre/bin/java"
-  when: ansible_os_family == 'Debian'
+  when:
+    - ansible_os_family == 'Debian'
+    - java_open_jdk_version_major | int < 11
 
+
+- name: "Correct java version selected /usr/lib/jvm/{{ java_open_jdk_home_dir }}/bin/java in java >= 11"
+  alternatives:
+    name: java
+    path: "/usr/lib/jvm/{{ java_open_jdk_home_dir }}/bin/java"
+  when:
+    - ansible_os_family == 'Debian'
+    - java_open_jdk_version_major | int >= 11
