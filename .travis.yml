@@ -1,9 +1,6 @@
 dist: jammy
 language: python
 python: 3.9
-sudo: required
-services:
-- docker
 addons:
   apt:
     packages:
