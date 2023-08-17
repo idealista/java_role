@@ -7,7 +7,7 @@ services:
 addons:
   apt:
     packages:
-      - docker-ce
+      - docker
 install:
 - pip install pipenv
 - pipenv sync
