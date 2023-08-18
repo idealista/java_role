@@ -1,9 +1,12 @@
 dist: jammy
 language: python
 python: 3.9
-sudo: required
 services:
 - docker
+before_install:
+  - mkdir -vp ~/.docker/cli-plugins/
+  - curl --silent -L "https://github.com/docker/buildx/releases/download/v0.3.0/buildx-v0.3.0.linux-amd64" > ~/.docker/cli-plugins/docker-buildx
+  - chmod a+x ~/.docker/cli-plugins/docker-buildx
 install:
 - pip install pipenv
 - pipenv sync
@@ -48,8 +51,8 @@ env:
 
   # Java 11
   - DOCKER_IMAGE_BASE=debian:buster-slim DOCKER_TAG_TO_PUBLISH=11-buster-openjdk-headless
-  - DOCKER_IMAGE_BASE=debian:buster-slim JDK_MAJOR=11 JDK_VERSION=11.0.18+10-1~deb10u1
-    DOCKER_TAG_TO_PUBLISH=11.0.18-buster-openjdk-headless
+  - DOCKER_IMAGE_BASE=debian:buster-slim JDK_MAJOR=11 JDK_VERSION=11.0.20+8-1~deb11u1
+    DOCKER_TAG_TO_PUBLISH=11.0.20-buster-openjdk-headless
   - DOCKER_IMAGE_BASE=debian:bullseye-slim DOCKER_TAG_TO_PUBLISH=11-bullseye-openjdk-headless
   - DOCKER_IMAGE_BASE=debian:bullseye-slim JDK_MAJOR=11 JDK_VERSION=11.0.18+10-1~deb11u1
     DOCKER_TAG_TO_PUBLISH=11.0.18-bullseye-openjdk-headless
@@ -108,6 +111,8 @@ env:
     DOCKER_TAG_TO_PUBLISH=17.0.8-jammy-temurin-jdk
 
 script:
+- docker --version
+- docker buildx version
 - pipenv run molecule test --scenario-name=${JDK_VENDOR:-default}
 notifications:
   webhooks:
