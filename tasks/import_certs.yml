@@ -12,9 +12,17 @@
   with_items: "{{ check_java_certs.results }}"
   when: not item.stat.exists
 
-- name: Java | Setting keystore variables
+- name: Java | Setting keystore variables in java < 11
   set_fact:
-    java_keystore_dir: "{{ java_keystore_dir if java_keystore_dir is defined and java_keystore_dir is not sameas None and java_keystore_dir else __java_keystore_dir }}"
+    java_keystore_dir: "{{ java_keystore_dir if java_keystore_dir is defined and java_keystore_dir is not sameas None and java_keystore_dir else java_keystore_dir_old }}"
+  when:
+    - java_open_jdk_version_major | int < 11
+
+- name: Java | Setting keystore variables in java >= 11
+  set_fact:
+    java_keystore_dir: "{{ java_keystore_dir if java_keystore_dir is defined and java_keystore_dir is not sameas None and java_keystore_dir else java_keystore_dir_new }}"
+  when:
+    - java_open_jdk_version_major | int >= 11
 
 - name: Java | Import SSL certificates
   java_cert:
@@ -23,4 +31,5 @@
     keystore_pass: "{{ java_cert_keystore_pass }}"
     state: present
     cert_alias: "{{ item.java_cert_alias }}"
+    keystore_create: true
   with_items: "{{ java_certs }}"
