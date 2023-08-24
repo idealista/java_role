@@ -4,10 +4,15 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/java_role/tree/develop)
 
+## [9.0.1](https://github.com/idealista/java_role/tree/9.0.1) (2023-08-24)
+# Fixed
+- *[#216](https://github.com/idealista/java_role/issues/216) Java keystore dir not working as intended* @sorobon
+
 ## [9.0.0](https://github.com/idealista/java_role/tree/9.0.0) (2023-08-16)
 ### Added
 - *[#210](https://github.com/idealista/java_role/issues/210) Temurin support* @sorobon
 - *[#210](https://github.com/idealista/java_role/issues/210) Debian 12 support* @sorobon
+- *[#210](https://github.com/idealista/java_role/issues/210) Debian 9 support recovered* @sorobon
 - *[#210](https://github.com/idealista/java_role/issues/210) Remove deprecated repositories* @sorobon
 ### Removed
 - *[#210](https://github.com/idealista/java_role/issues/210) Removed adoptopenjdk* @sorobon

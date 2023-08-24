@@ -1,0 +1,3 @@
+---
+java_keystore_dir_old: jre/lib/security
+java_keystore_dir_new: lib/security

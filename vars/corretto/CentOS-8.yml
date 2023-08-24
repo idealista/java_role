@@ -1,6 +1,5 @@
 ---
 __java_open_jdk_version_major: 1.8.0
-__java_keystore_dir: jre/lib/security
 # Supported versions: 8 (1.8.0 in RHEL), 11
 
 __java_required_repositories_openjdk:
