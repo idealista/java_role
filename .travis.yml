@@ -51,11 +51,11 @@ env:
 
   # Java 11
   - DOCKER_IMAGE_BASE=debian:buster-slim DOCKER_TAG_TO_PUBLISH=11-buster-openjdk-headless
-  - DOCKER_IMAGE_BASE=debian:buster-slim JDK_MAJOR=11 JDK_VERSION=11.0.20+8-1~deb11u1
-    DOCKER_TAG_TO_PUBLISH=11.0.20-buster-openjdk-headless
+  - DOCKER_IMAGE_BASE=debian:buster-slim JDK_MAJOR=11 JDK_VERSION=11.0.18+10-1~deb10u1
+    DOCKER_TAG_TO_PUBLISH=11.0.18-buster-openjdk-headless
   - DOCKER_IMAGE_BASE=debian:bullseye-slim DOCKER_TAG_TO_PUBLISH=11-bullseye-openjdk-headless
-  - DOCKER_IMAGE_BASE=debian:bullseye-slim JDK_MAJOR=11 JDK_VERSION=11.0.18+10-1~deb11u1
-    DOCKER_TAG_TO_PUBLISH=11.0.18-bullseye-openjdk-headless
+  - DOCKER_IMAGE_BASE=debian:bullseye-slim JDK_MAJOR=11 JDK_VERSION=11.0.20+8-1~deb11u1
+    DOCKER_TAG_TO_PUBLISH=11.0.20-bullseye-openjdk-headless
   - DOCKER_IMAGE_BASE=debian:bookworm-slim DOCKER_TAG_TO_PUBLISH=11-bookworm-openjdk-headless
 
   - DOCKER_IMAGE_BASE=debian:buster-slim JDK_MAJOR=11 JDK_VENDOR=temurin JDK_VERSION=11.0.20.0.0+8

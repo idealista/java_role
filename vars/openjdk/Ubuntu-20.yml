@@ -5,7 +5,6 @@ java_open_jdk_apt_extra_packages:
   - gnupg2
 # Using pattern described in Ansible Best Practices and Conventions (Appendix B), Ansible for Devops (p. 406)
 __java_open_jdk_version_major: 17
-__java_keystore_dir: lib/security
 # Supported openjdk major releases: 8, 11, 13, 14, 17
 
 __java_required_repositories_openjdk: []
